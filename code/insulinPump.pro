@@ -9,13 +9,32 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    batterymanager.cpp \
+    boluscalculator.cpp \
+    cgmreader.cpp \
+    controliqalgorithm.cpp \
+    datalogger.cpp \
+    insulinreserve.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    profile.cpp \
+    pumpcontroller.cpp \
+    userinterface.cpp
 
 HEADERS += \
-    mainwindow.h
+    batterymanager.h \
+    boluscalculator.h \
+    cgmreader.h \
+    controliqalgorithm.h \
+    datalogger.h \
+    insulinreserve.h \
+    mainwindow.h \
+    profile.h \
+    pumpcontroller.h \
+    userinterface.h
 
 FORMS += \
+    alert.ui \
     mainwindow.ui \
     statusbar.ui \
     history.ui
