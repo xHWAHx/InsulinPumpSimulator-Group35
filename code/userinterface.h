@@ -3,7 +3,7 @@
 
 #include <QObject>
 
-class UserInterface
+class UserInterface : QObject
 {
     Q_OBJECT
 public:
