@@ -37,7 +37,8 @@ FORMS += \
     alert.ui \
     mainwindow.ui \
     statusbar.ui \
-    history.ui
+    history.ui \
+    boluscalculator.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
