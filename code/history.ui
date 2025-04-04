@@ -93,7 +93,7 @@
    <item>
     <widget class="QPushButton" name="pushButton">
      <property name="text">
-      <string>Return</string>
+      <string>Back</string>
      </property>
     </widget>
    </item>
