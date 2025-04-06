@@ -1,8 +1,12 @@
 #include "pumpcontroller.h"
 #include <iostream>
 
-PumpController::PumpController()
-    : currentBasalRate(0.0),
+PumpController::PumpController(InsulinReserve *insulin, BatteryManager *battery, CGMReader *cgm, DataLogger *log)
+    : insulinReserve(insulin),
+      batteryManager(battery),
+      cgmReader(cgm),
+      logger(log),
+      currentBasalRate(0.0),
       activeBolusAmount(0.0),
       activeBolusRate(0.0),
       bolusSuspended(false),
@@ -11,7 +15,7 @@ PumpController::PumpController()
 }
 
 bool PumpController::isSafeToDeliver() {
-    if (!cgmReader.isCGMConnected()) {
+    if (!cgmReader->isCGMConnected()) {
         //cgmReader.alertCGMDisconnected();
         return false;
     }
@@ -36,7 +40,7 @@ void PumpController::deliverBolus(double amount, double rate)
         return;
     }
 
-    double delivered = insulinReserve.useInsulin(amount);
+    double delivered = insulinReserve->useInsulin(amount);
     activeBolusAmount = delivered;
     activeBolusRate = rate;
 

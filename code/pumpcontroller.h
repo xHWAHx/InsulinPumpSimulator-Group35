@@ -9,7 +9,7 @@
 class PumpController
 {
 public:
-    PumpController();
+    PumpController(InsulinReserve *insulin, BatteryManager *battery, CGMReader *cgm, DataLogger *log);
 
     void deliverBolus(double amount, double rate);
     void adjustBasalRate(double rate);
@@ -26,12 +26,14 @@ private:
     bool bolusSuspended;
     bool emergencyStopped;
 
-    InsulinReserve insulinReserve;
-    BatteryManager batteryManager;
-    CGMReader cgmReader;
-    DataLogger logger;
+    InsulinReserve *insulinReserve;
+    BatteryManager *batteryManager;
+    CGMReader *cgmReader;
+    DataLogger *logger;
 
     bool isSafeToDeliver();
 };
 
 #endif // PUMPCONTROLLER_H
+
+//removed internal instances + pass pointers to shared objects 4/6/2025

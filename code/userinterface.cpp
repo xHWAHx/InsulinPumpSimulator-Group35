@@ -21,7 +21,7 @@ UserInterface::UserInterface(QWidget *parent)
     homeScreen = new Home();
 
     // These things should be created and owned in the device class, with their parent being an instance of UserInterface
-    pumpController = new PumpController();
+    pumpController = new PumpController(insulinReserve, batteryManager, cgmReader, logger);
     cgmReader = new CGMReader();
     batteryManager = new BatteryManager();
     insulinReserve = new InsulinReserve();
