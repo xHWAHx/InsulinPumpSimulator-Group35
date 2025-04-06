@@ -20,16 +20,6 @@ UserInterface::UserInterface(QWidget *parent)
     loginScreen = new Login();
     homeScreen = new Home();
 
-    // These things should be created and owned in the device class, with their parent being an instance of UserInterface
-    pumpController = new PumpController(insulinReserve, logger);
-    cgmReader = new CGMReader();
-    batteryManager = new BatteryManager();
-    insulinReserve = new InsulinReserve();
-    logger = new DataLogger();
-    controlIQ = new ControlIQAlgorithm();
-
-    bolusCalculator = new BolusCalculator();
-
     ui->pageStack->addWidget(loginScreen);
     ui->pageStack->addWidget(homeScreen);
 
@@ -41,8 +31,7 @@ UserInterface::UserInterface(QWidget *parent)
     connect(homeScreen, &Home::requestStatusRefresh, this, &UserInterface::refreshStatusBar);
     connect(homeScreen, &Home::requestCGMValue, this, &UserInterface::updateGlucoseForChart);
 
-    // the device will start powered off
-    //showLoginScreen();
+
 }
 
 UserInterface::~UserInterface(){
