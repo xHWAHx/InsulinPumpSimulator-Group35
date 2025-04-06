@@ -30,14 +30,14 @@ public:
     void showLoginScreen();
     void navigateToBolusCalculator();
     void displayError(const QString &message);
-    void refreshStatusBar();
+    void refreshStatusBar(double glucose, double battery, double insulin);
     void showControlIQStats();
     void showOptions();
     bool checkPin(int pin);
 
 public slots:
     void handlePin(int pin);
-    void updateGlucoseForChart();
+    void updateGlucoseForChart(double glucose);
     void openBolusUI();
     void openSettings();
     void triggerEmergencyStop();

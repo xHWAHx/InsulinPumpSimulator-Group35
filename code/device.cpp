@@ -47,6 +47,14 @@ void Device::power(){
 			//entry.insulinRemaining = insulin.getInsulinRemaining();
 			//log.logTick(entry);
 
+        // something like this:
+//void UserInterface::showControlIQStats() {
+//    std::vector<double> data = { cgmReader->getCurrentGlucoseLevel() };
+//    controlIQ->analyzeGlucoseData(data);
+//    QMessageBox::information(nullptr, "ControlIQ", "Stats updated");
+//}
+
+
             //sleep(1);
         //}
     }

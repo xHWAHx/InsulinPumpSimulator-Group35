@@ -29,8 +29,6 @@ signals:
     void requestOptions();
     void requestEmergencyStop();
     void requestStats();
-    void requestStatusRefresh();
-    void requestCGMValue();
 
 private:
     Ui::Home *ui;

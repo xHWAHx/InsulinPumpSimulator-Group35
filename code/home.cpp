@@ -10,14 +10,11 @@ Home::Home(QWidget *parent)
     setupChart();
 
     chartTimer = new QTimer(this);
-    connect(chartTimer, &QTimer::timeout, this, &Home::requestCGMValue);
     chartTimer->start(3000);
 
     connect(ui->buttonBolus, &QPushButton::clicked, this, &Home::requestBolus);
     connect(ui->buttonOptions, &QPushButton::clicked, this, &Home::requestOptions);
-    //connect(ui->buttonEmergency, &QPushButton::clicked, this, &Home::requestEmergencyStop); // nonexistant. Would it just be for testing?
     connect(ui->buttonStats, &QPushButton::clicked, this, &Home::requestStats);
-    //connect(ui->buttonRefresh, &QPushButton::clicked, this, &Home::requestStatusRefresh); // nonexistant, and I don't think is needed
 }
 
 Home::~Home() {

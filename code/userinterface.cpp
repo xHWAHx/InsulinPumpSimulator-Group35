@@ -27,9 +27,6 @@ UserInterface::UserInterface(QWidget *parent)
     connect(homeScreen, &Home::requestBolus, this, &UserInterface::openBolusUI);
     connect(homeScreen, &Home::requestOptions, this, &UserInterface::openSettings);
     connect(homeScreen, &Home::requestEmergencyStop, this, &UserInterface::triggerEmergencyStop);
-    connect(homeScreen, &Home::requestStats, this, &UserInterface::showControlIQStats);
-    connect(homeScreen, &Home::requestStatusRefresh, this, &UserInterface::refreshStatusBar);
-    connect(homeScreen, &Home::requestCGMValue, this, &UserInterface::updateGlucoseForChart);
 
 
 }
@@ -62,23 +59,19 @@ void UserInterface::displayError(const QString &message) {
     QMessageBox::critical(nullptr, "Error", message);
 }
 
-void UserInterface::refreshStatusBar() {
+void UserInterface::refreshStatusBar(double glucose, double battery, double insulin) {
     homeScreen-> updateStatus(glucose, battery, insulin);
+    this->updateGlucoseForChart(glucose);
    }
 
-void UserInterface::updateGlucoseForChart() {
-    double glucose = cgmReader->getCurrentGlucoseLevel();
+void UserInterface::updateGlucoseForChart(double glucose) {
     homeScreen->addGlucoseReading(glucose);
 }
 
-void UserInterface::showControlIQStats() {
-    std::vector<double> data = { cgmReader->getCurrentGlucoseLevel() };
-    controlIQ->analyzeGlucoseData(data);
-    QMessageBox::information(nullptr, "ControlIQ", "Stats updated");
-}
-
 void UserInterface::openBolusUI() {
-    BolusCalculator *bolus = new BolusCalculator();
+    // show bolus calculator in pageStack
+
+    //BolusCalculator *bolus = new BolusCalculator();
     //bolus->show();
 }
 
