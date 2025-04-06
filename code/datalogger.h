@@ -157,6 +157,11 @@ public:
      * The log entry is stored in the profile specified by profileId.
      *
      * @param eventType A string describing the type of event.
+     *                  Valid Values:
+     *                  - "Info"
+     *                  - "Warning"
+     *                  - "Error"
+     *                  - "Manual Bolus"
      * @param description A detailed description of the event.
      * @param profileId The identifier for the profile associated with this event.
      *
