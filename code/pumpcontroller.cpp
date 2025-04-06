@@ -3,7 +3,7 @@
 
 PumpController::PumpController(InsulinReserve *insulin, DataLogger *log)
     : insulinReserve(insulin),
-      batteryManager(battery),
+      //batteryManager(battery),
       logger(log),
       currentBasalRate(0.0),
       activeBolusAmount(0.0),
