@@ -51,6 +51,31 @@
         <property name="placeholderText">
          <string>Event Type</string>
         </property>
+        <item>
+         <property name="text">
+          <string>All</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Info</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Warning</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Error</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Manual Bolus</string>
+         </property>
+        </item>
        </widget>
       </item>
      </layout>
