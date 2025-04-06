@@ -2,14 +2,12 @@
 #define PUMPCONTROLLER_H
 
 #include "insulinreserve.h"
-#include "batterymanager.h"
-#include "cgmreader.h"
 #include "datalogger.h"
 
 class PumpController
 {
 public:
-    PumpController(InsulinReserve *insulin, BatteryManager *battery, CGMReader *cgm, DataLogger *log);
+    PumpController(InsulinReserve *insulin, DataLogger *log);
 
     void deliverBolus(double amount, double rate);
     void adjustBasalRate(double rate);
@@ -27,8 +25,6 @@ private:
     bool emergencyStopped;
 
     InsulinReserve *insulinReserve;
-    BatteryManager *batteryManager;
-    CGMReader *cgmReader;
     DataLogger *logger;
 
     bool isSafeToDeliver();

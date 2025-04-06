@@ -1,10 +1,9 @@
 #include "pumpcontroller.h"
 #include <iostream>
 
-PumpController::PumpController(InsulinReserve *insulin, BatteryManager *battery, CGMReader *cgm, DataLogger *log)
+PumpController::PumpController(InsulinReserve *insulin, DataLogger *log)
     : insulinReserve(insulin),
       batteryManager(battery),
-      cgmReader(cgm),
       logger(log),
       currentBasalRate(0.0),
       activeBolusAmount(0.0),
@@ -14,28 +13,9 @@ PumpController::PumpController(InsulinReserve *insulin, BatteryManager *battery,
 {
 }
 
-bool PumpController::isSafeToDeliver() {
-    if (!cgmReader->isCGMConnected()) {
-        //cgmReader.alertCGMDisconnected();
-        return false;
-    }
-
-    if (batteryManager.isBatteryCritical()) {
-        batteryManager.alertLowBattery();
-        return false;
-    }
-
-    if (insulinReserve.isInsulinLow()) {
-        //logger.logEvent("Warning", "Insulin level is low.");
-        return false;
-    }
-
-    return true;
-}
-
 void PumpController::deliverBolus(double amount, double rate)
 {
-    if (emergencyStopped || bolusSuspended || !isSafeToDeliver()) {
+    if (emergencyStopped || bolusSuspended) {
         //logger.logEvent("Error", "Bolus blocked due to unsafe condition.");
         return;
     }
@@ -83,14 +63,14 @@ void PumpController::triggerEmergencyStop()
 void PumpController::pump()
 {
     if (!emergencyStopped && !bolusSuspended && activeBolusAmount > 0) {
-        double glucose = cgmReader.getCurrentGlucoseLevel();
+        //double glucose = cgmReader.getCurrentGlucoseLevel();
         //logger.logEvent("CGM", "Current glucose: " + QString::number(glucose));
 
-        if (glucose < 3.9) {
+        /**if (glucose < 3.9) {
             suspendBolus();
             //logger.logEvent("Safety", "Bolus auto-suspended (hypoglycemia).");
             return;
-        }
+        }*/
 
         std::cout << "Pumping active bolus @ " << activeBolusRate << " U/hr...\n";
         //logger.logTick(LogEntry{});
