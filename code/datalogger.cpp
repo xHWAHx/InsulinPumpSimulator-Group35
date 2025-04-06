@@ -6,13 +6,13 @@
 #include <QFileInfo>
 #include <QDebug>
 
-datalogger::datalogger(QObject *parent)
+DataLogger::DataLogger(QObject *parent)
     : QObject(parent),
     m_logsFilePath("./data/logs.json")
 {
 }
 
-void datalogger::logEvent(const QString &eventType, const QString &description, int profileId)
+void DataLogger::logEvent(const QString &eventType, const QString &description, int profileId)
 {
     LogEntry entry;
     entry.timestamp = QDateTime::currentDateTime();
@@ -28,7 +28,7 @@ void datalogger::logEvent(const QString &eventType, const QString &description, 
     emit logsUpdated();
 }
 
-void datalogger::logGlucose(const QDateTime &timestamp, double glucose, int profileId)
+void DataLogger::logGlucose(const QDateTime &timestamp, double glucose, int profileId)
 {
     GlucoseLogEntry entry;
     entry.timestamp = timestamp;
@@ -43,7 +43,7 @@ void datalogger::logGlucose(const QDateTime &timestamp, double glucose, int prof
     emit logsUpdated();
 }
 
-void datalogger::logInsulin(const QDateTime &timestamp, double dose, int profileId)
+void DataLogger::logInsulin(const QDateTime &timestamp, double dose, int profileId)
 {
     InsulinLogEntry entry;
     entry.timestamp = timestamp;
@@ -58,28 +58,28 @@ void datalogger::logInsulin(const QDateTime &timestamp, double dose, int profile
     emit logsUpdated();
 }
 
-QList<LogEntry> datalogger::retrieveHistory(int profileId) const
+QList<LogEntry> DataLogger::retrieveHistory(int profileId) const
 {
     if (m_profileLogs.contains(profileId))
         return m_profileLogs.value(profileId).logs;
     return QList<LogEntry>();
 }
 
-QList<GlucoseLogEntry> datalogger::retrieveGlucoseLog(int profileId) const
+QList<GlucoseLogEntry> DataLogger::retrieveGlucoseLog(int profileId) const
 {
     if (m_profileLogs.contains(profileId))
         return m_profileLogs.value(profileId).glucoseLog;
     return QList<GlucoseLogEntry>();
 }
 
-QList<InsulinLogEntry> datalogger::retrieveInsulinLog(int profileId) const
+QList<InsulinLogEntry> DataLogger::retrieveInsulinLog(int profileId) const
 {
     if (m_profileLogs.contains(profileId))
         return m_profileLogs.value(profileId).insulinLog;
     return QList<InsulinLogEntry>();
 }
 
-bool datalogger::exportLogs(const QString &filePath) const
+bool DataLogger::exportLogs(const QString &filePath) const
 {
     QJsonObject rootObj;
     QJsonObject profilesObj;
@@ -105,7 +105,7 @@ bool datalogger::exportLogs(const QString &filePath) const
     return true;
 }
 
-bool datalogger::loadLogs()
+bool DataLogger::loadLogs()
 {
     QFile file(m_logsFilePath);
     if (!file.exists()) {
@@ -136,7 +136,7 @@ bool datalogger::loadLogs()
     return true;
 }
 
-bool datalogger::saveLogs()
+bool DataLogger::saveLogs()
 {
     QJsonObject rootObj;
     QJsonObject profilesObj;

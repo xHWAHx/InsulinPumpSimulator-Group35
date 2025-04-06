@@ -1,7 +1,9 @@
 #include "boluscalculator.h"
+#include "ui_boluscalculator.h"
 #include  <iostream> 
 
 double BolusCalculator::calculateBolus(double glucose, double carbs){
+    // This function calls itself and will create infinite recursion.
   return calculateBolus(carbs, 10.0) + calculateCorrectionDose(glucose, 5.5, 2.0);
 }
 
@@ -10,6 +12,7 @@ double BolusCalculator::suggestDose(){
 }
 
 void BolusCalculator::overrideDose(double dose){
+    // This function does nothing to actually override the dose
   std::cout << "Dose Updated.\n"; 
 }
 

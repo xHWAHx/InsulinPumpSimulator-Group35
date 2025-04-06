@@ -116,11 +116,11 @@ struct ProfileLogData {
     }
 };
 
-class datalogger : public QObject
+class DataLogger : public QObject
 {
     Q_OBJECT
 public:
-    explicit datalogger(QObject *parent = nullptr);
+    explicit DataLogger(QObject *parent = nullptr);
 
     // Logging functions:
     void logEvent(const QString &eventType, const QString &description, int profileId);

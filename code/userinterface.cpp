@@ -1,46 +1,60 @@
 #include "userinterface.h"
+#include "ui_userinterface.h"
 #include "login.h"
-#include "HomeWindow.h"
+#include "home.h"
 #include "boluscalculator.h"
 #include "settings.h"
-#include "alert.h"
+//#include "alert.h" //
+#include "pumpcontroller.h"
+#include "datalogger.h"
+#include "controliqalgorithm.h"
 #include <QMessageBox>
 #include <QDateTime>
 
-UserInterface::UserInterface(QStackedWidget *stack, QObject *parent)
-    : QObject(parent), stackedWidget(stack)
+UserInterface::UserInterface(QWidget *parent)
+    : QWidget(parent)
+    , ui(new Ui::UserInterface)
 {
-    loginScreen = new Login();
-    homeScreen = new HomeWindow();
+    ui->setupUi(this);
 
+    loginScreen = new Login();
+    homeScreen = new Home();
+
+    // These things should be created and owned in the device class, with their parent being an instance of UserInterface
     pumpController = new PumpController();
-    bolusCalculator = new BolusCalculator();
     cgmReader = new CGMReader();
     batteryManager = new BatteryManager();
     insulinReserve = new InsulinReserve();
-    logger = new datalogger();
+    logger = new DataLogger();
     controlIQ = new ControlIQAlgorithm();
 
-    stackedWidget->addWidget(loginScreen);
-    stackedWidget->addWidget(homeScreen);
+    bolusCalculator = new BolusCalculator();
 
-    connect(loginScreen, &Login::pinSubmitted, this, &UserInterface::handlePin);
-    connect(homeScreen, &HomeWindow::requestBolus, this, &UserInterface::openBolusUI);
-    connect(homeScreen, &HomeWindow::requestOptions, this, &UserInterface::openSettings);
-    connect(homeScreen, &HomeWindow::requestEmergencyStop, this, &UserInterface::triggerEmergencyStop);
-    connect(homeScreen, &HomeWindow::requestStats, this, &UserInterface::showControlIQStats);
-    connect(homeScreen, &HomeWindow::requestStatusRefresh, this, &UserInterface::refreshStatusBar);
-    connect(homeScreen, &HomeWindow::requestCGMValue, this, &UserInterface::updateGlucoseForChart);
+    ui->pageStack->addWidget(loginScreen);
+    ui->pageStack->addWidget(homeScreen);
 
-    showLoginScreen();
+    //connect(loginScreen, &Login::pinSubmitted, this, &UserInterface::handlePin);
+    connect(homeScreen, &Home::requestBolus, this, &UserInterface::openBolusUI);
+    connect(homeScreen, &Home::requestOptions, this, &UserInterface::openSettings);
+    connect(homeScreen, &Home::requestEmergencyStop, this, &UserInterface::triggerEmergencyStop);
+    connect(homeScreen, &Home::requestStats, this, &UserInterface::showControlIQStats);
+    connect(homeScreen, &Home::requestStatusRefresh, this, &UserInterface::refreshStatusBar);
+    connect(homeScreen, &Home::requestCGMValue, this, &UserInterface::updateGlucoseForChart);
+
+    // the device will start powered off
+    //showLoginScreen();
+}
+
+UserInterface::~UserInterface(){
+    delete ui;
 }
 
 void UserInterface::showLoginScreen() {
-    stackedWidget->setCurrentWidget(loginScreen);
+    ui->pageStack->setCurrentWidget(loginScreen);
 }
 
 void UserInterface::displayHomeScreen() {
-    stackedWidget->setCurrentWidget(homeScreen);
+    ui->pageStack->setCurrentWidget(homeScreen);
 }
 
 bool UserInterface::checkPin(int pin) {
@@ -65,8 +79,8 @@ void UserInterface::refreshStatusBar() {
     double insulin = insulinReserve->getInsulinRemaining();
 
     if (batteryManager->isBatteryCritical() || insulinReserve->isInsulinLow() || !cgmReader->isCGMConnected()) {
-        Alert *alert = new Alert();
-        alert->show();
+        //Alert *alert = new Alert();
+        //alert->show();
     }
 
     homeScreen->updateStatus(glucose, battery, insulin);
@@ -85,8 +99,8 @@ void UserInterface::showControlIQStats() {
 }
 
 void UserInterface::openBolusUI() {
-    BolusCalculatorUI *bolus = new BolusCalculatorUI();
-    bolus->show();
+    BolusCalculator *bolus = new BolusCalculator();
+    //bolus->show();
 }
 
 void UserInterface::openSettings() {

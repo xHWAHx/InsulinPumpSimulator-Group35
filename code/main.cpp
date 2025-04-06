@@ -1,11 +1,14 @@
-#include "HomeWindow.h"
-#include "login.h"
 #include <QApplication>
+#include "device.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Login loginWindow;
-    loginWindow.show();
+
+    Device *device = new Device();
+    device->show();
+
     return a.exec();
+
+    delete device;
 }

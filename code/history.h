@@ -3,7 +3,7 @@
 
 #include <QDialog>
 
-class datalogger;
+class DataLogger;
 
 namespace Ui {
     class Dialog;
@@ -13,7 +13,7 @@ class history : public QDialog
 {
     Q_OBJECT
 public:
-    explicit history(datalogger *logger, QWidget *parent = nullptr);
+    explicit history(DataLogger *logger, QWidget *parent = nullptr);
     ~history();
 
 signals:
@@ -30,7 +30,7 @@ protected:
 
 private:
     Ui::Dialog *ui;
-    datalogger *m_logger;
+    DataLogger *m_logger;
 };
 
 #endif // HISTORY_H

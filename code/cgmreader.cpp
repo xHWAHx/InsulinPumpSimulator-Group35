@@ -1,5 +1,4 @@
 #include "cgmreader.h"
-#include <iostream>
 
 CGMReader::CGMReader()
     : previousReading(startAmount)
@@ -17,7 +16,6 @@ double CGMReader::getCurrentGlucoseLevel(){
     double elapsedSeconds = elapsedDuration.count() * timeScale;
 
     double rand = norm->operator()(randomGenerator);
-    //std::cout << "Random normal value: " << rand << "\n";
 
     double reading = previousReading + meanReversion * (meanGlucose - previousReading) * elapsedSeconds + std::sqrt(elapsedSeconds) * rand;
 

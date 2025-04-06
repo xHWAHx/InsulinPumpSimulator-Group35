@@ -3,15 +3,18 @@
 
 #include <QWidget>
 #include <QListWidgetItem>
-#include "ui_settings.h"
 
-class settings : public QWidget
+namespace Ui {
+class Settings;
+}
+
+class Settings : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit settings(QWidget *parent = nullptr);
-    ~settings();
+    explicit Settings(QWidget *parent = nullptr);
+    ~Settings();
 
 private slots:
     void onCreateProfile();

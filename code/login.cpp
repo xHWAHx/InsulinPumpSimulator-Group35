@@ -1,5 +1,5 @@
 #include "login.h"
-#include "HomeWindow.h"
+#include "home.h"
 #include "ui_login.h"
 #include <QMessageBox>
 
@@ -93,7 +93,7 @@ void Login::on_buttonOk_clicked()
     QString pin= ui-> pinDisplay-> text();
     if (pin== "1234"){
         this-> close();
-        HomeWindow *home= new HomeWindow ();
+        Home *home= new Home ();
         home-> show();
     } else{
         QMessageBox:: warning(this, "Error", "Incorrect Pin, Try again");

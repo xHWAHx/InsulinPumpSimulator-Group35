@@ -12,7 +12,7 @@ PumpController::PumpController()
 
 bool PumpController::isSafeToDeliver() {
     if (!cgmReader.isCGMConnected()) {
-        cgmReader.alertCGMDisconnected();
+        //cgmReader.alertCGMDisconnected();
         return false;
     }
 
@@ -22,7 +22,7 @@ bool PumpController::isSafeToDeliver() {
     }
 
     if (insulinReserve.isInsulinLow()) {
-        logger.logEvent("Warning", "Insulin level is low.");
+        //logger.logEvent("Warning", "Insulin level is low.");
         return false;
     }
 
@@ -32,7 +32,7 @@ bool PumpController::isSafeToDeliver() {
 void PumpController::deliverBolus(double amount, double rate)
 {
     if (emergencyStopped || bolusSuspended || !isSafeToDeliver()) {
-        logger.logEvent("Error", "Bolus blocked due to unsafe condition.");
+        //logger.logEvent("Error", "Bolus blocked due to unsafe condition.");
         return;
     }
 
@@ -40,27 +40,26 @@ void PumpController::deliverBolus(double amount, double rate)
     activeBolusAmount = delivered;
     activeBolusRate = rate;
 
-    logger.logEvent("Bolus", "Delivered " + QString::number(delivered) +
-                               " units at rate " + QString::number(rate));
+    //logger.logEvent("Bolus", "Delivered " + QString::number(delivered) + " units at rate " + QString::number(rate));
 }
 
 void PumpController::adjustBasalRate(double rate)
 {
     currentBasalRate = rate;
-    logger.logEvent("Basal", "Adjusted to " + QString::number(rate) + " U/hr");
+    //logger.logEvent("Basal", "Adjusted to " + QString::number(rate) + " U/hr");
 }
 
 void PumpController::suspendBolus()
 {
     bolusSuspended = true;
-    logger.logEvent("System", "Bolus delivery suspended.");
+    //logger.logEvent("System", "Bolus delivery suspended.");
 }
 
 void PumpController::resumeBolus()
 {
     if (!emergencyStopped) {
         bolusSuspended = false;
-        logger.logEvent("System", "Bolus delivery resumed.");
+        //logger.logEvent("System", "Bolus delivery resumed.");
     }
 }
 
@@ -74,22 +73,22 @@ int PumpController::checkDeviceStatus()
 void PumpController::triggerEmergencyStop()
 {
     emergencyStopped = true;
-    logger.logEvent("Critical", "Emergency stop activated.");
+    //logger.logEvent("Critical", "Emergency stop activated.");
 }
 
 void PumpController::pump()
 {
     if (!emergencyStopped && !bolusSuspended && activeBolusAmount > 0) {
         double glucose = cgmReader.getCurrentGlucoseLevel();
-        logger.logEvent("CGM", "Current glucose: " + QString::number(glucose));
+        //logger.logEvent("CGM", "Current glucose: " + QString::number(glucose));
 
         if (glucose < 3.9) {
             suspendBolus();
-            logger.logEvent("Safety", "Bolus auto-suspended (hypoglycemia).");
+            //logger.logEvent("Safety", "Bolus auto-suspended (hypoglycemia).");
             return;
         }
 
         std::cout << "Pumping active bolus @ " << activeBolusRate << " U/hr...\n";
-        logger.logTick(LogEntry{});
+        //logger.logTick(LogEntry{});
     }
 }

@@ -6,7 +6,7 @@
 #include <QDebug>
 #include <QKeyEvent>
 
-history::history(datalogger *logger, QWidget *parent)
+history::history(DataLogger *logger, QWidget *parent)
     : QDialog(parent),
       ui(new Ui::Dialog),
       m_logger(logger)
@@ -20,7 +20,7 @@ history::history(datalogger *logger, QWidget *parent)
     connect(ui->lineEdit, &QLineEdit::textChanged, this, &history::refreshHistory);
     connect(ui->comboBox, &QComboBox::currentTextChanged, this, &history::refreshHistory);
     connect(ui->pushButton, &QPushButton::clicked, this, &history::onBackButtonClicked);
-    connect(m_logger, &datalogger::logsUpdated, this, &history::refreshHistory);
+    connect(m_logger, &DataLogger::logsUpdated, this, &history::refreshHistory);
     
     refreshHistory();
 }

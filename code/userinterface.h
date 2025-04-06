@@ -1,25 +1,30 @@
 #ifndef USERINTERFACE_H
 #define USERINTERFACE_H
 
-#include <QObject>
+#include <QWidget>
 #include <QStackedWidget>
 
 class Login;
-class HomeWindow;
+class Home;
 class PumpController;
 class BolusCalculator;
 class CGMReader;
 class BatteryManager;
 class InsulinReserve;
-class datalogger;
+class DataLogger;
 class ControlIQAlgorithm;
 class Settings;
 class Alert;
 
-class UserInterface : public QObject {
+namespace Ui {
+    class UserInterface;
+}
+
+class UserInterface : public QWidget {
     Q_OBJECT
 public:
-    explicit UserInterface(QStackedWidget *stack, QObject *parent = nullptr);
+    explicit UserInterface(QWidget *parent = nullptr);
+    ~UserInterface();
 
     void displayHomeScreen();
     void showLoginScreen();
@@ -38,16 +43,17 @@ public slots:
     void triggerEmergencyStop();
 
 private:
-    QStackedWidget *stackedWidget;
+    Ui::UserInterface *ui;
+
     Login *loginScreen;
-    HomeWindow *homeScreen;
+    Home *homeScreen;
 
     PumpController *pumpController;
     BolusCalculator *bolusCalculator;
     CGMReader *cgmReader;
     BatteryManager *batteryManager;
     InsulinReserve *insulinReserve;
-    datalogger *logger;
+    DataLogger *logger;
     ControlIQAlgorithm *controlIQ;
 
     const int correctPin = 1234;

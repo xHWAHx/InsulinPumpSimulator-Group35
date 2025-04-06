@@ -29,7 +29,7 @@ private:
     InsulinReserve insulinReserve;
     BatteryManager batteryManager;
     CGMReader cgmReader;
-    Datalogger logger;
+    DataLogger logger;
 
     bool isSafeToDeliver();
 };

@@ -5,11 +5,11 @@
 #include <QList>
 #include <QJsonObject>
 
-class profile {
+class Profile {
 public:
     // Constructors
-    profile();
-    profile(const QString &name, double basalRate, double carbRatio, double correctionFactor, double targetGlucose, int id);
+    Profile();
+    Profile(const QString &name, double basalRate, double carbRatio, double correctionFactor, double targetGlucose, int id);
 
     // Getters
     int getId() const;
@@ -29,16 +29,16 @@ public:
 
     // Serialization for persistent storage
     QJsonObject toJson() const;
-    static profile fromJson(const QJsonObject &obj);
+    static Profile fromJson(const QJsonObject &obj);
 
     // Static methods for profile management
     static bool createProfile(const QString &name, double basalRate, double carbRatio, double correctionFactor, double targetGlucose);
     static bool updateProfileById(int id, const QString &name, double newBasalRate, double newCarbRatio, double newCorrectionFactor, double newTargetGlucose);
     static bool deleteProfileById(int id);
     static bool selectProfileById(int id);
-    static profile getProfileById(int id);
-    static profile getActiveProfile();
-    static QList<profile> getAllProfiles();
+    static Profile getProfileById(int id);
+    static Profile getActiveProfile();
+    static QList<Profile> getAllProfiles();
 
     // Methods to load/save profiles from/to a JSON file
     static bool loadProfiles();
@@ -53,7 +53,7 @@ private:
     double m_targetGlucose;
 
     // Static members for managing all profiles
-    static QList<profile> s_profiles;
+    static QList<Profile> s_profiles;
     static int s_nextId;
     static int s_activeProfileId;
     static QString s_profilesFilePath;

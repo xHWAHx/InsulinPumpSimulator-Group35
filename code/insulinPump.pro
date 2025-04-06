@@ -1,6 +1,7 @@
 QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT += charts
 
 CONFIG += c++11
 
@@ -14,11 +15,15 @@ SOURCES += \
     cgmreader.cpp \
     controliqalgorithm.cpp \
     datalogger.cpp \
+    device.cpp \
+    history.cpp \
+    home.cpp \
     insulinreserve.cpp \
+    login.cpp \
     main.cpp \
-    mainwindow.cpp \
     profile.cpp \
     pumpcontroller.cpp \
+    settings.cpp \
     userinterface.cpp
 
 HEADERS += \
@@ -27,18 +32,25 @@ HEADERS += \
     cgmreader.h \
     controliqalgorithm.h \
     datalogger.h \
+    device.h \
+    history.h \
+    home.h \
     insulinreserve.h \
-    mainwindow.h \
+    login.h \
     profile.h \
     pumpcontroller.h \
+    settings.h \
     userinterface.h
 
 FORMS += \
     alert.ui \
-    mainwindow.ui \
-    statusbar.ui \
+    boluscalculator.ui \
+    device.ui \
     history.ui \
-    boluscalculator.ui
+    home.ui \
+    login.ui \
+    settings.ui \
+    userinterface.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
