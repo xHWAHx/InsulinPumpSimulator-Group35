@@ -63,18 +63,8 @@ void UserInterface::displayError(const QString &message) {
 }
 
 void UserInterface::refreshStatusBar() {
-    double glucose = cgmReader->getCurrentGlucoseLevel();
-    double battery = batteryManager->getBatteryLevel();
-    double insulin = insulinReserve->getInsulinRemaining();
-
-    if (batteryManager->isBatteryCritical() || insulinReserve->isInsulinLow() || !cgmReader->isCGMConnected()) {
-        //Alert *alert = new Alert();
-        //alert->show();
-    }
-
-    homeScreen->updateStatus(glucose, battery, insulin);
-    logger->logGlucose(QDateTime::currentDateTime(), glucose, 1);
-}
+    homeScreen-> updateStatus(glucose, battery, insulin);
+   }
 
 void UserInterface::updateGlucoseForChart() {
     double glucose = cgmReader->getCurrentGlucoseLevel();
