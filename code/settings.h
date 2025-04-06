@@ -8,11 +8,28 @@ namespace Ui {
 class Settings;
 }
 
+/**
+ * @brief Widget class for managing personal profiles.
+ *
+ * The Settings class provides a user interface for creating, updating, deleting,
+ * selecting, and saving user profiles. It displays a list of existing profiles and
+ * allows the user to modify profile details. The layout and widgets are defined in
+ * the associated UI file (settings.ui).
+ */
 class Settings : public QWidget
 {
     Q_OBJECT
 
 public:
+
+    /**
+     * @brief Constructs a new Settings widget.
+     *
+     * Initializes the UI components, connects signals/slots for profile operations,
+     * and loads the current list of profiles.
+     *
+     * @param parent Pointer to the parent widget (default is nullptr).
+     */
     explicit Settings(QWidget *parent = nullptr);
     ~Settings();
 
