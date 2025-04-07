@@ -9,11 +9,12 @@ Device::Device(QWidget *parent)
     , insulin(new InsulinReserve)
     , cgm(new CGMReader)
     , profiles(new Profile)
-    , pump(new PumpController(insulin, log)) // pass args to match constructor
-    , interface(new UserInterface(this))
+    , pump(new PumpController(insulin, log))
+    //, interface(new UserInterface(this))
     , window(new Ui::Device)
 {
     window->setupUi(this);
+    interface = new UserInterface(window->uiWidget);
 
     connect(window->powerButton, &QPushButton::released, this, &Device::power);
 
