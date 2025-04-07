@@ -1,5 +1,8 @@
 #include "device.h"
 #include "ui_device.h"
+#include "QTimer"
+#include <iostream>
+#include "controliqalgorithm.h"
 
 Device::Device(QWidget *parent)
     : QMainWindow{parent}
@@ -8,15 +11,20 @@ Device::Device(QWidget *parent)
     , log(new DataLogger)
     , insulin(new InsulinReserve)
     , cgm(new CGMReader)
-    , profiles(new Profile)
     , pump(new PumpController(insulin, log))
-    //, interface(new UserInterface(this))
     , window(new Ui::Device)
+    , tickClock(new QTimer(this))
 {
     window->setupUi(this);
     interface = new UserInterface(window->uiWidget);
 
     connect(window->powerButton, &QPushButton::released, this, &Device::power);
+
+    //connect(interface, &UserInterface::deviceUnlocked, this, &Device::startMonitoring);
+    connect(tickClock, &QTimer::timeout, this, &Device::tick);
+
+    Profile::createProfile("Default", 2, 3, 4, 5);
+    //Profile::selectProfileById(); // how do I get the ID?
 
     interface->hide(); // because device starts powered off
 }
@@ -26,6 +34,7 @@ void Device::power(){
         poweredOn = false;
         interface->hide();
         window->powerLabel->setText("Device is powered off");
+        tickClock->stop();
     } else {
         poweredOn = true;
         interface->show();
@@ -33,30 +42,25 @@ void Device::power(){
 
         interface->showLoginScreen();
 
-        //Vaguely what will happen:
-
-        //profile currentProfile = profiles.getActiveProfile(); // "profile" being a struct from profile.h
-
-        //while (poweredOn){
-			// safety checks here
-
-			//logEntry entry; // "logEntry" being a struct from datalogger.h
-			//entry.batteryLevel = battery.getBatteryLevel();
-			//entry.glucose = gcm.getCurrentGlucoseLevel();
-			//ControlIQAlgorithm.adjustBasalRate(glucose); // probably should actually be instantiated so the controlIQ can have a reference to the pump
-			//pump.pump();							
-			//entry.insulinRemaining = insulin.getInsulinRemaining();
-			//log.logTick(entry);
-
-        // something like this:
-//void UserInterface::showControlIQStats() {
-//    std::vector<double> data = { cgmReader->getCurrentGlucoseLevel() };
-//    controlIQ->analyzeGlucoseData(data);
-//    QMessageBox::information(nullptr, "ControlIQ", "Stats updated");
-//}
-
-
-            //sleep(1);
-        //}
     }
+}
+
+void Device::startMonitoring(){
+    std::cout << "Starting monitoring\n" << std::flush;
+    tickClock->start(1000);
+}
+
+void Device::tick(){
+    std::cout << "Ticking\n" << std::flush;
+    battery->drainBattery();
+    interface->refreshStatusBar(cgm->getCurrentGlucoseLevel(), battery->getBatteryLevel(), insulin->getInsulinRemaining());
+
+    // safety checks here
+
+    //Profile currentProfile = Profile::getActiveProfile();
+    //ControlIQAlgorithm::adjustBasalRate(currentProfile.getTargetGlucose());
+    pump->pump();
+
+    //log.logTick();
+
 }

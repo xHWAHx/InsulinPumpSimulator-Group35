@@ -11,8 +11,6 @@
 #include <pumpcontroller.h>
 #include <userinterface.h>
 
-
-
 QT_BEGIN_NAMESPACE
 namespace Ui { class Device; }
 QT_END_NAMESPACE
@@ -25,6 +23,8 @@ public:
 
 public slots:
 	void power();
+    void tick();
+    void startMonitoring();
 
 signals:
 
@@ -38,6 +38,7 @@ private:
     PumpController *pump;
     UserInterface *interface;
     Ui::Device *window;
+    QTimer *tickClock;
 
 };
 
