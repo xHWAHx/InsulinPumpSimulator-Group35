@@ -62,17 +62,23 @@ void PumpController::triggerEmergencyStop()
 
 void PumpController::pump()
 {
-    if (!emergencyStopped && !bolusSuspended && activeBolusAmount > 0) {
-        //double glucose = cgmReader.getCurrentGlucoseLevel();
-        //logger.logEvent("CGM", "Current glucose: " + QString::number(glucose));
-
-        /**if (glucose < 3.9) {
-            suspendBolus();
-            //logger.logEvent("Safety", "Bolus auto-suspended (hypoglycemia).");
-            return;
-        }*/
-
-        std::cout << "Pumping active bolus @ " << activeBolusRate << " U/hr...\n";
-        //logger.logTick(LogEntry{});
+    //only pump if delivery is active + not blocked
+    if (emergencyStopped || bolusSuspended || activeBolusAmount <= 0) {
+           return;
     }
+    const double tickIntervalSec = 1.0; //tick interval
+    double unitsPerTick = activeBolusRate / 3600.0 * tickIntervalSec;
+    double deliveredThisTick = (activeBolusAmount < unitsPerTick) ? activeBolusAmount : unitsPerTick;
+    activeBolusAmount -= deliveredThisTick;
+    std::cout << "Pumping " << deliveredThisTick << " units this tick at rate " << activeBolusRate << " U/hr... ";
+    if (activeBolusAmount > 0) {
+            // Estimate the remaining time (in seconds) required for the remaining bolus.
+            double estimatedTimeRemaining = activeBolusAmount / (activeBolusRate / 3600.0);
+            std::cout << "Remaining bolus: " << activeBolusAmount << " units. Estimated time remaining: " << estimatedTimeRemaining << " seconds." << std::endl;
+        } else {
+            std::cout << "Bolus delivery complete." << std::endl;
+        }
+
 }
+
+//try
