@@ -255,7 +255,7 @@ signals:
     void logsUpdated();
 
 private:
-    QMap<int, LogData> m_logs;
+    LogData m_logs;
     QString m_logsFilePath;
 };
 

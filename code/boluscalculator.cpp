@@ -1,7 +1,19 @@
 #include "boluscalculator.h"
+#include "ui_boluscalculator.h"
 #include "profile.h"
 
-// Static member definitions
+BolusCalculator::BolusCalculator(QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::BolusCalculator)
+{
+    ui->setupUi(this);
+}
+
+BolusCalculator::~BolusCalculator()
+{
+    delete ui;
+}
+
 double BolusCalculator::overriddenDose = 0.0;
 bool BolusCalculator::doseOverridden = false;
 
@@ -54,9 +66,16 @@ double BolusCalculator::calculateTotalBolus(double glucose, double carbs, double
 }
 
 std::pair<double, double> BolusCalculator::splitBolus(double total, double percentage) {
-    // ensures the requested dose percentages make sense 
+    // ensures the requested dose percentages make sense
     if (percentage < 0 || percentage > 100) return {0.0, 0.0};
     double immediate = (percentage / 100.0) * total;
     double extended = total - immediate;
     return {immediate, extended};
 }
+
+void BolusCalculator::on_logoButton_clicked()
+{
+    emit backToHome();
+    this-> close();
+}
+

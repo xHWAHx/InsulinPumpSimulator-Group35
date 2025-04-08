@@ -6,7 +6,7 @@
 class DataLogger;
 
 namespace Ui {
-    class Dialog;
+    class History;
 }
 
 /**
@@ -15,7 +15,7 @@ namespace Ui {
  * The history class provides a user interface for viewing event logs retrieved from a DataLogger instance.
  * It supports filtering based on search queries and event types, as defined in the associated UI file (history.ui).
  */
-class history : public QDialog
+class History : public QWidget
 {
     Q_OBJECT
 public:
@@ -28,13 +28,15 @@ public:
      * @param logger Pointer to the DataLogger instance used for retrieving log data.
      * @param parent Pointer to the parent widget (default is nullptr).
      */
-    explicit history(DataLogger *logger, QWidget *parent = nullptr);
-    ~history();
+    explicit History(DataLogger *logger, QWidget *parent = nullptr);
+
+    ~History();
 
 signals:
     /**
      * @brief Signal emitted when the user requests to return to the previous view.
      */
+    void backToHome();
     void backRequested();
 
 private slots:
@@ -43,11 +45,13 @@ private slots:
     void onSearch();
     void onFilterChanged(const QString &text);
 
+    void on_logoButton_clicked();
+
 protected:
     void keyPressEvent(QKeyEvent *event) override;
 
 private:
-    Ui::Dialog *ui;
+    Ui::History *ui;
     DataLogger *m_logger;
 };
 

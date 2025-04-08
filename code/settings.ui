@@ -2,123 +2,183 @@
 <ui version="4.0">
  <class>Settings</class>
  <widget class="QWidget" name="Settings">
-  <layout class="QVBoxLayout" name="verticalLayout">
-   <item>
-    <widget class="QLabel" name="titleLabel">
-     <property name="text">
-      <string>Manage Personal Profiles</string>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QListWidget" name="profileList"/>
-   </item>
-   <item>
-    <widget class="QGroupBox" name="profileGroupBox">
-     <property name="title">
-      <string>Profile Details</string>
-     </property>
-     <layout class="QFormLayout" name="formLayout">
-      <item row="0" column="0">
-       <widget class="QLabel" name="labelName">
-        <property name="text">
-         <string>Profile Name</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QLineEdit" name="lineEditName"/>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="labelBasal">
-        <property name="text">
-         <string>Basal Rate (U/hr)</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QDoubleSpinBox" name="spinBoxBasal"/>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="labelCarb">
-        <property name="text">
-         <string>Carb Ratio (g/U)</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <widget class="QDoubleSpinBox" name="spinBoxCarb"/>
-      </item>
-      <item row="3" column="0">
-       <widget class="QLabel" name="labelCorrection">
-        <property name="text">
-         <string>Correction Factor</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="1">
-       <widget class="QDoubleSpinBox" name="spinBoxCorrection"/>
-      </item>
-      <item row="4" column="0">
-       <widget class="QLabel" name="labelTarget">
-        <property name="text">
-         <string>Target Glucose</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="1">
-       <widget class="QDoubleSpinBox" name="spinBoxTarget"/>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
-    <layout class="QHBoxLayout" name="buttonLayout">
-     <item>
-      <widget class="QPushButton" name="buttonCreate">
-       <property name="text">
-        <string>Create</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="buttonUpdate">
-       <property name="text">
-        <string>Update</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="buttonDelete">
-       <property name="text">
-        <string>Delete</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="buttonSelect">
-       <property name="text">
-        <string>Select</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="buttonSave">
-       <property name="text">
-        <string>Save</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item>
-    <widget class="QPushButton" name="buttonBack">
-     <property name="text">
-      <string>Back</string>
-     </property>
-    </widget>
-   </item>
-  </layout>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>444</width>
+    <height>454</height>
+   </rect>
+  </property>
+  <widget class="QLabel" name="titleLabel">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>10</y>
+     <width>163</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Manage Personal Profiles</string>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="profileList">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>43</y>
+     <width>426</width>
+     <height>161</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="profileGroupBox">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>210</y>
+     <width>285</width>
+     <height>197</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Profile Details</string>
+   </property>
+   <layout class="QFormLayout" name="formLayout">
+    <item row="0" column="0">
+     <widget class="QLabel" name="labelName">
+      <property name="text">
+       <string>Profile Name</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="lineEditName"/>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="labelBasal">
+      <property name="text">
+       <string>Basal Rate (U/hr)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QDoubleSpinBox" name="spinBoxBasal"/>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="labelCarb">
+      <property name="text">
+       <string>Carb Ratio (g/U)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QDoubleSpinBox" name="spinBoxCarb"/>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="labelCorrection">
+      <property name="text">
+       <string>Correction Factor</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QDoubleSpinBox" name="spinBoxCorrection"/>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="labelTarget">
+      <property name="text">
+       <string>Target Glucose</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QDoubleSpinBox" name="spinBoxTarget"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="logoButton">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>10</y>
+     <width>41</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton#logoButton {
+    background-color: #005F87;
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #007ACC;
+}
+
+QPushButton#logoButton:hover {
+    background-color: #1E90FF;
+}
+
+QPushButton#logoButton:pressed {
+    background-color: #007ACC;
+    color: white;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>T</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>413</y>
+     <width>426</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="buttonLayout">
+    <item>
+     <widget class="QPushButton" name="buttonCreate">
+      <property name="text">
+       <string>Create</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="buttonUpdate">
+      <property name="text">
+       <string>Update</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="buttonDelete">
+      <property name="text">
+       <string>Delete</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="buttonSelect">
+      <property name="text">
+       <string>Select</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="buttonSave">
+      <property name="text">
+       <string>Save</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
  </widget>
  <resources/>
  <connections/>

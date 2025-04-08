@@ -36,6 +36,10 @@ private:
     QLineSeries *series;
     QTimer *chartTimer;
     int currentTime;
+    QTimer *clockTimer;
+
+private slots:
+   void updateDateTime();
 };
 
 #endif // HOMEWINDOW_H

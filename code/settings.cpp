@@ -20,7 +20,6 @@ Settings::Settings(QWidget *parent) :
     connect(ui->buttonDelete, &QPushButton::clicked, this, &Settings::onDeleteProfile);
     connect(ui->buttonSelect, &QPushButton::clicked, this, &Settings::onSelectProfile);
     connect(ui->buttonSave, &QPushButton::clicked, this, &Settings::onSaveProfile);
-    connect(ui->buttonBack, &QPushButton::clicked, this, &Settings::onBack);
     connect(ui->profileList, &QListWidget::itemClicked, this, &Settings::onProfileListItemClicked);
 
     if (!Profile::loadProfiles()) {
@@ -160,3 +159,10 @@ int Settings::currentProfileId() const
     QListWidgetItem *item = ui->profileList->currentItem();
     return item ? item->data(Qt::UserRole).toInt() : -1;
 }
+
+void Settings::on_logoButton_clicked()
+{
+    emit backToHome();
+    this-> close();
+}
+

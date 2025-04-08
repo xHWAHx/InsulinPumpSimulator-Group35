@@ -42,11 +42,16 @@ private slots:
     void onBack();
     void onProfileListItemClicked(QListWidgetItem *item);
 
+    void on_logoButton_clicked();
+
 private:
     Ui::Settings *ui;
     void updateProfileList();
     QString currentProfileName() const;
     int currentProfileId() const;
+
+signals:
+    void backToHome();
 };
 
 #endif // SETTINGS_H

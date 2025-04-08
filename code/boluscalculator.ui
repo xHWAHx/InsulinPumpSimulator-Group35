@@ -1,69 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>BolusCalculatorUI</class>
- <widget class="QWidget" name="BolusCalculatorUI">
+ <class>BolusCalculator</class>
+ <widget class="QWidget" name="BolusCalculator">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>360</width>
-    <height>250</height>
+    <width>400</width>
+    <height>267</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Bolus Calculator</string>
+   <string>Form</string>
   </property>
-  <widget class="QLabel" name="labelGlucose">
+  <widget class="QLineEdit" name="inputCarbs">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>20</y>
-     <width>150</width>
+     <x>180</x>
+     <y>60</y>
+     <width>130</width>
      <height>30</height>
     </rect>
-   </property>
-   <property name="text">
-    <string>Glucose Level (mmol/L):</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="inputGlucose">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>20</y>
+     <x>180</x>
+     <y>10</y>
      <width>130</width>
      <height>30</height>
     </rect>
    </property>
   </widget>
-  <widget class="QLabel" name="labelCarbs">
+  <widget class="QLabel" name="labelResult">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>70</y>
-     <width>150</width>
+     <x>10</x>
+     <y>170</y>
+     <width>191</width>
      <height>30</height>
     </rect>
    </property>
    <property name="text">
-    <string>Carbohydrates (g):</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="inputCarbs">
-   <property name="geometry">
-    <rect>
-     <x>190</x>
-     <y>70</y>
-     <width>130</width>
-     <height>30</height>
-    </rect>
+    <string>Recommended Dose (units):</string>
    </property>
   </widget>
   <widget class="QPushButton" name="btnCalculate">
    <property name="geometry">
     <rect>
-     <x>120</x>
-     <y>120</y>
+     <x>110</x>
+     <y>110</y>
      <width>120</width>
      <height>35</height>
     </rect>
@@ -72,30 +59,77 @@
     <string>Calculate Bolus</string>
    </property>
   </widget>
-  <widget class="QLabel" name="labelResult">
+  <widget class="QPushButton" name="logoButton">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>180</y>
+     <x>340</x>
+     <y>10</y>
+     <width>41</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton#logoButton {
+    background-color: #005F87;
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #007ACC;
+}
+
+QPushButton#logoButton:hover {
+    background-color: #1E90FF;
+}
+
+QPushButton#logoButton:pressed {
+    background-color: #007ACC;
+    color: white;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>T</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelCarbs">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>60</y>
      <width>150</width>
      <height>30</height>
     </rect>
    </property>
    <property name="text">
-    <string>Recommended Dose (units):</string>
+    <string>Carbohydrates (g):</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="outputResult">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>180</y>
+     <x>210</x>
+     <y>170</y>
      <width>130</width>
      <height>30</height>
     </rect>
    </property>
    <property name="readOnly">
     <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelGlucose">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>150</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Glucose Level (mmol/L):</string>
    </property>
   </widget>
  </widget>

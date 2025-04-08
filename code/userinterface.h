@@ -3,18 +3,18 @@
 
 #include <QWidget>
 #include <QStackedWidget>
-
-class Login;
-class Home;
-class PumpController;
-class BolusCalculator;
-class CGMReader;
-class BatteryManager;
-class InsulinReserve;
-class DataLogger;
-class ControlIQAlgorithm;
-class Settings;
-class Alert;
+#include "login.h"
+#include "home.h"
+#include "pumpcontroller.h"
+#include "boluscalculator.h"
+#include "cgmreader.h"
+#include "batterymanager.h"
+#include "insulinreserve.h"
+#include "datalogger.h"
+#include "controliqalgorithm.h"
+#include "settings.h"
+//#include "alert.h"
+#include "history.h"
 
 namespace Ui {
     class UserInterface;
@@ -40,6 +40,7 @@ public slots:
     void updateGlucoseForChart(double glucose);
     void openBolusUI();
     void openSettings();
+    void openHistory();
     void triggerEmergencyStop();
 
 private:
@@ -47,7 +48,6 @@ private:
 
     Login *loginScreen;
     Home *homeScreen;
-
     PumpController *pumpController;
     BolusCalculator *bolusCalculator;
     CGMReader *cgmReader;
@@ -55,6 +55,8 @@ private:
     InsulinReserve *insulinReserve;
     DataLogger *logger;
     ControlIQAlgorithm *controlIQ;
+    Settings *settingsScreen;
+    History *historyScreen;
 
     const int correctPin = 1234;
 };

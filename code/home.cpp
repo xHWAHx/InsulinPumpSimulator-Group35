@@ -1,5 +1,7 @@
 #include "home.h"
 #include "ui_home.h"
+#include <QTime>
+#include <QDate>
 
 Home::Home(QWidget *parent)
     : QWidget(parent)
@@ -9,12 +11,18 @@ Home::Home(QWidget *parent)
     ui->setupUi(this);
     setupChart();
 
+    clockTimer= new QTimer(this);
+    clockTimer-> start(1000);
+
     chartTimer = new QTimer(this);
     chartTimer->start(3000);
 
     connect(ui->buttonBolus, &QPushButton::clicked, this, &Home::requestBolus);
     connect(ui->buttonOptions, &QPushButton::clicked, this, &Home::requestOptions);
-    connect(ui->buttonStats, &QPushButton::clicked, this, &Home::requestStats);
+    connect(ui->historyButton, &QPushButton::clicked, this, &Home::requestStats);
+    connect(clockTimer, &QTimer::timeout, this, &Home::updateDateTime);
+
+
 }
 
 Home::~Home() {
@@ -62,4 +70,12 @@ void Home::updateStatus(double glucose, double battery, double insulin)
     ui->glucoseLabel->setText(QString::number(glucose, 'f', 1) + " mmol/L");
     ui->batteryLabel->setText(QString::number(battery, 'f', 0) + "%");
     ui->insulinLabel->setText(QString::number(insulin, 'f', 1) + " u");
+}
+
+
+void Home::updateDateTime() {
+   QString timeStr = QTime::currentTime().toString("hh:mm AP");
+   QString dateStr = QDate::currentDate().toString("dd MMM");
+   ui->timeLabel->setText(timeStr);
+   ui->dateLabel->setText(dateStr);
 }

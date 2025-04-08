@@ -4,12 +4,13 @@
 #include "home.h"
 #include "boluscalculator.h"
 #include "settings.h"
-//#include "alert.h" //
+#include "history.h"
 #include "pumpcontroller.h"
 #include "datalogger.h"
 #include "controliqalgorithm.h"
 #include <QMessageBox>
 #include <QDateTime>
+#include <QDebug>
 
 UserInterface::UserInterface(QWidget *parent)
     : QWidget(parent)
@@ -17,21 +18,33 @@ UserInterface::UserInterface(QWidget *parent)
 {
     ui->setupUi(this);
 
+
     loginScreen = new Login();
+    logger= new DataLogger(this);
     homeScreen = new Home();
+    bolusCalculator = new BolusCalculator();
+    settingsScreen = new Settings();
+    historyScreen = new History(logger);
 
     ui->pageStack->addWidget(loginScreen);
     ui->pageStack->addWidget(homeScreen);
+    ui->pageStack->addWidget(bolusCalculator);
+    ui->pageStack->addWidget(settingsScreen);
+    ui->pageStack->addWidget(historyScreen);
 
-    //connect(loginScreen, &Login::pinSubmitted, this, &UserInterface::handlePin);
     connect(homeScreen, &Home::requestBolus, this, &UserInterface::openBolusUI);
     connect(homeScreen, &Home::requestOptions, this, &UserInterface::openSettings);
+    connect(homeScreen, &Home::requestStats, this, &UserInterface::openHistory);
     connect(homeScreen, &Home::requestEmergencyStop, this, &UserInterface::triggerEmergencyStop);
 
+    connect(settingsScreen, &Settings::backToHome, this, &UserInterface::displayHomeScreen);
+    connect(bolusCalculator, &BolusCalculator::backToHome, this, &UserInterface::displayHomeScreen);
+    connect(historyScreen, &History::backToHome, this, &UserInterface::displayHomeScreen);
 
+    showLoginScreen();
 }
 
-UserInterface::~UserInterface(){
+UserInterface::~UserInterface() {
     delete ui;
 }
 
@@ -60,27 +73,26 @@ void UserInterface::displayError(const QString &message) {
 }
 
 void UserInterface::refreshStatusBar(double glucose, double battery, double insulin) {
-    homeScreen-> updateStatus(glucose, battery, insulin);
+    homeScreen->updateStatus(glucose, battery, insulin);
     this->updateGlucoseForChart(glucose);
-   }
+}
 
 void UserInterface::updateGlucoseForChart(double glucose) {
     homeScreen->addGlucoseReading(glucose);
 }
 
 void UserInterface::openBolusUI() {
-    // show bolus calculator in pageStack
-
-    //BolusCalculator *bolus = new BolusCalculator();
-    //bolus->show();
+    ui->pageStack->setCurrentWidget(bolusCalculator);
 }
 
 void UserInterface::openSettings() {
-    Settings *settings = new Settings();
-    settings->show();
+    ui->pageStack->setCurrentWidget(settingsScreen);
+}
+
+void UserInterface::openHistory() {
+    ui->pageStack->setCurrentWidget(historyScreen);
 }
 
 void UserInterface::triggerEmergencyStop() {
-    pumpController->triggerEmergencyStop();
     displayError("Emergency stop triggered!");
 }

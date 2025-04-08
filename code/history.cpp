@@ -6,80 +6,80 @@
 #include <QDebug>
 #include <QKeyEvent>
 
-history::history(DataLogger *logger, QWidget *parent)
-    : QDialog(parent),
-      ui(new Ui::Dialog),
+History::History(DataLogger *logger, QWidget *parent)
+    : QWidget(parent),
+      ui(new Ui::History),
       m_logger(logger)
 {
     ui->setupUi(this);
 
     ui->comboBox->setEditable(false);
 
-    connect(ui->lineEdit, &QLineEdit::textChanged, this, &history::refreshHistory);
-    connect(ui->comboBox, &QComboBox::currentTextChanged, this, &history::refreshHistory);
-    connect(ui->pushButton, &QPushButton::clicked, this, &history::onBackButtonClicked);
-    connect(m_logger, &DataLogger::logsUpdated, this, &history::refreshHistory);
-    
+    connect(ui->lineEdit, &QLineEdit::textChanged, this, &History::refreshHistory);
+    connect(ui->comboBox, &QComboBox::currentTextChanged, this, &History::refreshHistory);
+    connect(ui->pushButton, &QPushButton::clicked, this, &History::onBackButtonClicked);
+    connect(m_logger, &DataLogger::logsUpdated, this, &History::refreshHistory);
+
     refreshHistory();
 }
 
-history::~history()
+History::~History()
 {
     delete ui;
 }
 
-void history::keyPressEvent(QKeyEvent *event)
+void History::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Return || event->key() == Qt::Key_Enter) {
         event->ignore();
     } else {
-        QDialog::keyPressEvent(event);
+        QWidget::keyPressEvent(event);
     }
 }
 
-void history::onBackButtonClicked()
+void History::onBackButtonClicked()
 {
     emit backRequested();
     close();
 }
 
-void history::onSearch()
+void History::onSearch()
 {
     refreshHistory();
 }
 
-void history::onFilterChanged(const QString &)
+void History::onFilterChanged(const QString &)
 {
     refreshHistory();
 }
 
-void history::refreshHistory()
+void History::refreshHistory()
 {
     QList<LogEntry> allLogs = m_logger->retrieveHistory();
-    
+
     QString query = ui->lineEdit->text().trimmed().toLower();
     QString eventFilter = ui->comboBox->currentText().trimmed().toLower();
     if (eventFilter == "all")
         eventFilter = "";
-    
+
     ui->tableWidget->clearContents();
     ui->tableWidget->setRowCount(0);
-    
+
     for (const LogEntry &entry : allLogs) {
         QString ts = entry.timestamp.toString(Qt::ISODate).toLower();
         QString type = entry.eventType.toLower();
         QString desc = entry.description.toLower();
-        
+
         if (!query.isEmpty() &&
             (ts.indexOf(query) == -1 && type.indexOf(query) == -1 && desc.indexOf(query) == -1))
         {
             continue;
         }
-        
+
         if (!eventFilter.isEmpty() && type != eventFilter) {
             continue;
         }
-        
+
         int row = ui->tableWidget->rowCount();
         ui->tableWidget->insertRow(row);
         ui->tableWidget->setItem(row, 0, new QTableWidgetItem(entry.timestamp.toString(Qt::ISODate)));
@@ -87,3 +87,10 @@ void history::refreshHistory()
         ui->tableWidget->setItem(row, 2, new QTableWidgetItem(entry.description));
     }
 }
+
+void History::on_logoButton_clicked()
+{
+    emit backToHome();
+    this-> close();
+}
+
