@@ -3,9 +3,13 @@ A simulation for the Tandem t:slim X2 insulin pump using Qt/C++.
 
 # Group Members:
 Hamzah Hamad #101230812 
+
 Thu Thu Chit Pyae #101229440
+
 Justin Schoenhofer #101186399
+
 Kamal Yassin #101265070
+
 Aidan Casselman #101277801
 
 1. Project Planning
