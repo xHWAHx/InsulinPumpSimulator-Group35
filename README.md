@@ -12,6 +12,7 @@ Kamal Yassin #101265070
 
 Aidan Casselman #101277801
 
+# Responsibilites: 
 1. Project Planning
 - Outline team responsibilities, schedule and timeline (Shared responsibility)
 - Plan the design (Shared responsibility)
