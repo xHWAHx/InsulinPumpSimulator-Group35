@@ -3,14 +3,16 @@
 
 #include <vector>
 
-class ControlIQAlgorithm
-{
+class DataLogger;
+class PumpController;
+
+class ControlIQAlgorithm {
 public:
-    static void analyzeGlucoseData(const std::vector<double>& data);
-    static void adjustBasalRate();
-    static void suspendForLowGlucose();
-    static void increaseInsulinForHighGlucose();
-    static bool isGlucoseLevelStable();
+    static void analyzeGlucoseData(const std::vector<double>& data, DataLogger* logger, PumpController* pump);
+    static void adjustBasalRate(PumpController* pump, double rate);
+    static void suspendForLowGlucose(PumpController* pump);
+    static void increaseInsulinForHighGlucose(PumpController* pump, double currentRate);
+    static bool isGlucoseLevelStable(double glucose, double target);
 };
 
 #endif // CONTROLIQALGORITHM_H
