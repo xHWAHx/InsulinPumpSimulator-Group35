@@ -33,15 +33,17 @@ public:
     void refreshStatusBar(double glucose, double battery, double insulin);
     void showControlIQStats();
     void showOptions();
-    bool checkPin(int pin);
 
 public slots:
-    void handlePin(int pin);
     void updateGlucoseForChart(double glucose);
     void openBolusUI();
     void openSettings();
     void openHistory();
     void triggerEmergencyStop();
+    void unlock();
+
+signals:
+    void deviceUnlocked();
 
 private:
     Ui::UserInterface *ui;

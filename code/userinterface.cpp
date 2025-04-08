@@ -36,16 +36,21 @@ UserInterface::UserInterface(QWidget *parent)
     connect(homeScreen, &Home::requestOptions, this, &UserInterface::openSettings);
     connect(homeScreen, &Home::requestStats, this, &UserInterface::openHistory);
     connect(homeScreen, &Home::requestEmergencyStop, this, &UserInterface::triggerEmergencyStop);
+    connect(loginScreen, &Login::deviceUnlocked, this, &UserInterface::unlock);
 
     connect(settingsScreen, &Settings::backToHome, this, &UserInterface::displayHomeScreen);
     connect(bolusCalculator, &BolusCalculator::backToHome, this, &UserInterface::displayHomeScreen);
     connect(historyScreen, &History::backToHome, this, &UserInterface::displayHomeScreen);
 
-    showLoginScreen();
+    //showLoginScreen();
 }
 
 UserInterface::~UserInterface() {
     delete ui;
+}
+
+void UserInterface::unlock() {
+    emit deviceUnlocked();
 }
 
 void UserInterface::showLoginScreen() {
@@ -54,18 +59,6 @@ void UserInterface::showLoginScreen() {
 
 void UserInterface::displayHomeScreen() {
     ui->pageStack->setCurrentWidget(homeScreen);
-}
-
-bool UserInterface::checkPin(int pin) {
-    return pin == correctPin;
-}
-
-void UserInterface::handlePin(int pin) {
-    if (checkPin(pin)) {
-        displayHomeScreen();
-    } else {
-        displayError("Incorrect PIN. Try again.");
-    }
 }
 
 void UserInterface::displayError(const QString &message) {

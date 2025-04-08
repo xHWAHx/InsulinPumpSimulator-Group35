@@ -21,7 +21,7 @@ Device::Device(QWidget *parent)
 
     connect(window->powerButton, &QPushButton::released, this, &Device::power);
 
-    //connect(interface, &UserInterface::deviceUnlocked, this, &Device::startMonitoring);
+    connect(interface, &UserInterface::deviceUnlocked, this, &Device::startMonitoring);
     connect(tickClock, &QTimer::timeout, this, &Device::tick);
 
     Profile::createProfile("Default", 2, 3, 4, 5);
@@ -47,6 +47,7 @@ void Device::power(){
 
 void Device::startMonitoring(){
     std::cout << "Starting monitoring\n" << std::flush;
+    interface->displayHomeScreen();
     tickClock->start(1000);
 }
 

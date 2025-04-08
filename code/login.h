@@ -38,6 +38,8 @@ private slots:
 
     void on_buttonOk_clicked();
 
+signals:
+    void deviceUnlocked();
 private:
     Ui::Login *ui;
 };

@@ -92,13 +92,10 @@ void Login::on_buttonOk_clicked()
 {
     QString pin= ui-> pinDisplay-> text();
     if (pin== "1234"){
-        this-> close();
-        Home *home= new Home ();
-        home-> show();
+        emit deviceUnlocked();
     } else{
         QMessageBox:: warning(this, "Error", "Incorrect Pin, Try again");
         ui-> pinDisplay-> clear();
-
     }
 }
 
