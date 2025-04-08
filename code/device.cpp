@@ -3,6 +3,7 @@
 #include "QTimer"
 #include <iostream>
 #include "controliqalgorithm.h"
+#include "QDateTime"
 
 Device::Device(QWidget *parent)
     : QMainWindow{parent}
@@ -24,7 +25,7 @@ Device::Device(QWidget *parent)
     connect(tickClock, &QTimer::timeout, this, &Device::tick);
 
     Profile::createProfile("Default", 2, 3, 4, 5);
-    //Profile::selectProfileById(); // how do I get the ID?
+    Profile::selectProfileById(1);
 
     interface->hide(); // because device starts powered off
 }
@@ -41,7 +42,6 @@ void Device::power(){
         window->powerLabel->setText("Device is powered on");
 
         interface->showLoginScreen();
-
     }
 }
 
@@ -53,14 +53,20 @@ void Device::startMonitoring(){
 void Device::tick(){
     std::cout << "Ticking\n" << std::flush;
     battery->drainBattery();
-    interface->refreshStatusBar(cgm->getCurrentGlucoseLevel(), battery->getBatteryLevel(), insulin->getInsulinRemaining());
+    double batteryLevel = battery->getBatteryLevel();
+    double glucose = cgm->getCurrentGlucoseLevel();
+    double insulinReading = insulin->getInsulinRemaining();
+    QDateTime time = QDateTime::currentDateTime();
+    interface->refreshStatusBar(glucose, batteryLevel, insulinReading);
 
     // safety checks here
 
     //Profile currentProfile = Profile::getActiveProfile();
     //ControlIQAlgorithm::adjustBasalRate(currentProfile.getTargetGlucose());
+
     pump->pump();
+    //log->logGlucose(time, glucose);
+    //log->logInsulin(time, inuslin);
 
-    //log.logTick();
-
+    //log->logTick();
 }
