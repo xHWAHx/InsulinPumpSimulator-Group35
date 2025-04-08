@@ -12,8 +12,6 @@ history::history(DataLogger *logger, QWidget *parent)
       m_logger(logger)
 {
     ui->setupUi(this);
-    
-    ui->pushButton->setText("Back");
 
     ui->comboBox->setEditable(false);
 
@@ -57,8 +55,7 @@ void history::onFilterChanged(const QString &)
 
 void history::refreshHistory()
 {
-    int profileId = 1;
-    QList<LogEntry> allLogs = m_logger->retrieveHistory(profileId);
+    QList<LogEntry> allLogs = m_logger->retrieveHistory();
     
     QString query = ui->lineEdit->text().trimmed().toLower();
     QString eventFilter = ui->comboBox->currentText().trimmed().toLower();

@@ -89,11 +89,15 @@ bool Profile::updateProfileById(int id, const QString &name, double newBasalRate
 }
 
 bool Profile::deleteProfileById(int id) {
+    if (id == 1) {
+        qWarning() << "deleteProfileById: Cannot delete the default profile (id 1).";
+        return false;
+    }
     for (int i = 0; i < s_profiles.size(); i++) {
         if (s_profiles[i].getId() == id) {
             s_profiles.removeAt(i);
             if (s_activeProfileId == id)
-                s_activeProfileId = -1;
+                s_activeProfileId = 1;
             return saveProfiles();
         }
     }
