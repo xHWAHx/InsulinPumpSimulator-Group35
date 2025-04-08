@@ -33,6 +33,7 @@ signals:
     void backToHome();
 private slots:
     void on_logoButton_clicked();
+    void on_btnCalculate_clicked();
 };
 
 #endif // BOLUSCALCULATOR_H
