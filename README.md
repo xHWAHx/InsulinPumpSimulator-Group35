@@ -29,10 +29,59 @@ Aidan Casselman #101277801
 3. Development
 - Home page and lock screen (Kamal) 
 - Profiles (Thu Thu)
-- Basic device functions and control, alert popup (Justin)
+- Basic device functions, basic indicators (battery, USB...), alert popup (Justin)
 - Data Visualization (insulin fill gauge, IOB, …) (Aidan)
 - Bolus calculator and manual bolus operation, ControlIQ (Hamzah)
 
+# File Organization: 
+InsulinPumpSimulator-Group35.zip/ 
+  |_ UML Diagrams/
+      |_ design explanation draft.pdf/
+      |_ sequence diagram - main loop.png/
+      |_ state diagrams.pdf/
+      |_ use cases.pdf/
+  |_ code/ 
+      |_ .gitignore/ 
+      |_ alert.ui/ 
+      |_ batterymanager.cpp/
+      |_ batterymanager.h/ 
+      |_ boluscalculator.cpp/
+      |_ boluscalculator.h/
+      |_ boluscalculator.ui/ 
+      |_ cgmreader.cpp/ 
+      |_ cgmreader.h/ 
+      |_ controliqalgorithm.cpp/ 
+      |_ controliqalgorithm.h/ 
+      |_ datalogger.cpp/ 
+      |_ datalogger.h/ 
+      |_ device.cpp/ 
+      |_ device.h/ 
+      |_ device.ui/ 
+      |_ history.cpp/ 
+      |_ history.h/ 
+      |_ history.ui/ 
+      |_ home.cpp/ 
+      |_ home.h/ 
+      |_ home.ui/ 
+      |_ insulinPump.pro/ 
+      |_ insulinreserve.cpp/ 
+      |_ insulinreserve.h/ 
+      |_ login.cpp/ 
+      |_ login.h/ 
+      |_ login.ui/ 
+      |_ main.cpp/ 
+      |_ profile.cpp/ 
+      |_ profile.h/ 
+      |_ pumpcontroller.cpp/ 
+      |_ pumpcontroller.h/ 
+      |_ settings.cpp/ 
+      |_ settings.h/ 
+      |_ settings.ui/ 
+      |_ userinterface.cpp/ 
+      |_ userinterface.h/ 
+      |_ userinterface.ui/ 
+  |_ docs/ 
+      
 ## Documentation
 
 [View the full documentation here](https://xhwahx.github.io/InsulinPumpSimulator-Group35/)
