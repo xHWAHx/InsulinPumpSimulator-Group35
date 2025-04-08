@@ -73,9 +73,26 @@ std::pair<double, double> BolusCalculator::splitBolus(double total, double perce
     return {immediate, extended};
 }
 
+// outputs recommended dose
+void BolusCalculator::on_btnCalculate_clicked()
+{
+    bool ok1, ok2;
+    double glucose = ui->inputGlucose->text().toDouble(&ok1);
+    double carbs = ui->inputCarbs->text().toDouble(&ok2);
+
+    if (!ok1 || !ok2) {
+        ui->outputResult->setText("Invalid input");
+        return;
+    }
+
+    double dose = calculateBolus(glucose, carbs);
+    ui->outputResult->setText(QString::number(dose, 'f', 2));
+}
+
 void BolusCalculator::on_logoButton_clicked()
 {
     emit backToHome();
     this-> close();
 }
+
 
