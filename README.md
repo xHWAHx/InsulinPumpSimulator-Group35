@@ -33,100 +33,44 @@ Aidan Casselman #101277801
 - Data Visualization (insulin fill gauge, IOB, …) (Aidan)
 - Bolus calculator and manual bolus operation, ControlIQ (Hamzah)
 
-# File Organization: 
-InsulinPumpSimulator-Group35.zip/ 
+## File Organization
 
-  UML Diagrams/
-  
-      |_ design explanation draft.pdf/
-      
-      |_ sequence diagram - main loop.png/
-      
-      |_ state diagrams.pdf/
-      
-      |_ use cases.pdf/
-      
-  code/ 
-  
-      |_ .gitignore/ 
+### Root Directory  
+`InsulinPumpSimulator-Group35.zip/`
 
-      |_ alert.ui/ 
-      
-      |_ batterymanager.cpp/
-      
-      |_ batterymanager.h/ 
-      
-      |_ boluscalculator.cpp/
-      
-      |_ boluscalculator.h/
-      
-      |_ boluscalculator.ui/ 
-      
-      |_ cgmreader.cpp/ 
-      
-      |_ cgmreader.h/ 
-      
-      |_ controliqalgorithm.cpp/ 
-      
-      |_ controliqalgorithm.h/ 
-      
-      |_ datalogger.cpp/ 
-      
-      |_ datalogger.h/ 
-      
-      |_ device.cpp/ 
-      
-      |_ device.h/ 
-      
-      |_ device.ui/ 
-      
-      |_ history.cpp/ 
-      
-      |_ history.h/ 
-      
-      |_ history.ui/ 
-      
-      |_ home.cpp/ 
-      
-      |_ home.h/ 
-      
-      |_ home.ui/ 
-      
-      |_ insulinPump.pro/ 
-      
-      |_ insulinreserve.cpp/ 
-      
-      |_ insulinreserve.h/ 
-      
-      |_ login.cpp/ 
-      
-      |_ login.h/ 
-      
-      |_ login.ui/ 
-      
-      |_ main.cpp/ 
-      
-      |_ profile.cpp/ 
-      
-      |_ profile.h/ 
-      
-      |_ pumpcontroller.cpp/ 
-      
-      |_ pumpcontroller.h/ 
-      
-      |_ settings.cpp/ 
-      
-      |_ settings.h/ 
-      
-      |_ settings.ui/ 
-      
-      |_ userinterface.cpp/ 
-      
-      |_ userinterface.h/ 
-      
-      |_ userinterface.ui/ 
-      
-  docs/ 
+---
+
+### UML Diagrams  
+Located in `UML Diagrams/`:
+
+- `design explanation draft.pdf`  
+- `sequence diagram - main loop.png`  
+- `state diagrams.pdf`  
+- `use cases.pdf`
+
+---
+
+### Source Code  
+Located in `code/`:
+
+**Core Modules:**
+
+- `main.cpp`  
+- `batterymanager.cpp`, `batterymanager.h`  
+- `boluscalculator.cpp`, `boluscalculator.h`, `boluscalculator.ui`  
+- `cgmreader.cpp`, `cgmreader.h`  
+- `controliqalgorithm.cpp`, `controliqalgorithm.h`  
+- `datalogger.cpp`, `datalogger.h`  
+- `device.cpp`, `device.h`, `device.ui`  
+- `history.cpp`, `history.h`, `history.ui`  
+- `home.cpp`, `home.h`, `home.ui`  
+- `insulinreserve.cpp`, `insulinreserve.h`  
+- `login.cpp`, `login.h`, `login.ui`  
+- `profile.cpp`, `profile.h`  
+- `pumpcontroller.cpp`, `pumpcontroller.h`  
+- `settings.cpp`, `settings.h`, `settings.ui`  
+- `userinterface.cpp`, `userinterface.h`, `userinterface.ui`  
+- `alert.ui`
       
 ## Documentation
 
