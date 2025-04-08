@@ -89,6 +89,16 @@ public:
     static bool createProfile(const QString &name, double basalRate, double carbRatio, double correctionFactor, double targetGlucose);
 
     /**
+     * @brief Initializes the default profile if none exists.
+     *
+     * This function checks whether the profile data file exists at the expected path.
+     * If the file does not exist, it creates a default profile with predefined parameters
+     * and saves it. This is typically used during application startup to ensure
+     * that a usable profile is available.
+     */
+    static void initDefaultProfile();
+
+    /**
      * @brief Updates an existing profile by its identifier.
      *
      * Modifies the profile with the given ID with new settings.

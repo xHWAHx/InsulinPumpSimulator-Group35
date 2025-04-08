@@ -24,7 +24,7 @@ Device::Device(QWidget *parent)
     connect(interface, &UserInterface::deviceUnlocked, this, &Device::startMonitoring);
     connect(tickClock, &QTimer::timeout, this, &Device::tick);
 
-    Profile::createProfile("Default", 2, 3, 4, 5);
+    Profile::initDefaultProfile();
     Profile::selectProfileById(1);
 
     interface->hide(); // because device starts powered off

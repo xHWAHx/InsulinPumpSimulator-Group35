@@ -73,6 +73,13 @@ bool Profile::createProfile(const QString &name, double basalRate, double carbRa
     return saveProfiles();
 }
 
+void Profile::initDefaultProfile() {
+    QFile profileFile(s_profilesFilePath);
+    if (!profileFile.exists()) {
+        createProfile("Default", 2, 3, 4, 5);
+    }
+}
+
 bool Profile::updateProfileById(int id, const QString &name, double newBasalRate, double newCarbRatio, double newCorrectionFactor, double newTargetGlucose) {
     for (int i = 0; i < s_profiles.size(); i++) {
         if (s_profiles[i].getId() == id) {
