@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['increaseinsulinforhighglucose_81',['increaseInsulinForHighGlucose',['../classControlIQAlgorithm.html#ade7522c34e9cbe1815a2c2d6309f43ab',1,'ControlIQAlgorithm']]],
+  ['insulin_82',['insulin',['../classDevice.html#ab0384c6e4421b7412f2ceb06edc640e8',1,'Device']]],
+  ['insulin_2dpump_2dsimulator_83',['Insulin-Pump-Simulator',['../md_README.html',1,'']]],
+  ['insulinlog_84',['insulinLog',['../structLogData.html#a8713598d86736b113898fe58fef54d0d',1,'LogData']]],
+  ['insulinlogentry_85',['InsulinLogEntry',['../structInsulinLogEntry.html',1,'']]],
+  ['insulinremaining_86',['insulinRemaining',['../classInsulinReserve.html#a9329acfe39df6ff72c822ebc6d74603d',1,'InsulinReserve']]],
+  ['insulinreserve_87',['insulinReserve',['../classUserInterface.html#a887e0b6bf5f8285bf40c4242ce5f1b9a',1,'UserInterface']]],
+  ['insulinreserve_88',['InsulinReserve',['../classInsulinReserve.html#a5af032c2a3d92f05034c007aec541733',1,'InsulinReserve']]],
+  ['insulinreserve_89',['insulinReserve',['../classPumpController.html#ae1f5a6b1f21af4a6c4eb4d8dfc04ef47',1,'PumpController']]],
+  ['insulinreserve_90',['InsulinReserve',['../classInsulinReserve.html',1,'']]],
+  ['insulinreserve_2eh_91',['insulinreserve.h',['../insulinreserve_8h.html',1,'']]],
+  ['interface_92',['interface',['../classDevice.html#a1837b186572857d2b618988935ec4e0f',1,'Device']]],
+  ['isbatterycritical_93',['isBatteryCritical',['../classBatteryManager.html#af180b7346ee60dc13220efd492282d8a',1,'BatteryManager']]],
+  ['iscgmconnected_94',['isCGMConnected',['../classCGMReader.html#afc658a5974b6d2e0a36c9cc1dbf02493',1,'CGMReader']]],
+  ['isglucoselevelstable_95',['isGlucoseLevelStable',['../classControlIQAlgorithm.html#a7f426593b74b350cedb49142bd7ae9f5',1,'ControlIQAlgorithm']]],
+  ['isinsulinlow_96',['isInsulinLow',['../classInsulinReserve.html#ab889d7014adbc4ffcfd3c0782d3bb41a',1,'InsulinReserve']]],
+  ['issafetodeliver_97',['isSafeToDeliver',['../classPumpController.html#adb2a2a10bb222f1f0e40086c114900c0',1,'PumpController']]]
+];
