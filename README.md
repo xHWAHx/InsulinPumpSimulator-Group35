@@ -51,7 +51,7 @@ Located in `UML Diagrams/`:
 ---
 
 ### Source Code  
-Located in `InsulinPumpSimulator-Group35/code/`:
+Located in `code/`:
 
 **Core Modules:**
 
