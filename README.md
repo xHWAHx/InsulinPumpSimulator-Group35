@@ -36,7 +36,7 @@ Aidan Casselman #101277801
 # File Organization: 
 InsulinPumpSimulator-Group35.zip/ 
 
-  |_ UML Diagrams/
+  UML Diagrams/
   
       |_ design explanation draft.pdf/
       
@@ -46,7 +46,7 @@ InsulinPumpSimulator-Group35.zip/
       
       |_ use cases.pdf/
       
-  |_ code/ 
+  code/ 
   
       |_ .gitignore/ 
 
@@ -126,7 +126,7 @@ InsulinPumpSimulator-Group35.zip/
       
       |_ userinterface.ui/ 
       
-  |_ docs/ 
+  docs/ 
       
 ## Documentation
 
