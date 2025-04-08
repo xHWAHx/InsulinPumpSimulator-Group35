@@ -29,7 +29,7 @@ Aidan Casselman #101277801
 3. Development
 - Home page and lock screen (Kamal) 
 - Profiles (Thu Thu)
-- Basic device functions, basic indicators (battery, USB...), alert popup (Justin)
+- Basic device functions and control, alert popup (Justin)
 - Data Visualization (insulin fill gauge, IOB, …) (Aidan)
 - Bolus calculator and manual bolus operation, ControlIQ (Hamzah)
 
