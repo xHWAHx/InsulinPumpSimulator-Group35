@@ -1,38 +1,62 @@
 #include "boluscalculator.h"
-#include "ui_boluscalculator.h"
-#include  <iostream> 
+#include "profile.h"
 
-double BolusCalculator::calculateBolus(double glucose, double carbs){
-    // This function calls itself and will create infinite recursion.
-  return calculateBolus(carbs, 10.0) + calculateCorrectionDose(glucose, 5.5, 2.0);
+// Static member definitions
+double BolusCalculator::overriddenDose = 0.0;
+bool BolusCalculator::doseOverridden = false;
+
+double BolusCalculator::calculateBolus(double glucose, double carbs) {
+    if (doseOverridden) return overriddenDose;
+
+    // gets value from current profile
+    Profile profile = Profile::getActiveProfile();
+    double carbRatio = profile.getCarbRatio();
+    double correctionFactor = profile.getCorrectionFactor();
+    double targetGlucose = profile.getTargetGlucose();
+
+    double carbDose = calculateCarbBolus(carbs, carbRatio);
+    double correctionDose = calculateCorrectionBolus(glucose, targetGlucose, correctionFactor);
+
+    return carbDose + correctionDose;
 }
 
-double BolusCalculator::suggestDose(){
-  return calculateBolus(8.5, 40.0);
+double BolusCalculator::suggestDose() {
+    // recommends dose based on target glucose
+    Profile profile = Profile::getActiveProfile();
+    return calculateCorrectionBolus(profile.getTargetGlucose(), profile.getTargetGlucose(), profile.getCorrectionFactor());
 }
 
-void BolusCalculator::overrideDose(double dose){
-    // This function does nothing to actually override the dose
-  std::cout << "Dose Updated.\n"; 
+void BolusCalculator::overrideDose(double dose) {
+    overriddenDose = dose;
+    doseOverridden = true;
 }
 
-bool BolusCalculator::validateBolusInput(double dose){
-  return dose >= 0.0 && dose <= 25.0; 
+bool BolusCalculator::validateBolusInput(double dose) {
+    return dose > 0 && dose <= 25.0;  // saftey range, modifiable
 }
 
-double BolusCalculator::calculateCorrectionDose(double glucose, double target, double sensitivity){
-  if (glucose  <= target){
-    return 0.0; 
-  }
-  return  (glucose - target) / sensitivity; 
+double BolusCalculator::calculateCorrectionBolus(double glucose, double target, double correctionFactor) {
+    if (correctionFactor <= 0) return 0;
+    double diff = glucose - target;
+    return (diff > 0) ? (diff / correctionFactor) : 0; // true if glucose lvl is high
 }
 
-double BolusCalculator::calculateCarbBolus(double carbs, double ratio){
-  return carbs / ratio; 
+double BolusCalculator::calculateCarbBolus(double carbs, double carbRatio) {
+    if (carbRatio <= 0) return 0;
+    return carbs / carbRatio;
 }
 
-std::pair<double, double> BolusCalculator::splitBolus(double totalDose, double percentage){
-  double immediateDose = totalDose * (percentage / 100.0); 
-  double extendedDose = totalDose - immediateDose; 
-  return { immediateDose, extendedDose }; 
+double BolusCalculator::calculateTotalBolus(double glucose, double carbs, double target) {
+    Profile profile = Profile::getActiveProfile();
+    double carbDose = calculateCarbBolus(carbs, profile.getCarbRatio());
+    double correctionDose = calculateCorrectionBolus(glucose, target, profile.getCorrectionFactor());
+    return carbDose + correctionDose;
+}
+
+std::pair<double, double> BolusCalculator::splitBolus(double total, double percentage) {
+    // ensures the requested dose percentages make sense 
+    if (percentage < 0 || percentage > 100) return {0.0, 0.0};
+    double immediate = (percentage / 100.0) * total;
+    double extended = total - immediate;
+    return {immediate, extended};
 }
