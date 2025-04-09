@@ -1,4 +1,4 @@
-# Insulin-Pump-Simulator  * *(NOT FINAL) 
+# Insulin-Pump-Simulator * (NOT FINAL) * 
 A simulation for the Tandem t:slim X2 insulin pump using Qt/C++.
 
 # Group Members:
