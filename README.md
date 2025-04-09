@@ -43,6 +43,7 @@ Aidan Casselman #101277801
 ### UML Diagrams  
 Located in `UML Diagrams/`:
 
+- `Traceability-Matrix.pdf`
 - `design explanation draft.pdf`  
 - `sequence diagram - main loop.png`  
 - `state diagrams.pdf`  
