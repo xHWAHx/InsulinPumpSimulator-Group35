@@ -76,8 +76,10 @@ Located in `code/`:
 
 [View the full documentation here](https://xhwahx.github.io/InsulinPumpSimulator-Group35/)
 
-## Compiling Instructions: follow in order 
+## Compiling Instructions (Terminal): 
 - `qmake insulinPump.pro` 
 - `make`
 - `./insulinPump` 
 
+## Compiling Instructions (Terminal): 
+- `In Qt builder press 'Build'`
