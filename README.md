@@ -81,5 +81,5 @@ Located in `code/`:
 - `make`
 - `./insulinPump` 
 
-## Compiling Instructions (Terminal): 
-- `In Qt builder press 'Build'`
+## Compiling Instructions (Qt Builder): 
+- `Press 'Build'`
