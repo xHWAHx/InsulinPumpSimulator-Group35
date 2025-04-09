@@ -27,11 +27,11 @@ Aidan Casselman #101277801
 - An explanation of our design decisions (Thu Thu)
 
 3. Development
-- Home page and lock screen (Kamal) 
-- Profiles (Thu Thu)
-- Basic device functions, basic indicators (battery, USB...), alert popup (Justin)
-- Data Visualization (insulin fill gauge, IOB, …) (Aidan)
-- Bolus calculator and manual bolus operation, ControlIQ (Hamzah)
+- User Interface class, home.ui screen, CGM- charts, button interactions (options, bolus, history), login (pin), screen layout policies (Kamal)
+- Settings (CRUD) and PumpController (Thu Thu)
+- Basic device functions and control flow (Justin)
+- Data storage, logging, history, profile management, and documentation (Aidan)
+- Bolus calculator and manual bolus operation (.cpp, .h, .ui), ControlIQ (.cpp, .h) (Hamzah)
 
 ## File Organization
 
