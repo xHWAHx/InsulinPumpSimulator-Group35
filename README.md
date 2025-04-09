@@ -76,10 +76,13 @@ Located in `code/`:
 
 [View the full documentation here](https://xhwahx.github.io/InsulinPumpSimulator-Group35/)
 
-## Compiling Instructions (Terminal): 
+## Compiling instructions
+Make sure QtCharts is installed with `sudo apt install libqt5charts5-dev`
+
+### In the terminal: 
 - `qmake insulinPump.pro` 
 - `make`
 - `./insulinPump` 
 
-## Compiling Instructions (Qt Builder): 
-- `Press 'Build'`
+### In Qt Creator:
+- Press `'Build'`
