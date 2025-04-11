@@ -13,6 +13,15 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+  background-color: #454545;
+  color: white;
+  font-family: &quot;Segoe UI&quot;, sans-serif;
+  font-size: 14px;
+}
+</string>
+  </property>
   <widget class="QStackedWidget" name="pageStack">
    <property name="geometry">
     <rect>

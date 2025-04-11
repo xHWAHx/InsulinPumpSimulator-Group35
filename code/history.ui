@@ -19,10 +19,10 @@
   <widget class="QPushButton" name="logoButton">
    <property name="geometry">
     <rect>
-     <x>540</x>
+     <x>530</x>
      <y>20</y>
-     <width>41</width>
-     <height>31</height>
+     <width>51</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -53,9 +53,9 @@ QPushButton#logoButton:pressed {
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>20</x>
      <y>70</y>
-     <width>571</width>
+     <width>561</width>
      <height>45</height>
     </rect>
    </property>
@@ -122,10 +122,10 @@ QPushButton#logoButton:pressed {
   <widget class="QTableWidget" name="tableWidget">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>20</x>
      <y>130</y>
-     <width>571</width>
-     <height>241</height>
+     <width>561</width>
+     <height>251</height>
     </rect>
    </property>
    <property name="columnCount">
@@ -162,14 +162,27 @@ QPushButton#logoButton:pressed {
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>260</x>
+     <x>80</x>
      <y>10</y>
-     <width>74</width>
-     <height>17</height>
+     <width>441</width>
+     <height>31</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
    </property>
    <property name="text">
     <string>History Log</string>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
    </property>
    <property name="alignment">
     <set>Qt::AlignHCenter|Qt::AlignTop</set>

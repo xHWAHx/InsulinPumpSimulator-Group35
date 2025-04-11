@@ -22,11 +22,18 @@
   <widget class="QLabel" name="timeLabel">
    <property name="geometry">
     <rect>
-     <x>189</x>
-     <y>20</y>
-     <width>121</width>
-     <height>20</height>
+     <x>159</x>
+     <y>9</y>
+     <width>171</width>
+     <height>31</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>-1</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="styleSheet">
     <string notr="true">QLabel#timeLabel {
@@ -38,13 +45,16 @@
    <property name="text">
     <string>2:10 AM</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="dateLabel">
    <property name="geometry">
     <rect>
-     <x>200</x>
+     <x>160</x>
      <y>40</y>
-     <width>71</width>
+     <width>171</width>
      <height>21</height>
     </rect>
    </property>
@@ -58,13 +68,16 @@
    <property name="text">
     <string>30 Mar</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QProgressBar" name="insulinBar">
    <property name="geometry">
     <rect>
-     <x>430</x>
+     <x>390</x>
      <y>20</y>
-     <width>131</width>
+     <width>121</width>
      <height>23</height>
     </rect>
    </property>
@@ -95,7 +108,7 @@ QProgressBar#insulinBar::chunk {
   <widget class="QLabel" name="insulinIcon">
    <property name="geometry">
     <rect>
-     <x>390</x>
+     <x>350</x>
      <y>20</y>
      <width>31</width>
      <height>31</height>
@@ -115,14 +128,17 @@ QProgressBar#insulinBar::chunk {
    <property name="text">
     <string>B</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="insulinUnitsLabel">
    <property name="geometry">
     <rect>
-     <x>440</x>
+     <x>390</x>
      <y>50</y>
-     <width>62</width>
-     <height>17</height>
+     <width>121</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -137,13 +153,16 @@ QProgressBar#insulinBar::chunk {
    <property name="text">
     <string>235 u</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QProgressBar" name="batteryBar">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>20</x>
      <y>20</y>
-     <width>101</width>
+     <width>121</width>
      <height>23</height>
     </rect>
    </property>
@@ -173,10 +192,10 @@ QProgressBar#batteryBar::chunk {
   <widget class="QLabel" name="batteryLabel">
    <property name="geometry">
     <rect>
-     <x>40</x>
+     <x>20</x>
      <y>50</y>
-     <width>62</width>
-     <height>17</height>
+     <width>121</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -191,127 +210,26 @@ QProgressBar#batteryBar::chunk {
    <property name="text">
     <string>100%</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QChartView" name="chartView" native="true">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>90</y>
-     <width>321</width>
-     <height>141</height>
+     <y>80</y>
+     <width>381</width>
+     <height>231</height>
     </rect>
-   </property>
-  </widget>
-  <widget class="Line" name="line">
-   <property name="geometry">
-    <rect>
-     <x>320</x>
-     <y>90</y>
-     <width>181</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
-   </property>
-  </widget>
-  <widget class="QLabel" name="glucoseLabel">
-   <property name="geometry">
-    <rect>
-     <x>370</x>
-     <y>110</y>
-     <width>51</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLabel {
-    color: white;
-    font-size: 28px;
-    font-weight: bold;
-    font-family: &quot;Segoe UI&quot;, sans-serif;
-}</string>
-   </property>
-   <property name="text">
-    <string>6.3</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>370</x>
-     <y>140</y>
-     <width>62</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLabel {
-    color: #CCCCCC;
-    font-size: 14px;
-    font-weight: medium;
-    font-family: &quot;Segoe UI&quot;, sans-serif;
-    margin-top: -10px;
-}
-</string>
-   </property>
-   <property name="text">
-    <string>mmol/L</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_4">
-   <property name="geometry">
-    <rect>
-     <x>360</x>
-     <y>220</y>
-     <width>61</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLabel {
-    color: #CCCCCC;
-    font-size: 16px;
-    font-weight: medium;
-    font-family: &quot;Segoe UI&quot;, sans-serif;
-    margin-top: -10px;
-}</string>
-   </property>
-   <property name="text">
-    <string>    HR</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton">
-   <property name="geometry">
-    <rect>
-     <x>360</x>
-     <y>180</y>
-     <width>61</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLabel, QPushButton {
-    background-color: #555555;
-    border-radius: 6px;
-    padding: 10px 20px;
-    color: white;
-    font-size: 22px;
-    font-weight: bold;
-    font-family: &quot;Segoe UI&quot;, sans-serif;
-}
-</string>
-   </property>
-   <property name="text">
-    <string>3 </string>
    </property>
   </widget>
   <widget class="Line" name="line_2">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>420</x>
      <y>230</y>
-     <width>351</width>
+     <width>161</width>
      <height>20</height>
     </rect>
    </property>
@@ -323,8 +241,8 @@ QProgressBar#batteryBar::chunk {
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>290</y>
-     <width>171</width>
+     <y>320</y>
+     <width>161</width>
      <height>61</height>
     </rect>
    </property>
@@ -348,10 +266,10 @@ QProgressBar#batteryBar::chunk {
   <widget class="QLabel" name="insulinLabel">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>250</y>
+     <x>420</x>
+     <y>260</y>
      <width>161</width>
-     <height>20</height>
+     <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -365,14 +283,17 @@ QProgressBar#batteryBar::chunk {
    <property name="text">
     <string>INSULIN ON BOARD</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="insulinUnitsLabel_2">
    <property name="geometry">
     <rect>
-     <x>250</x>
-     <y>250</y>
-     <width>141</width>
-     <height>20</height>
+     <x>420</x>
+     <y>280</y>
+     <width>161</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -385,13 +306,16 @@ QProgressBar#batteryBar::chunk {
    <property name="text">
     <string>0 u</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QPushButton" name="buttonBolus">
    <property name="geometry">
     <rect>
-     <x>200</x>
-     <y>290</y>
-     <width>181</width>
+     <x>220</x>
+     <y>320</y>
+     <width>161</width>
      <height>61</height>
     </rect>
    </property>
@@ -415,9 +339,9 @@ QProgressBar#batteryBar::chunk {
   <widget class="QPushButton" name="historyButton">
    <property name="geometry">
     <rect>
-     <x>400</x>
-     <y>290</y>
-     <width>171</width>
+     <x>420</x>
+     <y>320</y>
+     <width>161</width>
      <height>61</height>
     </rect>
    </property>
@@ -435,16 +359,16 @@ QProgressBar#batteryBar::chunk {
 }</string>
    </property>
    <property name="text">
-    <string>History</string>
+    <string>HISTORY</string>
    </property>
   </widget>
   <widget class="QPushButton" name="logoButton">
    <property name="geometry">
     <rect>
-     <x>340</x>
+     <x>530</x>
      <y>20</y>
-     <width>41</width>
-     <height>31</height>
+     <width>51</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -470,6 +394,125 @@ QPushButton#logoButton:pressed {
    </property>
    <property name="text">
     <string>T</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>490</x>
+     <y>170</y>
+     <width>61</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel, QPushButton {
+    background-color: #555555;
+    border-radius: 6px;
+    padding: 10px 20px;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: &quot;Segoe UI&quot;, sans-serif;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>3</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>170</y>
+     <width>41</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+    color: #CCCCCC;
+    font-size: 16px;
+    font-weight: medium;
+    font-family: &quot;Segoe UI&quot;, sans-serif;
+    margin-top: -10px;
+}</string>
+   </property>
+   <property name="text">
+    <string>HR</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="glucoseLabel">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>110</y>
+     <width>81</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    font-family: &quot;Segoe UI&quot;, sans-serif;
+}</string>
+   </property>
+   <property name="text">
+    <string>6.3</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="Line" name="line">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>80</y>
+     <width>161</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>120</y>
+     <width>61</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+    color: #CCCCCC;
+    font-size: 14px;
+    font-weight: medium;
+    font-family: &quot;Segoe UI&quot;, sans-serif;
+    margin-top: -10px;
+}
+</string>
+   </property>
+   <property name="text">
+    <string>mmol/L</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
  </widget>

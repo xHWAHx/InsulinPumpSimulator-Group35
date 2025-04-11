@@ -38,6 +38,7 @@ void Home::setupChart()
     chart->setTitle("CGM Glucose Trend");
     chart->legend()->hide();
     chart->setBackgroundBrush(Qt::black);
+    chart->zoom(0.5);
 
     QValueAxis *axisX = new QValueAxis;
     axisX->setRange(0, 180);
@@ -67,7 +68,7 @@ void Home::addGlucoseReading(double value)
 
 void Home::updateStatus(double glucose, double battery, double insulin)
 {
-    ui->glucoseLabel->setText(QString::number(glucose, 'f', 1) + " mmol/L");
+    ui->glucoseLabel->setText(QString::number(glucose, 'f', 1));
     ui->batteryLabel->setText(QString::number(battery, 'f', 0) + "%");
     ui->insulinLabel->setText(QString::number(insulin, 'f', 1) + " u");
 }

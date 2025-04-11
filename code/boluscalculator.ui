@@ -18,8 +18,8 @@
     <rect>
      <x>320</x>
      <y>150</y>
-     <width>130</width>
-     <height>30</height>
+     <width>131</width>
+     <height>31</height>
     </rect>
    </property>
   </widget>
@@ -27,32 +27,35 @@
    <property name="geometry">
     <rect>
      <x>320</x>
-     <y>80</y>
-     <width>130</width>
-     <height>30</height>
+     <y>90</y>
+     <width>131</width>
+     <height>31</height>
     </rect>
    </property>
   </widget>
   <widget class="QLabel" name="labelResult">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>300</y>
-     <width>191</width>
-     <height>30</height>
+     <x>100</x>
+     <y>340</y>
+     <width>211</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">
     <string>Recommended Dose (units):</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
   </widget>
   <widget class="QPushButton" name="btnCalculate">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>230</y>
-     <width>120</width>
-     <height>35</height>
+     <x>230</x>
+     <y>240</y>
+     <width>141</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="text">
@@ -64,8 +67,8 @@
     <rect>
      <x>530</x>
      <y>20</y>
-     <width>41</width>
-     <height>31</height>
+     <width>51</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -96,23 +99,26 @@ QPushButton#logoButton:pressed {
   <widget class="QLabel" name="labelCarbs">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>110</x>
      <y>150</y>
-     <width>150</width>
-     <height>30</height>
+     <width>191</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">
     <string>Carbohydrates (g):</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
   </widget>
   <widget class="QLineEdit" name="outputResult">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>300</y>
-     <width>130</width>
-     <height>30</height>
+     <x>320</x>
+     <y>340</y>
+     <width>131</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="readOnly">
@@ -122,14 +128,40 @@ QPushButton#logoButton:pressed {
   <widget class="QLabel" name="labelGlucose">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>80</y>
-     <width>150</width>
-     <height>30</height>
+     <x>120</x>
+     <y>90</y>
+     <width>181</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">
     <string>Glucose Level (mmol/L):</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>9</y>
+     <width>441</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Bolus calculator</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
  </widget>
