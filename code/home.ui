@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>580</width>
-    <height>499</height>
+    <width>600</width>
+    <height>400</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,13 +17,7 @@
    <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true">QWidget {
-  background-color: #3A3A3A;
-  color: white;
-  font-family: &quot;Segoe UI&quot;, sans-serif;
-  font-size: 14px;
-}
-</string>
+   <string notr="true"/>
   </property>
   <widget class="QLabel" name="timeLabel">
    <property name="geometry">
@@ -329,7 +323,7 @@ QProgressBar#batteryBar::chunk {
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>270</y>
+     <y>290</y>
      <width>171</width>
      <height>61</height>
     </rect>
@@ -395,8 +389,8 @@ QProgressBar#batteryBar::chunk {
   <widget class="QPushButton" name="buttonBolus">
    <property name="geometry">
     <rect>
-     <x>250</x>
-     <y>270</y>
+     <x>200</x>
+     <y>290</y>
      <width>181</width>
      <height>61</height>
     </rect>
@@ -421,8 +415,8 @@ QProgressBar#batteryBar::chunk {
   <widget class="QPushButton" name="historyButton">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>340</y>
+     <x>400</x>
+     <y>290</y>
      <width>171</width>
      <height>61</height>
     </rect>

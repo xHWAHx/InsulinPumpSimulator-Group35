@@ -6,31 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>600</width>
+    <height>400</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="pushButton">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>240</y>
-     <width>80</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Back</string>
-   </property>
-  </widget>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QPushButton" name="logoButton">
    <property name="geometry">
     <rect>
-     <x>350</x>
-     <y>10</y>
+     <x>540</x>
+     <y>20</y>
      <width>41</width>
      <height>31</height>
     </rect>
@@ -64,8 +54,8 @@ QPushButton#logoButton:pressed {
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>37</y>
-     <width>284</width>
+     <y>70</y>
+     <width>571</width>
      <height>45</height>
     </rect>
    </property>
@@ -85,6 +75,15 @@ QPushButton#logoButton:pressed {
     </item>
     <item>
      <widget class="QComboBox" name="comboBox">
+      <property name="styleSheet">
+       <string notr="true">QWidget {
+  background-color: #3A3A3A;
+  color: white;
+  font-family: &quot;Segoe UI&quot;, sans-serif;
+  font-size: 14px;
+}
+</string>
+      </property>
       <property name="editable">
        <bool>true</bool>
       </property>
@@ -124,9 +123,9 @@ QPushButton#logoButton:pressed {
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>88</y>
-     <width>382</width>
-     <height>146</height>
+     <y>130</y>
+     <width>571</width>
+     <height>241</height>
     </rect>
    </property>
    <property name="columnCount">
@@ -163,7 +162,7 @@ QPushButton#logoButton:pressed {
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>260</x>
      <y>10</y>
      <width>74</width>
      <height>17</height>

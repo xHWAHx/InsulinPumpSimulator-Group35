@@ -17,7 +17,6 @@ History::History(DataLogger *logger, QWidget *parent)
 
     connect(ui->lineEdit, &QLineEdit::textChanged, this, &History::refreshHistory);
     connect(ui->comboBox, &QComboBox::currentTextChanged, this, &History::refreshHistory);
-    connect(ui->pushButton, &QPushButton::clicked, this, &History::onBackButtonClicked);
     connect(m_logger, &DataLogger::logsUpdated, this, &History::refreshHistory);
 
     refreshHistory();
