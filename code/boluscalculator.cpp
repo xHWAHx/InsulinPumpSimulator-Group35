@@ -3,6 +3,7 @@
 #include "profile.h"
 #include <QMessageBox>
 #include <QInputDialog>
+#include <QCheckBox>
 
 BolusCalculator::BolusCalculator(PumpController* pump, DataLogger* logger, CGMReader* cgm, InsulinReserve* insulin, QWidget *parent): QWidget(parent),ui(new Ui::BolusCalculator),pump(pump),logger(logger),cgm(cgm),insulinReserve(insulin){
    
