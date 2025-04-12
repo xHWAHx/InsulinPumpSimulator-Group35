@@ -12,7 +12,7 @@ class BolusCalculator : public QWidget
     Q_OBJECT
 
 public:
-    explicit BolusCalculator(QWidget *parent = nullptr);
+    explicit BolusCalculator(PumpController* pump, DataLogger* logger, CGMReader* cgm, InsulinReserve* insulin, QWidget *parent = nullptr);
     ~BolusCalculator();
     static double calculateBolus(double glucose, double carbs);
     static double suggestDose();
@@ -29,11 +29,19 @@ private:
     static double overriddenDose;
     static bool doseOverridden;
 
+    PumpController* pump;
+    DataLogger* logger;
+    CGMReader* cgm;
+    InsulinReserve* insulinReserve;
+
 signals:
     void backToHome();
+
 private slots:
     void on_logoButton_clicked();
     void on_btnCalculate_clicked();
+    void on_btnOverrideConfirm_clicked(); 
+    void on_btnDeliver_clicked();
 };
 
 #endif // BOLUSCALCULATOR_H
