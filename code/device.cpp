@@ -1,6 +1,7 @@
 #include "device.h"
 #include "ui_device.h"
 #include "QTimer"
+#include "alert.h"
 #include <iostream>
 #include "controliqalgorithm.h"
 #include "QDateTime"
@@ -48,26 +49,53 @@ void Device::power(){
 void Device::startMonitoring(){
     std::cout << "Starting monitoring\n" << std::flush;
     interface->displayHomeScreen();
-    tickClock->start(1000);
+    tickClock->start(2250);
 }
 
 void Device::tick(){
-    std::cout << "Ticking\n" << std::flush;
-    battery->drainBattery();
-    double batteryLevel = battery->getBatteryLevel();
-    double glucose = cgm->getCurrentGlucoseLevel();
-    double insulinReading = insulin->getInsulinRemaining();
-    QDateTime time = QDateTime::currentDateTime();
-    interface->refreshStatusBar(glucose, batteryLevel, insulinReading);
+   static int tickCounter = 0;
+   tickCounter++;
 
-    // safety checks here
+   std::cout << "Ticking\n" << std::flush;
 
-    //Profile currentProfile = Profile::getActiveProfile();
-    //ControlIQAlgorithm::adjustBasalRate(currentProfile.getTargetGlucose());
+   if (tickCounter >= 60) {
+       battery->drainBattery();
+       tickCounter = 0;
+   }
 
-    pump->pump();
-    //log->logGlucose(time, glucose);
-    //log->logInsulin(time, inuslin);
+   double batteryLevel = battery->getBatteryLevel();
+   double glucose = cgm->getCurrentGlucoseLevel();
+   double insulinReading = insulin->getInsulinRemaining();
+   QDateTime time = QDateTime::currentDateTime();
+   interface->refreshStatusBar(glucose, batteryLevel, insulinReading);
 
-    //log->logTick();
+
+   if (batteryLevel <= 0.15) {
+       if (!batteryAlertShown) {
+           batteryAlertShown= true;
+           Alert *lowBattery = new Alert(this);
+           lowBattery->showAlert("Low Battery", "Please recharge or replace the pump's battery.");
+       }
+   }
+
+   if (insulinReading <= 10.0) {
+       if(!insulinAlertShown) {
+           insulinAlertShown= true;
+           Alert *lowInsulin = new Alert(this);
+           lowInsulin->showAlert("Low Insulin", "Insulin is running low. Please refill the reservoir.");
+   }
 }
+
+   if (!cgm->isCGMConnected()) {
+       if (!cgmAlertShown) {
+           cgmAlertShown= true;
+           Alert *cgmDisconnected = new Alert(this);
+           cgmDisconnected->showAlert("CGM Disconnected", "Check CGM sensor connection.");
+   }
+}
+
+   //pump logic
+   pump->pump();
+}
+
+

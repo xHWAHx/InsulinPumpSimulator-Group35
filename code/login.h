@@ -42,6 +42,9 @@ signals:
     void deviceUnlocked();
 private:
     Ui::Login *ui;
+
+protected:
+    void keyPressEvent(QKeyEvent *event) override;
 };
 
 #endif // LOGIN_H

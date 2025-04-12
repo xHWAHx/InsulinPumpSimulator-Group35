@@ -2,6 +2,8 @@
 #include "home.h"
 #include "ui_login.h"
 #include <QMessageBox>
+#include <QKeyEvent>
+
 
 Login::Login(QWidget *parent) :
     QWidget(parent),
@@ -100,3 +102,17 @@ void Login::on_buttonOk_clicked()
     }
 }
 
+void Login::keyPressEvent(QKeyEvent *event)
+{
+    QString current = ui->pinDisplay->text();
+    if (event->key() >= Qt::Key_0 && event->key() <= Qt::Key_9) {
+        QString digit = event->text();
+        ui->pinDisplay->setText(current + digit);
+    } else if (event->key() == Qt::Key_Return || event->key() == Qt::Key_Enter) {
+        on_buttonOk_clicked();
+    } else if (event->key() == Qt::Key_Backspace) {
+        ui->pinDisplay->setText(current.left(current.length() - 1));
+    }
+
+    QWidget::keyPressEvent(event);
+}

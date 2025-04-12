@@ -39,6 +39,9 @@ private:
     UserInterface *interface;
     Ui::Device *window;
     QTimer *tickClock;
+    bool batteryAlertShown= false;
+    bool insulinAlertShown= false;
+    bool cgmAlertShown= false;
 
 };
 
