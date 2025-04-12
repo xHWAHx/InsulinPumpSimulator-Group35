@@ -22,7 +22,7 @@ UserInterface::UserInterface(QWidget *parent)
     loginScreen = new Login();
     logger= new DataLogger(this);
     homeScreen = new Home();
-    bolusCalculator = new BolusCalculator();
+    bolusCalculator = new BolusCalculator(pumpController, logger, cgmReader, insulinReserve, this); 
     settingsScreen = new Settings();
     historyScreen = new History(logger);
 
