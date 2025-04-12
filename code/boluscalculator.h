@@ -2,6 +2,10 @@
 #define BOLUSCALCULATOR_H
 
 #include <QWidget>
+#include "pumpcontroller.h"
+#include "datalogger.h"
+#include "cgmreader.h"
+#include "insulinreserve.h"
 
 namespace Ui {
 class BolusCalculator;
