@@ -21,6 +21,8 @@ public:
 
 signals:
       void bolusDeliveryProgress(double remainingBolus, double rate, double deliveredThisTick);
+      // new signal added 13/04/2025
+      void bolusTimeRemainingUpdated(double seconds);  
 
 private:
     double currentBasalRate;
