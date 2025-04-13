@@ -52,7 +52,7 @@ void Device::power(){
 void Device::startMonitoring(){
     std::cout << "Starting monitoring\n" << std::flush;
     interface->displayHomeScreen();
-    tickClock->start(2250);
+    tickClock->start(1000);
 }
 
 void Device::tick(){
