@@ -43,7 +43,10 @@ UserInterface::UserInterface(PumpController* pump, QWidget *parent)
     connect(bolusCalculator, &BolusCalculator::backToHome, this, &UserInterface::displayHomeScreen);
     connect(historyScreen, &History::backToHome, this, &UserInterface::displayHomeScreen);
 
-    connect(pumpController, &PumpController::bolusDeliveryProgress, this, &UserInterface::updateBolusDisplay);
+    //connect(pumpController, &PumpController::bolusDeliveryProgress, this, &UserInterface::updateBolusDisplay);
+
+    connect(pumpController, &PumpController::bolusDeliveryProgress, homeScreen, &Home::updateBolusStatus);
+    connect(pumpController, &PumpController::bolusTimeRemainingUpdated, homeScreen, &Home::updateBolusTimeRemaining);
 
     //showLoginScreen();
 }
