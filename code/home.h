@@ -23,6 +23,10 @@ public:
     void setupChart();
     void addGlucoseReading(double value);
     void updateStatus(double glucose, double battery, double insulin);
+    //13/04/2025 
+    void updateBolusStatus(const QString &status);
+    void updateBolusTimeRemaining(double seconds);
+
 
 signals:
     void requestBolus();
