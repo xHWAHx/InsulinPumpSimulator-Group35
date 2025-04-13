@@ -25,6 +25,9 @@ Device::Device(QWidget *parent)
     connect(interface, &UserInterface::deviceUnlocked, this, &Device::startMonitoring);
     connect(tickClock, &QTimer::timeout, this, &Device::tick);
 
+    connect(window->chargeBatteryButton, &QPushButton::released, battery, &BatteryManager::chargeBattery);
+    connect(window->refillInsulinButton, &QPushButton::released, insulin, &InsulinReserve::refillInsulin);
+
     Profile::initDefaultProfile();
     Profile::selectProfileById(1);
 

@@ -1,14 +1,18 @@
 #ifndef INSULINRESERVE_H
+#include <QObject>
 #define INSULINRESERVE_H
 
 
-class InsulinReserve
+class InsulinReserve : public QObject
 {
+    Q_OBJECT;
 public:
     InsulinReserve();
+    ~InsulinReserve();
 	double getInsulinRemaining();
     double useInsulin(double amount);
 	bool isInsulinLow();
+public slots:
 	void refillInsulin();
 private:
 	double insulinRemaining; // Measured in "units"

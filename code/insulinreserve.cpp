@@ -4,6 +4,9 @@ InsulinReserve::InsulinReserve()
 	: insulinRemaining {maxAmount}
 { }
 
+InsulinReserve::~InsulinReserve()
+{ }
+
 double InsulinReserve::getInsulinRemaining() {
 	return insulinRemaining;
 }

@@ -4,6 +4,9 @@ BatteryManager::BatteryManager()
     : batteryLevel {1.0}
 { }
 
+BatteryManager::~BatteryManager()
+{ }
+
 double BatteryManager::getBatteryLevel(){
 	// if alertLowBattery() is to be used, it should be here
 	return batteryLevel;

@@ -1,16 +1,21 @@
 #ifndef BATTERYMANAGER_H
+#include <QObject>
 #define BATTERYMANAGER_H
 
 
-class BatteryManager
+class BatteryManager : public QObject
 {
+    Q_OBJECT;
 public:
     BatteryManager();
+    ~BatteryManager();
     double getBatteryLevel();
 	void drainBattery();
-	void chargeBattery(); 
 	bool isBatteryCritical();
 	void alertLowBattery();
+
+public slots:
+    void chargeBattery();
 
 private:
 	double batteryLevel;
