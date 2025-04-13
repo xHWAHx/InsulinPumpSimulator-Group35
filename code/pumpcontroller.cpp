@@ -1,9 +1,10 @@
 #include "pumpcontroller.h"
 #include <iostream>
+#include <cmath>
 
-PumpController::PumpController(InsulinReserve *insulin, DataLogger *log)
-    : insulinReserve(insulin),
-      //batteryManager(battery),
+PumpController::PumpController(InsulinReserve *insulin, DataLogger *log, QObject *parent)
+    : QObject(parent),
+      insulinReserve(insulin),
       logger(log),
       currentBasalRate(0.0),
       activeBolusAmount(0.0),
@@ -70,6 +71,9 @@ void PumpController::pump()
     double unitsPerTick = activeBolusRate / 3600.0 * tickIntervalSec;
     double deliveredThisTick = (activeBolusAmount < unitsPerTick) ? activeBolusAmount : unitsPerTick;
     activeBolusAmount -= deliveredThisTick;
+
+    emit bolusDeliveryProgress(activeBolusAmount, activeBolusRate, deliveredThisTick);
+
     std::cout << "Pumping " << deliveredThisTick << " units this tick at rate " << activeBolusRate << " U/hr... ";
     if (activeBolusAmount > 0) {
             // Estimate the remaining time (in seconds) required for the remaining bolus.

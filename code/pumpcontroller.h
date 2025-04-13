@@ -3,11 +3,13 @@
 
 #include "insulinreserve.h"
 #include "datalogger.h"
+#include <QObject>
 
-class PumpController
+class PumpController: public QObject
 {
+    Q_OBJECT
 public:
-    PumpController(InsulinReserve *insulin, DataLogger *log);
+    explicit PumpController(InsulinReserve *insulin, DataLogger *log, QObject *parent = nullptr);
 
     void deliverBolus(double amount, double rate);
     void adjustBasalRate(double rate);
@@ -16,6 +18,9 @@ public:
     int checkDeviceStatus(); //0 = OK, 1 = Suspended, 2 = Emergency
     void triggerEmergencyStop();
     void pump(); //simulation loop or single "tick"
+
+signals:
+      void bolusDeliveryProgress(double remainingBolus, double rate, double deliveredThisTick);
 
 private:
     double currentBasalRate;

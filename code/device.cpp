@@ -18,7 +18,7 @@ Device::Device(QWidget *parent)
     , tickClock(new QTimer(this))
 {
     window->setupUi(this);
-    interface = new UserInterface(window->uiWidget);
+    interface = new UserInterface(pump, window->uiWidget);
 
     connect(window->powerButton, &QPushButton::released, this, &Device::power);
 
@@ -96,6 +96,7 @@ void Device::tick(){
 
    //pump logic
    pump->pump();
+
 }
 
 

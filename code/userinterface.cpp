@@ -12,9 +12,10 @@
 #include <QDateTime>
 #include <QDebug>
 
-UserInterface::UserInterface(QWidget *parent)
+UserInterface::UserInterface(PumpController* pump, QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::UserInterface)
+    , pumpController(pump)
 {
     ui->setupUi(this);
 
@@ -41,6 +42,8 @@ UserInterface::UserInterface(QWidget *parent)
     connect(settingsScreen, &Settings::backToHome, this, &UserInterface::displayHomeScreen);
     connect(bolusCalculator, &BolusCalculator::backToHome, this, &UserInterface::displayHomeScreen);
     connect(historyScreen, &History::backToHome, this, &UserInterface::displayHomeScreen);
+
+    connect(pumpController, &PumpController::bolusDeliveryProgress, this, &UserInterface::updateBolusDisplay);
 
     //showLoginScreen();
 }
@@ -88,4 +91,13 @@ void UserInterface::openHistory() {
 
 void UserInterface::triggerEmergencyStop() {
     displayError("Emergency stop triggered!");
+}
+
+void UserInterface::updateBolusDisplay(double remainingBolus, double rate, double deliveredThisTick)
+{
+    QString status = QString("Bolus: %1 U remaining (delivered %2 U this tick at %3 U/hr)")
+                     .arg(remainingBolus, 0, 'f', 2)
+                     .arg(deliveredThisTick, 0, 'f', 2)
+                     .arg(rate, 0, 'f', 2);
+    ui->bolusStatusLabel->setText(status);
 }

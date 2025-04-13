@@ -23,7 +23,7 @@ namespace Ui {
 class UserInterface : public QWidget {
     Q_OBJECT
 public:
-    explicit UserInterface(QWidget *parent = nullptr);
+    explicit UserInterface(PumpController* pump, QWidget *parent = nullptr);
     ~UserInterface();
 
     void displayHomeScreen();
@@ -41,6 +41,7 @@ public slots:
     void openHistory();
     void triggerEmergencyStop();
     void unlock();
+    void updateBolusDisplay(double remainingBolus, double rate, double deliveredThisTick);
 
 signals:
     void deviceUnlocked();
