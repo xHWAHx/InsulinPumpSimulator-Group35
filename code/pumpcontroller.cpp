@@ -79,8 +79,10 @@ void PumpController::pump()
             // Estimate the remaining time (in seconds) required for the remaining bolus.
             double estimatedTimeRemaining = activeBolusAmount / (activeBolusRate / 3600.0);
             std::cout << "Remaining bolus: " << activeBolusAmount << " units. Estimated time remaining: " << estimatedTimeRemaining << " seconds." << std::endl;
+            emit bolusTimeRemainingUpdated(estimatedTimeRemaining);
         } else {
             std::cout << "Bolus delivery complete." << std::endl;
+            emit bolusTimeRemainingUpdated(0.0);
         }
 
 }
