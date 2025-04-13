@@ -45,7 +45,14 @@ UserInterface::UserInterface(PumpController* pump, QWidget *parent)
 
     //connect(pumpController, &PumpController::bolusDeliveryProgress, this, &UserInterface::updateBolusDisplay);
 
-    connect(pumpController, &PumpController::bolusDeliveryProgress, homeScreen, &Home::updateBolusStatus);
+    connect(pumpController, &PumpController::bolusDeliveryProgress, this, [=](double remaining, double rate, double delivered) {
+    QString status = QString("💉 %1 U left (delivered %2 U @ %3 U/hr)")
+                        .arg(remaining, 0, 'f', 2)
+                        .arg(delivered, 0, 'f', 2)
+                        .arg(rate, 0, 'f', 2);
+    homeScreen->updateBolusStatus(status);
+    });
+
     connect(pumpController, &PumpController::bolusTimeRemainingUpdated, homeScreen, &Home::updateBolusTimeRemaining);
 
     //showLoginScreen();
@@ -96,11 +103,11 @@ void UserInterface::triggerEmergencyStop() {
     displayError("Emergency stop triggered!");
 }
 
-void UserInterface::updateBolusDisplay(double remainingBolus, double rate, double deliveredThisTick)
-{
-    QString status = QString("Bolus: %1 U remaining (delivered %2 U this tick at %3 U/hr)")
-                     .arg(remainingBolus, 0, 'f', 2)
-                     .arg(deliveredThisTick, 0, 'f', 2)
-                     .arg(rate, 0, 'f', 2);
-    ui->bolusStatusLabel->setText(status);
-}
+//void UserInterface::updateBolusDisplay(double remainingBolus, double rate, double deliveredThisTick)
+//{
+//   QString status = QString("Bolus: %1 U remaining (delivered %2 U this tick at %3 U/hr)")
+//                     .arg(remainingBolus, 0, 'f', 2)
+//                     .arg(deliveredThisTick, 0, 'f', 2)
+//                     .arg(rate, 0, 'f', 2);
+//    ui->bolusStatusLabel->setText(status);
+//}
