@@ -4,13 +4,13 @@
 
 PumpController::PumpController(InsulinReserve *insulin, DataLogger *log, QObject *parent)
     : QObject(parent),
-      insulinReserve(insulin),
-      logger(log),
       currentBasalRate(0.0),
       activeBolusAmount(0.0),
       activeBolusRate(0.0),
       bolusSuspended(false),
-      emergencyStopped(false)
+      emergencyStopped(false),
+      insulinReserve(insulin),
+      logger(log)
 {
 }
 
