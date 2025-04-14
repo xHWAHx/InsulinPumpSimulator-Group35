@@ -267,7 +267,7 @@ QProgressBar#batteryBar::chunk {
    <property name="geometry">
     <rect>
      <x>420</x>
-     <y>260</y>
+     <y>250</y>
      <width>161</width>
      <height>21</height>
     </rect>
@@ -291,7 +291,7 @@ QProgressBar#batteryBar::chunk {
    <property name="geometry">
     <rect>
      <x>420</x>
-     <y>280</y>
+     <y>270</y>
      <width>161</width>
      <height>21</height>
     </rect>
@@ -336,54 +336,29 @@ QProgressBar#batteryBar::chunk {
     <string>BOLUS</string>
    </property>
   </widget>
-<widget class="QLabel" name="labelBolusStatus">
- <property name="geometry">
-  <rect>
-   <x>420</x>
-   <y>270</y> <!-- Moved up -->
-   <width>161</width>
-   <height>20</height>
-  </rect>
- </property>
- <property name="styleSheet">
-  <string notr="true">QLabel#labelBolusStatus {
+  <widget class="QLabel" name="labelBolusStatus">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>300</y>
+     <width>161</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel#labelBolusStatus {
     color: #00BFFF;
     font-size: 13px;
     font-weight: bold;
   }</string>
- </property>
- <property name="text">
-  <string>Bolus Status: -</string>
- </property>
- <property name="alignment">
-  <set>Qt::AlignCenter</set>
- </property>
-</widget>
-
-<widget class="QLabel" name="labelBolusTimeRemaining">
- <property name="geometry">
-  <rect>
-   <x>420</x>
-   <y>290</y> <!-- Moved up -->
-   <width>161</width>
-   <height>20</height>
-  </rect>
- </property>
- <property name="styleSheet">
-  <string notr="true">QLabel#labelBolusTimeRemaining {
-    color: #CCCCCC;
-    font-size: 13px;
-    font-weight: bold;
-  }</string>
- </property>
- <property name="text">
-  <string>Time Left: --:--</string>
- </property>
- <property name="alignment">
-  <set>Qt::AlignCenter</set>
- </property>
-</widget>
-
+   </property>
+   <property name="text">
+    <string>Bolus Status: -</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
   <widget class="QPushButton" name="historyButton">
    <property name="geometry">
     <rect>
@@ -558,6 +533,29 @@ QPushButton#logoButton:pressed {
    </property>
    <property name="text">
     <string>mmol/L</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelBolusTimeRemaining">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>300</y>
+     <width>161</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel#labelBolusTimeRemaining {
+    color: #CCCCCC;
+    font-size: 13px;
+    font-weight: bold;
+  }</string>
+   </property>
+   <property name="text">
+    <string>Time Left: --:--</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
