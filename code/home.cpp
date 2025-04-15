@@ -106,6 +106,17 @@ void Home::updateDateTime() {
    ui->dateLabel->setText(dateStr);
 }
 
+void Home::updateBolusStatus(const QString &status) {
+    ui->labelBolusStatus->setText(status);
+}
+
+void Home::updateBolusTimeRemaining(double seconds) {
+    int minutes = static_cast<int>(seconds / 60);
+    int secs = static_cast<int>(seconds) % 60;
+    QString formatted = QString("%1:%2").arg(minutes, 2, 10, QChar('0')).arg(secs, 2, 10, QChar('0'));
+    
+    ui->labelBolusTimeRemaining->setText("Time Left: " + formatted);
+}
 
 void Home::updateIOB(double iob) {
     ui-> iobLabel->setText(QString::number(iob, 'f', 1)+ "u");
