@@ -24,7 +24,7 @@ namespace Ui {
 class UserInterface : public QWidget {
     Q_OBJECT
 public:
-    explicit UserInterface(PumpController* pump, QWidget *parent = nullptr);
+    explicit UserInterface(PumpController* pump, IOBTracker* iob, QWidget *parent = nullptr);
     ~UserInterface();
 
     void displayHomeScreen();
