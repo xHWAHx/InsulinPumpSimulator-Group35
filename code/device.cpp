@@ -2,6 +2,7 @@
 #include "ui_device.h"
 #include "QTimer"
 #include "alert.h"
+#include "iobtracker.h"
 #include <iostream>
 #include "controliqalgorithm.h"
 #include "QDateTime"
@@ -13,6 +14,7 @@ Device::Device(QWidget *parent)
     , log(new DataLogger)
     , insulin(new InsulinReserve)
     , cgm(new CGMReader)
+    , iobTracker(new IOBTracker)
     , pump(new PumpController(insulin, log))
     , window(new Ui::Device)
     , tickClock(new QTimer(this))
@@ -52,7 +54,7 @@ void Device::power(){
 void Device::startMonitoring(){
     std::cout << "Starting monitoring\n" << std::flush;
     interface->displayHomeScreen();
-    tickClock->start(1000);
+    tickClock->start(2250);
 }
 
 void Device::tick(){
@@ -69,8 +71,10 @@ void Device::tick(){
    double batteryLevel = battery->getBatteryLevel();
    double glucose = cgm->getCurrentGlucoseLevel();
    double insulinReading = insulin->getInsulinRemaining();
+   double currentIOB= iobTracker-> getCurrentIOB(QDateTime::currentDateTime());
    QDateTime time = QDateTime::currentDateTime();
    interface->refreshStatusBar(glucose, batteryLevel, insulinReading);
+   interface->updateIOB(currentIOB);
 
 
    if (batteryLevel <= 0.15) {
