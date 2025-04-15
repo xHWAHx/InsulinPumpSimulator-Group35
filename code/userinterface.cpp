@@ -45,11 +45,8 @@ UserInterface::UserInterface(PumpController* pump, QWidget *parent)
 
     //connect(pumpController, &PumpController::bolusDeliveryProgress, this, &UserInterface::updateBolusDisplay);
 
-    connect(pumpController, &PumpController::bolusDeliveryProgress, this, [=](double remaining, double rate, double delivered) {
-    QString status = QString("💉 %1 U left (delivered %2 U @ %3 U/hr)")
-                        .arg(remaining, 0, 'f', 2)
-                        .arg(delivered, 0, 'f', 2)
-                        .arg(rate, 0, 'f', 2);
+    connect(pumpController, &PumpController::bolusDeliveryProgress, this, [=](double rate) {
+    QString status = QString("Status: %1 U/hr").arg(rate, 0, 'f', 2);
     homeScreen->updateBolusStatus(status);
     });
 
