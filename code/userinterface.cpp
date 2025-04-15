@@ -70,7 +70,7 @@ void UserInterface::displayError(const QString &message) {
 }
 
 void UserInterface::refreshStatusBar(double glucose, double battery, double insulin) {
-    double iob= iobTracker-> getCurrentIOB();
+    double iob= iobTracker-> getCurrentIOB(QDateTime::currentDateTime());
     homeScreen->updateStatus(glucose, battery, insulin);
     homeScreen-> updateInsulinDisplay(insulin);
     homeScreen->updateIOB(iob);
