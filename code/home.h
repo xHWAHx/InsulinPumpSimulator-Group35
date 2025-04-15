@@ -26,8 +26,8 @@ public:
     void updateIOB(double iob);
     void updateInsulinDisplay(double insulinRemaining);
     //13/04/2025 
-    //void updateBolusStatus(const QString &status);
-    //void updateBolusTimeRemaining(double seconds);
+    void updateBolusStatus(const QString &status);
+    void updateBolusTimeRemaining(double seconds);
 
 
 signals:
