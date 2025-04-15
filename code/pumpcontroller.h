@@ -3,13 +3,14 @@
 
 #include "insulinreserve.h"
 #include "datalogger.h"
+#include "iobtracker.h"
 #include <QObject>
 
 class PumpController: public QObject
 {
     Q_OBJECT
 public:
-    explicit PumpController(InsulinReserve *insulin, DataLogger *log, QObject *parent = nullptr);
+    explicit PumpController(InsulinReserve *insulin, DataLogger *log, IOBTracker *iob=nullptr, QObject *parent = nullptr);
 
     void deliverBolus(double amount, double rate);
     void adjustBasalRate(double rate);
@@ -21,8 +22,6 @@ public:
 
 signals:
       void bolusDeliveryProgress(double remainingBolus, double rate, double deliveredThisTick);
-      // new signal added 13/04/2025
-      void bolusTimeRemainingUpdated(double seconds);  
 
 private:
     double currentBasalRate;
@@ -33,6 +32,7 @@ private:
 
     InsulinReserve *insulinReserve;
     DataLogger *logger;
+    IOBTracker* iobTracker;
 
     bool isSafeToDeliver();
 };
