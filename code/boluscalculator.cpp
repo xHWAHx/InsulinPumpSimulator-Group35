@@ -161,7 +161,6 @@ void BolusCalculator::on_btnDeliver_clicked()
 
         // Update IOB immediately with nowDose
         if (iobTracker) {
-            qDebug() << "[DEBUG] Adding to IOB tracker (extended):" << nowDose;
             iobTracker->addBolus(nowDose, QDateTime::currentDateTime());
         }
 
@@ -190,9 +189,7 @@ void BolusCalculator::on_btnDeliver_clicked()
             if (pump) pump->deliverBolus(dose, 2.0);
 
             // Add to IOB
-            if (iobTracker){
-                iobTracker->addBolus(dose, QDateTime::currentDateTime());
-            }
+
 
             if (logger) {
                 logger->logInsulin(QDateTime::currentDateTime(), dose);
