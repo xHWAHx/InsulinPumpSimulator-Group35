@@ -15,6 +15,7 @@
 #include "settings.h"
 //#include "alert.h"
 #include "history.h"
+#include "iobtracker.h"
 
 namespace Ui {
     class UserInterface;
@@ -33,6 +34,7 @@ public:
     void refreshStatusBar(double glucose, double battery, double insulin);
     void showControlIQStats();
     void showOptions();
+    void updateIOB(double iob);
 
 public slots:
     void updateGlucoseForChart(double glucose);
@@ -41,7 +43,7 @@ public slots:
     void openHistory();
     void triggerEmergencyStop();
     void unlock();
-    //void updateBolusDisplay(double remainingBolus, double rate, double deliveredThisTick);
+    void updateBolusDisplay(double remainingBolus, double rate, double deliveredThisTick);
 
 signals:
     void deviceUnlocked();
@@ -60,6 +62,7 @@ private:
     ControlIQAlgorithm *controlIQ;
     Settings *settingsScreen;
     History *historyScreen;
+    IOBTracker *iobTracker;
 
     const int correctPin = 1234;
 };
