@@ -1,16 +1,17 @@
 #include "pumpcontroller.h"
+#include "iobtracker.h"
 #include <iostream>
 #include <cmath>
 
-PumpController::PumpController(InsulinReserve *insulin, DataLogger *log, QObject *parent)
+PumpController::PumpController(InsulinReserve *insulin, DataLogger *log, IOBTracker* iobTracker, QObject *parent)
     : QObject(parent),
+      insulinReserve(insulin),
+      logger(log),
       currentBasalRate(0.0),
       activeBolusAmount(0.0),
       activeBolusRate(0.0),
       bolusSuspended(false),
-      emergencyStopped(false),
-      insulinReserve(insulin),
-      logger(log)
+      emergencyStopped(false)
 {
 }
 
@@ -24,6 +25,10 @@ void PumpController::deliverBolus(double amount, double rate)
     double delivered = insulinReserve->useInsulin(amount);
     activeBolusAmount = delivered;
     activeBolusRate = rate;
+
+    if (iobTracker){
+            iobTracker-> addBolus(delivered, QDateTime::currentDateTime());
+}
 
     //logger.logEvent("Bolus", "Delivered " + QString::number(delivered) + " units at rate " + QString::number(rate));
 }
