@@ -26,6 +26,7 @@ UserInterface::UserInterface(PumpController* pump, QWidget *parent)
     bolusCalculator = new BolusCalculator(pumpController, logger, cgmReader, insulinReserve, this); 
     settingsScreen = new Settings();
     historyScreen = new History(logger);
+    iobTracker= new IOBTracker();
 
     ui->pageStack->addWidget(loginScreen);
     ui->pageStack->addWidget(homeScreen);
@@ -43,14 +44,7 @@ UserInterface::UserInterface(PumpController* pump, QWidget *parent)
     connect(bolusCalculator, &BolusCalculator::backToHome, this, &UserInterface::displayHomeScreen);
     connect(historyScreen, &History::backToHome, this, &UserInterface::displayHomeScreen);
 
-    //connect(pumpController, &PumpController::bolusDeliveryProgress, this, &UserInterface::updateBolusDisplay);
-
-    connect(pumpController, &PumpController::bolusDeliveryProgress, this, [=](double rate) {
-    QString status = QString("Status: %1 U/hr").arg(rate, 0, 'f', 2);
-    homeScreen->updateBolusStatus(status);
-    });
-
-    connect(pumpController, &PumpController::bolusTimeRemainingUpdated, homeScreen, &Home::updateBolusTimeRemaining);
+    connect(pumpController, &PumpController::bolusDeliveryProgress, this, &UserInterface::updateBolusDisplay);
 
     //showLoginScreen();
 }
@@ -76,7 +70,10 @@ void UserInterface::displayError(const QString &message) {
 }
 
 void UserInterface::refreshStatusBar(double glucose, double battery, double insulin) {
+    double iob= iobTracker-> getCurrentIOB();
     homeScreen->updateStatus(glucose, battery, insulin);
+    homeScreen-> updateInsulinDisplay(insulin);
+    homeScreen->updateIOB(iob);
     this->updateGlucoseForChart(glucose);
 }
 
@@ -100,11 +97,16 @@ void UserInterface::triggerEmergencyStop() {
     displayError("Emergency stop triggered!");
 }
 
-//void UserInterface::updateBolusDisplay(double remainingBolus, double rate, double deliveredThisTick)
-//{
-//   QString status = QString("Bolus: %1 U remaining (delivered %2 U this tick at %3 U/hr)")
-//                     .arg(remainingBolus, 0, 'f', 2)
-//                     .arg(deliveredThisTick, 0, 'f', 2)
-//                     .arg(rate, 0, 'f', 2);
-//    ui->bolusStatusLabel->setText(status);
-//}
+void UserInterface::updateBolusDisplay(double remainingBolus, double rate, double deliveredThisTick)
+{
+    QString status = QString("Bolus: %1 U remaining (delivered %2 U this tick at %3 U/hr)")
+                     .arg(remainingBolus, 0, 'f', 2)
+                     .arg(deliveredThisTick, 0, 'f', 2)
+                     .arg(rate, 0, 'f', 2);
+    ui->bolusStatusLabel->setText(status);
+}
+
+
+void UserInterface::updateIOB(double iob){
+    homeScreen->updateIOB(iob);
+}
