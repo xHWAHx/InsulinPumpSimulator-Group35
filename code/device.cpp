@@ -15,12 +15,12 @@ Device::Device(QWidget *parent)
     , insulin(new InsulinReserve)
     , cgm(new CGMReader)
     , iobTracker(new IOBTracker)
-    , pump(new PumpController(insulin, log))
+    , pump(new PumpController(insulin, log, iobTracker))
     , window(new Ui::Device)
     , tickClock(new QTimer(this))
 {
     window->setupUi(this);
-    interface = new UserInterface(pump, window->uiWidget);
+    interface = new UserInterface(pump, iobTracker, window->uiWidget);
 
     connect(window->powerButton, &QPushButton::released, this, &Device::power);
 
@@ -28,7 +28,10 @@ Device::Device(QWidget *parent)
     connect(tickClock, &QTimer::timeout, this, &Device::tick);
 
     connect(window->chargeBatteryButton, &QPushButton::released, battery, &BatteryManager::chargeBattery);
-    connect(window->refillInsulinButton, &QPushButton::released, insulin, &InsulinReserve::refillInsulin);
+    connect(window->refillInsulinButton, &QPushButton::released, this, [=](){
+        insulin-> refillInsulin();
+        iobTracker-> clear();
+    });
 
     Profile::initDefaultProfile();
     Profile::selectProfileById(1);
@@ -71,10 +74,8 @@ void Device::tick(){
    double batteryLevel = battery->getBatteryLevel();
    double glucose = cgm->getCurrentGlucoseLevel();
    double insulinReading = insulin->getInsulinRemaining();
-   double currentIOB= iobTracker-> getCurrentIOB(QDateTime::currentDateTime());
    QDateTime time = QDateTime::currentDateTime();
-   interface->refreshStatusBar(glucose, batteryLevel, insulinReading);
-   interface->updateIOB(currentIOB);
+
 
 
    if (batteryLevel <= 0.15) {
@@ -103,6 +104,10 @@ void Device::tick(){
 
    //pump logic
    pump->pump();
+   double currentIOB= iobTracker-> getCurrentIOB(QDateTime::currentDateTime());
+
+   interface->refreshStatusBar(glucose, batteryLevel, insulinReading);
+   interface->updateIOB(currentIOB);
 
 }
 
