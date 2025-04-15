@@ -6,6 +6,7 @@
 #include "datalogger.h"
 #include "cgmreader.h"
 #include "insulinreserve.h"
+#include "iobtracker.h"
 
 namespace Ui {
 class BolusCalculator;
@@ -16,7 +17,7 @@ class BolusCalculator : public QWidget
     Q_OBJECT
 
 public:
-    explicit BolusCalculator(PumpController* pump, DataLogger* logger, CGMReader* cgm, InsulinReserve* insulin, QWidget *parent = nullptr);
+    explicit BolusCalculator(PumpController* pump, DataLogger* logger, CGMReader* cgm, InsulinReserve* insulin, IOBTracker* iobTracker, QWidget *parent = nullptr);
     ~BolusCalculator();
     static double calculateBolus(double glucose, double carbs);
     static double suggestDose();
@@ -37,6 +38,7 @@ private:
     DataLogger* logger;
     CGMReader* cgm;
     InsulinReserve* insulinReserve;
+    IOBTracker* iobTracker;
 
 signals:
     void backToHome();
