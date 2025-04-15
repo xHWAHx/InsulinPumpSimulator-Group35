@@ -158,7 +158,8 @@ void BolusCalculator::on_btnDeliver_clicked()
         QString confirm = QString("Now delivering: %1 units\nScheduled dose: %2 units in %3 minutes.").arg(nowDose, 0, 'f', 2).arg(laterDose, 0, 'f', 2).arg(mins);
 
         if (QMessageBox::question(this, "Final Confirmation", confirm) == QMessageBox::Yes) {
-            if (pump) pump->deliverBolus(nowDose, 2.0);
+            double rate = nowDose / (mins / 60.0);  
+            if (pump) pump->deliverBolus(nowDose, rate);
             if (logger) {
                 logger->logInsulin(QDateTime::currentDateTime(), nowDose);
                 logger->logEvent("Extended Bolus", QString("Now: %1 units, Later: %2 units in %3 min")
