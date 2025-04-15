@@ -23,9 +23,11 @@ public:
     void setupChart();
     void addGlucoseReading(double value);
     void updateStatus(double glucose, double battery, double insulin);
+    void updateIOB(double iob);
+    void updateInsulinDisplay(double insulinRemaining);
     //13/04/2025 
-    void updateBolusStatus(const QString &status);
-    void updateBolusTimeRemaining(double seconds);
+    //void updateBolusStatus(const QString &status);
+    //void updateBolusTimeRemaining(double seconds);
 
 
 signals:
@@ -41,6 +43,7 @@ private:
     QTimer *chartTimer;
     int currentTime;
     QTimer *clockTimer;
+    QValueAxis *axisX;
 
 private slots:
    void updateDateTime();
