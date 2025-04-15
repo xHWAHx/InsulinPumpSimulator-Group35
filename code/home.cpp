@@ -40,7 +40,7 @@ void Home::setupChart()
     chart->setBackgroundBrush(Qt::black);
     chart->zoom(0.5);
 
-    QValueAxis *axisX = new QValueAxis;
+    axisX = new QValueAxis;
     axisX->setRange(0, 180);
     axisX->setTitleText("Time (sec)");
     axisX->setLabelsColor(Qt::white);
@@ -61,9 +61,11 @@ void Home::setupChart()
 
 void Home::addGlucoseReading(double value)
 {
-    series->append(currentTime++ *0.25, value);
-    if (series->count() > 180)
-        series->removePoints(0, series->count() - 180);
+    series->append(currentTime *0.25, value);
+    currentTime++;
+    if (currentTime * 0.25 >= 180.0){
+        axisX->setRange((currentTime* 0.25)- 180, currentTime * 0.25);
+    }
 }
 
 void Home::updateStatus(double glucose, double battery, double insulin)
@@ -104,16 +106,13 @@ void Home::updateDateTime() {
    ui->dateLabel->setText(dateStr);
 }
 
-//13/04/2025
-void Home::updateBolusStatus(const QString &status) {
-    ui->labelBolusStatus->setText(status);
+
+void Home::updateIOB(double iob) {
+    ui-> iobLabel->setText(QString::number(iob, 'f', 1)+ "u");
 }
 
-void Home::updateBolusTimeRemaining(double seconds) {
-    int minutes = static_cast<int>(seconds / 60);
-    int secs = static_cast<int>(seconds) % 60;
-    QString formatted = QString("%1:%2").arg(minutes, 2, 10, QChar('0')).arg(secs, 2, 10, QChar('0'));
-    
-    ui->labelBolusTimeRemaining->setText("Time Left: " + formatted);
+void Home::updateInsulinDisplay(double insulinRemaining){
+    ui-> insulinUnitsLabel-> setText(QString::number(insulinRemaining, 'f', 1) + " u");
+    int percentage= static_cast<int>((insulinRemaining/300.0) * 100);
+    ui-> insulinBar-> setValue(percentage);
 }
-
