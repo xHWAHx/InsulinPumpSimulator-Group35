@@ -6,7 +6,7 @@
 #include <QInputDialog>
 #include <QCheckBox>
 
-BolusCalculator::BolusCalculator(PumpController* pump, DataLogger* logger, CGMReader* cgm, InsulinReserve* insulin, IOBTracker* iobTracker, QWidget *parent): QWidget(parent),ui(new Ui::BolusCalculator),pump(pump),logger(logger),cgm(cgm),insulinReserve(insulin), iobTracker(iobTracker){
+BolusCalculator::BolusCalculator(PumpController* pump, DataLogger* /*logger*/, CGMReader* cgm, InsulinReserve* insulin, IOBTracker* iobTracker, QWidget *parent): QWidget(parent),ui(new Ui::BolusCalculator),pump(pump),logger(DataLogger::instance(this)),cgm(cgm),insulinReserve(insulin), iobTracker(iobTracker){
    
     ui->setupUi(this);
 

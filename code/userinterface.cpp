@@ -22,11 +22,11 @@ UserInterface::UserInterface(PumpController* pump, IOBTracker* iob, QWidget *par
 
 
     loginScreen = new Login();
-    logger= new DataLogger(this);
+    logger = DataLogger::instance(this);
     homeScreen = new Home();
     bolusCalculator = new BolusCalculator(pumpController, logger, cgmReader, insulinReserve, iobTracker, this);
     settingsScreen = new Settings();
-    historyScreen = new History(logger);
+    historyScreen = new History();
 
 
     ui->pageStack->addWidget(loginScreen);

@@ -25,10 +25,9 @@ public:
      *
      * Sets up the UI elements and connects signals/slots to allow interactive viewing and filtering of history logs.
      *
-     * @param logger Pointer to the DataLogger instance used for retrieving log data.
      * @param parent Pointer to the parent widget (default is nullptr).
      */
-    explicit History(DataLogger *logger, QWidget *parent = nullptr);
+    explicit History(QWidget *parent = nullptr);
 
     ~History();
 

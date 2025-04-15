@@ -10,7 +10,7 @@ class PumpController: public QObject
 {
     Q_OBJECT
 public:
-    explicit PumpController(InsulinReserve *insulin, DataLogger *log, IOBTracker *iob, QObject *parent = nullptr);
+    explicit PumpController(InsulinReserve *insulin, DataLogger *logger, IOBTracker *iob, QObject *parent = nullptr);
 
     void deliverBolus(double amount, double rate);
     void adjustBasalRate(double rate);

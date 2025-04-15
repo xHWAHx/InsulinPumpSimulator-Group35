@@ -11,11 +11,11 @@ Device::Device(QWidget *parent)
     : QMainWindow{parent}
     , poweredOn(false)
     , battery(new BatteryManager)
-    , log(new DataLogger)
+    , logger(DataLogger::instance(this))
     , insulin(new InsulinReserve)
     , cgm(new CGMReader)
     , iobTracker(new IOBTracker)
-    , pump(new PumpController(insulin, log, iobTracker))
+    , pump(new PumpController(insulin, logger, iobTracker))
     , window(new Ui::Device)
     , tickClock(new QTimer(this))
 {
@@ -35,6 +35,8 @@ Device::Device(QWidget *parent)
 
     Profile::initDefaultProfile();
     Profile::selectProfileById(1);
+
+    logger->loadLogs();
 
     interface->hide(); // because device starts powered off
 }
@@ -66,7 +68,7 @@ void Device::tick(){
 
    std::cout << "Ticking\n" << std::flush;
 
-   if (tickCounter >= 60) {
+   if (tickCounter >= 1) {
        battery->drainBattery();
        tickCounter = 0;
    }
@@ -83,6 +85,7 @@ void Device::tick(){
            batteryAlertShown= true;
            Alert *lowBattery = new Alert(this);
            lowBattery->showAlert("Low Battery", "Please recharge or replace the pump's battery.");
+           logger->logEvent("Warning", QString("Low Battery"));
        }
    }
 
@@ -91,6 +94,7 @@ void Device::tick(){
            insulinAlertShown= true;
            Alert *lowInsulin = new Alert(this);
            lowInsulin->showAlert("Low Insulin", "Insulin is running low. Please refill the reservoir.");
+           logger->logEvent("Warning", QString("Low Insulin"));
    }
 }
 

@@ -147,6 +147,20 @@ public:
      */
     explicit DataLogger(QObject *parent = nullptr);
 
+    /**
+     * @brief Returns the singleton instance of DataLogger.
+     *
+     * This static method creates and returns a single, shared instance of DataLogger.
+     * It ensures that only one instance is used throughout the application.
+     *
+     * @param parent Optional parent for the DataLogger instance.
+     * @return DataLogger* Pointer to the singleton DataLogger instance.
+     */
+    static DataLogger* instance(QObject *parent = nullptr) {
+        static DataLogger *s_instance = new DataLogger(parent);
+        return s_instance;
+    }
+
     // Logging functions:
 
     /**

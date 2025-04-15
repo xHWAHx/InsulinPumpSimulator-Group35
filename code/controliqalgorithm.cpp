@@ -5,8 +5,8 @@
 #include <numeric>
 #include <iostream>
 
-void ControlIQAlgorithm::analyzeGlucoseData(const std::vector<double>& data, DataLogger* logger, PumpController* pump) {
-    if (data.empty() || !pump || !logger) return; // skips processing if data / dependencies are missing 
+void ControlIQAlgorithm::analyzeGlucoseData(const std::vector<double>& data, DataLogger* /*logger*/, PumpController* pump) {
+    if (data.empty() || !pump) return; // skips processing if data / dependencies are missing 
 
     double avgGlucose = std::accumulate(data.begin(), data.end(), 0.0) / data.size(); // gets data from CGM
 
@@ -14,6 +14,8 @@ void ControlIQAlgorithm::analyzeGlucoseData(const std::vector<double>& data, Dat
     Profile profile = Profile::getActiveProfile();  
     double target = profile.getTargetGlucose();
     double currentRate = profile.getBasalRate();
+
+    DataLogger* logger = DataLogger::instance(nullptr);
 
     if (avgGlucose < 3.9) {
         suspendForLowGlucose(pump); // low glucose

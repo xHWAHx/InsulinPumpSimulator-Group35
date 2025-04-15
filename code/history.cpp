@@ -5,11 +5,12 @@
 #include <QTableWidgetItem>
 #include <QDebug>
 #include <QKeyEvent>
+#include <QTimer>
 
-History::History(DataLogger *logger, QWidget *parent)
+History::History(QWidget *parent)
     : QWidget(parent),
       ui(new Ui::History),
-      m_logger(logger)
+      m_logger(DataLogger::instance(this))
 {
     ui->setupUi(this);
 
@@ -19,7 +20,7 @@ History::History(DataLogger *logger, QWidget *parent)
     connect(ui->comboBox, &QComboBox::currentTextChanged, this, &History::refreshHistory);
     connect(m_logger, &DataLogger::logsUpdated, this, &History::refreshHistory);
 
-    refreshHistory();
+    QTimer::singleShot(0, this, SLOT(refreshHistory()));
 }
 
 History::~History()

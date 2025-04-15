@@ -32,7 +32,7 @@ signals:
 private:
 	bool poweredOn;
     BatteryManager *battery;
-    DataLogger *log;
+    DataLogger *logger;
     InsulinReserve *insulin;
     CGMReader *cgm;
     Profile *profiles;

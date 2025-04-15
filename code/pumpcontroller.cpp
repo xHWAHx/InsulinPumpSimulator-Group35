@@ -3,7 +3,7 @@
 #include <iostream>
 #include <cmath>
 
-PumpController::PumpController(InsulinReserve *insulin, DataLogger *log, IOBTracker* iob, QObject *parent)
+PumpController::PumpController(InsulinReserve *insulin, DataLogger *logger, IOBTracker* iob, QObject *parent)
     : QObject(parent),
       currentBasalRate(0.0),
       activeBolusAmount(0.0),
@@ -11,7 +11,7 @@ PumpController::PumpController(InsulinReserve *insulin, DataLogger *log, IOBTrac
       bolusSuspended(false),
       emergencyStopped(false),
       insulinReserve(insulin),
-      logger(log),
+      logger(DataLogger::instance(this)),
       iobTracker(iob)
 {
 }
