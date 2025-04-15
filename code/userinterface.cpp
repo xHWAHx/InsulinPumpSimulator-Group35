@@ -12,10 +12,11 @@
 #include <QDateTime>
 #include <QDebug>
 
-UserInterface::UserInterface(PumpController* pump, QWidget *parent)
+UserInterface::UserInterface(PumpController* pump, IOBTracker* iob, QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::UserInterface)
     , pumpController(pump)
+    ,iobTracker(iob)
 {
     ui->setupUi(this);
 
@@ -23,10 +24,10 @@ UserInterface::UserInterface(PumpController* pump, QWidget *parent)
     loginScreen = new Login();
     logger= new DataLogger(this);
     homeScreen = new Home();
-    bolusCalculator = new BolusCalculator(pumpController, logger, cgmReader, insulinReserve, this); 
+    bolusCalculator = new BolusCalculator(pumpController, logger, cgmReader, insulinReserve, iobTracker, this);
     settingsScreen = new Settings();
     historyScreen = new History(logger);
-    iobTracker= new IOBTracker();
+
 
     ui->pageStack->addWidget(loginScreen);
     ui->pageStack->addWidget(homeScreen);
