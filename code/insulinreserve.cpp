@@ -16,7 +16,8 @@ double InsulinReserve::useInsulin(double amount) {
 	// otherwise returns the amount deployed
 	if (amount <= insulinRemaining){
 		insulinRemaining -= amount;
-		return 0;
+        //return 0;
+        return amount;
 	} else {
 		double insulinDeployed = insulinRemaining;
 		insulinRemaining = 0;
