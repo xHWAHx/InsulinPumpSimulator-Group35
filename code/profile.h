@@ -93,8 +93,8 @@ public:
      *
      * This function checks whether the profile data file exists at the expected path.
      * If the file does not exist, it creates a default profile with predefined parameters
-     * and saves it. This is typically used during application startup to ensure
-     * that a usable profile is available.
+     * and saves it. This is used during application startup to ensure that a usable 
+     * profile is available.
      */
     static void initDefaultProfile();
 
