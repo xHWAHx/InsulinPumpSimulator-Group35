@@ -22,6 +22,7 @@ public:
 
 signals:
       void bolusDeliveryProgress(double remainingBolus, double rate, double deliveredThisTick);
+      void bolusTimeRemainingUpdated(double timeRemaining);
 
 private:
     double currentBasalRate;
