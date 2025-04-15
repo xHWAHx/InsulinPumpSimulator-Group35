@@ -6,8 +6,8 @@
 PumpController::PumpController(InsulinReserve *insulin, DataLogger *log, IOBTracker* iob, QObject *parent)
     : QObject(parent),
       insulinReserve(insulin),
-      iobTracker(iob),
       logger(log),
+      iobTracker(iob),
       currentBasalRate(0.0),
       activeBolusAmount(0.0),
       activeBolusRate(0.0),
