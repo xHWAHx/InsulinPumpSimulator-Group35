@@ -68,7 +68,7 @@ void Device::tick(){
 
    std::cout << "Ticking\n" << std::flush;
 
-   if (tickCounter >= 1) {
+   if (tickCounter >= 60) {
        battery->drainBattery();
        tickCounter = 0;
    }

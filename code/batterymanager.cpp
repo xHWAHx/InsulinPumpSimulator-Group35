@@ -15,7 +15,7 @@ double BatteryManager::getBatteryLevel(){
 void BatteryManager::drainBattery(){ 
 	// Drains battery level by 1%.
 	// Would not exist in a real device.
-    batteryLevel -= 0.02;
+    batteryLevel -= 0.01;
 	if (batteryLevel <= 0){
 		batteryLevel = 0;
 		// Needs to call Device to power off
