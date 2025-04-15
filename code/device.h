@@ -9,6 +9,7 @@
 #include <cgmreader.h>
 #include <profile.h>
 #include <pumpcontroller.h>
+#include "iobtracker.h"
 #include <userinterface.h>
 
 QT_BEGIN_NAMESPACE
@@ -35,6 +36,7 @@ private:
     InsulinReserve *insulin;
     CGMReader *cgm;
     Profile *profiles;
+    IOBTracker *iobTracker;
     PumpController *pump;
     UserInterface *interface;
     Ui::Device *window;
@@ -42,6 +44,7 @@ private:
     bool batteryAlertShown= false;
     bool insulinAlertShown= false;
     bool cgmAlertShown= false;
+
 
 };
 
