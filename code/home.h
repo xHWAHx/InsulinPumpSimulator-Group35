@@ -44,9 +44,11 @@ private:
     int currentTime;
     QTimer *clockTimer;
     QValueAxis *axisX;
+    int selectedGraphHours= 3;
 
 private slots:
    void updateDateTime();
+   void onGraphRangeChanged(int index);
 };
 
 #endif // HOMEWINDOW_H

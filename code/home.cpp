@@ -21,6 +21,7 @@ Home::Home(QWidget *parent)
     connect(ui->buttonOptions, &QPushButton::clicked, this, &Home::requestOptions);
     connect(ui->historyButton, &QPushButton::clicked, this, &Home::requestStats);
     connect(clockTimer, &QTimer::timeout, this, &Home::updateDateTime);
+    connect(ui-> comboGraphRange, QOverload<int>:: of(&QComboBox::currentIndexChanged), this, &Home::onGraphRangeChanged);
 
 
 }
@@ -41,8 +42,18 @@ void Home::setupChart()
     chart->zoom(0.5);
 
     axisX = new QValueAxis;
-    axisX->setRange(0, 180);
-    axisX->setTitleText("Time (sec)");
+    QString xAxisLabel;
+    int xAxisRange=0;
+
+    if (selectedGraphHours == 1){
+        xAxisRange= 60;
+        xAxisLabel= "Time (minutes)";
+    } else {
+        xAxisRange= selectedGraphHours;
+        xAxisLabel= "Time (hours)";
+    }
+    axisX->setRange(0, xAxisRange);
+    axisX->setTitleText(xAxisLabel);
     axisX->setLabelsColor(Qt::white);
 
     QValueAxis *axisY = new QValueAxis;
@@ -61,13 +72,19 @@ void Home::setupChart()
 
 void Home::addGlucoseReading(double value)
 {
-    series->append(currentTime *0.25, value);
-    currentTime++;
-    if (currentTime * 0.25 >= 180.0){
-        axisX->setRange((currentTime* 0.25)- 180, currentTime * 0.25);
-    }
-}
+    double timeInMinutes = currentTime * 0.25;
+    double hoursElapsed = timeInMinutes / 60.0;
 
+    series->append(hoursElapsed, value);
+    currentTime++;
+
+    double graphWindow = static_cast<double>(selectedGraphHours);
+
+    if (hoursElapsed >= graphWindow) {
+        axisX->setRange(hoursElapsed - graphWindow, hoursElapsed);
+    }
+
+}
 void Home::updateStatus(double glucose, double battery, double insulin)
 {
     int batteryPercent = static_cast<int>(battery * 100);
@@ -127,3 +144,14 @@ void Home::updateInsulinDisplay(double insulinRemaining){
     int percentage= static_cast<int>((insulinRemaining/300.0) * 100);
     ui-> insulinBar-> setValue(percentage);
 }
+
+void Home:: onGraphRangeChanged(int index){
+    switch(index){
+        case 0: selectedGraphHours= 1; break;
+        case 1: selectedGraphHours= 1; break;
+        case 2: selectedGraphHours= 1; break;
+    }
+    int seconds= selectedGraphHours * 60;
+    axisX-> setRange(std::max(0.0, currentTime * 0.25 - seconds), currentTime * 0.25);
+}
+

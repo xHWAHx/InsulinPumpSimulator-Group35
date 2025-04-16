@@ -223,6 +223,31 @@ QProgressBar#batteryBar::chunk {
      <height>231</height>
     </rect>
    </property>
+   <widget class="QComboBox" name="comboGraphRange">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>10</y>
+      <width>86</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>1 hour</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>3 hours</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>6 hours</string>
+     </property>
+    </item>
+   </widget>
   </widget>
   <widget class="Line" name="line_2">
    <property name="geometry">
