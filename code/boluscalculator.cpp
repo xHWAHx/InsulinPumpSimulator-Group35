@@ -154,17 +154,18 @@ void BolusCalculator::on_btnDeliver_clicked()
             .arg(nowDose, 0, 'f', 2).arg(laterDose, 0, 'f', 2).arg(mins)) != QMessageBox::Yes)
             return;
 
-        pump->deliverBolus(nowDose, nowDose / (mins / 60.0), true);//here
+        pump->deliverBolus(nowDose, nowDose / (mins / 60.0), /*suppressTime=*/false);//here
         logger->logInsulin(QDateTime::currentDateTime(), nowDose);
         logger->logEvent("Extended Bolus", QString("Now: %1 units, Later: %2 units in %3 min").arg(nowDose).arg(laterDose).arg(mins));
 
         remainingExtendedDose = laterDose;
         countdownSeconds = mins * 60;
         countdownTimer->start(1000);
+        emit countdownActive(true);
         extendedDoseTimer->start(mins * 60 * 1000);
     } else {
         if (QMessageBox::question(this, "Final Confirmation", QString("Deliver %1 units now?").arg(dose)) == QMessageBox::Yes) {
-            pump->deliverBolus(dose, 2.0, true);
+            pump->deliverBolus(dose, 2.0, /*suppressTime=*/true);
             if (logger) {
                 logger->logInsulin(QDateTime::currentDateTime(), dose);
                 logger->logEvent("Manual Bolus", QString("Delivered %1 units").arg(dose));
@@ -175,7 +176,7 @@ void BolusCalculator::on_btnDeliver_clicked()
 
 void BolusCalculator::deliverExtendedDose() {
     if (pump && remainingExtendedDose > 0) {
-        pump->deliverBolus(remainingExtendedDose, 2.0, true); //here
+        pump->deliverBolus(remainingExtendedDose, 2.0, /*suppressTime=*/true); //here
         if (iobTracker) iobTracker->addBolus(remainingExtendedDose, QDateTime::currentDateTime());
         if (logger) {
             logger->logInsulin(QDateTime::currentDateTime(), remainingExtendedDose);
@@ -193,6 +194,7 @@ void BolusCalculator::updateCountdown() {
     countdownSeconds--;
     if (countdownSeconds <= 0) {
         countdownTimer->stop();
+        emit countdownActive(false);
         emit pump->bolusTimeRemainingUpdated(0.0); //here
         return;
     }

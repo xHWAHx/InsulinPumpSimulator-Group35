@@ -63,6 +63,7 @@ private:
     Settings *settingsScreen;
     History *historyScreen;
     IOBTracker *iobTracker;
+    QTimer *pumpTimer;
 
     const int correctPin = 1234;
 };

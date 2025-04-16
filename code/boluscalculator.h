@@ -31,6 +31,7 @@ public:
 
 signals:
     void backToHome();
+    void countdownActive(bool active);
 
 private slots:
     void on_logoButton_clicked();

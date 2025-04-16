@@ -47,11 +47,22 @@ UserInterface::UserInterface(PumpController* pump, IOBTracker* iob, QWidget *par
 
     //connect(pumpController, &PumpController::bolusDeliveryProgress, this, &UserInterface::updateBolusDisplay);
     
+    pumpTimer = new QTimer(this);
+    connect(pumpTimer, &QTimer::timeout, pumpController, &PumpController::pump);
+    pumpTimer->start(1000);
+
+    connect(bolusCalculator, &BolusCalculator::countdownActive,this, [this](bool active){
+    if (active){
+        pumpTimer->stop();
+    }else {pumpTimer->start(1000);}      
+    });
+
     connect(pumpController, &PumpController::bolusDeliveryProgress,
-            this, [=](double /*remaining*/, double rate, double /*delivered*/) {
+            this, [=](double remaining, double /*rate*/, double /*delivered*/) {
         // one %1, one .arg():
-        QString status = QStringLiteral("Bolus rate: %1 U/hr")
-                             .arg(rate, 0, 'f', 2);
+        QString status = QString("Delivering: %1 U")
+                             .arg(remaining, 0, 'f', 2);
+
         homeScreen->updateBolusStatus(status);
     });
 
