@@ -12,7 +12,7 @@ class PumpController: public QObject
 public:
     explicit PumpController(InsulinReserve *insulin, DataLogger *logger, IOBTracker *iob, QObject *parent = nullptr);
 
-    void deliverBolus(double amount, double rate);
+    void deliverBolus(double amount, double rate, bool suppressTime = false);
     void adjustBasalRate(double rate);
     void suspendBolus();
     void resumeBolus();
@@ -30,6 +30,7 @@ private:
     double activeBolusRate;
     bool bolusSuspended;
     bool emergencyStopped;
+    bool suppressTimeUpdate = false;
 
     InsulinReserve *insulinReserve;
     DataLogger *logger;

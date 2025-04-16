@@ -16,7 +16,7 @@ PumpController::PumpController(InsulinReserve *insulin, DataLogger *logger, IOBT
 {
 }
 
-void PumpController::deliverBolus(double amount, double rate)
+void PumpController::deliverBolus(double amount, double rate, bool suppressTime)
 {
     if (emergencyStopped || bolusSuspended) {
         //logger.logEvent("Error", "Bolus blocked due to unsafe condition.");
@@ -26,6 +26,7 @@ void PumpController::deliverBolus(double amount, double rate)
     double delivered = insulinReserve->useInsulin(amount);
     activeBolusAmount = delivered;
     activeBolusRate = rate;
+    suppressTimeUpdate = suppressTime;
 
     if (iobTracker){
             iobTracker-> addBolus(delivered, QDateTime::currentDateTime());
@@ -83,6 +84,7 @@ void PumpController::pump()
     std::cout << "Pumping " << deliveredThisTick << " units this tick at rate " << activeBolusRate << " U/hr... ";
     if (activeBolusAmount > 0) {
             // Estimate the remaining time (in seconds) required for the remaining bolus.
+        if (!suppressTimeUpdate){
             double estimatedTimeRemaining = activeBolusAmount / (activeBolusRate / 3600.0);
             std::cout << "Remaining bolus: " << activeBolusAmount << " units. Estimated time remaining: " << estimatedTimeRemaining << " seconds." << std::endl;
             emit bolusTimeRemainingUpdated(estimatedTimeRemaining);
@@ -90,7 +92,7 @@ void PumpController::pump()
             std::cout << "Bolus delivery complete." << std::endl;
             emit bolusTimeRemainingUpdated(0.0);
         }
-
+    }
 }
 
 //try

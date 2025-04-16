@@ -6,20 +6,24 @@
 #include <QInputDialog>
 #include <QCheckBox>
 
-BolusCalculator::BolusCalculator(PumpController* pump, DataLogger* /*logger*/, CGMReader* cgm, InsulinReserve* insulin, IOBTracker* iobTracker, QWidget *parent): QWidget(parent),ui(new Ui::BolusCalculator),pump(pump),logger(DataLogger::instance(this)),cgm(cgm),insulinReserve(insulin), iobTracker(iobTracker){
-   
+BolusCalculator::BolusCalculator(PumpController* pump, DataLogger* logger, CGMReader* cgm, InsulinReserve* insulin, IOBTracker* iobTracker, QWidget *parent)
+    : QWidget(parent), ui(new Ui::BolusCalculator), pump(pump), logger(logger), cgm(cgm), insulinReserve(insulin), iobTracker(iobTracker), remainingExtendedDose(0.0), countdownSeconds(0)
+{
     ui->setupUi(this);
 
-     // override input initially read-only 
-     ui->overrideDoseInput->setReadOnly(true);
-     // disable confirm button
-     ui->btnOverrideConfirm->setEnabled(false);
- 
-     // checkbox toggles dose input
-     connect(ui->overrideCheckbox, &QCheckBox::stateChanged, this, [=](int state) {
-         ui->overrideDoseInput->setReadOnly(state != Qt::Checked);
-         ui->btnOverrideConfirm->setEnabled(state == Qt::Checked);
-     });
+    extendedDoseTimer = new QTimer(this);
+    countdownTimer = new QTimer(this);
+
+    connect(extendedDoseTimer, &QTimer::timeout, this, &BolusCalculator::deliverExtendedDose);
+    connect(countdownTimer, &QTimer::timeout, this, &BolusCalculator::updateCountdown);
+
+    ui->overrideDoseInput->setReadOnly(true);
+    ui->btnOverrideConfirm->setEnabled(false);
+
+    connect(ui->overrideCheckbox, &QCheckBox::stateChanged, this, [=](int state) {
+        ui->overrideDoseInput->setReadOnly(state != Qt::Checked);
+        ui->btnOverrideConfirm->setEnabled(state == Qt::Checked);
+    });
 }
 
 BolusCalculator::~BolusCalculator()
@@ -33,20 +37,13 @@ bool BolusCalculator::doseOverridden = false;
 double BolusCalculator::calculateBolus(double glucose, double carbs) {
     if (doseOverridden) return overriddenDose;
 
-    // gets value from current profile
     Profile profile = Profile::getActiveProfile();
-    double carbRatio = profile.getCarbRatio();
-    double correctionFactor = profile.getCorrectionFactor();
-    double targetGlucose = profile.getTargetGlucose();
-
-    double carbDose = calculateCarbBolus(carbs, carbRatio);
-    double correctionDose = calculateCorrectionBolus(glucose, targetGlucose, correctionFactor);
-
+    double carbDose = calculateCarbBolus(carbs, profile.getCarbRatio());
+    double correctionDose = calculateCorrectionBolus(glucose, profile.getTargetGlucose(), profile.getCorrectionFactor());
     return carbDose + correctionDose;
 }
 
 double BolusCalculator::suggestDose() {
-    // recommends dose based on target glucose
     Profile profile = Profile::getActiveProfile();
     return calculateCorrectionBolus(profile.getTargetGlucose(), profile.getTargetGlucose(), profile.getCorrectionFactor());
 }
@@ -57,13 +54,13 @@ void BolusCalculator::overrideDose(double dose) {
 }
 
 bool BolusCalculator::validateBolusInput(double dose) {
-    return dose > 0 && dose <= 25.0;  // saftey range, modifiable
+    return dose > 0 && dose <= 25.0;
 }
 
 double BolusCalculator::calculateCorrectionBolus(double glucose, double target, double correctionFactor) {
     if (correctionFactor <= 0) return 0;
     double diff = glucose - target;
-    return (diff > 0) ? (diff / correctionFactor) : 0; // true if glucose lvl is high
+    return (diff > 0) ? (diff / correctionFactor) : 0;
 }
 
 double BolusCalculator::calculateCarbBolus(double carbs, double carbRatio) {
@@ -73,20 +70,16 @@ double BolusCalculator::calculateCarbBolus(double carbs, double carbRatio) {
 
 double BolusCalculator::calculateTotalBolus(double glucose, double carbs, double target) {
     Profile profile = Profile::getActiveProfile();
-    double carbDose = calculateCarbBolus(carbs, profile.getCarbRatio());
-    double correctionDose = calculateCorrectionBolus(glucose, target, profile.getCorrectionFactor());
-    return carbDose + correctionDose;
+    return calculateCarbBolus(carbs, profile.getCarbRatio()) +
+           calculateCorrectionBolus(glucose, target, profile.getCorrectionFactor());
 }
 
 std::pair<double, double> BolusCalculator::splitBolus(double total, double percentage) {
-    // ensures the requested dose percentages make sense
     if (percentage < 0 || percentage > 100) return {0.0, 0.0};
     double immediate = (percentage / 100.0) * total;
-    double extended = total - immediate;
-    return {immediate, extended};
+    return {immediate, total - immediate};
 }
 
-// outputs recommended dose
 void BolusCalculator::on_btnCalculate_clicked()
 {
     bool ok1, ok2;
@@ -105,7 +98,6 @@ void BolusCalculator::on_btnCalculate_clicked()
     ui->outputResult->setText(QString::number(dose, 'f', 2));
 }
 
-// overrides dose
 void BolusCalculator::on_btnOverrideConfirm_clicked()
 {
     bool ok;
@@ -120,7 +112,6 @@ void BolusCalculator::on_btnOverrideConfirm_clicked()
     ui->outputResult->setText(QString("%1 (Overridden)").arg(dose, 0, 'f', 2));
 }
 
-
 void BolusCalculator::on_btnDeliver_clicked()
 {
     bool ok1, ok2;
@@ -134,8 +125,8 @@ void BolusCalculator::on_btnDeliver_clicked()
     }
 
     if (glucose < 3.9){
-        QMessageBox::warning(this, "Bolus Disabled",
-                             "Glucose too low. Bolus delivery is disabled to prevent hypoglycemia");
+        QMessageBox::warning(this, "Bolus Disabled", "Glucose too low. Bolus delivery is disabled.");
+        return;
     }
 
     if (insulinReserve && insulinReserve->getInsulinRemaining() < dose) {
@@ -143,13 +134,6 @@ void BolusCalculator::on_btnDeliver_clicked()
         return;
     }
 
-    QString summary = QString("Confirm Bolus Delivery?\n\nGlucose: %1 mmol/L\nCarbs: %2 g\nDose: %3 units")
-                      .arg(glucose).arg(carbs).arg(dose);
-
-    if (QMessageBox::question(this, "Confirm Dose", summary) != QMessageBox::Yes)
-        return;
-
-    // EXTENDED BOLUS
     if (QMessageBox::question(this, "Extended Bolus", "Would you like an extended dose?") == QMessageBox::Yes) {
         bool okNow, okLater, okTime;
         double now = QInputDialog::getDouble(this, "Deliver Now", "Enter % of dose to deliver now:", 50, 0, 100, 1, &okNow);
@@ -164,52 +148,58 @@ void BolusCalculator::on_btnDeliver_clicked()
         double nowDose = dose * (now / 100.0);
         double laterDose = dose - nowDose;
 
-        // Update IOB immediately with nowDose
-        if (iobTracker) {
-            iobTracker->addBolus(nowDose, QDateTime::currentDateTime());
-        }
+        if (iobTracker) iobTracker->addBolus(nowDose, QDateTime::currentDateTime());
 
-        QString confirm = QString("Now delivering: %1 units\nScheduled dose: %2 units in %3 minutes.")
-                          .arg(nowDose, 0, 'f', 2).arg(laterDose, 0, 'f', 2).arg(mins);
+        if (QMessageBox::question(this, "Final Confirmation",
+            QString("Now delivering: %1 units\nScheduled dose: %2 units in %3 minutes.")
+            .arg(nowDose, 0, 'f', 2).arg(laterDose, 0, 'f', 2).arg(mins)) != QMessageBox::Yes)
+            return;
 
-        if (QMessageBox::question(this, "Final Confirmation", confirm) == QMessageBox::Yes) {
-            double rate = nowDose / (mins / 60.0);
-            if (pump) pump->deliverBolus(nowDose, rate);
+        pump->deliverBolus(nowDose, nowDose / (mins / 60.0), false);
+        logger->logInsulin(QDateTime::currentDateTime(), nowDose);
+        logger->logEvent("Extended Bolus", QString("Now: %1 units, Later: %2 units in %3 min").arg(nowDose).arg(laterDose).arg(mins));
 
-            if (logger) {
-                logger->logInsulin(QDateTime::currentDateTime(), nowDose);
-                logger->logEvent("Extended Bolus", QString("Now: %1 units, Later: %2 units in %3 min")
-                                 .arg(nowDose, 0, 'f', 2).arg(laterDose, 0, 'f', 2).arg(mins));
-            }
-
-            QMessageBox::information(this, "Delivered", confirm);
-        }
-
-    }
-    // STANDARD BOLUS
-    else {
-        QString confirm = QString("Deliver %1 units now?").arg(dose);
-
-        if (QMessageBox::question(this, "Final Confirmation", confirm) == QMessageBox::Yes) {
-            if (pump) pump->deliverBolus(dose, 2.0);
-
-            // Add to IOB
-
-
+        remainingExtendedDose = laterDose;
+        countdownSeconds = mins * 60;
+        countdownTimer->start(1000);
+        extendedDoseTimer->start(mins * 60 * 1000);
+    } else {
+        if (QMessageBox::question(this, "Final Confirmation", QString("Deliver %1 units now?").arg(dose)) == QMessageBox::Yes) {
+            pump->deliverBolus(dose, 2.0, true);
             if (logger) {
                 logger->logInsulin(QDateTime::currentDateTime(), dose);
                 logger->logEvent("Manual Bolus", QString("Delivered %1 units").arg(dose));
             }
-
-            QMessageBox::information(this, "Delivered", confirm);
         }
     }
 }
 
+void BolusCalculator::deliverExtendedDose() {
+    if (pump && remainingExtendedDose > 0) {
+        pump->deliverBolus(remainingExtendedDose, 2.0, false);
+        if (iobTracker) iobTracker->addBolus(remainingExtendedDose, QDateTime::currentDateTime());
+        if (logger) {
+            logger->logInsulin(QDateTime::currentDateTime(), remainingExtendedDose);
+            logger->logEvent("Extended Bolus", QString("Delivered extended dose of %1 units.").arg(remainingExtendedDose, 0, 'f', 2));
+        }
+        QMessageBox::information(this, "Extended Dose Delivered", QString("%1 units have been delivered.").arg(remainingExtendedDose, 0, 'f', 2));
+        remainingExtendedDose = 0;
+        extendedDoseTimer->stop();
+        countdownTimer->stop();
+        if (pump) emit pump->bolusTimeRemainingUpdated(0.0);
+    }
+}
 
+void BolusCalculator::updateCountdown() {
+    countdownSeconds--;
+    if (countdownSeconds <= 0) {
+        countdownTimer->stop();
+        return;
+    }
+    emit pump->bolusTimeRemainingUpdated(countdownSeconds);
+}
 
-void BolusCalculator::on_logoButton_clicked()
-{
+void BolusCalculator::on_logoButton_clicked() {
     emit backToHome();
-    this-> close();
+    close();
 }

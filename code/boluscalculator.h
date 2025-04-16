@@ -2,6 +2,7 @@
 #define BOLUSCALCULATOR_H
 
 #include <QWidget>
+#include <QTimer>
 #include "pumpcontroller.h"
 #include "datalogger.h"
 #include "cgmreader.h"
@@ -28,6 +29,16 @@ public:
     static double calculateTotalBolus(double glucose, double carbs, double target);
     static std::pair<double, double> splitBolus(double total, double percentage);
 
+signals:
+    void backToHome();
+
+private slots:
+    void on_logoButton_clicked();
+    void on_btnCalculate_clicked();
+    void on_btnOverrideConfirm_clicked(); 
+    void on_btnDeliver_clicked();
+    void deliverExtendedDose();
+    void updateCountdown();
 
 private:
     Ui::BolusCalculator *ui;
@@ -40,14 +51,10 @@ private:
     InsulinReserve* insulinReserve;
     IOBTracker* iobTracker;
 
-signals:
-    void backToHome();
-
-private slots:
-    void on_logoButton_clicked();
-    void on_btnCalculate_clicked();
-    void on_btnOverrideConfirm_clicked(); 
-    void on_btnDeliver_clicked();
+    QTimer* extendedDoseTimer;
+    QTimer* countdownTimer;
+    double remainingExtendedDose;
+    int countdownSeconds;
 };
 
 #endif // BOLUSCALCULATOR_H
