@@ -14,13 +14,17 @@ double CGMReader::getCurrentGlucoseLevel(){
 	auto currentTime = std::chrono::steady_clock::now();
     std::chrono::duration<double> elapsedDuration {currentTime - timeOfPreviousReading};
     double elapsedSeconds = elapsedDuration.count() * timeScale;
+    if (elapsedSeconds < 5.0)
+        elapsedSeconds= 1.0;
 
     double rand = norm->operator()(randomGenerator);
+    double drift= meanReversion * (meanGlucose-previousReading) * elapsedSeconds;
+    double noise= rand * std::sqrt(elapsedSeconds);
 
-    double reading = previousReading + meanReversion * (meanGlucose - previousReading) * elapsedSeconds + std::sqrt(elapsedSeconds) * rand;
+    double reading = previousReading + drift+ noise;
 
-	timeOfPreviousReading = currentTime;
-	previousReading = reading;
+    previousReading = reading;
+    timeOfPreviousReading = currentTime;
 	return reading;
 }
 
