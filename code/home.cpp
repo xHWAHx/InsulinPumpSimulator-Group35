@@ -115,7 +115,7 @@ void Home::updateBolusTimeRemaining(double seconds) {
     int secs = static_cast<int>(seconds) % 60;
     QString formatted = QString("%1:%2").arg(minutes, 2, 10, QChar('0')).arg(secs, 2, 10, QChar('0'));
     
-    ui->labelBolusTimeRemaining->setText("Time Left: " + formatted);
+    ui->labelBolusTimeRemaining->setText("Extended dose in: " + formatted);
 }
 
 void Home::updateIOB(double iob) {
