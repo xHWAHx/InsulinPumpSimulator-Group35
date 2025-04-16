@@ -22,7 +22,7 @@ private:
     static constexpr double meanReversion = 0.0001; // should never go above 1/timeScale
     static constexpr double meanGlucose = 11;
     static constexpr double volatility = 0.01;
-    static constexpr double startAmount = 6;
+    static constexpr double startAmount = 6.0;
     static constexpr double timeScale = 3600; // Glucose levels vary over time at the rate of timeScale faster than normal.
                                              // A timeScale of 1 means real time, 60 means 1 second simulates 1 minute.
 };
