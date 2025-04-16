@@ -44,6 +44,8 @@ private:
     bool batteryAlertShown= false;
     bool insulinAlertShown= false;
     bool cgmAlertShown= false;
+    bool lowGlucoseAlertShown= false;
+    bool highGlucoseAlertShown= false;
 
 
 };
