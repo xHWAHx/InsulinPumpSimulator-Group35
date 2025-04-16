@@ -81,7 +81,12 @@ void PumpController::pump()
 
     emit bolusDeliveryProgress(activeBolusAmount, activeBolusRate, deliveredThisTick);
 
-    std::cout << "Pumping " << deliveredThisTick << " units this tick at rate " << activeBolusRate << " U/hr... ";
+    if (!suppressTimeUpdate) {
+            double estimatedTimeRemaining = activeBolusAmount / (activeBolusRate / 3600.0);
+            emit bolusTimeRemainingUpdated(estimatedTimeRemaining);
+        }
+
+    /*std::cout << "Pumping " << deliveredThisTick << " units this tick at rate " << activeBolusRate << " U/hr... ";
     if (activeBolusAmount > 0) {
             // Estimate the remaining time (in seconds) required for the remaining bolus.
         if (!suppressTimeUpdate){
@@ -92,7 +97,7 @@ void PumpController::pump()
             std::cout << "Bolus delivery complete." << std::endl;
             emit bolusTimeRemainingUpdated(0.0);
         }
-    }
+    }*/
 }
 
 //try

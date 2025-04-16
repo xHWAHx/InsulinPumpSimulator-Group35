@@ -144,7 +144,6 @@ void BolusCalculator::on_btnDeliver_clicked()
             QMessageBox::warning(this, "Error", "Invalid percentages or time.");
             return;
         }
-
         double nowDose = dose * (now / 100.0);
         double laterDose = dose - nowDose;
 
@@ -155,7 +154,7 @@ void BolusCalculator::on_btnDeliver_clicked()
             .arg(nowDose, 0, 'f', 2).arg(laterDose, 0, 'f', 2).arg(mins)) != QMessageBox::Yes)
             return;
 
-        pump->deliverBolus(nowDose, nowDose / (mins / 60.0), false);
+        pump->deliverBolus(nowDose, nowDose / (mins / 60.0), true);//here
         logger->logInsulin(QDateTime::currentDateTime(), nowDose);
         logger->logEvent("Extended Bolus", QString("Now: %1 units, Later: %2 units in %3 min").arg(nowDose).arg(laterDose).arg(mins));
 
@@ -176,7 +175,7 @@ void BolusCalculator::on_btnDeliver_clicked()
 
 void BolusCalculator::deliverExtendedDose() {
     if (pump && remainingExtendedDose > 0) {
-        pump->deliverBolus(remainingExtendedDose, 2.0, false);
+        pump->deliverBolus(remainingExtendedDose, 2.0, true); //here
         if (iobTracker) iobTracker->addBolus(remainingExtendedDose, QDateTime::currentDateTime());
         if (logger) {
             logger->logInsulin(QDateTime::currentDateTime(), remainingExtendedDose);
@@ -194,6 +193,7 @@ void BolusCalculator::updateCountdown() {
     countdownSeconds--;
     if (countdownSeconds <= 0) {
         countdownTimer->stop();
+        emit pump->bolusTimeRemainingUpdated(0.0); //here
         return;
     }
     emit pump->bolusTimeRemainingUpdated(countdownSeconds);
