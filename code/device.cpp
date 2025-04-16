@@ -75,6 +75,8 @@ void Device::tick(){
 
    double batteryLevel = battery->getBatteryLevel();
    double glucose = cgm->getCurrentGlucoseLevel();
+   //double glucose= 3.5;
+   double target= Profile::getActiveProfile().getTargetGlucose();
    double insulinReading = insulin->getInsulinRemaining();
    QDateTime time = QDateTime::currentDateTime();
 
@@ -106,6 +108,28 @@ void Device::tick(){
    }
 }
 
+   if (glucose < 3.9 && !lowGlucoseAlertShown) {
+       lowGlucoseAlertShown = true;
+       pump->suspendBolus();  // Stop insulin delivery temporarily
+       Alert* alert = new Alert(this);
+       alert->showAlert("Low Glucose",
+           "Glucose is below 3.9 mmol/L. Take 15g of fast-acting sugar. Bolus suspended.");
+   }
+
+
+   if (glucose > target + 2.0 && !highGlucoseAlertShown) {
+       highGlucoseAlertShown = true;
+       Alert* alert = new Alert(this);
+       alert->showAlert("High Glucose",
+           "Glucose is above target. Consider using the Bolus Calculator.");
+   }
+
+   if(glucose >= 4.0 && glucose <= target + 1.5){
+       lowGlucoseAlertShown= false;
+       highGlucoseAlertShown= false;
+   }
+
+
    //pump logic
    pump->pump();
    double currentIOB= iobTracker-> getCurrentIOB(QDateTime::currentDateTime());
@@ -114,5 +138,4 @@ void Device::tick(){
    interface->updateIOB(currentIOB);
 
 }
-
 
