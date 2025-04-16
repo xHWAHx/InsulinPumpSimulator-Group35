@@ -133,6 +133,11 @@ void BolusCalculator::on_btnDeliver_clicked()
         return;
     }
 
+    if (glucose < 3.9){
+        QMessageBox::warning(this, "Bolus Disabled",
+                             "Glucose too low. Bolus delivery is disabled to prevent hypoglycemia");
+    }
+
     if (insulinReserve && insulinReserve->getInsulinRemaining() < dose) {
         QMessageBox::warning(this, "Insufficient Insulin", "Not enough insulin to deliver the requested dose.");
         return;
