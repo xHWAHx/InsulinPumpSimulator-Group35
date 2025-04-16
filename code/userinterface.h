@@ -29,11 +29,11 @@ public:
 
     void displayHomeScreen();
     void showLoginScreen();
-    void navigateToBolusCalculator();
+    //void navigateToBolusCalculator();
     void displayError(const QString &message);
     void refreshStatusBar(double glucose, double battery, double insulin);
-    void showControlIQStats();
-    void showOptions();
+    //void showControlIQStats();
+    //void showOptions();
     void updateIOB(double iob);
 
 public slots:
