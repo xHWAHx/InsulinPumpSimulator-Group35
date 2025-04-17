@@ -31,7 +31,7 @@ public:
 
     void displayHomeScreen();
     void showLoginScreen();
-    void refreshStatusBar(double glucose, double battery, double insulin);
+    void refresh(double glucose, double battery, double insulin);
     void updateIOB(double iob);
     void showAlert(Alert *alert);
     void dismissAlert(Alert *alert);

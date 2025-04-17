@@ -39,15 +39,7 @@ Device::Device(QWidget *parent)
 
     logger->loadLogs();
 
-    interface->hide(); // because device starts powered off
-}
-
-void Device::noPower(){
-        poweredOn = false;
-        monitoring = false;
-        interface->hide();
-        window->powerLabel->setText("Device is powered off  (battery died)");
-        tickClock->stop();
+    interface->hide(); // device starts powered off
 }
 
 void Device::power(){
@@ -63,6 +55,14 @@ void Device::power(){
         window->powerLabel->setText("Device is powered on");
         interface->showLoginScreen();
     }
+}
+
+void Device::noPower(){
+        poweredOn = false;
+        monitoring = false;
+        interface->hide();
+        window->powerLabel->setText("Device is powered off  (battery died)");
+        tickClock->stop();
 }
 
 void Device::startMonitoring(){
@@ -93,9 +93,8 @@ void Device::monitor(){
     pump->pump();
     double currentIOB= iobTracker-> getCurrentIOB(QDateTime::currentDateTime());
 
-    interface->refreshStatusBar(glucose, batteryLevel, insulinReading);
+    interface->refresh(glucose, batteryLevel, insulinReading);
     interface->updateIOB(currentIOB);
-
 }
 
 void Device::setSimRate(int rate){
@@ -115,7 +114,6 @@ void Device::safetyChecks(double glucose, double target){
     if (insulin->isInsulinLow()){
         alerts->raise(Alert::INSULIN_LOW, interface, logger);
     }
-
 
     if (cgm->isCGMConnected()) {
         alerts->reset(Alert::CGM_DISCONNECTED);

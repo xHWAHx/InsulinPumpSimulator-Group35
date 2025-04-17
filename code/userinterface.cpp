@@ -21,14 +21,12 @@ UserInterface::UserInterface(PumpController* pump, IOBTracker* iob, QWidget *par
 {
     ui->setupUi(this);
 
-
     loginScreen = new Login();
     logger = DataLogger::instance(this);
     homeScreen = new Home();
     bolusCalculator = new BolusCalculator(pumpController, logger, cgmReader, insulinReserve, iobTracker, this);
     settingsScreen = new Settings();
     historyScreen = new History();
-
 
     ui->pageStack->addWidget(loginScreen);
     ui->pageStack->addWidget(homeScreen);
@@ -87,7 +85,7 @@ void UserInterface::displayHomeScreen() {
     ui->pageStack->setCurrentWidget(homeScreen);
 }
 
-void UserInterface::refreshStatusBar(double glucose, double battery, double insulin) {
+void UserInterface::refresh(double glucose, double battery, double insulin) {
     double iob= iobTracker-> getCurrentIOB(QDateTime::currentDateTime());
     homeScreen->updateStatus(glucose, battery, insulin);
     homeScreen->updateIOB(iob);
