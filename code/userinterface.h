@@ -17,6 +17,8 @@
 #include "history.h"
 #include "iobtracker.h"
 
+class Alert;
+
 namespace Ui {
     class UserInterface;
 }
@@ -29,19 +31,16 @@ public:
 
     void displayHomeScreen();
     void showLoginScreen();
-    //void navigateToBolusCalculator();
-    void displayError(const QString &message);
     void refreshStatusBar(double glucose, double battery, double insulin);
-    //void showControlIQStats();
-    //void showOptions();
     void updateIOB(double iob);
+    void showAlert(Alert *alert);
+    void dismissAlert(Alert *alert);
 
 public slots:
     void updateGlucoseForChart(double glucose);
     void openBolusUI();
     void openSettings();
     void openHistory();
-    void triggerEmergencyStop();
     void unlock();
     //void updateBolusDisplay(double remainingBolus, double rate, double deliveredThisTick);
 
@@ -64,6 +63,7 @@ private:
     History *historyScreen;
     IOBTracker *iobTracker;
     QTimer *pumpTimer;
+    QWidget *lastPage;
 
     const int correctPin = 1234;
 };

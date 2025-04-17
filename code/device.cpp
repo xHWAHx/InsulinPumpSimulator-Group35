@@ -29,8 +29,10 @@ Device::Device(QWidget *parent)
     connect(interface, &UserInterface::deviceUnlocked, this, &Device::startMonitoring);
     connect(tickClock, &QTimer::timeout, this, &Device::tick);
     connect(window->chargeBatteryButton, &QPushButton::released, battery, &BatteryManager::chargeBattery);
+    connect(window->chargeBatteryButton, &QPushButton::released, this, [](){ Alert::reset(Alert::BATTERY_LOW); });
     connect(window->rateSlider, &QSlider::valueChanged, this, &Device::setSimRate);
-    //connect(window->refillInsulinButton, &QPushButton::released, this, [=](){ insulin-> refillInsulin(); iobTracker-> clear(); });
+    connect(window->refillInsulinButton, &QPushButton::released, this, [this](){ insulin->refillInsulin(); iobTracker-> clear(); });
+    connect(battery, &BatteryManager::batteryDead, this, &Device::noPower);
 
     Profile::initDefaultProfile();
     Profile::selectProfileById(1);
@@ -38,6 +40,14 @@ Device::Device(QWidget *parent)
     logger->loadLogs();
 
     interface->hide(); // because device starts powered off
+}
+
+void Device::noPower(){
+        poweredOn = false;
+        monitoring = false;
+        interface->hide();
+        window->powerLabel->setText("Device is powered off  (battery died)");
+        tickClock->stop();
 }
 
 void Device::power(){
@@ -77,53 +87,7 @@ void Device::monitor(){
     double insulinReading = insulin->getInsulinRemaining();
     QDateTime time = QDateTime::currentDateTime();
 
-    if (batteryLevel <= 0.15) {
-        if (!batteryAlertShown) {
-            batteryAlertShown= true;
-            Alert *lowBattery = new Alert(this);
-            lowBattery->showAlert("Low Battery", "Please recharge or replace the pump's battery.");
-            logger->logEvent("Warning", QString("Low Battery"));
-        }
-    }
-
-    if (insulinReading <= 10.0) {
-        if(!insulinAlertShown) {
-            insulinAlertShown= true;
-            Alert *lowInsulin = new Alert(this);
-            lowInsulin->showAlert("Low Insulin", "Insulin is running low. Please refill the reservoir.");
-            logger->logEvent("Warning", QString("Low Insulin"));
-    }
-    }
-
-       if (!cgm->isCGMConnected()) {
-           if (!cgmAlertShown) {
-           cgmAlertShown= true;
-           Alert *cgmDisconnected = new Alert(this);
-           cgmDisconnected->showAlert("CGM Disconnected", "Check CGM sensor connection.");
-       }
-    }
-
-    if (glucose < 3.9 && !lowGlucoseAlertShown) {
-        lowGlucoseAlertShown = true;
-        pump->suspendBolus();  // Stop insulin delivery temporarily
-        Alert* alert = new Alert(this);
-        alert->showAlert("Low Glucose",
-            "Glucose is below 3.9 mmol/L. Take 15g of fast-acting sugar. Bolus suspended.");
-    }
-
-
-    if (glucose > target + 2.0 && !highGlucoseAlertShown) {
-        highGlucoseAlertShown = true;
-        Alert* alert = new Alert(this);
-        alert->showAlert("High Glucose",
-            "Glucose is above target. Consider using the Bolus Calculator.");
-    }
-
-    if(glucose >= 4.0 && glucose <= target + 1.5){
-        lowGlucoseAlertShown= false;
-        highGlucoseAlertShown= false;
-    }
-
+    safetyChecks(glucose, target);
 
     //pump logic
     pump->pump();
@@ -143,3 +107,32 @@ void Device::setSimRate(int rate){
     window->rateLabel->setText("Simulation rate: " + QString::number(simulationRate) + "x");
 }
 
+void Device::safetyChecks(double glucose, double target){
+    if (battery->isBatteryCritical()){
+        alerts->raise(Alert::BATTERY_LOW, interface, logger);
+    }
+
+    if (insulin->isInsulinLow()){
+        alerts->raise(Alert::INSULIN_LOW, interface, logger);
+    }
+
+
+    if (cgm->isCGMConnected()) {
+        alerts->reset(Alert::CGM_DISCONNECTED);
+    } else {
+        alerts->raise(Alert::CGM_DISCONNECTED, interface, logger);
+    }
+
+    if (glucose < 3.9) {
+    //    pump->suspendBolus();  // Stop insulin delivery temporarily
+        alerts->raise(Alert::GLUCOSE_LOW, interface, logger);
+    } else if (glucose > 4) {
+        alerts->reset(Alert::GLUCOSE_LOW);
+    }
+
+    if (glucose > target + 2.0) {
+        alerts->raise(Alert::GLUCOSE_HIGH, interface, logger);
+    } else if (glucose < target + 1.5) {
+        alerts->reset(Alert::GLUCOSE_HIGH);
+    }
+}

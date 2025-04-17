@@ -11,6 +11,7 @@
 #include <pumpcontroller.h>
 #include "iobtracker.h"
 #include <userinterface.h>
+#include "alert.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Device; }
@@ -24,11 +25,10 @@ public:
 
 public slots:
 	void power();
+    void noPower();
     void tick();
     void startMonitoring();
     void setSimRate(int rate);
-
-signals:
 
 private:
 	bool poweredOn;
@@ -42,6 +42,7 @@ private:
     IOBTracker *iobTracker;
     PumpController *pump;
     UserInterface *interface;
+    Alert *alerts;
     Ui::Device *window;
     QTimer *tickClock;
     bool batteryAlertShown= false;
@@ -51,6 +52,7 @@ private:
     bool highGlucoseAlertShown= false;
 
     void monitor();
+    void safetyChecks(double glucose, double target);
 };
 
 #endif // DEVICE_H
