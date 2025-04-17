@@ -43,16 +43,7 @@ void Home::setupChart()
 
     axisX = new QValueAxis;
     QString xAxisLabel;
-    int xAxisRange=0;
 
-    if (selectedGraphHours == 1){
-        xAxisRange= 60;
-        xAxisLabel= "Time (minutes)";
-    } else {
-        xAxisRange= selectedGraphHours;
-        xAxisLabel= "Time (hours)";
-    }
-    axisX->setRange(0, xAxisRange);
     axisX->setTitleText(xAxisLabel);
     axisX->setLabelsColor(Qt::white);
 
@@ -71,20 +62,15 @@ void Home::setupChart()
 }
 
 void Home::addGlucoseReading(double value)
-{
-    double timeInMinutes = currentTime * 0.25;
-    double hoursElapsed = timeInMinutes / 60.0;
 
-    series->append(hoursElapsed, value);
+{
+    double timeInHours = double(currentTime)/12;
+    series->append(timeInHours, value);
     currentTime++;
 
-    double graphWindow = static_cast<double>(selectedGraphHours);
-
-    if (hoursElapsed >= graphWindow) {
-        axisX->setRange(hoursElapsed - graphWindow, hoursElapsed);
-    }
-
+    axisX->setRange(timeInHours - selectedGraphHours, timeInHours);
 }
+
 void Home::updateStatus(double glucose, double battery, double insulin)
 {
     int batteryPercent = static_cast<int>(battery * 100);
@@ -113,8 +99,6 @@ void Home::updateStatus(double glucose, double battery, double insulin)
     ui->glucoseLabel->setText(QString::number(glucose, 'f', 1));
     updateInsulinDisplay(insulin);
 }
-
-
 
 void Home::updateDateTime() {
    QString timeStr = QTime::currentTime().toString("hh:mm AP");
@@ -148,10 +132,8 @@ void Home::updateInsulinDisplay(double insulinRemaining){
 void Home:: onGraphRangeChanged(int index){
     switch(index){
         case 0: selectedGraphHours= 1; break;
-        case 1: selectedGraphHours= 1; break;
-        case 2: selectedGraphHours= 1; break;
+        case 1: selectedGraphHours= 3; break;
+        case 2: selectedGraphHours= 6; break;
     }
-    int seconds= selectedGraphHours * 60;
-    axisX-> setRange(std::max(0.0, currentTime * 0.25 - seconds), currentTime * 0.25);
 }
 

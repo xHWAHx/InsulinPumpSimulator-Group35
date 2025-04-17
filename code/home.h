@@ -43,7 +43,7 @@ private:
     int currentTime;
     QTimer *clockTimer;
     QValueAxis *axisX;
-    int selectedGraphHours= 3;
+    int selectedGraphHours = 1;
 
 private slots:
    void updateDateTime();

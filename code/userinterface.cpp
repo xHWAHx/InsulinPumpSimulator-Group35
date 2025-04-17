@@ -49,11 +49,11 @@ UserInterface::UserInterface(PumpController* pump, IOBTracker* iob, QWidget *par
     //connect(pumpTimer, &QTimer::timeout, pumpController, &PumpController::pump);
     //pumpTimer->start(1000);
 
-    connect(bolusCalculator, &BolusCalculator::countdownActive,this, [this](bool active){
-    if (active){
-        pumpTimer->stop();
-    }else {pumpTimer->start(1000);}      
-    });
+    //connect(bolusCalculator, &BolusCalculator::countdownActive,this, [this](bool active){
+    //if (active){
+    //    pumpTimer->stop();
+    //}else {pumpTimer->start(1000);}
+    //});
 
     connect(pumpController, &PumpController::bolusDeliveryProgress,
             this, [=](double remaining, double /*rate*/, double /*delivered*/) {

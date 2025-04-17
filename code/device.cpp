@@ -74,7 +74,7 @@ void Device::startMonitoring(){
     tickClock->start(1000.0 / simulationRate);
 }
 
-void Device::tick(){
+void Device::tick(){ // each tick represents 5 minutes
     battery->drainBattery();
 
     if (monitoring) {
