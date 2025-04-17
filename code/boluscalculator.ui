@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>600</width>
-    <height>440</height>
+    <height>400</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -129,14 +129,17 @@
      <height>31</height>
     </rect>
    </property>
-   <property name="placeholderText">
-    <string>Enter dose</string>
-   </property>
    <property name="readOnly">
     <bool>true</bool>
    </property>
+   <property name="placeholderText">
+    <string>Enter dose</string>
+   </property>
   </widget>
   <widget class="QPushButton" name="btnOverrideConfirm">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>410</x>
@@ -148,11 +151,7 @@
    <property name="text">
     <string>Confirm Override</string>
    </property>
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
   </widget>
-
   <widget class="QPushButton" name="btnDeliver">
    <property name="geometry">
     <rect>
@@ -166,7 +165,6 @@
     <string>Deliver</string>
    </property>
   </widget>
-
   <widget class="QPushButton" name="logoButton">
    <property name="geometry">
     <rect>

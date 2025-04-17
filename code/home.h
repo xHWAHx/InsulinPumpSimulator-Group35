@@ -1,7 +1,6 @@
 #ifndef HOMEWINDOW_H
 #define HOMEWINDOW_H
 
-#include <QMainWindow>
 #include <QtCharts/QChartView>
 #include <QtCharts/QLineSeries>
 #include <QtCharts/QValueAxis>
@@ -13,7 +12,7 @@ namespace Ui {
 class Home;
 }
 
-class Home : public QWidget { // made QWidget instead of QMainWindow because the main window will contain each page
+class Home : public QWidget {
     Q_OBJECT
 
 public:
