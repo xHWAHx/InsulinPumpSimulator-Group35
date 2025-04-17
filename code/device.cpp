@@ -23,15 +23,10 @@ Device::Device(QWidget *parent)
     interface = new UserInterface(pump, iobTracker, window->uiWidget);
 
     connect(window->powerButton, &QPushButton::released, this, &Device::power);
-
     connect(interface, &UserInterface::deviceUnlocked, this, &Device::startMonitoring);
     connect(tickClock, &QTimer::timeout, this, &Device::tick);
-
     connect(window->chargeBatteryButton, &QPushButton::released, battery, &BatteryManager::chargeBattery);
-    connect(window->refillInsulinButton, &QPushButton::released, this, [=](){
-        insulin-> refillInsulin();
-        iobTracker-> clear();
-    });
+    //connect(window->refillInsulinButton, &QPushButton::released, this, [=](){ insulin-> refillInsulin(); iobTracker-> clear(); });
 
     Profile::initDefaultProfile();
     Profile::selectProfileById(1);
@@ -51,91 +46,81 @@ void Device::power(){
         poweredOn = true;
         interface->show();
         window->powerLabel->setText("Device is powered on");
-
         interface->showLoginScreen();
     }
 }
 
 void Device::startMonitoring(){
-    std::cout << "Starting monitoring\n" << std::flush;
     interface->displayHomeScreen();
-    tickClock->start(2250);
+    tickClock->start(1000);
 }
 
 void Device::tick(){
-   static int tickCounter = 0;
-   tickCounter++;
 
-   std::cout << "Ticking\n" << std::flush;
+    battery->drainBattery();
 
-   if (tickCounter >= 60) {
-       battery->drainBattery();
-       tickCounter = 0;
-   }
-
-   double batteryLevel = battery->getBatteryLevel();
-   double glucose = cgm->getCurrentGlucoseLevel();
-   //double glucose= 3.5;
-   double target= Profile::getActiveProfile().getTargetGlucose();
-   double insulinReading = insulin->getInsulinRemaining();
-   QDateTime time = QDateTime::currentDateTime();
+    double batteryLevel = battery->getBatteryLevel();
+    double glucose = cgm->getCurrentGlucoseLevel();
+    //double glucose= 3.5;
+    double target= Profile::getActiveProfile().getTargetGlucose();
+    double insulinReading = insulin->getInsulinRemaining();
+    QDateTime time = QDateTime::currentDateTime();
 
 
+    if (batteryLevel <= 0.15) {
+        if (!batteryAlertShown) {
+            batteryAlertShown= true;
+            Alert *lowBattery = new Alert(this);
+            lowBattery->showAlert("Low Battery", "Please recharge or replace the pump's battery.");
+            logger->logEvent("Warning", QString("Low Battery"));
+        }
+    }
 
-   if (batteryLevel <= 0.15) {
-       if (!batteryAlertShown) {
-           batteryAlertShown= true;
-           Alert *lowBattery = new Alert(this);
-           lowBattery->showAlert("Low Battery", "Please recharge or replace the pump's battery.");
-           logger->logEvent("Warning", QString("Low Battery"));
-       }
-   }
+    if (insulinReading <= 10.0) {
+        if(!insulinAlertShown) {
+            insulinAlertShown= true;
+            Alert *lowInsulin = new Alert(this);
+            lowInsulin->showAlert("Low Insulin", "Insulin is running low. Please refill the reservoir.");
+            logger->logEvent("Warning", QString("Low Insulin"));
+    }
+    }
 
-   if (insulinReading <= 10.0) {
-       if(!insulinAlertShown) {
-           insulinAlertShown= true;
-           Alert *lowInsulin = new Alert(this);
-           lowInsulin->showAlert("Low Insulin", "Insulin is running low. Please refill the reservoir.");
-           logger->logEvent("Warning", QString("Low Insulin"));
-   }
-}
-
-   if (!cgm->isCGMConnected()) {
-       if (!cgmAlertShown) {
+       if (!cgm->isCGMConnected()) {
+           if (!cgmAlertShown) {
            cgmAlertShown= true;
            Alert *cgmDisconnected = new Alert(this);
            cgmDisconnected->showAlert("CGM Disconnected", "Check CGM sensor connection.");
-   }
-}
+       }
+    }
 
-   if (glucose < 3.9 && !lowGlucoseAlertShown) {
-       lowGlucoseAlertShown = true;
-       pump->suspendBolus();  // Stop insulin delivery temporarily
-       Alert* alert = new Alert(this);
-       alert->showAlert("Low Glucose",
-           "Glucose is below 3.9 mmol/L. Take 15g of fast-acting sugar. Bolus suspended.");
-   }
-
-
-   if (glucose > target + 2.0 && !highGlucoseAlertShown) {
-       highGlucoseAlertShown = true;
-       Alert* alert = new Alert(this);
-       alert->showAlert("High Glucose",
-           "Glucose is above target. Consider using the Bolus Calculator.");
-   }
-
-   if(glucose >= 4.0 && glucose <= target + 1.5){
-       lowGlucoseAlertShown= false;
-       highGlucoseAlertShown= false;
-   }
+    if (glucose < 3.9 && !lowGlucoseAlertShown) {
+        lowGlucoseAlertShown = true;
+        pump->suspendBolus();  // Stop insulin delivery temporarily
+        Alert* alert = new Alert(this);
+        alert->showAlert("Low Glucose",
+            "Glucose is below 3.9 mmol/L. Take 15g of fast-acting sugar. Bolus suspended.");
+    }
 
 
-   //pump logic
-   pump->pump();
-   double currentIOB= iobTracker-> getCurrentIOB(QDateTime::currentDateTime());
+    if (glucose > target + 2.0 && !highGlucoseAlertShown) {
+        highGlucoseAlertShown = true;
+        Alert* alert = new Alert(this);
+        alert->showAlert("High Glucose",
+            "Glucose is above target. Consider using the Bolus Calculator.");
+    }
 
-   interface->refreshStatusBar(glucose, batteryLevel, insulinReading);
-   interface->updateIOB(currentIOB);
+    if(glucose >= 4.0 && glucose <= target + 1.5){
+        lowGlucoseAlertShown= false;
+        highGlucoseAlertShown= false;
+    }
+
+
+    //pump logic
+    pump->pump();
+    double currentIOB= iobTracker-> getCurrentIOB(QDateTime::currentDateTime());
+
+    interface->refreshStatusBar(glucose, batteryLevel, insulinReading);
+    interface->updateIOB(currentIOB);
 
 }
 
