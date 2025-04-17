@@ -85,12 +85,12 @@ void Device::tick(){ // each tick represents 5 minutes
 }
 
 void Device::monitor(){
+    QDateTime time = QDateTime::currentDateTime();
 
     double batteryLevel = battery->getBatteryLevel();
     double glucose = cgm->getCurrentGlucoseLevel(bloodstream, profiles->getActiveProfile().getCorrectionFactor());
     double target= Profile::getActiveProfile().getTargetGlucose();
     double insulinReading = insulin->getInsulinRemaining();
-    QDateTime time = QDateTime::currentDateTime();
 
     safetyChecks(glucose, target);
 
@@ -100,6 +100,9 @@ void Device::monitor(){
     pump->pump(bloodstream);
     //double currentIOB= iobTracker-> getCurrentIOB(QDateTime::currentDateTime());
     double currentIOB = bloodstream->getIOB();
+
+    logger->logGlucose(time, glucose);
+    logger->logInsulin(time, currentIOB);
 
     interface->refresh(glucose, batteryLevel, insulinReading, currentIOB);
 }
