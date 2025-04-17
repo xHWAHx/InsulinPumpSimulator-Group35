@@ -12,6 +12,7 @@ CONFIG += c++11
 SOURCES += \
     alert.cpp \
     batterymanager.cpp \
+    bloodstream.cpp \
     boluscalculator.cpp \
     cgmreader.cpp \
     controliqalgorithm.cpp \
@@ -31,6 +32,7 @@ SOURCES += \
 HEADERS += \
     alert.h \
     batterymanager.h \
+    bloodstream.h \
     boluscalculator.h \
     cgmreader.h \
     controliqalgorithm.h \

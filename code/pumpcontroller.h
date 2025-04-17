@@ -4,6 +4,7 @@
 #include "insulinreserve.h"
 #include "datalogger.h"
 #include "iobtracker.h"
+#include "bloodstream.h"
 #include <QObject>
 
 class PumpController: public QObject
@@ -18,7 +19,7 @@ public:
     void resumeBolus();
     int checkDeviceStatus(); //0 = OK, 1 = Suspended, 2 = Emergency
     void triggerEmergencyStop();
-    void pump(); //simulation loop or single "tick"
+    void pump(Bloodstream *blood); //simulation loop or single "tick"
 
 signals:
       void bolusDeliveryProgress(double remainingBolus, double rate, double deliveredThisTick);

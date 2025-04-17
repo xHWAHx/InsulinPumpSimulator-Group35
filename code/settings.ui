@@ -88,8 +88,15 @@
     </item>
     <item row="3" column="0">
      <widget class="QLabel" name="labelCorrection">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="text">
-       <string>Correction Factor</string>
+       <string>Correction Factor
+(mmol/L per unit)</string>
       </property>
      </widget>
     </item>
@@ -107,6 +114,16 @@
      <widget class="QDoubleSpinBox" name="spinBoxTarget"/>
     </item>
    </layout>
+   <zorder>labelName</zorder>
+   <zorder>lineEditName</zorder>
+   <zorder>labelBasal</zorder>
+   <zorder>spinBoxBasal</zorder>
+   <zorder>labelCarb</zorder>
+   <zorder>spinBoxCarb</zorder>
+   <zorder>spinBoxCorrection</zorder>
+   <zorder>labelTarget</zorder>
+   <zorder>spinBoxTarget</zorder>
+   <zorder>labelCorrection</zorder>
   </widget>
   <widget class="QPushButton" name="logoButton">
    <property name="geometry">

@@ -27,9 +27,9 @@ public:
      * @brief Constructs a new Profile object with specified parameters.
      *
      * @param name The name of the profile.
-     * @param basalRate The basal insulin rate.
+     * @param basalRate The basal insulin rate in units/hour.
      * @param carbRatio The carbohydrate ratio.
-     * @param correctionFactor The correction factor for insulin dosing.
+     * @param correctionFactor The correction factor for insulin dosing in .
      * @param targetGlucose The target blood glucose level.
      * @param id The unique identifier for the profile.
      */

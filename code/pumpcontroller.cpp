@@ -11,7 +11,7 @@ PumpController::PumpController(InsulinReserve *insulin, DataLogger *logger, IOBT
       bolusSuspended(false),
       emergencyStopped(false),
       insulinReserve(insulin),
-      logger(DataLogger::instance(this)),
+      logger(logger),
       iobTracker(iob)
 {
 }
@@ -19,20 +19,20 @@ PumpController::PumpController(InsulinReserve *insulin, DataLogger *logger, IOBT
 void PumpController::deliverBolus(double amount, double rate, bool suppressTime)
 {
     if (emergencyStopped || bolusSuspended) {
-        //logger.logEvent("Error", "Bolus blocked due to unsafe condition.");
+        logger->logEvent("Error", "Bolus blocked due to unsafe condition.");
         return;
     }
 
-    double delivered = insulinReserve->useInsulin(amount);
+    double delivered = std::min(insulinReserve->getInsulinRemaining(), amount);
     activeBolusAmount = delivered;
     activeBolusRate = rate;
     suppressTimeUpdate = suppressTime;
 
     if (iobTracker){
-            iobTracker-> addBolus(delivered, QDateTime::currentDateTime());
-}
+        iobTracker-> addBolus(delivered, QDateTime::currentDateTime());
+    }
 
-    //logger.logEvent("Bolus", "Delivered " + QString::number(delivered) + " units at rate " + QString::number(rate));
+    logger->logEvent("Bolus", "Delivered " + QString::number(delivered) + " units at rate " + QString::number(rate));
 }
 
 void PumpController::adjustBasalRate(double rate)
@@ -70,31 +70,35 @@ void PumpController::triggerEmergencyStop()
     //logger.logEvent("Critical", "Emergency stop activated.");
 }
 
-void PumpController::pump()
+void PumpController::pump(Bloodstream *blood)
 {
     //only pump if delivery is active + not blocked
-    if (emergencyStopped || bolusSuspended || activeBolusAmount <= 0) {
-           return;
-    }
-    const double tickIntervalSec = 1.0; //tick interval
-    double unitsPerTick = activeBolusRate / 3600.0 * tickIntervalSec;
-    double deliveredThisTick = (activeBolusAmount < unitsPerTick) ? activeBolusAmount : unitsPerTick;
-    activeBolusAmount -= deliveredThisTick;
+    if (not (emergencyStopped || bolusSuspended || activeBolusAmount <= 0)) {
+        const double tickIntervalSec = 300.0; //tick interval
+        double unitsPerTick = (activeBolusRate / 3600.0) * tickIntervalSec;
+        double deliveredThisTick = (activeBolusAmount < unitsPerTick) ? activeBolusAmount : unitsPerTick;
+        activeBolusAmount -= deliveredThisTick;
 
-    emit bolusDeliveryProgress(activeBolusAmount, activeBolusRate, deliveredThisTick);
+        emit bolusDeliveryProgress(activeBolusAmount, activeBolusRate, deliveredThisTick);
 
-    if (!suppressTimeUpdate) {
+        if (!suppressTimeUpdate) {
             double estimatedTimeRemaining = activeBolusAmount / (activeBolusRate / 3600.0);
             emit bolusTimeRemainingUpdated(estimatedTimeRemaining);
         }
 
-    if (activeBolusAmount > 0){
+        if (activeBolusAmount > 0){
         double estimatedTimeRemaining= activeBolusAmount / (activeBolusRate/ 3600);
         emit bolusTimeRemainingUpdated(estimatedTimeRemaining);
-    } else {
+        } else {
         emit bolusTimeRemainingUpdated(0.0);
         emit bolusCancelled(activeBolusAmount);
+        }
+
+        blood->injectUnits(deliveredThisTick);
+        insulinReserve->useInsulin(deliveredThisTick);
     }
+    blood->injectUnits(currentBasalRate/12);
+    insulinReserve->useInsulin(currentBasalRate/12);
 
     /*std::cout << "Pumping " << deliveredThisTick << " units this tick at rate " << activeBolusRate << " U/hr... ";
     if (activeBolusAmount > 0) {
@@ -109,5 +113,3 @@ void PumpController::pump()
         }
     }*/
 }
-
-//try

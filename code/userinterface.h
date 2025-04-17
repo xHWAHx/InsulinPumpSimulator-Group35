@@ -31,7 +31,7 @@ public:
 
     void displayHomeScreen();
     void showLoginScreen();
-    void refresh(double glucose, double battery, double insulin);
+    void refresh(double glucose, double battery, double insulin, double iob);
     void updateIOB(double iob);
     void showAlert(Alert *alert);
     void dismissAlert(Alert *alert);
@@ -61,7 +61,7 @@ private:
     ControlIQAlgorithm *controlIQ;
     Settings *settingsScreen;
     History *historyScreen;
-    IOBTracker *iobTracker;
+    //IOBTracker *iobTracker;
     QTimer *pumpTimer;
     QWidget *lastPage;
 

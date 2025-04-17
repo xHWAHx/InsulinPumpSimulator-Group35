@@ -17,6 +17,8 @@ Device::Device(QWidget *parent)
     , logger(DataLogger::instance(this))
     , insulin(new InsulinReserve)
     , cgm(new CGMReader)
+    , bloodstream(new Bloodstream)
+    , controlIQ(new ControlIQAlgorithm())
     , iobTracker(new IOBTracker(10.0))
     , pump(new PumpController(insulin, logger, iobTracker))
     , window(new Ui::Device)
@@ -83,7 +85,7 @@ void Device::tick(){
 void Device::monitor(){
 
     double batteryLevel = battery->getBatteryLevel();
-    double glucose = cgm->getCurrentGlucoseLevel();
+    double glucose = cgm->getCurrentGlucoseLevel(bloodstream, profiles->getActiveProfile().getCorrectionFactor());
     double target= Profile::getActiveProfile().getTargetGlucose();
     double insulinReading = insulin->getInsulinRemaining();
     QDateTime time = QDateTime::currentDateTime();
@@ -91,11 +93,13 @@ void Device::monitor(){
     safetyChecks(glucose, target);
 
     //pump logic
-    pump->pump();
-    double currentIOB= iobTracker-> getCurrentIOB(QDateTime::currentDateTime());
+    controlIQ->analyzeGlucoseData(glucose, logger, pump);
 
-    interface->refresh(glucose, batteryLevel, insulinReading);
-    interface->updateIOB(currentIOB);
+    pump->pump(bloodstream);
+    //double currentIOB= iobTracker-> getCurrentIOB(QDateTime::currentDateTime());
+    double currentIOB = bloodstream->getIOB();
+
+    interface->refresh(glucose, batteryLevel, insulinReading, currentIOB);
 }
 
 void Device::setSimRate(int rate){

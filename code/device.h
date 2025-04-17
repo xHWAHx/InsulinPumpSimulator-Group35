@@ -12,6 +12,7 @@
 #include "iobtracker.h"
 #include <userinterface.h>
 #include "alert.h"
+#include "bloodstream.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Device; }
@@ -38,6 +39,8 @@ private:
     DataLogger *logger;
     InsulinReserve *insulin;
     CGMReader *cgm;
+    Bloodstream *bloodstream;
+    ControlIQAlgorithm *controlIQ;
     Profile *profiles;
     IOBTracker *iobTracker;
     PumpController *pump;

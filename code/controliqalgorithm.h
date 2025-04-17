@@ -8,7 +8,7 @@ class PumpController;
 
 class ControlIQAlgorithm {
 public:
-    static void analyzeGlucoseData(const std::vector<double>& data, DataLogger* logger, PumpController* pump);
+    static void analyzeGlucoseData(double data, DataLogger* logger, PumpController* pump);
     static void adjustBasalRate(PumpController* pump, double rate);
     static void suspendForLowGlucose(PumpController* pump);
     static void increaseInsulinForHighGlucose(PumpController* pump, double currentRate);

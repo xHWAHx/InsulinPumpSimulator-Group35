@@ -17,14 +17,13 @@ UserInterface::UserInterface(PumpController* pump, IOBTracker* iob, QWidget *par
     : QWidget(parent)
     , ui(new Ui::UserInterface)
     , pumpController(pump)
-    ,iobTracker(iob)
 {
     ui->setupUi(this);
 
     loginScreen = new Login();
     logger = DataLogger::instance(this);
     homeScreen = new Home();
-    bolusCalculator = new BolusCalculator(pumpController, logger, cgmReader, insulinReserve, iobTracker, this);
+    bolusCalculator = new BolusCalculator(pumpController, logger, cgmReader, insulinReserve, iob, this);
     settingsScreen = new Settings();
     historyScreen = new History();
 
@@ -46,9 +45,9 @@ UserInterface::UserInterface(PumpController* pump, IOBTracker* iob, QWidget *par
 
     //connect(pumpController, &PumpController::bolusDeliveryProgress, this, &UserInterface::updateBolusDisplay);
     
-    pumpTimer = new QTimer(this);
-    connect(pumpTimer, &QTimer::timeout, pumpController, &PumpController::pump);
-    pumpTimer->start(1000);
+    //pumpTimer = new QTimer(this);
+    //connect(pumpTimer, &QTimer::timeout, pumpController, &PumpController::pump);
+    //pumpTimer->start(1000);
 
     connect(bolusCalculator, &BolusCalculator::countdownActive,this, [this](bool active){
     if (active){
@@ -85,8 +84,7 @@ void UserInterface::displayHomeScreen() {
     ui->pageStack->setCurrentWidget(homeScreen);
 }
 
-void UserInterface::refresh(double glucose, double battery, double insulin) {
-    double iob= iobTracker-> getCurrentIOB(QDateTime::currentDateTime());
+void UserInterface::refresh(double glucose, double battery, double insulin, double iob) {
     homeScreen->updateStatus(glucose, battery, insulin);
     homeScreen->updateIOB(iob);
     this->updateGlucoseForChart(glucose);
@@ -144,7 +142,7 @@ void UserInterface::updateIOB(double iob){
 void UserInterface:: handleBolusCancelled(double delivered){
     homeScreen-> updateBolusStatus("Bolus Cancelled");
     //homeScreen-> updateTimeLeft("--:--");
-    homeScreen-> updateIOB(iobTracker-> getCurrentIOB(QDateTime::currentDateTime()));
+    //homeScreen-> updateIOB(iobTracker-> getCurrentIOB(QDateTime::currentDateTime()));
 
     if (logger){
         logger-> logEvent("Warning", QString("Bolus cancelled after delivering %1 units").arg(delivered, 0, 'f', 2));
