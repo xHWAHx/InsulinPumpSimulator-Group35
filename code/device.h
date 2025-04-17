@@ -26,11 +26,14 @@ public slots:
 	void power();
     void tick();
     void startMonitoring();
+    void setSimRate(int rate);
 
 signals:
 
 private:
 	bool poweredOn;
+    bool monitoring;
+    int simulationRate;
     BatteryManager *battery;
     DataLogger *logger;
     InsulinReserve *insulin;
@@ -47,7 +50,7 @@ private:
     bool lowGlucoseAlertShown= false;
     bool highGlucoseAlertShown= false;
 
-
+    void monitor();
 };
 
 #endif // DEVICE_H

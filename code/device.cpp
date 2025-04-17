@@ -6,10 +6,13 @@
 #include <iostream>
 #include "controliqalgorithm.h"
 #include "QDateTime"
+#include <QSlider>
 
 Device::Device(QWidget *parent)
     : QMainWindow{parent}
     , poweredOn(false)
+    , monitoring(false)
+    , simulationRate(1)
     , battery(new BatteryManager)
     , logger(DataLogger::instance(this))
     , insulin(new InsulinReserve)
@@ -26,6 +29,7 @@ Device::Device(QWidget *parent)
     connect(interface, &UserInterface::deviceUnlocked, this, &Device::startMonitoring);
     connect(tickClock, &QTimer::timeout, this, &Device::tick);
     connect(window->chargeBatteryButton, &QPushButton::released, battery, &BatteryManager::chargeBattery);
+    connect(window->rateSlider, &QSlider::valueChanged, this, &Device::setSimRate);
     //connect(window->refillInsulinButton, &QPushButton::released, this, [=](){ insulin-> refillInsulin(); iobTracker-> clear(); });
 
     Profile::initDefaultProfile();
@@ -39,6 +43,7 @@ Device::Device(QWidget *parent)
 void Device::power(){
     if (poweredOn || battery->getBatteryLevel() == 0){
         poweredOn = false;
+        monitoring = false;
         interface->hide();
         window->powerLabel->setText("Device is powered off");
         tickClock->stop();
@@ -51,21 +56,26 @@ void Device::power(){
 }
 
 void Device::startMonitoring(){
+    monitoring = true;
     interface->displayHomeScreen();
-    tickClock->start(1000);
+    tickClock->start(1000.0 / simulationRate);
 }
 
 void Device::tick(){
-
     battery->drainBattery();
+
+    if (monitoring) {
+        this->monitor();
+    }
+}
+
+void Device::monitor(){
 
     double batteryLevel = battery->getBatteryLevel();
     double glucose = cgm->getCurrentGlucoseLevel();
-    //double glucose= 3.5;
     double target= Profile::getActiveProfile().getTargetGlucose();
     double insulinReading = insulin->getInsulinRemaining();
     QDateTime time = QDateTime::currentDateTime();
-
 
     if (batteryLevel <= 0.15) {
         if (!batteryAlertShown) {
@@ -122,5 +132,14 @@ void Device::tick(){
     interface->refreshStatusBar(glucose, batteryLevel, insulinReading);
     interface->updateIOB(currentIOB);
 
+}
+
+void Device::setSimRate(int rate){
+    simulationRate = ceil((pow(double(rate)/10.0, 2)));
+    if (this->poweredOn){
+        tickClock->stop();
+        tickClock->start(1000 / simulationRate);
+    }
+    window->rateLabel->setText("Simulation rate: " + QString::number(simulationRate) + "x");
 }
 
