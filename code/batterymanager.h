@@ -17,6 +17,8 @@ public:
 public slots:
     void chargeBattery();
 
+signals:
+    void batteryDead();
 private:
 	double batteryLevel;
     static constexpr double criticalValue = 0.15;

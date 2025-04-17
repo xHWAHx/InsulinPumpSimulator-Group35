@@ -1,7 +1,7 @@
 #include "batterymanager.h"
 
 BatteryManager::BatteryManager()
-    : batteryLevel {1.0}
+    : batteryLevel(1.0)
 { }
 
 BatteryManager::~BatteryManager()
@@ -18,7 +18,7 @@ void BatteryManager::drainBattery(){
     batteryLevel -= 0.001;
 	if (batteryLevel <= 0){
 		batteryLevel = 0;
-		// Needs to call Device to power off
+        emit batteryDead();
 	}
 }
 
@@ -29,8 +29,4 @@ void BatteryManager::chargeBattery(){
 
 bool BatteryManager::isBatteryCritical(){
 	return batteryLevel <= criticalValue;
-}
-
-void BatteryManager::alertLowBattery(){
-	// idk what this should do
 }
