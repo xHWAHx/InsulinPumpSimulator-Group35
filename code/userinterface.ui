@@ -17,6 +17,8 @@
    <string notr="true">QWidget {
   background-color: #454545;
   color: white;
+  font-family: &quot;Segoe UI&quot;, sans-serif;
+  font-size: 14px;
 }
 </string>
   </property>
@@ -30,8 +32,24 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>-1</number>
+    <number>1</number>
    </property>
+   <widget class="QWidget" name="page"/>
+   <widget class="QWidget" name="page_2">
+    <widget class="QLabel" name="bolusStatusLabel">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>170</y>
+       <width>151</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Bolus Delivery Status</string>
+     </property>
+    </widget>
+   </widget>
   </widget>
  </widget>
  <resources/>

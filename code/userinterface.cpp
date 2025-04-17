@@ -11,7 +11,6 @@
 #include <QMessageBox>
 #include <QDateTime>
 #include <QDebug>
-#include "alert.h"
 
 UserInterface::UserInterface(PumpController* pump, IOBTracker* iob, QWidget *parent)
     : QWidget(parent)
@@ -39,11 +38,13 @@ UserInterface::UserInterface(PumpController* pump, IOBTracker* iob, QWidget *par
     connect(homeScreen, &Home::requestBolus, this, &UserInterface::openBolusUI);
     connect(homeScreen, &Home::requestOptions, this, &UserInterface::openSettings);
     connect(homeScreen, &Home::requestStats, this, &UserInterface::openHistory);
+    connect(homeScreen, &Home::requestEmergencyStop, this, &UserInterface::triggerEmergencyStop);
     connect(loginScreen, &Login::deviceUnlocked, this, &UserInterface::unlock);
 
     connect(settingsScreen, &Settings::backToHome, this, &UserInterface::displayHomeScreen);
     connect(bolusCalculator, &BolusCalculator::backToHome, this, &UserInterface::displayHomeScreen);
     connect(historyScreen, &History::backToHome, this, &UserInterface::displayHomeScreen);
+    connect(pumpController, &PumpController::bolusCancelled, this, &UserInterface::handleBolusCancelled);
 
     //connect(pumpController, &PumpController::bolusDeliveryProgress, this, &UserInterface::updateBolusDisplay);
     
@@ -68,6 +69,7 @@ UserInterface::UserInterface(PumpController* pump, IOBTracker* iob, QWidget *par
 
     connect(pumpController, &PumpController::bolusTimeRemainingUpdated, homeScreen, &Home::updateBolusTimeRemaining);
 
+    //showLoginScreen();
 }
 
 UserInterface::~UserInterface() {
@@ -86,9 +88,14 @@ void UserInterface::displayHomeScreen() {
     ui->pageStack->setCurrentWidget(homeScreen);
 }
 
+void UserInterface::displayError(const QString &message) {
+    QMessageBox::critical(nullptr, "Error", message);
+}
+
 void UserInterface::refreshStatusBar(double glucose, double battery, double insulin) {
     double iob= iobTracker-> getCurrentIOB(QDateTime::currentDateTime());
     homeScreen->updateStatus(glucose, battery, insulin);
+    homeScreen-> updateInsulinDisplay(insulin);
     homeScreen->updateIOB(iob);
     this->updateGlucoseForChart(glucose);
 }
@@ -109,23 +116,8 @@ void UserInterface::openHistory() {
     ui->pageStack->setCurrentWidget(historyScreen);
 }
 
-void UserInterface::showAlert(Alert *alert) {
-    if (ui->pageStack->currentIndex() < 5){
-        lastPage = ui->pageStack->currentWidget();
-    }
-    ui->pageStack->addWidget(alert);
-    ui->pageStack->setCurrentWidget(alert);
-}
-
-void UserInterface::dismissAlert(Alert *alert) {
-    ui->pageStack->removeWidget(alert);
-    delete alert;
-    int numPages = ui->pageStack->count();
-    if (numPages > 5){
-        ui->pageStack->setCurrentIndex(numPages);
-    } else {
-        ui->pageStack->setCurrentWidget(lastPage);
-    }
+void UserInterface::triggerEmergencyStop() {
+    displayError("Emergency stop triggered!");
 }
 
 //void UserInterface::updateBolusDisplay(double remainingBolus, double rate, double deliveredThisTick)
@@ -140,4 +132,14 @@ void UserInterface::dismissAlert(Alert *alert) {
 
 void UserInterface::updateIOB(double iob){
     homeScreen->updateIOB(iob);
+}
+
+void UserInterface:: handleBolusCancelled(double delivered){
+    homeScreen-> updateBolusStatus("Bolus Cancelled");
+    //homeScreen-> updateTimeLeft("--:--");
+    homeScreen-> updateIOB(iobTracker-> getCurrentIOB(QDateTime::currentDateTime()));
+    if (logger){
+        logger-> logEvent("Warning", QString("Bolus cancelled after delivering %1 units").arg(delivered, 0, 'f', 2));
+    }
+
 }

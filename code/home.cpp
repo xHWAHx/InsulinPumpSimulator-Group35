@@ -111,7 +111,7 @@ void Home::updateStatus(double glucose, double battery, double insulin)
     ui->batteryLabel->setStyleSheet("QLabel { color: " + textColor + "; font-weight: bold; }");
 
     ui->glucoseLabel->setText(QString::number(glucose, 'f', 1));
-    updateInsulinDisplay(insulin);
+    ui->insulinLabel->setText(QString::number(insulin, 'f', 1) + " u");
 }
 
 

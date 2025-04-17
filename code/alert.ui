@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>400</height>
+    <width>629</width>
+    <height>423</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,17 +16,11 @@
   <widget class="QPushButton" name="okButton">
    <property name="geometry">
     <rect>
-     <x>150</x>
-     <y>320</y>
-     <width>301</width>
-     <height>51</height>
+     <x>240</x>
+     <y>351</y>
+     <width>101</width>
+     <height>41</height>
     </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>DejaVu Sans</family>
-     <pointsize>14</pointsize>
-    </font>
    </property>
    <property name="text">
     <string>OK</string>
@@ -35,41 +29,34 @@
   <widget class="QLabel" name="alertBody">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>91</y>
-     <width>451</width>
-     <height>211</height>
+     <x>40</x>
+     <y>140</y>
+     <width>481</width>
+     <height>141</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>DejaVu Sans</family>
-     <pointsize>18</pointsize>
+     <pointsize>12</pointsize>
     </font>
    </property>
    <property name="text">
     <string>Body</string>
    </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-   <property name="wordWrap">
-    <bool>true</bool>
-   </property>
   </widget>
   <widget class="QLabel" name="alertTitle">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>20</y>
-     <width>561</width>
+     <x>10</x>
+     <y>10</y>
+     <width>581</width>
      <height>31</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>DejaVu Sans</family>
-     <pointsize>26</pointsize>
+     <pointsize>14</pointsize>
      <weight>75</weight>
      <bold>true</bold>
     </font>

@@ -41,6 +41,8 @@ private slots:
     void deliverExtendedDose();
     void updateCountdown();
 
+    void on_btnCancelBolus_clicked();
+
 private:
     Ui::BolusCalculator *ui;
     static double overriddenDose;

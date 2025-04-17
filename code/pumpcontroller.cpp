@@ -44,6 +44,8 @@ void PumpController::adjustBasalRate(double rate)
 void PumpController::suspendBolus()
 {
     bolusSuspended = true;
+    emit bolusCancelled(activeBolusAmount);
+    activeBolusAmount= 0;
     //logger.logEvent("System", "Bolus delivery suspended.");
 }
 
@@ -85,6 +87,14 @@ void PumpController::pump()
             double estimatedTimeRemaining = activeBolusAmount / (activeBolusRate / 3600.0);
             emit bolusTimeRemainingUpdated(estimatedTimeRemaining);
         }
+
+    if (activeBolusAmount > 0){
+        double estimatedTimeRemaining= activeBolusAmount / (activeBolusRate/ 3600);
+        emit bolusTimeRemainingUpdated(estimatedTimeRemaining);
+    } else {
+        emit bolusTimeRemainingUpdated(0.0);
+        emit bolusCancelled(activeBolusAmount);
+    }
 
     /*std::cout << "Pumping " << deliveredThisTick << " units this tick at rate " << activeBolusRate << " U/hr... ";
     if (activeBolusAmount > 0) {

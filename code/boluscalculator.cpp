@@ -205,3 +205,17 @@ void BolusCalculator::on_logoButton_clicked() {
     emit backToHome();
     close();
 }
+
+void BolusCalculator::on_btnCancelBolus_clicked()
+{
+    if (pump){
+        pump-> suspendBolus();
+        if (logger){
+            logger-> logEvent("Manual", "Bolus Delivery has been cancelled by user");
+        }
+        QMessageBox::information(this, "Cancelled", "Bolus Delivery has been cancelled");
+    } else {
+        QMessageBox::warning(this, "Error", "Pump not availableto cancel bolus");
+    }
+}
+
