@@ -32,13 +32,13 @@ void PumpController::deliverBolus(double amount, double rate, bool suppressTime)
     //    iobTracker-> addBolus(delivered, QDateTime::currentDateTime());
     //}
 
-    logger->logEvent("Bolus", "Delivered " + QString::number(delivered) + " units at rate " + QString::number(rate));
+    logger->logEvent("Info", "Delivered " + QString::number(delivered) + " units at rate " + QString::number(rate));
 }
 
 void PumpController::adjustBasalRate(double rate)
 {
     currentBasalRate = rate;
-    //logger.logEvent("Basal", "Adjusted to " + QString::number(rate) + " U/hr");
+    logger->logEvent("Info", "Adjusted to " + QString::number(rate) + " U/hr");
 }
 
 void PumpController::suspendBolus()
@@ -46,14 +46,14 @@ void PumpController::suspendBolus()
     bolusSuspended = true;
     emit bolusCancelled(activeBolusAmount);
     activeBolusAmount= 0;
-    //logger.logEvent("System", "Bolus delivery suspended.");
+    logger->logEvent("Info", "Bolus delivery suspended.");
 }
 
 void PumpController::resumeBolus()
 {
     if (!emergencyStopped) {
         bolusSuspended = false;
-        //logger.logEvent("System", "Bolus delivery resumed.");
+        logger->logEvent("Info", "Bolus delivery resumed.");
     }
 }
 
@@ -67,7 +67,7 @@ int PumpController::checkDeviceStatus()
 void PumpController::triggerEmergencyStop()
 {
     emergencyStopped = true;
-    //logger.logEvent("Critical", "Emergency stop activated.");
+    logger->logEvent("Warning", "Emergency stop activated.");
 }
 
 void PumpController::pump(Bloodstream *blood)
