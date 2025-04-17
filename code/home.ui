@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>605</width>
+    <width>600</width>
     <height>400</height>
    </rect>
   </property>
@@ -271,6 +271,12 @@ QProgressBar#batteryBar::chunk {
      <height>61</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>DejaVu Sans</family>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
    <property name="styleSheet">
     <string notr="true">QPushButton#optionsButton {
     background-color: #444444;
@@ -344,6 +350,12 @@ QProgressBar#batteryBar::chunk {
      <height>61</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>DejaVu Sans</family>
+     <pointsize>13</pointsize>
+    </font>
+   </property>
    <property name="styleSheet">
     <string notr="true">QPushButton#bolusButton {
     background-color: #444444;
@@ -364,10 +376,10 @@ QProgressBar#batteryBar::chunk {
   <widget class="QLabel" name="labelBolusStatus">
    <property name="geometry">
     <rect>
-     <x>400</x>
-     <y>170</y>
-     <width>201</width>
-     <height>20</height>
+     <x>430</x>
+     <y>159</y>
+     <width>141</width>
+     <height>41</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -381,7 +393,7 @@ QProgressBar#batteryBar::chunk {
     <string>Bolus Status: -</string>
    </property>
    <property name="alignment">
-    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
    </property>
   </widget>
   <widget class="QPushButton" name="historyButton">
@@ -392,6 +404,12 @@ QProgressBar#batteryBar::chunk {
      <width>161</width>
      <height>61</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>DejaVu Sans</family>
+     <pointsize>13</pointsize>
+    </font>
    </property>
    <property name="styleSheet">
     <string notr="true">QPushButton#optionsButton {
@@ -516,10 +534,10 @@ QPushButton#logoButton:pressed {
   <widget class="QLabel" name="labelBolusTimeRemaining">
    <property name="geometry">
     <rect>
-     <x>400</x>
+     <x>430</x>
      <y>200</y>
-     <width>201</width>
-     <height>20</height>
+     <width>151</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -533,7 +551,10 @@ QPushButton#logoButton:pressed {
     <string>Time Left: --:--</string>
    </property>
    <property name="alignment">
-    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="Line" name="line_3">
