@@ -25,6 +25,11 @@ Device::Device(QWidget *parent)
     , tickClock(new QTimer(this))
 {
     window->setupUi(this);
+
+    Profile::loadProfiles();
+    Profile::initDefaultProfile();
+    Profile::selectProfileById(1);
+
     interface = new UserInterface(pump, iobTracker, window->uiWidget);
 
     connect(window->powerButton, &QPushButton::released, this, &Device::power);
@@ -35,9 +40,6 @@ Device::Device(QWidget *parent)
     connect(window->rateSlider, &QSlider::valueChanged, this, &Device::setSimRate);
     connect(window->refillInsulinButton, &QPushButton::released, this, [this](){ insulin->refillInsulin(); iobTracker-> clear(); });
     connect(battery, &BatteryManager::batteryDead, this, &Device::noPower);
-
-    Profile::initDefaultProfile();
-    Profile::selectProfileById(1);
 
     logger->loadLogs();
 
