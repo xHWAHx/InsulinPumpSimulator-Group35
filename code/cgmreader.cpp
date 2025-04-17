@@ -12,7 +12,7 @@ double CGMReader::getCurrentGlucoseLevel(Bloodstream *blood, double correctionFa
     double randomVariance = (QRandomGenerator::global()->generateDouble() - 0.5) * volatility * 2;
 
     reading += (increasePerHour/12 + increasePerHour/12 * randomVariance);
-    double absorbed = std::max(0.0, correctionFactor * blood->getIOB());
+    double absorbed = std::max(0.0, std::min(insulinUsageRate/12, correctionFactor * blood->getIOB()));
     reading -= absorbed;
     blood->absorbUnits(absorbed);
 

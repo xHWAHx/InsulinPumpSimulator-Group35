@@ -15,7 +15,7 @@ BolusCalculator::BolusCalculator(PumpController* pump, DataLogger* logger, CGMRe
     countdownTimer = new QTimer(this);
 
     connect(extendedDoseTimer, &QTimer::timeout, this, &BolusCalculator::deliverExtendedDose);
-    connect(countdownTimer, &QTimer::timeout, this, &BolusCalculator::updateCountdown);
+    //connect(countdownTimer, &QTimer::timeout, this, &BolusCalculator::updateCountdown);
 
     ui->overrideDoseInput->setReadOnly(true);
     ui->btnOverrideConfirm->setEnabled(false);
@@ -165,7 +165,7 @@ void BolusCalculator::on_btnDeliver_clicked()
         extendedDoseTimer->start(mins * 60 * 1000);
     } else {
         if (QMessageBox::question(this, "Final Confirmation", QString("Deliver %1 units now?").arg(dose)) == QMessageBox::Yes) {
-            pump->deliverBolus(dose, 2.0, /*suppressTime=*/true);
+            pump->deliverBolus(dose, 10.0, /*suppressTime=*/true);
             if (logger) {
                 logger->logInsulin(QDateTime::currentDateTime(), dose);
                 logger->logEvent("Manual Bolus", QString("Delivered %1 units").arg(dose));
@@ -186,20 +186,20 @@ void BolusCalculator::deliverExtendedDose() {
         remainingExtendedDose = 0;
         extendedDoseTimer->stop();
         countdownTimer->stop();
-        if (pump) emit pump->bolusTimeRemainingUpdated(0.0);
+        //if (pump) emit pump->bolusTimeRemainingUpdated(0.0);
     }
 }
 
-void BolusCalculator::updateCountdown() {
-    countdownSeconds--;
-    if (countdownSeconds <= 0) {
-        countdownTimer->stop();
-        emit countdownActive(false);
-        emit pump->bolusTimeRemainingUpdated(0.0); //here
-        return;
-    }
-    emit pump->bolusTimeRemainingUpdated(countdownSeconds);
-}
+//void BolusCalculator::updateCountdown() {
+//    countdownSeconds--;
+//    if (countdownSeconds <= 0) {
+//        countdownTimer->stop();
+//        emit countdownActive(false);
+//        emit pump->bolusTimeRemainingUpdated(0.0); //here
+//        return;
+//    }
+//    emit pump->bolusTimeRemainingUpdated(countdownSeconds);
+//}
 
 void BolusCalculator::on_logoButton_clicked() {
     emit backToHome();

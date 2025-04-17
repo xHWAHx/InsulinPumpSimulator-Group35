@@ -39,7 +39,7 @@ private slots:
     void on_btnOverrideConfirm_clicked(); 
     void on_btnDeliver_clicked();
     void deliverExtendedDose();
-    void updateCountdown();
+    //void updateCountdown();
 
     void on_btnCancelBolus_clicked();
 

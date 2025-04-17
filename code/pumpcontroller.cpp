@@ -28,9 +28,9 @@ void PumpController::deliverBolus(double amount, double rate, bool suppressTime)
     activeBolusRate = rate;
     suppressTimeUpdate = suppressTime;
 
-    if (iobTracker){
-        iobTracker-> addBolus(delivered, QDateTime::currentDateTime());
-    }
+    //if (iobTracker){
+    //    iobTracker-> addBolus(delivered, QDateTime::currentDateTime());
+    //}
 
     logger->logEvent("Bolus", "Delivered " + QString::number(delivered) + " units at rate " + QString::number(rate));
 }
@@ -74,24 +74,24 @@ void PumpController::pump(Bloodstream *blood)
 {
     //only pump if delivery is active + not blocked
     if (not (emergencyStopped || bolusSuspended || activeBolusAmount <= 0)) {
-        const double tickIntervalSec = 300.0; //tick interval
-        double unitsPerTick = (activeBolusRate / 3600.0) * tickIntervalSec;
+        //const double tickIntervalSec = 300.0; //tick interval
+        double unitsPerTick = activeBolusRate / 12.0;
         double deliveredThisTick = (activeBolusAmount < unitsPerTick) ? activeBolusAmount : unitsPerTick;
         activeBolusAmount -= deliveredThisTick;
 
         emit bolusDeliveryProgress(activeBolusAmount, activeBolusRate, deliveredThisTick);
 
-        if (!suppressTimeUpdate) {
-            double estimatedTimeRemaining = activeBolusAmount / (activeBolusRate / 3600.0);
-            emit bolusTimeRemainingUpdated(estimatedTimeRemaining);
-        }
+        //if (!suppressTimeUpdate) {
+        //    double estimatedTimeRemaining = activeBolusAmount / (activeBolusRate / 12.0);
+        //    emit bolusTimeRemainingUpdated(estimatedTimeRemaining);
+        //}
 
         if (activeBolusAmount > 0){
-        double estimatedTimeRemaining= activeBolusAmount / (activeBolusRate/ 3600);
-        emit bolusTimeRemainingUpdated(estimatedTimeRemaining);
+            double estimatedTimeRemaining = activeBolusAmount / (activeBolusRate/ 12.0);
+            emit bolusTimeRemainingUpdated(estimatedTimeRemaining);
         } else {
-        emit bolusTimeRemainingUpdated(0.0);
-        emit bolusCancelled(activeBolusAmount);
+            emit bolusTimeRemainingUpdated(0.0);
+            emit bolusCancelled(activeBolusAmount);
         }
 
         blood->injectUnits(deliveredThisTick);

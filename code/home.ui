@@ -223,6 +223,14 @@ QProgressBar#batteryBar::chunk {
      <height>231</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
    <widget class="QComboBox" name="comboGraphRange">
     <property name="geometry">
      <rect>

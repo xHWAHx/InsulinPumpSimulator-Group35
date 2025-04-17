@@ -46,11 +46,13 @@ void Home::setupChart()
 
     axisX->setTitleText(xAxisLabel);
     axisX->setLabelsColor(Qt::white);
+    axisX->setLabelsFont(QFont("sans serif", 10, -1, false));
 
     QValueAxis *axisY = new QValueAxis;
     axisY->setRange(2, 20);
     axisY->setTitleText("Glucose (mmol/L)");
     axisY->setLabelsColor(Qt::white);
+    axisY->setLabelsFont(QFont("sans serif", 8, -1, false));
 
     chart->addAxis(axisX, Qt::AlignBottom);
     chart->addAxis(axisY, Qt::AlignLeft);
