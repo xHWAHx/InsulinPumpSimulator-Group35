@@ -68,6 +68,7 @@ void Device::noPower(){
 void Device::startMonitoring(){
     monitoring = true;
     interface->displayHomeScreen();
+    tick();
     tickClock->start(1000.0 / simulationRate);
 }
 
