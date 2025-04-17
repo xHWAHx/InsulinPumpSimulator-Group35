@@ -115,6 +115,11 @@ QPushButton#logoButton:pressed {
         <string>Manual Bolus</string>
        </property>
       </item>
+      <item>
+       <property name="text">
+        <string>Extended Bolus</string>
+       </property>
+      </item>
      </widget>
     </item>
    </layout>

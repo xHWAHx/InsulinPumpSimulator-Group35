@@ -174,6 +174,7 @@ public:
      *                  - "Warning"
      *                  - "Error"
      *                  - "Manual Bolus"
+     *                  - "Extended Bolus"
      * @param description A detailed description of the event.
      *
      * @note This function saves logs after adding the event and emits the logsUpdated signal.
