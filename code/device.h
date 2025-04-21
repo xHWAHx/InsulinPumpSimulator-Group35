@@ -29,12 +29,12 @@ public slots:
     void noPower();
     void tick();
     void startMonitoring();
-    void setSimRate(int rate);
 
 private:
-	bool poweredOn;
+    int static const simulationRate = 1;
+
+    bool poweredOn;
     bool monitoring;
-    int simulationRate;
     BatteryManager *battery;
     DataLogger *logger;
     InsulinReserve *insulin;

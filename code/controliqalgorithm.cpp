@@ -5,22 +5,19 @@
 #include <numeric>
 #include <iostream>
 
-void ControlIQAlgorithm::analyzeGlucoseData(double data, DataLogger* logger, PumpController* pump) {
-
-    double avgGlucose = data;
+void ControlIQAlgorithm::analyzeGlucoseData(double glucose, DataLogger* logger, PumpController* pump) {
 
     // loads active profile data
-    Profile profile = Profile::getActiveProfile();  
+    Profile profile = Profile::getActiveProfile();
     double target = profile.getTargetGlucose();
     double currentRate = profile.getBasalRate();
 
-    if (avgGlucose < 3.9) {
-        suspendForLowGlucose(pump); // low glucose
-        logger->logEvent("Warning", "Low glucose detected. Bolus suspended.");
+    if (glucose <= 3.9) {
         adjustBasalRate(pump, 0);
-    } else {
+        logger->logEvent("Warning", "Low glucose detected. Basal rate pumping suspended.");
+    } else if (glucose > target) {
         adjustBasalRate(pump, currentRate); // fine-tunes basal rate for stable glucose
-        logger->logEvent("Info", "Glucose stable. Adjusted basal rate.");
+        logger->logEvent("Info", "Glucose stable. Resumed basal rate pumping.");
     }
 }
 
@@ -30,15 +27,15 @@ void ControlIQAlgorithm::adjustBasalRate(PumpController* pump, double rate) {
     }
 }
 
-void ControlIQAlgorithm::suspendForLowGlucose(PumpController* pump) {
-    if (pump) {
-        pump->suspendBolus();
-    }
-}
+//void ControlIQAlgorithm::suspendForLowGlucose(PumpController* pump) {
+//    if (pump) {
+//        pump->suspendBolus();
+//    }
+//}
 
 // checks if glucose is within stable range 
-bool ControlIQAlgorithm::isGlucoseLevelStable(double glucose, double target) {
-    return (glucose >= target - 0.5 && glucose <= target + 0.5);
-}
+//bool ControlIQAlgorithm::isGlucoseLevelStable(double glucose, double target) {
+//    return (glucose >= target - 0.5 && glucose <= target + 0.5);
+//}
 
 

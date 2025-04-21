@@ -12,7 +12,6 @@ Device::Device(QWidget *parent)
     : QMainWindow{parent}
     , poweredOn(false)
     , monitoring(false)
-    , simulationRate(1)
     , battery(new BatteryManager)
     , logger(DataLogger::instance(this))
     , insulin(new InsulinReserve)
@@ -37,7 +36,6 @@ Device::Device(QWidget *parent)
     connect(tickClock, &QTimer::timeout, this, &Device::tick);
     connect(window->chargeBatteryButton, &QPushButton::released, battery, &BatteryManager::chargeBattery);
     connect(window->chargeBatteryButton, &QPushButton::released, this, [](){ Alert::reset(Alert::BATTERY_LOW); });
-    connect(window->rateSlider, &QSlider::valueChanged, this, &Device::setSimRate);
     connect(window->refillInsulinButton, &QPushButton::released, this, [this](){ insulin->refillInsulin(); iobTracker-> clear(); });
     connect(battery, &BatteryManager::batteryDead, this, &Device::noPower);
 
@@ -72,7 +70,7 @@ void Device::noPower(){
 void Device::startMonitoring(){
     monitoring = true;
     interface->displayHomeScreen();
-    tick();
+    tick(); // updates the display immediately upon showing it
     tickClock->start(1000.0 / simulationRate);
 }
 
@@ -98,22 +96,12 @@ void Device::monitor(){
     controlIQ->analyzeGlucoseData(glucose, logger, pump);
 
     pump->pump(bloodstream);
-    //double currentIOB= iobTracker-> getCurrentIOB(QDateTime::currentDateTime());
     double currentIOB = bloodstream->getIOB();
 
     logger->logGlucose(time, glucose);
     logger->logInsulin(time, currentIOB);
 
     interface->refresh(glucose, batteryLevel, insulinReading, currentIOB);
-}
-
-void Device::setSimRate(int rate){
-    simulationRate = ceil((pow(double(rate)/10.0, 2)));
-    if (this->poweredOn){
-        tickClock->stop();
-        tickClock->start(1000 / simulationRate);
-    }
-    window->rateLabel->setText("Simulation rate: " + QString::number(simulationRate) + "x");
 }
 
 void Device::safetyChecks(double glucose, double target){
@@ -132,9 +120,9 @@ void Device::safetyChecks(double glucose, double target){
     }
 
     if (glucose < 3.9) {
-    //    pump->suspendBolus();  // Stop insulin delivery temporarily
+        pump->suspendBolus();  // Stop insulin delivery temporarily
         alerts->raise(Alert::GLUCOSE_LOW, interface, logger);
-    } else if (glucose > 4) {
+    } else if (glucose > 4.5) {
         alerts->reset(Alert::GLUCOSE_LOW);
     }
 

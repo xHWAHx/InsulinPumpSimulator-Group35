@@ -38,7 +38,6 @@ void PumpController::deliverBolus(double amount, double rate, bool suppressTime)
 void PumpController::adjustBasalRate(double rate)
 {
     currentBasalRate = rate;
-    logger->logEvent("Info", "Adjusted to " + QString::number(rate) + " U/hr");
 }
 
 void PumpController::suspendBolus()
