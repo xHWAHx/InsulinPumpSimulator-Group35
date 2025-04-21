@@ -81,18 +81,20 @@ void PumpController::pump(Bloodstream *blood)
 
         emit bolusDeliveryProgress(activeBolusAmount, activeBolusRate, deliveredThisTick);
 
-        //if (!suppressTimeUpdate) {
-        //    double estimatedTimeRemaining = activeBolusAmount / (activeBolusRate / 12.0);
-        //    emit bolusTimeRemainingUpdated(estimatedTimeRemaining);
-        //}
-
-        if (activeBolusAmount > 0){
-            double estimatedTimeRemaining = activeBolusAmount / (activeBolusRate/ 12.0);
+        if (!suppressTimeUpdate) {
+            double estimatedTimeRemaining = activeBolusAmount / (activeBolusRate / 12.0);
             emit bolusTimeRemainingUpdated(estimatedTimeRemaining);
         } else {
             emit bolusTimeRemainingUpdated(0.0);
+        }        
+
+        //if (activeBolusAmount > 0){
+            //double estimatedTimeRemaining = activeBolusAmount / (activeBolusRate/ 12.0);
+            //emit bolusTimeRemainingUpdated(estimatedTimeRemaining);
+        //} else {
+            //emit bolusTimeRemainingUpdated(0.0);
             //emit bolusCancelled(activeBolusAmount);
-        }
+        //}
 
         blood->injectUnits(deliveredThisTick);
         insulinReserve->useInsulin(deliveredThisTick);

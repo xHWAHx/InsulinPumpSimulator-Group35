@@ -32,6 +32,7 @@ public:
 signals:
     void backToHome();
     void countdownActive(bool active);
+    void bolusStarted(QString status);
 
 private slots:
     void on_logoButton_clicked();
