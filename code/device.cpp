@@ -89,7 +89,6 @@ void Device::monitor(){
     double glucose = cgm->getCurrentGlucoseLevel(bloodstream, profiles->getActiveProfile().getCorrectionFactor());
     double target= Profile::getActiveProfile().getTargetGlucose();
     double insulinReading = insulin->getInsulinRemaining();
-    double currentIOB = bloodstream->getIOB();
 
     safetyChecks(glucose, target);
 
@@ -102,6 +101,7 @@ void Device::monitor(){
         logger->logGlucose(time, glucose);
     }
     //logger->logInsulin(time, currentIOB);
+    double currentIOB = bloodstream->getIOB();
 
     interface->refresh(glucose, batteryLevel, insulinReading, currentIOB);
 }

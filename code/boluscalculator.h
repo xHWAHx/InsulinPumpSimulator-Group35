@@ -28,6 +28,7 @@ public:
     static double calculateCarbBolus(double carbs, double carbRatio);
     static double calculateTotalBolus(double glucose, double carbs, double target);
     static std::pair<double, double> splitBolus(double total, double percentage);
+    void updateCountdown();
 
 signals:
     void backToHome();
@@ -40,7 +41,6 @@ private slots:
     void on_btnOverrideConfirm_clicked(); 
     void on_btnDeliver_clicked();
     void deliverExtendedDose();
-    void updateCountdown();
 
     void on_btnCancelBolus_clicked();
 
@@ -58,7 +58,8 @@ private:
     QTimer* extendedDoseTimer;
     QTimer* countdownTimer;
     double remainingExtendedDose;
-    int countdownSeconds;
+    int countdownMinutes;
+    static constexpr double bolusRate = 10;
 };
 
 #endif // BOLUSCALCULATOR_H

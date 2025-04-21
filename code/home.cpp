@@ -22,8 +22,6 @@ Home::Home(QWidget *parent)
     connect(ui->historyButton, &QPushButton::clicked, this, &Home::requestStats);
     connect(clockTimer, &QTimer::timeout, this, &Home::updateDateTime);
     connect(ui-> comboGraphRange, QOverload<int>:: of(&QComboBox::currentIndexChanged), this, &Home::onGraphRangeChanged);
-
-
 }
 
 Home::~Home() {
@@ -120,11 +118,15 @@ void Home::updateBolusStatus(const QString &status) {
 }
 
 void Home::updateBolusTimeRemaining(double seconds) {
-    int minutes = static_cast<int>(seconds / 60);
-    int secs = static_cast<int>(seconds) % 60;
-    QString formatted = QString("%1:%2").arg(minutes, 2, 10, QChar('0')).arg(secs, 2, 10, QChar('0'));
-    
-    ui->labelBolusTimeRemaining->setText("Extended dose in: " + formatted);
+    if (seconds == 0){
+        ui->labelBolusTimeRemaining->setText("");
+    } else {
+        int minutes = static_cast<int>(seconds / 60);
+        int secs = static_cast<int>(seconds) % 60;
+        QString formatted = QString("%1:%2").arg(minutes, 2, 10, QChar('0')).arg(secs, 2, 10, QChar('0'));
+
+        ui->labelBolusTimeRemaining->setText("Extended dose in: " + formatted);
+    }
 }
 
 void Home::updateIOB(double iob) {

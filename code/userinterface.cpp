@@ -43,7 +43,7 @@ UserInterface::UserInterface(PumpController* pump, IOBTracker* iob, QWidget *par
     connect(historyScreen, &History::backToHome, this, &UserInterface::displayHomeScreen);
     connect(pumpController, &PumpController::bolusCancelled, this, &UserInterface::handleBolusCancelled);
 
-    //connect(pumpController, &PumpController::bolusDeliveryProgress, this, &UserInterface::updateBolusDisplay);
+    connect(pumpController, &PumpController::bolusDeliveryProgress, this, &UserInterface::updateBolusDisplay);
     
     //pumpTimer = new QTimer(this);
     //connect(pumpTimer, &QTimer::timeout, pumpController, &PumpController::pump);
@@ -55,11 +55,11 @@ UserInterface::UserInterface(PumpController* pump, IOBTracker* iob, QWidget *par
     //}else {pumpTimer->start(1000);}
     //});
 
-    connect(pumpController, &PumpController::bolusDeliveryProgress,
-            this, [=](double remaining, double /*rate*/, double /*delivered*/) {
-            QString status = QString("Delivering: %1 U").arg(remaining, 0, 'f', 2);
-            homeScreen->updateBolusStatus(status); 
-    });
+    //connect(pumpController, &PumpController::bolusDeliveryProgress,
+    //        this, [=](double remaining, double /*rate*/, double /*delivered*/) {
+    //        QString status = QString("Delivering: %1 U").arg(remaining, 0, 'f', 2);
+    //        homeScreen->updateBolusStatus(status);
+    //});
 
     connect(pumpController, &PumpController::bolusTimeRemainingUpdated, homeScreen, &Home::updateBolusTimeRemaining);
     connect(bolusCalculator, &BolusCalculator::bolusStarted, homeScreen, &Home::updateBolusStatus);
@@ -85,6 +85,7 @@ void UserInterface::displayHomeScreen() {
 void UserInterface::refresh(double glucose, double battery, double insulin, double iob) {
     homeScreen->updateStatus(glucose, battery, insulin);
     homeScreen->updateIOB(iob);
+    bolusCalculator->updateCountdown();
     this->updateGlucoseForChart(glucose);
 }
 
@@ -123,26 +124,20 @@ void UserInterface::dismissAlert(Alert *alert) {
     }
 }
 
-//void UserInterface::updateBolusDisplay(double remainingBolus, double rate, double deliveredThisTick)
-//{
-//   QString status = QString("Bolus: %1 U remaining (delivered %2 U this tick at %3 U/hr)")
-//                     .arg(remainingBolus, 0, 'f', 2)
-//                     .arg(deliveredThisTick, 0, 'f', 2)
-//                     .arg(rate, 0, 'f', 2);
-//    ui->bolusStatusLabel->setText(status);
-//}
-
+void UserInterface::updateBolusDisplay(double remainingBolus) {
+    if (remainingBolus == 0) {
+        homeScreen->updateBolusStatus(QString("Bolus complete"));
+    } else {
+        homeScreen->updateBolusStatus(QString("Bolus remaining:\n%1 U").arg(remainingBolus, 0, 'f', 2));
+    }
+}
 
 void UserInterface::updateIOB(double iob){
     homeScreen->updateIOB(iob);
 }
 
-void UserInterface:: handleBolusCancelled(double delivered){
-    homeScreen-> updateBolusStatus("Bolus Cancelled");
+void UserInterface::handleBolusCancelled(){
+    homeScreen->updateBolusStatus("Bolus Cancelled");
     //homeScreen-> updateTimeLeft("--:--");
     //homeScreen-> updateIOB(iobTracker-> getCurrentIOB(QDateTime::currentDateTime()));
-
-    if (logger){
-        logger-> logEvent("Warning", QString("Bolus cancelled after delivering %1 units").arg(delivered, 0, 'f', 2));
-    }
 }

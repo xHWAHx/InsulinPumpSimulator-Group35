@@ -42,7 +42,7 @@ public slots:
     void openSettings();
     void openHistory();
     void unlock();
-    //void updateBolusDisplay(double remainingBolus, double rate, double deliveredThisTick);
+    void updateBolusDisplay(double remainingBolus);
 
 signals:
     void deviceUnlocked();
@@ -61,13 +61,12 @@ private:
     ControlIQAlgorithm *controlIQ;
     Settings *settingsScreen;
     History *historyScreen;
-    //IOBTracker *iobTracker;
     QTimer *pumpTimer;
     QWidget *lastPage;
 
     const int correctPin = 1234;
 
-    void handleBolusCancelled(double amountDelivered);
+    void handleBolusCancelled();
 };
 
 #endif // USERINTERFACE_H

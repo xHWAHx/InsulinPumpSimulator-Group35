@@ -41,8 +41,8 @@ void PumpController::suspendBolus()
 {
     bolusSuspended = true;
     emit bolusCancelled(activeBolusAmount);
+    logger-> logEvent("Warning", QString("Bolus cancelled with %1 units remaining to deliver").arg(activeBolusAmount, 0, 'f', 2));
     activeBolusAmount= 0;
-    logger->logEvent("Info", "Bolus delivery suspended.");
 }
 
 void PumpController::resumeBolus()
@@ -76,19 +76,18 @@ void PumpController::pump(Bloodstream *blood)
     }
 
     if (not (bolusSuspended || activeBolusAmount <= 0)) {
-        //const double tickIntervalSec = 300.0; //tick interval
         double unitsPerTick = activeBolusRate / 12.0;
         double deliveredThisTick = (activeBolusAmount < unitsPerTick) ? activeBolusAmount : unitsPerTick;
         activeBolusAmount -= deliveredThisTick;
 
-        emit bolusDeliveryProgress(activeBolusAmount, activeBolusRate, deliveredThisTick);
+        emit bolusDeliveryProgress(activeBolusAmount);
 
-        if (!suppressTimeUpdate) {
-            double estimatedTimeRemaining = activeBolusAmount / (activeBolusRate / 12.0);
-            emit bolusTimeRemainingUpdated(estimatedTimeRemaining);
-        } else {
-            emit bolusTimeRemainingUpdated(0.0);
-        }        
+        //if (!suppressTimeUpdate) {
+        //    double estimatedTimeRemaining = activeBolusAmount / (activeBolusRate / 12.0);
+        //    emit bolusTimeRemainingUpdated(estimatedTimeRemaining);
+        //} else {
+        //    //emit bolusTimeRemainingUpdated(0.0);
+        //}
 
         //if (activeBolusAmount > 0){
             //double estimatedTimeRemaining = activeBolusAmount / (activeBolusRate/ 12.0);

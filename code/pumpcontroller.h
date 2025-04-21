@@ -23,7 +23,7 @@ public:
     void pump(Bloodstream *blood); //simulation loop or single "tick"
 
 signals:
-      void bolusDeliveryProgress(double remainingBolus, double rate, double deliveredThisTick);
+      void bolusDeliveryProgress(double remainingBolus);
       void bolusTimeRemainingUpdated(double timeRemaining);
       void bolusCancelled(double amountDelivered);
 
