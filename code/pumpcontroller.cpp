@@ -3,7 +3,7 @@
 #include <iostream>
 #include <cmath>
 
-PumpController::PumpController(InsulinReserve *insulin, DataLogger *logger, IOBTracker* iob, QObject *parent)
+PumpController::PumpController(InsulinReserve *insulin, DataLogger *logger, IOBTracker* iob, QCheckBox *errorCheckBox, QObject *parent)
     : QObject(parent),
       currentBasalRate(0.0),
       activeBolusAmount(0.0),
@@ -12,7 +12,8 @@ PumpController::PumpController(InsulinReserve *insulin, DataLogger *logger, IOBT
       emergencyStopped(false),
       insulinReserve(insulin),
       logger(logger),
-      iobTracker(iob)
+      iobTracker(iob),
+      errorCheckBox(errorCheckBox)
 {
 }
 
@@ -27,10 +28,6 @@ void PumpController::deliverBolus(double amount, double rate, bool suppressTime)
     activeBolusAmount = delivered;
     activeBolusRate = rate;
     suppressTimeUpdate = suppressTime;
-
-    //if (iobTracker){
-    //    iobTracker-> addBolus(delivered, QDateTime::currentDateTime());
-    //}
 
     logger->logEvent("Info", "Delivered " + QString::number(delivered) + " units at rate " + QString::number(rate));
 }
@@ -71,8 +68,14 @@ void PumpController::triggerEmergencyStop()
 
 void PumpController::pump(Bloodstream *blood)
 {
+    emergencyStopped = errorCheckBox->isChecked();
+
     //only pump if delivery is active + not blocked
-    if (not (emergencyStopped || bolusSuspended || activeBolusAmount <= 0)) {
+    if (emergencyStopped) {
+        return;
+    }
+
+    if (not (bolusSuspended || activeBolusAmount <= 0)) {
         //const double tickIntervalSec = 300.0; //tick interval
         double unitsPerTick = activeBolusRate / 12.0;
         double deliveredThisTick = (activeBolusAmount < unitsPerTick) ? activeBolusAmount : unitsPerTick;

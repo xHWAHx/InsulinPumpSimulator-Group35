@@ -2,10 +2,11 @@
 #include "iobtracker.h"
 #include "iostream"
 
-CGMReader::CGMReader()
-    : reading(startAmount)
+CGMReader::CGMReader(QCheckBox *errorCheckBox)
+    : CGMConnected(true)
+    , reading(startAmount)
+    , errorCheckBox(errorCheckBox)
 {
-    CGMConnected = true;
 }
 
 double CGMReader::getCurrentGlucoseLevel(Bloodstream *blood, double correctionFactor){
@@ -16,9 +17,14 @@ double CGMReader::getCurrentGlucoseLevel(Bloodstream *blood, double correctionFa
     reading -= absorbed;
     blood->absorbUnits(absorbed);
 
-	return reading;
+    if (CGMConnected) {
+        return reading;
+    } else {
+        return -1;
+    }
 }
 
 bool CGMReader::isCGMConnected() {
+    CGMConnected = not errorCheckBox->isChecked();
     return CGMConnected;
 }

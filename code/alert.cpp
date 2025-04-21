@@ -16,10 +16,6 @@ Alert::~Alert() {
     delete ui;
 }
 
-void Alert::on_okButton_clicked() {
-    this->close();
-}
-
 void Alert::raise(int type, UserInterface *interface, DataLogger *logger) {
     if (not raisedAlerts[type]){
         Alert *raisedAlert = new Alert(interface);
@@ -35,6 +31,10 @@ void Alert::raise(int type, UserInterface *interface, DataLogger *logger) {
             case CGM_DISCONNECTED:
                 raisedAlert->ui->alertBody->setText("CGM Disconnected, check sensor connection");
                 logger->logEvent("Warning", QString("CGM disconnected"));
+                break;
+            case PUMP_OCCLUSION:
+                raisedAlert->ui->alertBody->setText("Insulin pump is occluded, insulin pumping has been suspended. Please check insertion point");
+                logger->logEvent("Warning", QString("Pump occluded"));
                 break;
             case GLUCOSE_LOW:
                 raisedAlert->ui->alertBody->setText("Glucose is below 3.9 mmol/L. Take 15g of fast-acting sugar. Bolus suspended.");

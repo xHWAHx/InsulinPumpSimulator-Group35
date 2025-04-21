@@ -15,11 +15,9 @@ Device::Device(QWidget *parent)
     , battery(new BatteryManager)
     , logger(DataLogger::instance(this))
     , insulin(new InsulinReserve)
-    , cgm(new CGMReader)
     , bloodstream(new Bloodstream)
     , controlIQ(new ControlIQAlgorithm())
     , iobTracker(new IOBTracker(10.0))
-    , pump(new PumpController(insulin, logger, iobTracker))
     , window(new Ui::Device)
     , tickClock(new QTimer(this))
 {
@@ -29,7 +27,9 @@ Device::Device(QWidget *parent)
     Profile::initDefaultProfile();
     Profile::selectProfileById(1);
 
+    pump = new PumpController(insulin, logger, iobTracker, window->pumpErrorBox);
     interface = new UserInterface(pump, iobTracker, window->uiWidget);
+    cgm = new CGMReader(window->cgmErrorBox);
 
     connect(window->powerButton, &QPushButton::released, this, &Device::power);
     connect(interface, &UserInterface::deviceUnlocked, this, &Device::startMonitoring);
@@ -89,17 +89,19 @@ void Device::monitor(){
     double glucose = cgm->getCurrentGlucoseLevel(bloodstream, profiles->getActiveProfile().getCorrectionFactor());
     double target= Profile::getActiveProfile().getTargetGlucose();
     double insulinReading = insulin->getInsulinRemaining();
+    double currentIOB = bloodstream->getIOB();
 
     safetyChecks(glucose, target);
 
     //pump logic
-    controlIQ->analyzeGlucoseData(glucose, logger, pump);
+    if (glucose != -1){
+        controlIQ->analyzeGlucoseData(glucose, logger, pump);
 
-    pump->pump(bloodstream);
-    double currentIOB = bloodstream->getIOB();
+        pump->pump(bloodstream);
 
-    logger->logGlucose(time, glucose);
-    logger->logInsulin(time, currentIOB);
+        logger->logGlucose(time, glucose);
+    }
+    //logger->logInsulin(time, currentIOB);
 
     interface->refresh(glucose, batteryLevel, insulinReading, currentIOB);
 }
@@ -119,16 +121,21 @@ void Device::safetyChecks(double glucose, double target){
         alerts->raise(Alert::CGM_DISCONNECTED, interface, logger);
     }
 
-    if (glucose < 3.9) {
-        pump->suspendBolus();  // Stop insulin delivery temporarily
-        alerts->raise(Alert::GLUCOSE_LOW, interface, logger);
-    } else if (glucose > 4.5) {
-        alerts->reset(Alert::GLUCOSE_LOW);
+    if (not window->pumpErrorBox->isChecked()) {
+        alerts->reset(Alert::PUMP_OCCLUSION);
+    } else {
+        alerts->raise(Alert::PUMP_OCCLUSION, interface, logger);
     }
 
-    if (glucose > target + 2.0) {
+    if (glucose == -1){
+        pump->suspendBolus();  // Stop insulin delivery temporarily
+    } else if (glucose < 3.9) {
+        pump->suspendBolus();  // Stop insulin delivery temporarily
+        alerts->raise(Alert::GLUCOSE_LOW, interface, logger);
+    } else if (glucose > target + 2.0) {
         alerts->raise(Alert::GLUCOSE_HIGH, interface, logger);
-    } else if (glucose < target + 1.5) {
+    } else if (glucose <= target + 0.5 and glucose >= target -0.5) {
         alerts->reset(Alert::GLUCOSE_HIGH);
+        alerts->reset(Alert::GLUCOSE_LOW);
     }
 }

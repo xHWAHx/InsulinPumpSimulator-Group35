@@ -22,14 +22,12 @@ public:
     static constexpr int BATTERY_LOW = 1;
     static constexpr int INSULIN_LOW = 2;
     static constexpr int CGM_DISCONNECTED = 3;
+    static constexpr int PUMP_OCCLUSION = 6;
     static constexpr int GLUCOSE_LOW = 4;
     static constexpr int GLUCOSE_HIGH = 5;
 
     static void raise(int type, UserInterface *interface, DataLogger *logger);
     static void reset(int type);
-
-private slots:
-    void on_okButton_clicked();
 
 private:
     Ui::Alert *ui;

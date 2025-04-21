@@ -6,12 +6,13 @@
 #include "iobtracker.h"
 #include "bloodstream.h"
 #include <QObject>
+#include <QCheckBox>
 
 class PumpController: public QObject
 {
     Q_OBJECT
 public:
-    explicit PumpController(InsulinReserve *insulin, DataLogger *logger, IOBTracker *iob, QObject *parent = nullptr);
+    explicit PumpController(InsulinReserve *insulin, DataLogger *logger, IOBTracker *iob, QCheckBox *errorCheckBox, QObject *parent = nullptr);
 
     void deliverBolus(double amount, double rate, bool suppressTime = false);
     void adjustBasalRate(double rate);
@@ -37,6 +38,7 @@ private:
     InsulinReserve *insulinReserve;
     DataLogger *logger;
     IOBTracker* iobTracker;
+    QCheckBox *errorCheckBox;
 
     bool isSafeToDeliver();
 };

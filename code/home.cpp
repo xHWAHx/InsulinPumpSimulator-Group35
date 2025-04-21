@@ -67,7 +67,9 @@ void Home::addGlucoseReading(double value)
 
 {
     double timeInHours = double(currentTime)/12;
-    series->append(timeInHours, value);
+    if (value != -1) {
+        series->append(timeInHours, value);
+    }
     currentTime++;
 
     axisX->setRange(timeInHours - selectedGraphHours, timeInHours);
@@ -98,7 +100,11 @@ void Home::updateStatus(double glucose, double battery, double insulin)
     ui->batteryBar->setStyleSheet(style);
     ui->batteryLabel->setStyleSheet("QLabel { color: " + textColor + "; font-weight: bold; }");
 
-    ui->glucoseLabel->setText(QString::number(glucose, 'f', 1));
+    if (glucose != -1) {
+        ui->glucoseLabel->setText(QString::number(glucose, 'f', 1));
+    } else {
+        ui->glucoseLabel->setText("- ");
+    }
     updateInsulinDisplay(insulin);
 }
 
