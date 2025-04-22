@@ -38,6 +38,7 @@ Device::Device(QWidget *parent)
     connect(tickClock, &QTimer::timeout, this, &Device::tick);
     connect(window->chargeBatteryButton, &QPushButton::released, battery, &BatteryManager::chargeBattery);
     connect(window->chargeBatteryButton, &QPushButton::released, this, [](){ Alert::reset(Alert::BATTERY_LOW); });
+    connect(window->chargeBatteryButton, &QPushButton::released, this, [this](){ window->chargeBatteryButton->setText("Charge battery"); });
     connect(window->refillInsulinButton, &QPushButton::released, insulin, &InsulinReserve::refillInsulin);
     connect(battery, &BatteryManager::batteryDead, this, &Device::noPower);
     connect(window->pauseButton, &QPushButton::released, this, &Device::togglePaused);
@@ -69,7 +70,7 @@ void Device::noPower(){
         monitoring = false;
         interface->hide();
         window->powerButton->setText("Power on");
-        window->chargeBatteryButton->setText("Charge battery\nbattery is dead");
+        window->chargeBatteryButton->setText("Charge battery\n(battery is dead)");
         tickClock->stop();
 }
 
