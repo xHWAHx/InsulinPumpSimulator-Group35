@@ -31,7 +31,7 @@ public slots:
     void startMonitoring();
 
 private:
-    int static const simulationRate = 1;
+    int static const simulationRate = 1; // a rate of 1 means 1 second represents 5 minutes
 
     bool poweredOn;
     bool monitoring;

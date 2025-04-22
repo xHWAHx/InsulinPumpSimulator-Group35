@@ -165,11 +165,11 @@ void BolusCalculator::on_btnDeliver_clicked()
         return;
     }
 
-    if (insulinReserve && insulinReserve->getInsulinRemaining() < dose) {
-        QMessageBox::warning(this, "Insufficient Insulin",
-                             "Not enough insulin to deliver the requested dose.");
-        return;
-    }
+    //if (insulinReserve && insulinReserve->getInsulinRemaining() < dose) {
+    //    QMessageBox::warning(this, "Insufficient Insulin",
+    //                         "Not enough insulin to deliver the requested dose.");
+    //    return;
+    //}
     // Allows User to Customize Extended Dose Delivery 
     if (QMessageBox::question(this, "Extended Bolus",
                               "Would you like an extended dose?") == QMessageBox::Yes)

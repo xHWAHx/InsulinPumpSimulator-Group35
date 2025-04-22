@@ -17,7 +17,7 @@ Device::Device(QWidget *parent)
     , insulin(new InsulinReserve)
     , bloodstream(new Bloodstream)
     , controlIQ(new ControlIQAlgorithm())
-    , iobTracker(new IOBTracker(10.0))
+    //, iobTracker(new IOBTracker(10.0))
     , window(new Ui::Device)
     , tickClock(new QTimer(this))
 {

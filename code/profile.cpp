@@ -76,7 +76,7 @@ bool Profile::createProfile(const QString &name, double basalRate, double carbRa
 void Profile::initDefaultProfile() {
     QFile profileFile(s_profilesFilePath);
     if (!profileFile.exists()) {
-        createProfile("Default", 1.1, 3, 3.5, 5);
+        createProfile("Default", 0.8, 0.09, 2.5, 5.5);
     }
 }
 

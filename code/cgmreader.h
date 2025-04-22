@@ -19,8 +19,8 @@ private:
     QRandomGenerator randomGen;
     static constexpr double volatility = 0.8; // how much the increasePerHour can randomly vary, as a multiplier
     static constexpr double startAmount = 6.0; // in mmol/L
-    static constexpr double increasePerHour = 4; // in mmol/L per hour
-    static constexpr double insulinUsageRate = 6; // in units per hour
+    static constexpr double increasePerHour = 2; // in mmol/L per hour
+    static constexpr double insulinUsageRate = 2; // in units per hour
 };
 
 #endif // CGMREADER_H
