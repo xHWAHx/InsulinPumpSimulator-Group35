@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['handlepin_307',['handlePin',['../classUserInterface.html#abbeab9048c0aef4f0b61daa9e6b69a59',1,'UserInterface']]],
-  ['history_308',['History',['../classHistory.html#a9aa80fc1cc13a254b1f6bb99cd5f5974',1,'History']]],
-  ['home_309',['Home',['../classHome.html#a01b023a5c9584896ea44559701e98fc0',1,'Home']]]
+  ['handleboluscancelled_393',['handleBolusCancelled',['../classUserInterface.html#a3ec8951b3e4fdd6f11bdb3298374a0e5',1,'UserInterface']]],
+  ['history_394',['History',['../classHistory.html#abf1987bf54b5859c1da84c9921864e33',1,'History']]],
+  ['home_395',['Home',['../classHome.html#a01b023a5c9584896ea44559701e98fc0',1,'Home']]]
 ];

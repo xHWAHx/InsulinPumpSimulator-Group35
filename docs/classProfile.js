@@ -14,6 +14,7 @@ var classProfile =
     [ "getName", "classProfile.html#a45c222f655c138cc212cd07b59015307", null ],
     [ "getProfileById", "classProfile.html#a03e9aa9fe362dcc69387d07b68b10ac5", null ],
     [ "getTargetGlucose", "classProfile.html#aaa75db7302ff1c8206c362a8646cb5e7", null ],
+    [ "initDefaultProfile", "classProfile.html#a38c1d5ddd394bdbef765487c8b4043fc", null ],
     [ "loadProfiles", "classProfile.html#ac41e139b5da679243768a5c1bbfde70c", null ],
     [ "saveProfiles", "classProfile.html#aa3f24ab34ad077c913451dc65ac81faa", null ],
     [ "selectProfileById", "classProfile.html#ae24dea49af47b30c2cfe3262ffec6899", null ],

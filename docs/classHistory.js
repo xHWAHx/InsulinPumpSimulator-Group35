@@ -1,6 +1,6 @@
 var classHistory =
 [
-    [ "History", "classHistory.html#a9aa80fc1cc13a254b1f6bb99cd5f5974", null ],
+    [ "History", "classHistory.html#abf1987bf54b5859c1da84c9921864e33", null ],
     [ "~History", "classHistory.html#a5b00b64a1ddee04e60d5a3b517fd6d4c", null ],
     [ "backRequested", "classHistory.html#adef8a51186658191c7d38275a43fa15a", null ],
     [ "backToHome", "classHistory.html#a58216f8cf812a788b3fd65fe30333e07", null ],

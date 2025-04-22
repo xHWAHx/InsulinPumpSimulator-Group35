@@ -141,6 +141,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a8d833c67e382b3e8541ee85a8f871a17"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProfile.html#a8d833c67e382b3e8541ee85a8f871a17">createProfile</a> (const QString &amp;name, double basalRate, double carbRatio, double correctionFactor, double targetGlucose)</td></tr>
 <tr class="memdesc:a8d833c67e382b3e8541ee85a8f871a17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new profile.  <a href="classProfile.html#a8d833c67e382b3e8541ee85a8f871a17">More...</a><br /></td></tr>
 <tr class="separator:a8d833c67e382b3e8541ee85a8f871a17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38c1d5ddd394bdbef765487c8b4043fc"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProfile.html#a38c1d5ddd394bdbef765487c8b4043fc">initDefaultProfile</a> ()</td></tr>
+<tr class="memdesc:a38c1d5ddd394bdbef765487c8b4043fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the default profile if none exists.  <a href="classProfile.html#a38c1d5ddd394bdbef765487c8b4043fc">More...</a><br /></td></tr>
+<tr class="separator:a38c1d5ddd394bdbef765487c8b4043fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af059dc6caf7caca3d4196103b2b8ac7f"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classProfile.html#af059dc6caf7caca3d4196103b2b8ac7f">updateProfileById</a> (int id, const QString &amp;name, double newBasalRate, double newCarbRatio, double newCorrectionFactor, double newTargetGlucose)</td></tr>
 <tr class="memdesc:af059dc6caf7caca3d4196103b2b8ac7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates an existing profile by its identifier.  <a href="classProfile.html#af059dc6caf7caca3d4196103b2b8ac7f">More...</a><br /></td></tr>
 <tr class="separator:af059dc6caf7caca3d4196103b2b8ac7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -268,9 +271,9 @@ Static Private Attributes</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">name</td><td>The name of the profile. </td></tr>
-    <tr><td class="paramname">basalRate</td><td>The basal insulin rate. </td></tr>
+    <tr><td class="paramname">basalRate</td><td>The basal insulin rate in units/hour. </td></tr>
     <tr><td class="paramname">carbRatio</td><td>The carbohydrate ratio. </td></tr>
-    <tr><td class="paramname">correctionFactor</td><td>The correction factor for insulin dosing. </td></tr>
+    <tr><td class="paramname">correctionFactor</td><td>The correction factor for insulin dosing in . </td></tr>
     <tr><td class="paramname">targetGlucose</td><td>The target blood glucose level. </td></tr>
     <tr><td class="paramname">id</td><td>The unique identifier for the profile. </td></tr>
   </table>
@@ -613,6 +616,34 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a38c1d5ddd394bdbef765487c8b4043fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38c1d5ddd394bdbef765487c8b4043fc">&#9670;&nbsp;</a></span>initDefaultProfile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void Profile::initDefaultProfile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initializes the default profile if none exists. </p>
+<p>This function checks whether the profile data file exists at the expected path. If the file does not exist, it creates a default profile with predefined parameters and saves it. This is used during application startup to ensure that a usable profile is available. </p>
 
 </div>
 </div>

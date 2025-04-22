@@ -25,7 +25,21 @@
 var NAVTREE =
 [
   [ "Insulin Pump Simulator", "index.html", [
-    [ "Insulin-Pump-Simulator", "md_README.html", null ],
+    [ "Insulin-Pump-Simulator *(NOT FINAL)*", "index.html", [
+      [ "Group Members:", "index.html#autotoc_md1", null ],
+      [ "Responsibilites:", "index.html#autotoc_md2", [
+        [ "File Organization", "index.html#autotoc_md3", [
+          [ "Root Directory", "index.html#autotoc_md4", null ],
+          [ "UML Diagrams", "index.html#autotoc_md6", null ],
+          [ "Source Code", "index.html#autotoc_md8", null ]
+        ] ],
+        [ "Documentation", "index.html#autotoc_md9", null ],
+        [ "Compiling instructions", "index.html#autotoc_md10", [
+          [ "In the terminal:", "index.html#autotoc_md11", null ],
+          [ "In Qt Creator:", "index.html#autotoc_md12", null ]
+        ] ]
+      ] ]
+    ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ]
     ] ],
@@ -47,8 +61,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"functions_f.html"
+"alert_8h.html",
+"classPumpController.html#a43725d9a8985ba52e8e743caae5944b4"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['norm_452',['norm',['../classCGMReader.html#a91b9722b2fe5b782c17fb1d85dc6a006',1,'CGMReader']]]
+  ['overriddendose_582',['overriddenDose',['../classBolusCalculator.html#a9739cc5f9fb5be059bf53221f852f993',1,'BolusCalculator']]]
 ];

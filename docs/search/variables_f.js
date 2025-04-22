@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['tickclock_467',['tickClock',['../classDevice.html#a4ca2281987c6ff55461077a60a75df07',1,'Device']]],
-  ['timeofpreviousreading_468',['timeOfPreviousReading',['../classCGMReader.html#a63cc40bc37764659fa8234bc6800cd8e',1,'CGMReader']]],
-  ['timescale_469',['timeScale',['../classCGMReader.html#ae0fa0f9908705a735c8521f8cc4de0d8',1,'CGMReader']]],
-  ['timestamp_470',['timestamp',['../structLogEntry.html#a71bcd756287438a5a1d041ff7f008485',1,'LogEntry::timestamp()'],['../structGlucoseLogEntry.html#a6fc810255f7d5c6161292aee76b2d028',1,'GlucoseLogEntry::timestamp()'],['../structInsulinLogEntry.html#a63fa840fcca641561e999ebe9829e1db',1,'InsulinLogEntry::timestamp()']]]
+  ['ui_605',['ui',['../classAlert.html#a64562b0f89443d3201d4612d282f1bc4',1,'Alert::ui()'],['../classBolusCalculator.html#a60a0c00d6117910de52bec60792beff5',1,'BolusCalculator::ui()'],['../classHistory.html#a1a3bde7956257d76278e4536d89d76b2',1,'History::ui()'],['../classHome.html#a5079a9920dd92df1ffec70e38959a3d6',1,'Home::ui()'],['../classLogin.html#a55fa3b19085f864462451d3dd9efd2e1',1,'Login::ui()'],['../classSettings.html#a98680be421d0ae7c34a57f2a159eacd4',1,'Settings::ui()'],['../classUserInterface.html#a756814c1f051946b7fdc1803bc0e8f3d',1,'UserInterface::ui()']]],
+  ['units_606',['units',['../structIOBTracker_1_1BolusEntry.html#ac3293c6c98b8ccb6d0d57a6b7567e4d7',1,'IOBTracker::BolusEntry']]]
 ];

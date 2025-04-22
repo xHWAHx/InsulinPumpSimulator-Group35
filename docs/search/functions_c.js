@@ -1,29 +1,4 @@
 var searchData=
 [
-  ['on_5fbutton0_5fclicked_326',['on_button0_clicked',['../classLogin.html#a679c51f1753ac41cdbf059efef77cee4',1,'Login']]],
-  ['on_5fbutton1_5fclicked_327',['on_button1_clicked',['../classLogin.html#a280436cfe2dbabad05ccc39ea4df647b',1,'Login']]],
-  ['on_5fbutton2_5fclicked_328',['on_button2_clicked',['../classLogin.html#ae15886022c417762bb3918a1135f4fb3',1,'Login']]],
-  ['on_5fbutton3_5fclicked_329',['on_button3_clicked',['../classLogin.html#a791f5f8a6c8ab22272e6e6d1320c6827',1,'Login']]],
-  ['on_5fbutton4_5fclicked_330',['on_button4_clicked',['../classLogin.html#a1e0f2b828f6bb17fde85e574aa07fdf5',1,'Login']]],
-  ['on_5fbutton5_5fclicked_331',['on_button5_clicked',['../classLogin.html#a1fc330b497b1b43b73f9c8724695f6bb',1,'Login']]],
-  ['on_5fbutton6_5fclicked_332',['on_button6_clicked',['../classLogin.html#a14f39ce360fc7909187c24cfeee66146',1,'Login']]],
-  ['on_5fbutton7_5fclicked_333',['on_button7_clicked',['../classLogin.html#ac2c69252a91f9e00ff70b9599862778c',1,'Login']]],
-  ['on_5fbutton8_5fclicked_334',['on_button8_clicked',['../classLogin.html#a844a12b280ed462e9d1ed721967d14f2',1,'Login']]],
-  ['on_5fbutton9_5fclicked_335',['on_button9_clicked',['../classLogin.html#a5f9711e6b0f19bcd3899e5051ee89049',1,'Login']]],
-  ['on_5fbuttonok_5fclicked_336',['on_buttonOk_clicked',['../classLogin.html#a14407007a73c360aef8ce8210d3c0330',1,'Login']]],
-  ['on_5flogobutton_5fclicked_337',['on_logoButton_clicked',['../classBolusCalculator.html#ab9794dd9539a1eece9bea3631f891dfb',1,'BolusCalculator::on_logoButton_clicked()'],['../classHistory.html#a5aaa7cb127b162a04bc703d59c1260f3',1,'History::on_logoButton_clicked()'],['../classSettings.html#aec5d9fe6c7fe747a0d420f002a613dd8',1,'Settings::on_logoButton_clicked()']]],
-  ['onback_338',['onBack',['../classSettings.html#a2ce7e3d9b3b932bab92375a841805437',1,'Settings']]],
-  ['onbackbuttonclicked_339',['onBackButtonClicked',['../classHistory.html#a30e494eee014c8881fbfa37d69ea2877',1,'History']]],
-  ['oncreateprofile_340',['onCreateProfile',['../classSettings.html#aaffcc6153265f28eabd6a009b261dfdc',1,'Settings']]],
-  ['ondeleteprofile_341',['onDeleteProfile',['../classSettings.html#adb58414854f2390177ff9009d68df269',1,'Settings']]],
-  ['onfilterchanged_342',['onFilterChanged',['../classHistory.html#a4d2e731045c284ec04046bf2e7275ab7',1,'History']]],
-  ['onprofilelistitemclicked_343',['onProfileListItemClicked',['../classSettings.html#aa0295a87799cb0a2e030da40febcd024',1,'Settings']]],
-  ['onsaveprofile_344',['onSaveProfile',['../classSettings.html#a6c46f3a6144d76c3db99da64deac57a1',1,'Settings']]],
-  ['onsearch_345',['onSearch',['../classHistory.html#af3bd82d20348d6a0e2bf789778f26f14',1,'History']]],
-  ['onselectprofile_346',['onSelectProfile',['../classSettings.html#a6771d459c28d0863f8abe312a4c63421',1,'Settings']]],
-  ['onupdateprofile_347',['onUpdateProfile',['../classSettings.html#abfdbdebccfc24e61537b59a478a479a8',1,'Settings']]],
-  ['openbolusui_348',['openBolusUI',['../classUserInterface.html#a3daada01e3e2b75d561d245a91bd8484',1,'UserInterface']]],
-  ['openhistory_349',['openHistory',['../classUserInterface.html#ae96a218f45d9fe5f9755d0dd377a415c',1,'UserInterface']]],
-  ['opensettings_350',['openSettings',['../classUserInterface.html#a491bb76585e2f318c95bf6dc431da13b',1,'UserInterface']]],
-  ['overridedose_351',['overrideDose',['../classBolusCalculator.html#ab636bf4e36462cf1e1f3498089321217',1,'BolusCalculator']]]
+  ['nopower_416',['noPower',['../classDevice.html#a798239cba6f2cbcd6f358fdd4a7c8a6b',1,'Device']]]
 ];

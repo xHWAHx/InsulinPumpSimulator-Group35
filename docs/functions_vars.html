@@ -90,6 +90,12 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>activeBolusRate
 : <a class="el" href="classPumpController.html#abf7109fdf40acac8adf77feb5df295d3">PumpController</a>
 </li>
+<li>alerts
+: <a class="el" href="classDevice.html#a20876cbb8a38cfab24497d80835a8efd">Device</a>
+</li>
+<li>axisX
+: <a class="el" href="classHome.html#a0baa3676e88eadf7b592bb39614c8ccf">Home</a>
+</li>
 </ul>
 
 
@@ -97,14 +103,26 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>battery
 : <a class="el" href="classDevice.html#a697db496135a4bc11340bf71d1b7a450">Device</a>
 </li>
+<li>BATTERY_LOW
+: <a class="el" href="classAlert.html#a61ab1575da4684ed148e0de3e8d409a1">Alert</a>
+</li>
+<li>batteryAlertShown
+: <a class="el" href="classDevice.html#a866c6bffa432448d3dd085851f059f25">Device</a>
+</li>
 <li>batteryLevel
 : <a class="el" href="classBatteryManager.html#a06974afdd76af357e451a4303d72a607">BatteryManager</a>
 </li>
 <li>batteryManager
 : <a class="el" href="classUserInterface.html#ad13eb3e036816691739738e4029879e8">UserInterface</a>
 </li>
+<li>bloodstream
+: <a class="el" href="classDevice.html#a78650596aaffed9fd50da9359f9e3d4f">Device</a>
+</li>
 <li>bolusCalculator
 : <a class="el" href="classUserInterface.html#a01c7e8dc61b7e0742ee91f61020d2d81">UserInterface</a>
+</li>
+<li>bolusLog
+: <a class="el" href="classIOBTracker.html#a4e910ca6ae7b1deeadc95010fd9180c8">IOBTracker</a>
 </li>
 <li>bolusSuspended
 : <a class="el" href="classPumpController.html#a824c550e07e4115a0fd3634b66492268">PumpController</a>
@@ -114,7 +132,14 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 
 <h3><a id="index_c"></a>- c -</h3><ul>
 <li>cgm
-: <a class="el" href="classDevice.html#ac2cce9dfde40c00f3fa8476df18fac16">Device</a>
+: <a class="el" href="classBolusCalculator.html#ac20dddfc8c835cfb33e1c59979f256ee">BolusCalculator</a>
+, <a class="el" href="classDevice.html#ac2cce9dfde40c00f3fa8476df18fac16">Device</a>
+</li>
+<li>CGM_DISCONNECTED
+: <a class="el" href="classAlert.html#aa59c65a153fa8b3c5425b083d2c53e55">Alert</a>
+</li>
+<li>cgmAlertShown
+: <a class="el" href="classDevice.html#aa6ed894deda5970951fcef3dc48daecd">Device</a>
 </li>
 <li>CGMConnected
 : <a class="el" href="classCGMReader.html#a185f526b993f39c9f732696f42811cdc">CGMReader</a>
@@ -132,10 +157,17 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 : <a class="el" href="classHome.html#a33031d1b7eec19a49228aec6876a7b4a">Home</a>
 </li>
 <li>controlIQ
-: <a class="el" href="classUserInterface.html#aee87afb3e67a1de964b5e90d04793b6c">UserInterface</a>
+: <a class="el" href="classDevice.html#a4a6277a17518f2cfea42e8de1c18c412">Device</a>
+, <a class="el" href="classUserInterface.html#aee87afb3e67a1de964b5e90d04793b6c">UserInterface</a>
 </li>
 <li>correctPin
 : <a class="el" href="classUserInterface.html#ab2e36223696f52349553add49aadfa6d">UserInterface</a>
+</li>
+<li>countdownSeconds
+: <a class="el" href="classBolusCalculator.html#aba9d2180e68abfb6f434bdb8f5798a9c">BolusCalculator</a>
+</li>
+<li>countdownTimer
+: <a class="el" href="classBolusCalculator.html#a8cafcb24b8cd12192868aa0cc4a453de">BolusCalculator</a>
 </li>
 <li>criticalValue
 : <a class="el" href="classBatteryManager.html#a2fdb535c8aacc98ce526ac12c9915079">BatteryManager</a>
@@ -169,12 +201,21 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>eventType
 : <a class="el" href="structLogEntry.html#abfaed2ac455bce0b3f8f81da595f1209">LogEntry</a>
 </li>
+<li>extendedDoseTimer
+: <a class="el" href="classBolusCalculator.html#a66910f3b418855a9086e96c4fa9039e6">BolusCalculator</a>
+</li>
 </ul>
 
 
 <h3><a id="index_g"></a>- g -</h3><ul>
 <li>glucose
 : <a class="el" href="structGlucoseLogEntry.html#a2f409c3e93cb67fcfcebcfb0a61516ea">GlucoseLogEntry</a>
+</li>
+<li>GLUCOSE_HIGH
+: <a class="el" href="classAlert.html#a6e4de8903d1dcbf390126666e5cecbb3">Alert</a>
+</li>
+<li>GLUCOSE_LOW
+: <a class="el" href="classAlert.html#af710afa58456ac6c8998ae46e4ddf774">Alert</a>
 </li>
 <li>glucoseLog
 : <a class="el" href="structLogData.html#ad90fc4c30d3191259352a666485d55df">LogData</a>
@@ -183,6 +224,9 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 
 
 <h3><a id="index_h"></a>- h -</h3><ul>
+<li>highGlucoseAlertShown
+: <a class="el" href="classDevice.html#ac19742cdd54f77e2ab4836d9c4dfd4cc">Device</a>
+</li>
 <li>historyScreen
 : <a class="el" href="classUserInterface.html#a70092f5ef4c68ca634058cc2dffb0e91">UserInterface</a>
 </li>
@@ -193,31 +237,57 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 
 
 <h3><a id="index_i"></a>- i -</h3><ul>
+<li>increasePerHour
+: <a class="el" href="classCGMReader.html#ab7e12acb4464b3ad29b969ffecc83a6e">CGMReader</a>
+</li>
 <li>insulin
 : <a class="el" href="classDevice.html#ab0384c6e4421b7412f2ceb06edc640e8">Device</a>
 </li>
+<li>INSULIN_LOW
+: <a class="el" href="classAlert.html#a0b9542986ff3e79a1abe91d61e61a1a5">Alert</a>
+</li>
+<li>insulinAlertShown
+: <a class="el" href="classDevice.html#a37b54313b1f4518e97ac3ffa05edcfb6">Device</a>
+</li>
+<li>insulinDuration
+: <a class="el" href="classIOBTracker.html#a57dab1a61ad3e227ddcb0ceb1d0098a7">IOBTracker</a>
+</li>
 <li>insulinLog
 : <a class="el" href="structLogData.html#a8713598d86736b113898fe58fef54d0d">LogData</a>
+</li>
+<li>insulinOnBoard
+: <a class="el" href="classBloodstream.html#aba01ded19eb7f55216a9e7df4dadc8c1">Bloodstream</a>
 </li>
 <li>insulinRemaining
 : <a class="el" href="classInsulinReserve.html#a9329acfe39df6ff72c822ebc6d74603d">InsulinReserve</a>
 </li>
 <li>insulinReserve
-: <a class="el" href="classPumpController.html#ae1f5a6b1f21af4a6c4eb4d8dfc04ef47">PumpController</a>
+: <a class="el" href="classBolusCalculator.html#aea629ac85bdd13a4b48f87296ff0c62a">BolusCalculator</a>
+, <a class="el" href="classPumpController.html#ae1f5a6b1f21af4a6c4eb4d8dfc04ef47">PumpController</a>
 , <a class="el" href="classUserInterface.html#a887e0b6bf5f8285bf40c4242ce5f1b9a">UserInterface</a>
+</li>
+<li>insulinUsageRate
+: <a class="el" href="classCGMReader.html#ae2bf91073b59dd0fe33e8874fe713f1c">CGMReader</a>
 </li>
 <li>interface
 : <a class="el" href="classDevice.html#a1837b186572857d2b618988935ec4e0f">Device</a>
+</li>
+<li>iobTracker
+: <a class="el" href="classBolusCalculator.html#a7d813a55cea93b96f23fa8767ee10ca7">BolusCalculator</a>
+, <a class="el" href="classDevice.html#ab2cedda2d493621f40f299d1109260a3">Device</a>
+, <a class="el" href="classPumpController.html#aa3ddf8e064062227ae5a3899a2044412">PumpController</a>
 </li>
 </ul>
 
 
 <h3><a id="index_l"></a>- l -</h3><ul>
-<li>log
-: <a class="el" href="classDevice.html#a3df98d02908719bb3b51d25b9e537115">Device</a>
+<li>lastPage
+: <a class="el" href="classUserInterface.html#abe25f121a2285bc6a30867f52d2f28d9">UserInterface</a>
 </li>
 <li>logger
-: <a class="el" href="classPumpController.html#a931b7657a0237cd231220b31c1a12729">PumpController</a>
+: <a class="el" href="classBolusCalculator.html#a1ec2a583cbde03d57cb3d5ce43113be9">BolusCalculator</a>
+, <a class="el" href="classDevice.html#adadd61cfdeda01e3d5e953ad0a21f537">Device</a>
+, <a class="el" href="classPumpController.html#a931b7657a0237cd231220b31c1a12729">PumpController</a>
 , <a class="el" href="classUserInterface.html#a2ef9c483e0a2388f6a3bdfc5bfc9bf74">UserInterface</a>
 </li>
 <li>loginScreen
@@ -228,6 +298,9 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 </li>
 <li>lowAmount
 : <a class="el" href="classInsulinReserve.html#a62c45b855a9c281c2cb8eb8331be458b">InsulinReserve</a>
+</li>
+<li>lowGlucoseAlertShown
+: <a class="el" href="classDevice.html#a83bbba92fdb52fce1ed01a2123774aaf">Device</a>
 </li>
 </ul>
 
@@ -263,18 +336,8 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>maxAmount
 : <a class="el" href="classInsulinReserve.html#a83a68e1e50d5c94245c05f78aa98df69">InsulinReserve</a>
 </li>
-<li>meanGlucose
-: <a class="el" href="classCGMReader.html#aded1ef47f691b3f8a84d337ad434fa08">CGMReader</a>
-</li>
-<li>meanReversion
-: <a class="el" href="classCGMReader.html#a6449ebadf84516148a5a15c53f5c506a">CGMReader</a>
-</li>
-</ul>
-
-
-<h3><a id="index_n"></a>- n -</h3><ul>
-<li>norm
-: <a class="el" href="classCGMReader.html#a91b9722b2fe5b782c17fb1d85dc6a006">CGMReader</a>
+<li>monitoring
+: <a class="el" href="classDevice.html#acd814466c4871eed15436e238c2a7cbe">Device</a>
 </li>
 </ul>
 
@@ -290,24 +353,34 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>poweredOn
 : <a class="el" href="classDevice.html#aa115c6602626b7c3df32fa547dd5b346">Device</a>
 </li>
-<li>previousReading
-: <a class="el" href="classCGMReader.html#a8d8f58c2bce86b840d8fdb38c18862d8">CGMReader</a>
-</li>
 <li>profiles
 : <a class="el" href="classDevice.html#a29ef204cc0bd228b0de2500dd5d22575">Device</a>
 </li>
 <li>pump
-: <a class="el" href="classDevice.html#a2272bd7858cd5b0aed01e0221e476b1e">Device</a>
+: <a class="el" href="classBolusCalculator.html#a115ea1d401a97f3a084fef2a9d456b79">BolusCalculator</a>
+, <a class="el" href="classDevice.html#a2272bd7858cd5b0aed01e0221e476b1e">Device</a>
 </li>
 <li>pumpController
 : <a class="el" href="classUserInterface.html#a99ee0c419030b2653f817dcf0bc51f69">UserInterface</a>
+</li>
+<li>pumpTimer
+: <a class="el" href="classUserInterface.html#a6fdc601549607776968fad7805071a5d">UserInterface</a>
 </li>
 </ul>
 
 
 <h3><a id="index_r"></a>- r -</h3><ul>
-<li>randomGenerator
-: <a class="el" href="classCGMReader.html#aae866ee994de7ebb87dd264a46a4ba36">CGMReader</a>
+<li>raisedAlerts
+: <a class="el" href="classAlert.html#aad51c706b148c94de7cb186095dc627e">Alert</a>
+</li>
+<li>randomGen
+: <a class="el" href="classCGMReader.html#ab99e3508b0eafb741900127f288cc40f">CGMReader</a>
+</li>
+<li>reading
+: <a class="el" href="classCGMReader.html#a45fdf23a3be6b6aef6201a802e9561d8">CGMReader</a>
+</li>
+<li>remainingExtendedDose
+: <a class="el" href="classBolusCalculator.html#aa57e2ffc34b89bd1e6f1f644febe092e">BolusCalculator</a>
 </li>
 </ul>
 
@@ -325,14 +398,23 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>s_profilesFilePath
 : <a class="el" href="classProfile.html#a837f43ca1ab6c609767c32f0f6e8c851">Profile</a>
 </li>
+<li>selectedGraphHours
+: <a class="el" href="classHome.html#ac58b54f9307ac76ab10bbe1de95d77a4">Home</a>
+</li>
 <li>series
 : <a class="el" href="classHome.html#a77ce37d423b5f425227d1f2017e2e8e1">Home</a>
 </li>
 <li>settingsScreen
 : <a class="el" href="classUserInterface.html#a5b3bcec041da80b7803a85738c7f8d80">UserInterface</a>
 </li>
+<li>simulationRate
+: <a class="el" href="classDevice.html#aabeff95461bddbb435f08fa3248c07c3">Device</a>
+</li>
 <li>startAmount
 : <a class="el" href="classCGMReader.html#a7db003b7336f0cfd7f33915b80a39249">CGMReader</a>
+</li>
+<li>suppressTimeUpdate
+: <a class="el" href="classPumpController.html#ab9016b50c17c764013e7568c8f3398ac">PumpController</a>
 </li>
 </ul>
 
@@ -341,11 +423,8 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 <li>tickClock
 : <a class="el" href="classDevice.html#a4ca2281987c6ff55461077a60a75df07">Device</a>
 </li>
-<li>timeOfPreviousReading
-: <a class="el" href="classCGMReader.html#a63cc40bc37764659fa8234bc6800cd8e">CGMReader</a>
-</li>
-<li>timeScale
-: <a class="el" href="classCGMReader.html#ae0fa0f9908705a735c8521f8cc4de0d8">CGMReader</a>
+<li>time
+: <a class="el" href="structIOBTracker_1_1BolusEntry.html#afb9a1f9412ab2a3fa9a56de155c542f0">IOBTracker::BolusEntry</a>
 </li>
 <li>timestamp
 : <a class="el" href="structGlucoseLogEntry.html#a6fc810255f7d5c6161292aee76b2d028">GlucoseLogEntry</a>
@@ -357,12 +436,16 @@ $(document).ready(function(){initNavTree('functions_vars.html',''); initResizabl
 
 <h3><a id="index_u"></a>- u -</h3><ul>
 <li>ui
-: <a class="el" href="classBolusCalculator.html#a60a0c00d6117910de52bec60792beff5">BolusCalculator</a>
+: <a class="el" href="classAlert.html#a64562b0f89443d3201d4612d282f1bc4">Alert</a>
+, <a class="el" href="classBolusCalculator.html#a60a0c00d6117910de52bec60792beff5">BolusCalculator</a>
 , <a class="el" href="classHistory.html#a1a3bde7956257d76278e4536d89d76b2">History</a>
 , <a class="el" href="classHome.html#a5079a9920dd92df1ffec70e38959a3d6">Home</a>
 , <a class="el" href="classLogin.html#a55fa3b19085f864462451d3dd9efd2e1">Login</a>
 , <a class="el" href="classSettings.html#a98680be421d0ae7c34a57f2a159eacd4">Settings</a>
 , <a class="el" href="classUserInterface.html#a756814c1f051946b7fdc1803bc0e8f3d">UserInterface</a>
+</li>
+<li>units
+: <a class="el" href="structIOBTracker_1_1BolusEntry.html#ac3293c6c98b8ccb6d0d57a6b7567e4d7">IOBTracker::BolusEntry</a>
 </li>
 </ul>
 

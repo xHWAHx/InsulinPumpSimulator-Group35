@@ -2,6 +2,8 @@ var classLogin =
 [
     [ "Login", "classLogin.html#a5d0ad68bb85df1299c7513e476211c98", null ],
     [ "~Login", "classLogin.html#a659bc7233ec12c79b9fa523c1734fbbc", null ],
+    [ "deviceUnlocked", "classLogin.html#a547db49c094a6c4473ecda1bdbfff4a0", null ],
+    [ "keyPressEvent", "classLogin.html#aebc06c88ed02da29c962624e4dad2225", null ],
     [ "on_button0_clicked", "classLogin.html#a679c51f1753ac41cdbf059efef77cee4", null ],
     [ "on_button1_clicked", "classLogin.html#a280436cfe2dbabad05ccc39ea4df647b", null ],
     [ "on_button2_clicked", "classLogin.html#ae15886022c417762bb3918a1135f4fb3", null ],

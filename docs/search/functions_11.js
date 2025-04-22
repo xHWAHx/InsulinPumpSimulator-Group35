@@ -1,10 +1,6 @@
 var searchData=
 [
-  ['updatedatetime_389',['updateDateTime',['../classHome.html#a9fbe6bc999f0d936c476706fafe89086',1,'Home']]],
-  ['updateglucoseforchart_390',['updateGlucoseForChart',['../classUserInterface.html#a0661241f7f7d75f98dca47b29917f144',1,'UserInterface']]],
-  ['updateprofilebyid_391',['updateProfileById',['../classProfile.html#af059dc6caf7caca3d4196103b2b8ac7f',1,'Profile']]],
-  ['updateprofilelist_392',['updateProfileList',['../classSettings.html#ab82ff508281d61e7fde4f0f00b618290',1,'Settings']]],
-  ['updatestatus_393',['updateStatus',['../classHome.html#a039d2a5f3e02dc91272edc6baede130e',1,'Home']]],
-  ['useinsulin_394',['useInsulin',['../classInsulinReserve.html#abc93124a3a0ea17463b349b35a2b229d',1,'InsulinReserve']]],
-  ['userinterface_395',['UserInterface',['../classUserInterface.html#a82cef45d14506dcb282651e9d1d7670f',1,'UserInterface']]]
+  ['tick_486',['tick',['../classDevice.html#ad826df81575f57770d49bef52dd870b5',1,'Device']]],
+  ['tojson_487',['toJson',['../structLogEntry.html#abc3ff2c754ac1460e764769b4aa61645',1,'LogEntry::toJson()'],['../structGlucoseLogEntry.html#abef95827da7da77aac77d914f5233f53',1,'GlucoseLogEntry::toJson()'],['../structInsulinLogEntry.html#a2636ee56911fb37a95e1c5706752c12a',1,'InsulinLogEntry::toJson()'],['../structLogData.html#a06bb5c903f979146aed2bbb7952ab4f8',1,'LogData::toJson()'],['../classProfile.html#a5bbcf5ed3475cf4fa5f49aa7ca7a7ee6',1,'Profile::toJson()']]],
+  ['triggeremergencystop_488',['triggerEmergencyStop',['../classPumpController.html#aebb05481ce28e9ba43a934db2fdc5261',1,'PumpController']]]
 ];

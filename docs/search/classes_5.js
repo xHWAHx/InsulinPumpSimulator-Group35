@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['insulinlogentry_241',['InsulinLogEntry',['../structInsulinLogEntry.html',1,'']]],
-  ['insulinreserve_242',['InsulinReserve',['../classInsulinReserve.html',1,'']]]
+  ['history_308',['History',['../classHistory.html',1,'']]],
+  ['home_309',['Home',['../classHome.html',1,'']]]
 ];

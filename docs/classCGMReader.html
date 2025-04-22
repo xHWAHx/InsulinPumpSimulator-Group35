@@ -97,8 +97,8 @@ $(document).ready(function(){initNavTree('classCGMReader.html',''); initResizabl
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a1959dca5d05df437e243f826f1b381a4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#a1959dca5d05df437e243f826f1b381a4">CGMReader</a> ()</td></tr>
 <tr class="separator:a1959dca5d05df437e243f826f1b381a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a664b7fc8a35ca9c5169a9b0f1ec5104f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#a664b7fc8a35ca9c5169a9b0f1ec5104f">getCurrentGlucoseLevel</a> ()</td></tr>
-<tr class="separator:a664b7fc8a35ca9c5169a9b0f1ec5104f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec2f73c22932d89fea3f26be18d97b69"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#aec2f73c22932d89fea3f26be18d97b69">getCurrentGlucoseLevel</a> (<a class="el" href="classBloodstream.html">Bloodstream</a> *blood, double correctionFactor)</td></tr>
+<tr class="separator:aec2f73c22932d89fea3f26be18d97b69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc658a5974b6d2e0a36c9cc1dbf02493"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#afc658a5974b6d2e0a36c9cc1dbf02493">isCGMConnected</a> ()</td></tr>
 <tr class="separator:afc658a5974b6d2e0a36c9cc1dbf02493"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0714397379def4e0decd6cac55ddaf1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#ab0714397379def4e0decd6cac55ddaf1">alertCGMDisconnected</a> ()</td></tr>
@@ -108,27 +108,21 @@ Public Member Functions</h2></td></tr>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a185f526b993f39c9f732696f42811cdc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#a185f526b993f39c9f732696f42811cdc">CGMConnected</a></td></tr>
 <tr class="separator:a185f526b993f39c9f732696f42811cdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d8f58c2bce86b840d8fdb38c18862d8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#a8d8f58c2bce86b840d8fdb38c18862d8">previousReading</a></td></tr>
-<tr class="separator:a8d8f58c2bce86b840d8fdb38c18862d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae866ee994de7ebb87dd264a46a4ba36"><td class="memItemLeft" align="right" valign="top">std::default_random_engine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#aae866ee994de7ebb87dd264a46a4ba36">randomGenerator</a></td></tr>
-<tr class="separator:aae866ee994de7ebb87dd264a46a4ba36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91b9722b2fe5b782c17fb1d85dc6a006"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; std::normal_distribution&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#a91b9722b2fe5b782c17fb1d85dc6a006">norm</a></td></tr>
-<tr class="separator:a91b9722b2fe5b782c17fb1d85dc6a006"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63cc40bc37764659fa8234bc6800cd8e"><td class="memItemLeft" align="right" valign="top">std::chrono::time_point&lt; std::chrono::steady_clock &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#a63cc40bc37764659fa8234bc6800cd8e">timeOfPreviousReading</a></td></tr>
-<tr class="separator:a63cc40bc37764659fa8234bc6800cd8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45fdf23a3be6b6aef6201a802e9561d8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#a45fdf23a3be6b6aef6201a802e9561d8">reading</a></td></tr>
+<tr class="separator:a45fdf23a3be6b6aef6201a802e9561d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab99e3508b0eafb741900127f288cc40f"><td class="memItemLeft" align="right" valign="top">QRandomGenerator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#ab99e3508b0eafb741900127f288cc40f">randomGen</a></td></tr>
+<tr class="separator:ab99e3508b0eafb741900127f288cc40f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
-<tr class="memitem:a6449ebadf84516148a5a15c53f5c506a"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#a6449ebadf84516148a5a15c53f5c506a">meanReversion</a> = 0.0001</td></tr>
-<tr class="separator:a6449ebadf84516148a5a15c53f5c506a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aded1ef47f691b3f8a84d337ad434fa08"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#aded1ef47f691b3f8a84d337ad434fa08">meanGlucose</a> = 11</td></tr>
-<tr class="separator:aded1ef47f691b3f8a84d337ad434fa08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c2c554740ce958e1a4fd1b5ea9d134e"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#a3c2c554740ce958e1a4fd1b5ea9d134e">volatility</a> = 0.01</td></tr>
+<tr class="memitem:a3c2c554740ce958e1a4fd1b5ea9d134e"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#a3c2c554740ce958e1a4fd1b5ea9d134e">volatility</a> = 0.8</td></tr>
 <tr class="separator:a3c2c554740ce958e1a4fd1b5ea9d134e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7db003b7336f0cfd7f33915b80a39249"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#a7db003b7336f0cfd7f33915b80a39249">startAmount</a> = 6</td></tr>
+<tr class="memitem:a7db003b7336f0cfd7f33915b80a39249"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#a7db003b7336f0cfd7f33915b80a39249">startAmount</a> = 6.0</td></tr>
 <tr class="separator:a7db003b7336f0cfd7f33915b80a39249"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0fa0f9908705a735c8521f8cc4de0d8"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#ae0fa0f9908705a735c8521f8cc4de0d8">timeScale</a> = 3600</td></tr>
-<tr class="separator:ae0fa0f9908705a735c8521f8cc4de0d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7e12acb4464b3ad29b969ffecc83a6e"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#ab7e12acb4464b3ad29b969ffecc83a6e">increasePerHour</a> = 4</td></tr>
+<tr class="separator:ab7e12acb4464b3ad29b969ffecc83a6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2bf91073b59dd0fe33e8874fe713f1c"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#ae2bf91073b59dd0fe33e8874fe713f1c">insulinUsageRate</a> = 6</td></tr>
+<tr class="separator:ae2bf91073b59dd0fe33e8874fe713f1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1959dca5d05df437e243f826f1b381a4"></a>
@@ -166,8 +160,8 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a664b7fc8a35ca9c5169a9b0f1ec5104f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a664b7fc8a35ca9c5169a9b0f1ec5104f">&#9670;&nbsp;</a></span>getCurrentGlucoseLevel()</h2>
+<a id="aec2f73c22932d89fea3f26be18d97b69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec2f73c22932d89fea3f26be18d97b69">&#9670;&nbsp;</a></span>getCurrentGlucoseLevel()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -175,8 +169,19 @@ Static Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">double CGMReader::getCurrentGlucoseLevel </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classBloodstream.html">Bloodstream</a> *&#160;</td>
+          <td class="paramname"><em>blood</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>correctionFactor</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -223,8 +228,8 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aded1ef47f691b3f8a84d337ad434fa08"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aded1ef47f691b3f8a84d337ad434fa08">&#9670;&nbsp;</a></span>meanGlucose</h2>
+<a id="ab7e12acb4464b3ad29b969ffecc83a6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7e12acb4464b3ad29b969ffecc83a6e">&#9670;&nbsp;</a></span>increasePerHour</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -233,7 +238,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr double CGMReader::meanGlucose = 11</td>
+          <td class="memname">constexpr double CGMReader::increasePerHour = 4</td>
         </tr>
       </table>
   </td>
@@ -245,8 +250,8 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a6449ebadf84516148a5a15c53f5c506a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6449ebadf84516148a5a15c53f5c506a">&#9670;&nbsp;</a></span>meanReversion</h2>
+<a id="ae2bf91073b59dd0fe33e8874fe713f1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2bf91073b59dd0fe33e8874fe713f1c">&#9670;&nbsp;</a></span>insulinUsageRate</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -255,7 +260,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr double CGMReader::meanReversion = 0.0001</td>
+          <td class="memname">constexpr double CGMReader::insulinUsageRate = 6</td>
         </tr>
       </table>
   </td>
@@ -267,8 +272,8 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a91b9722b2fe5b782c17fb1d85dc6a006"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91b9722b2fe5b782c17fb1d85dc6a006">&#9670;&nbsp;</a></span>norm</h2>
+<a id="ab99e3508b0eafb741900127f288cc40f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab99e3508b0eafb741900127f288cc40f">&#9670;&nbsp;</a></span>randomGen</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -277,7 +282,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::unique_ptr&lt;std::normal_distribution&lt;double&gt; &gt; CGMReader::norm</td>
+          <td class="memname">QRandomGenerator CGMReader::randomGen</td>
         </tr>
       </table>
   </td>
@@ -289,8 +294,8 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a8d8f58c2bce86b840d8fdb38c18862d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d8f58c2bce86b840d8fdb38c18862d8">&#9670;&nbsp;</a></span>previousReading</h2>
+<a id="a45fdf23a3be6b6aef6201a802e9561d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45fdf23a3be6b6aef6201a802e9561d8">&#9670;&nbsp;</a></span>reading</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -299,29 +304,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double CGMReader::previousReading</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aae866ee994de7ebb87dd264a46a4ba36"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aae866ee994de7ebb87dd264a46a4ba36">&#9670;&nbsp;</a></span>randomGenerator</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::default_random_engine CGMReader::randomGenerator</td>
+          <td class="memname">double CGMReader::reading</td>
         </tr>
       </table>
   </td>
@@ -343,51 +326,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr double CGMReader::startAmount = 6</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a63cc40bc37764659fa8234bc6800cd8e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a63cc40bc37764659fa8234bc6800cd8e">&#9670;&nbsp;</a></span>timeOfPreviousReading</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::chrono::time_point&lt;std::chrono::steady_clock&gt; CGMReader::timeOfPreviousReading</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae0fa0f9908705a735c8521f8cc4de0d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0fa0f9908705a735c8521f8cc4de0d8">&#9670;&nbsp;</a></span>timeScale</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr double CGMReader::timeScale = 3600</td>
+          <td class="memname">constexpr double CGMReader::startAmount = 6.0</td>
         </tr>
       </table>
   </td>
@@ -409,7 +348,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr double CGMReader::volatility = 0.01</td>
+          <td class="memname">constexpr double CGMReader::volatility = 0.8</td>
         </tr>
       </table>
   </td>

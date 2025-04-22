@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['profile_246',['Profile',['../classProfile.html',1,'']]],
-  ['pumpcontroller_247',['PumpController',['../classPumpController.html',1,'']]]
+  ['logdata_313',['LogData',['../structLogData.html',1,'']]],
+  ['logentry_314',['LogEntry',['../structLogEntry.html',1,'']]],
+  ['login_315',['Login',['../classLogin.html',1,'']]]
 ];

@@ -2,6 +2,7 @@ var classDataLogger =
 [
     [ "DataLogger", "classDataLogger.html#ad4a6072d62ea414575aadf90cbb0a468", null ],
     [ "exportLogs", "classDataLogger.html#a36cc9905cf0de2d8f85e3d2e375b0126", null ],
+    [ "instance", "classDataLogger.html#a46224801d9b391225023b767d33c2487", null ],
     [ "loadLogs", "classDataLogger.html#aca889cc19835f0359afdca9f3e62af4d", null ],
     [ "logEvent", "classDataLogger.html#a46289aad2b0a41cdf980af2f589ace1c", null ],
     [ "logGlucose", "classDataLogger.html#a70b99fb7a40aab27fc00fff05853d037", null ],

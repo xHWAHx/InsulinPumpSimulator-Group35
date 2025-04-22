@@ -127,11 +127,21 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a395a92eb0837d7e248c551c5d79eba6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a039d2a5f3e02dc91272edc6baede130e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHome.html#a039d2a5f3e02dc91272edc6baede130e">updateStatus</a> (double glucose, double battery, double insulin)</td></tr>
 <tr class="separator:a039d2a5f3e02dc91272edc6baede130e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4976f569f834556fad49eb457b7a8216"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHome.html#a4976f569f834556fad49eb457b7a8216">updateIOB</a> (double iob)</td></tr>
+<tr class="separator:a4976f569f834556fad49eb457b7a8216"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e31981dd522407cbce159b34c33d09d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHome.html#a2e31981dd522407cbce159b34c33d09d">updateInsulinDisplay</a> (double insulinRemaining)</td></tr>
+<tr class="separator:a2e31981dd522407cbce159b34c33d09d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab18a4452945f8b9a9eb005fde175db0c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHome.html#ab18a4452945f8b9a9eb005fde175db0c">updateBolusStatus</a> (const QString &amp;status)</td></tr>
+<tr class="separator:ab18a4452945f8b9a9eb005fde175db0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7ebdf0286e0b056d4d10a713032b25e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHome.html#aa7ebdf0286e0b056d4d10a713032b25e">updateBolusTimeRemaining</a> (double seconds)</td></tr>
+<tr class="separator:aa7ebdf0286e0b056d4d10a713032b25e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-slots"></a>
 Private Slots</h2></td></tr>
 <tr class="memitem:a9fbe6bc999f0d936c476706fafe89086"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHome.html#a9fbe6bc999f0d936c476706fafe89086">updateDateTime</a> ()</td></tr>
 <tr class="separator:a9fbe6bc999f0d936c476706fafe89086"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adffe835bb5374e794eaca331a371c3d2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHome.html#adffe835bb5374e794eaca331a371c3d2">onGraphRangeChanged</a> (int index)</td></tr>
+<tr class="separator:adffe835bb5374e794eaca331a371c3d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -147,6 +157,10 @@ Private Attributes</h2></td></tr>
 <tr class="separator:af8b051e8d54ba96319d8a4dde0832cb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33031d1b7eec19a49228aec6876a7b4a"><td class="memItemLeft" align="right" valign="top">QTimer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHome.html#a33031d1b7eec19a49228aec6876a7b4a">clockTimer</a></td></tr>
 <tr class="separator:a33031d1b7eec19a49228aec6876a7b4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0baa3676e88eadf7b592bb39614c8ccf"><td class="memItemLeft" align="right" valign="top">QValueAxis *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHome.html#a0baa3676e88eadf7b592bb39614c8ccf">axisX</a></td></tr>
+<tr class="separator:a0baa3676e88eadf7b592bb39614c8ccf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac58b54f9307ac76ab10bbe1de95d77a4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classHome.html#ac58b54f9307ac76ab10bbe1de95d77a4">selectedGraphHours</a> = 1</td></tr>
+<tr class="separator:ac58b54f9307ac76ab10bbe1de95d77a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a01b023a5c9584896ea44559701e98fc0"></a>
@@ -207,6 +221,32 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adffe835bb5374e794eaca331a371c3d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adffe835bb5374e794eaca331a371c3d2">&#9670;&nbsp;</a></span>onGraphRangeChanged</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Home::onGraphRangeChanged </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -328,6 +368,42 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="ab18a4452945f8b9a9eb005fde175db0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab18a4452945f8b9a9eb005fde175db0c">&#9670;&nbsp;</a></span>updateBolusStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Home::updateBolusStatus </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>status</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa7ebdf0286e0b056d4d10a713032b25e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7ebdf0286e0b056d4d10a713032b25e">&#9670;&nbsp;</a></span>updateBolusTimeRemaining()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Home::updateBolusTimeRemaining </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>seconds</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a9fbe6bc999f0d936c476706fafe89086"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9fbe6bc999f0d936c476706fafe89086">&#9670;&nbsp;</a></span>updateDateTime</h2>
 
@@ -349,6 +425,42 @@ Private Attributes</h2></td></tr>
 <span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
   </tr>
 </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2e31981dd522407cbce159b34c33d09d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e31981dd522407cbce159b34c33d09d">&#9670;&nbsp;</a></span>updateInsulinDisplay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Home::updateInsulinDisplay </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>insulinRemaining</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4976f569f834556fad49eb457b7a8216"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4976f569f834556fad49eb457b7a8216">&#9670;&nbsp;</a></span>updateIOB()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Home::updateIOB </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>iob</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 </div>
@@ -388,6 +500,28 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a0baa3676e88eadf7b592bb39614c8ccf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0baa3676e88eadf7b592bb39614c8ccf">&#9670;&nbsp;</a></span>axisX</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QValueAxis* Home::axisX</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a3805156418e61e18963b91d7e7585578"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3805156418e61e18963b91d7e7585578">&#9670;&nbsp;</a></span>chart</h2>
 
@@ -465,6 +599,28 @@ Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">int Home::currentTime</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac58b54f9307ac76ab10bbe1de95d77a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac58b54f9307ac76ab10bbe1de95d77a4">&#9670;&nbsp;</a></span>selectedGraphHours</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Home::selectedGraphHours = 1</td>
         </tr>
       </table>
   </td>

@@ -1,6 +1,23 @@
 var searchData=
 [
-  ['tick_386',['tick',['../classDevice.html#ad826df81575f57770d49bef52dd870b5',1,'Device']]],
-  ['tojson_387',['toJson',['../structLogEntry.html#abc3ff2c754ac1460e764769b4aa61645',1,'LogEntry::toJson()'],['../structGlucoseLogEntry.html#abef95827da7da77aac77d914f5233f53',1,'GlucoseLogEntry::toJson()'],['../structInsulinLogEntry.html#a2636ee56911fb37a95e1c5706752c12a',1,'InsulinLogEntry::toJson()'],['../structLogData.html#a06bb5c903f979146aed2bbb7952ab4f8',1,'LogData::toJson()'],['../classProfile.html#a5bbcf5ed3475cf4fa5f49aa7ca7a7ee6',1,'Profile::toJson()']]],
-  ['triggeremergencystop_388',['triggerEmergencyStop',['../classPumpController.html#aebb05481ce28e9ba43a934db2fdc5261',1,'PumpController::triggerEmergencyStop()'],['../classUserInterface.html#ab0f5020831b9fe66356e9a312c79ab2e',1,'UserInterface::triggerEmergencyStop()']]]
+  ['safetychecks_466',['safetyChecks',['../classDevice.html#af3ed376bd7a18872945d4f2ff72a67dc',1,'Device']]],
+  ['savelogs_467',['saveLogs',['../classDataLogger.html#a3f568ee28824528ad9e2ca469f1eb942',1,'DataLogger']]],
+  ['saveprofiles_468',['saveProfiles',['../classProfile.html#aa3f24ab34ad077c913451dc65ac81faa',1,'Profile']]],
+  ['selectprofilebyid_469',['selectProfileById',['../classProfile.html#ae24dea49af47b30c2cfe3262ffec6899',1,'Profile']]],
+  ['setbasalrate_470',['setBasalRate',['../classProfile.html#a5e2519bf407a37a01302dd9a0dab4a92',1,'Profile']]],
+  ['setcarbratio_471',['setCarbRatio',['../classProfile.html#a3ad72ef536fc19dfe2034629981af7a2',1,'Profile']]],
+  ['setcorrectionfactor_472',['setCorrectionFactor',['../classProfile.html#a6c8d12995cf991be3d2b2beccb80f502',1,'Profile']]],
+  ['setid_473',['setId',['../classProfile.html#a9b4e0eea30a0236c72b9d34749ccf717',1,'Profile']]],
+  ['setname_474',['setName',['../classProfile.html#a6473efb021781a452f7d7177e7146ee1',1,'Profile']]],
+  ['setsimrate_475',['setSimRate',['../classDevice.html#a0066096a05fa582893223c2b6e55ebdd',1,'Device']]],
+  ['settargetglucose_476',['setTargetGlucose',['../classProfile.html#a50f948f4096c067e8e3b2c73b2518fae',1,'Profile']]],
+  ['settings_477',['Settings',['../classSettings.html#a2bd0d0e3e33db6d16425288185bd0f47',1,'Settings']]],
+  ['setupchart_478',['setupChart',['../classHome.html#a7dc0b5d7b1a1bb4ce6e6d279705f5065',1,'Home']]],
+  ['showalert_479',['showAlert',['../classUserInterface.html#aeb6ce2d281bcb932c44fd4968f032568',1,'UserInterface']]],
+  ['showloginscreen_480',['showLoginScreen',['../classUserInterface.html#ab55cc7d8a5526b9c782af77a9b378be6',1,'UserInterface']]],
+  ['splitbolus_481',['splitBolus',['../classBolusCalculator.html#ac7ad9b35d95f40e75f560d4e63a9f47d',1,'BolusCalculator']]],
+  ['startmonitoring_482',['startMonitoring',['../classDevice.html#ad16e02336bcda8d36cf5d5ab51929815',1,'Device']]],
+  ['suggestdose_483',['suggestDose',['../classBolusCalculator.html#aeadb9c25265c1b0872546e5c6686ec13',1,'BolusCalculator']]],
+  ['suspendbolus_484',['suspendBolus',['../classPumpController.html#a43725d9a8985ba52e8e743caae5944b4',1,'PumpController']]],
+  ['suspendforlowglucose_485',['suspendForLowGlucose',['../classControlIQAlgorithm.html#a09db05c1441a4bd756f89ef13d15a991',1,'ControlIQAlgorithm']]]
 ];

@@ -4,5 +4,5 @@ digraph "Graphical Class Hierarchy"
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
   rankdir="LR";
-  Node0 [label="InsulinLogEntry",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structInsulinLogEntry.html",tooltip="Represents a single insulin log entry."];
+  Node0 [label="IOBTracker",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classIOBTracker.html",tooltip=" "];
 }

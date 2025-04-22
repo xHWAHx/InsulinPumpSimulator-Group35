@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['datalogger_236',['DataLogger',['../classDataLogger.html',1,'']]],
-  ['device_237',['Device',['../classDevice.html',1,'']]]
+  ['cgmreader_303',['CGMReader',['../classCGMReader.html',1,'']]],
+  ['controliqalgorithm_304',['ControlIQAlgorithm',['../classControlIQAlgorithm.html',1,'']]]
 ];

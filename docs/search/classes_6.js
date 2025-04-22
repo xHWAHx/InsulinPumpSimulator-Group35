@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['logdata_243',['LogData',['../structLogData.html',1,'']]],
-  ['logentry_244',['LogEntry',['../structLogEntry.html',1,'']]],
-  ['login_245',['Login',['../classLogin.html',1,'']]]
+  ['insulinlogentry_310',['InsulinLogEntry',['../structInsulinLogEntry.html',1,'']]],
+  ['insulinreserve_311',['InsulinReserve',['../classInsulinReserve.html',1,'']]],
+  ['iobtracker_312',['IOBTracker',['../classIOBTracker.html',1,'']]]
 ];

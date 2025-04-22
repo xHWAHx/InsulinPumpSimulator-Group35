@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['glucoselogentry_238',['GlucoseLogEntry',['../structGlucoseLogEntry.html',1,'']]]
+  ['datalogger_305',['DataLogger',['../classDataLogger.html',1,'']]],
+  ['device_306',['Device',['../classDevice.html',1,'']]]
 ];

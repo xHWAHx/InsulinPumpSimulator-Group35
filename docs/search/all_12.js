@@ -1,13 +1,20 @@
 var searchData=
 [
-  ['ui_213',['Ui',['../namespaceUi.html',1,'']]],
-  ['ui_214',['ui',['../classBolusCalculator.html#a60a0c00d6117910de52bec60792beff5',1,'BolusCalculator::ui()'],['../classHistory.html#a1a3bde7956257d76278e4536d89d76b2',1,'History::ui()'],['../classHome.html#a5079a9920dd92df1ffec70e38959a3d6',1,'Home::ui()'],['../classLogin.html#a55fa3b19085f864462451d3dd9efd2e1',1,'Login::ui()'],['../classSettings.html#a98680be421d0ae7c34a57f2a159eacd4',1,'Settings::ui()'],['../classUserInterface.html#a756814c1f051946b7fdc1803bc0e8f3d',1,'UserInterface::ui()']]],
-  ['updatedatetime_215',['updateDateTime',['../classHome.html#a9fbe6bc999f0d936c476706fafe89086',1,'Home']]],
-  ['updateglucoseforchart_216',['updateGlucoseForChart',['../classUserInterface.html#a0661241f7f7d75f98dca47b29917f144',1,'UserInterface']]],
-  ['updateprofilebyid_217',['updateProfileById',['../classProfile.html#af059dc6caf7caca3d4196103b2b8ac7f',1,'Profile']]],
-  ['updateprofilelist_218',['updateProfileList',['../classSettings.html#ab82ff508281d61e7fde4f0f00b618290',1,'Settings']]],
-  ['updatestatus_219',['updateStatus',['../classHome.html#a039d2a5f3e02dc91272edc6baede130e',1,'Home']]],
-  ['useinsulin_220',['useInsulin',['../classInsulinReserve.html#abc93124a3a0ea17463b349b35a2b229d',1,'InsulinReserve']]],
-  ['userinterface_221',['UserInterface',['../classUserInterface.html',1,'UserInterface'],['../classUserInterface.html#a82cef45d14506dcb282651e9d1d7670f',1,'UserInterface::UserInterface()']]],
-  ['userinterface_2eh_222',['userinterface.h',['../userinterface_8h.html',1,'']]]
+  ['ui_269',['Ui',['../namespaceUi.html',1,'']]],
+  ['ui_270',['ui',['../classAlert.html#a64562b0f89443d3201d4612d282f1bc4',1,'Alert::ui()'],['../classBolusCalculator.html#a60a0c00d6117910de52bec60792beff5',1,'BolusCalculator::ui()'],['../classHistory.html#a1a3bde7956257d76278e4536d89d76b2',1,'History::ui()'],['../classHome.html#a5079a9920dd92df1ffec70e38959a3d6',1,'Home::ui()'],['../classLogin.html#a55fa3b19085f864462451d3dd9efd2e1',1,'Login::ui()'],['../classSettings.html#a98680be421d0ae7c34a57f2a159eacd4',1,'Settings::ui()'],['../classUserInterface.html#a756814c1f051946b7fdc1803bc0e8f3d',1,'UserInterface::ui()']]],
+  ['units_271',['units',['../structIOBTracker_1_1BolusEntry.html#ac3293c6c98b8ccb6d0d57a6b7567e4d7',1,'IOBTracker::BolusEntry']]],
+  ['unlock_272',['unlock',['../classUserInterface.html#a6ed0ed9d911edf0ebd390d8d0c2cdb01',1,'UserInterface']]],
+  ['updatebolusstatus_273',['updateBolusStatus',['../classHome.html#ab18a4452945f8b9a9eb005fde175db0c',1,'Home']]],
+  ['updatebolustimeremaining_274',['updateBolusTimeRemaining',['../classHome.html#aa7ebdf0286e0b056d4d10a713032b25e',1,'Home']]],
+  ['updatecountdown_275',['updateCountdown',['../classBolusCalculator.html#af93f243ec9cefca9e0c0f297c887ebda',1,'BolusCalculator']]],
+  ['updatedatetime_276',['updateDateTime',['../classHome.html#a9fbe6bc999f0d936c476706fafe89086',1,'Home']]],
+  ['updateglucoseforchart_277',['updateGlucoseForChart',['../classUserInterface.html#a0661241f7f7d75f98dca47b29917f144',1,'UserInterface']]],
+  ['updateinsulindisplay_278',['updateInsulinDisplay',['../classHome.html#a2e31981dd522407cbce159b34c33d09d',1,'Home']]],
+  ['updateiob_279',['updateIOB',['../classHome.html#a4976f569f834556fad49eb457b7a8216',1,'Home::updateIOB()'],['../classUserInterface.html#adfd722d627007835952cfd1efe9c4270',1,'UserInterface::updateIOB()']]],
+  ['updateprofilebyid_280',['updateProfileById',['../classProfile.html#af059dc6caf7caca3d4196103b2b8ac7f',1,'Profile']]],
+  ['updateprofilelist_281',['updateProfileList',['../classSettings.html#ab82ff508281d61e7fde4f0f00b618290',1,'Settings']]],
+  ['updatestatus_282',['updateStatus',['../classHome.html#a039d2a5f3e02dc91272edc6baede130e',1,'Home']]],
+  ['useinsulin_283',['useInsulin',['../classInsulinReserve.html#abc93124a3a0ea17463b349b35a2b229d',1,'InsulinReserve']]],
+  ['userinterface_284',['UserInterface',['../classUserInterface.html',1,'UserInterface'],['../classUserInterface.html#a79849b71fbd13f2bedc57721ceef388d',1,'UserInterface::UserInterface()']]],
+  ['userinterface_2eh_285',['userinterface.h',['../userinterface_8h.html',1,'']]]
 ];
