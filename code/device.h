@@ -29,12 +29,15 @@ public slots:
     void noPower();
     void tick();
     void startMonitoring();
+    void togglePaused();
+    void simCarbIntake();
 
 private:
-    int static const simulationRate = 1; // a rate of 1 means 1 second represents 5 minutes
+    int simulationRate; // a rate of 1 means 1 second represents 5 minutes
 
     bool poweredOn;
     bool monitoring;
+    bool paused;
     BatteryManager *battery;
     DataLogger *logger;
     InsulinReserve *insulin;
@@ -56,6 +59,7 @@ private:
 
     void monitor();
     void safetyChecks(double glucose, double target);
+    void setSimRate(int rate);
 };
 
 #endif // DEVICE_H

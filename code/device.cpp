@@ -10,8 +10,10 @@
 
 Device::Device(QWidget *parent)
     : QMainWindow{parent}
+    , simulationRate(1)
     , poweredOn(false)
     , monitoring(false)
+    , paused(false)
     , battery(new BatteryManager)
     , logger(DataLogger::instance(this))
     , insulin(new InsulinReserve)
@@ -36,8 +38,11 @@ Device::Device(QWidget *parent)
     connect(tickClock, &QTimer::timeout, this, &Device::tick);
     connect(window->chargeBatteryButton, &QPushButton::released, battery, &BatteryManager::chargeBattery);
     connect(window->chargeBatteryButton, &QPushButton::released, this, [](){ Alert::reset(Alert::BATTERY_LOW); });
-    connect(window->refillInsulinButton, &QPushButton::released, this, [this](){ insulin->refillInsulin(); iobTracker-> clear(); });
+    connect(window->refillInsulinButton, &QPushButton::released, insulin, &InsulinReserve::refillInsulin);
     connect(battery, &BatteryManager::batteryDead, this, &Device::noPower);
+    connect(window->pauseButton, &QPushButton::released, this, &Device::togglePaused);
+    connect(window->simRateSlider, &QSlider::valueChanged, this, &Device::setSimRate);
+    connect(window->carbButton, &QPushButton::released, this, &Device::simCarbIntake);
 
     logger->loadLogs();
 
@@ -49,12 +54,12 @@ void Device::power(){
         poweredOn = false;
         monitoring = false;
         interface->hide();
-        window->powerLabel->setText("Device is powered off");
+        window->powerButton->setText("Power on");
         tickClock->stop();
     } else {
         poweredOn = true;
         interface->show();
-        window->powerLabel->setText("Device is powered on");
+        window->powerButton->setText("Power off");
         interface->showLoginScreen();
     }
 }
@@ -63,15 +68,18 @@ void Device::noPower(){
         poweredOn = false;
         monitoring = false;
         interface->hide();
-        window->powerLabel->setText("Device is powered off  (battery died)");
+        window->powerButton->setText("Power on");
+        window->chargeBatteryButton->setText("Charge battery\nbattery is dead");
         tickClock->stop();
 }
 
 void Device::startMonitoring(){
     monitoring = true;
     interface->displayHomeScreen();
-    tick(); // updates the display immediately upon showing it
-    tickClock->start(1000.0 / simulationRate);
+    if (not paused){
+        tick(); // updates the display immediately upon showing it
+        tickClock->start(1000.0 / simulationRate);
+    }
 }
 
 void Device::tick(){ // each tick represents 5 minutes
@@ -138,4 +146,31 @@ void Device::safetyChecks(double glucose, double target){
         alerts->reset(Alert::GLUCOSE_HIGH);
         alerts->reset(Alert::GLUCOSE_LOW);
     }
+}
+
+void Device::togglePaused(){
+    if (paused) {
+        paused = false;
+        tickClock->start(1000/simulationRate);
+        window->pauseButton->setText("Pause simulation");
+    } else {
+        paused = true;
+        tickClock->stop();
+        window->pauseButton->setText("Resume simulation");
+    }
+}
+
+void Device::setSimRate(int rate){
+    //simulationRate = ceil((pow(double(rate)/10.0, 2))); // for logarithmic behaviour
+    simulationRate = rate;
+    if (this->poweredOn and not paused){
+        tickClock->stop();
+        tickClock->start(1000 / simulationRate);
+    }
+    window->simRateLabel->setText("Simulation rate: " + QString::number(simulationRate) + "x");
+}
+
+void Device::simCarbIntake(){
+    double ratio = Profile::getActiveProfile().getCarbRatio();
+    cgm->intakeGlucose(ratio * window->carbSpinBox->value());
 }

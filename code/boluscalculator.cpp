@@ -57,7 +57,7 @@ double BolusCalculator::calculateBolus(double glucose, double carbs) {
     if (doseOverridden) return overriddenDose;
 
     Profile profile = Profile::getActiveProfile();
-    double carbDose = calculateCarbBolus(carbs, profile.getCarbRatio());
+    double carbDose = calculateCarbBolus(carbs, profile.getCarbRatio(), profile.getCorrectionFactor());
     double correctionDose = calculateCorrectionBolus(
         glucose, profile.getTargetGlucose(), profile.getCorrectionFactor());
     return carbDose + correctionDose;
@@ -88,9 +88,9 @@ double BolusCalculator::calculateCorrectionBolus(double glucose, double target, 
 }
 
 // Calculates food bolus
-double BolusCalculator::calculateCarbBolus(double carbs, double carbRatio) {
+double BolusCalculator::calculateCarbBolus(double carbs, double carbRatio, double correctionFactor) {
     if (carbRatio <= 0) return 0;
-    return carbs / carbRatio;
+    return (carbs * carbRatio)/correctionFactor;
 }
 
 // Calculates Total Bolus (before IOB)
@@ -99,7 +99,7 @@ double BolusCalculator::calculateTotalBolus(double glucose,
                                             double target)
 {
     Profile profile = Profile::getActiveProfile();
-    return calculateCarbBolus(carbs, profile.getCarbRatio()) +
+    return calculateCarbBolus(carbs, profile.getCarbRatio(), profile.getCorrectionFactor()) +
            calculateCorrectionBolus(glucose, target, profile.getCorrectionFactor());
 }
 

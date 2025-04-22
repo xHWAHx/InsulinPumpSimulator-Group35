@@ -25,7 +25,7 @@ public:
     static void overrideDose(double dose);
     static bool validateBolusInput(double dose);
     static double calculateCorrectionBolus(double glucose, double target, double correctionFactor);
-    static double calculateCarbBolus(double carbs, double carbRatio);
+    static double calculateCarbBolus(double carbs, double carbRatio, double correctionFactor);
     static double calculateTotalBolus(double glucose, double carbs, double target);
     static std::pair<double, double> splitBolus(double total, double percentage);
     void updateCountdown();

@@ -6,6 +6,7 @@ CGMReader::CGMReader(QCheckBox *errorCheckBox)
     : CGMConnected(true)
     , reading(startAmount)
     , errorCheckBox(errorCheckBox)
+    , carbSpinBox(carbSpinBox)
 {
 }
 
@@ -27,4 +28,8 @@ double CGMReader::getCurrentGlucoseLevel(Bloodstream *blood, double correctionFa
 bool CGMReader::isCGMConnected() {
     CGMConnected = not errorCheckBox->isChecked();
     return CGMConnected;
+}
+
+void CGMReader::intakeGlucose(double glucose){
+    reading += glucose;
 }
