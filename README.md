@@ -42,13 +42,12 @@ Aidan Casselman #101277801
 
 ### UML Diagrams  
 Located in `UML Diagrams/`:
-
-- `COMP3004_UML_Class.png`
+- `Design-Explanation_Draft.pdf`
+- `Sequence-Diagram-Main-Loop.png`  
+- `State-Diagrams.pdf`
 - `Traceability-Matrix.pdf`
-- `design explanation draft.pdf`  
-- `sequence diagram - main loop.png`  
-- `state diagrams.pdf`  
-- `use cases.pdf`
+- `UML-Class-Diagram.png`
+- `Use-Cases.pdf`
 
 ---
 
