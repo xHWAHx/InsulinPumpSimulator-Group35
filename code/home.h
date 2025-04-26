@@ -1,3 +1,12 @@
+/**
+ * @file home.h
+ * @brief Defines the Home screen widget for displaying real-time system status.
+ *
+ * The Home class provides a dashboard showing current glucose levels, insulin remaining,
+ * battery status, bolus delivery status, and a dynamic CGM glucose trend chart.
+ * It offers navigation to bolus calculator, settings, and history screens.
+ */
+
 #ifndef HOMEWINDOW_H
 #define HOMEWINDOW_H
 
