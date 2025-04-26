@@ -1,7 +1,7 @@
 # Insulin-Pump-Simulator
 A simulation for the Tandem t:slim X2 insulin pump using Qt/C++.
 
-# Group Members:
+## Group Members:
 Hamzah Hamad #101230812 
 
 Thu Thu Chit Pyae #101229440
@@ -12,11 +12,11 @@ Kamal Yassin #101265070
 
 Aidan Casselman #101277801
 
-# Responsibilites: 
+## Responsibilities: 
 1. Project Planning
 - Outline team responsibilities, schedule and timeline (Shared responsibility)
 - Plan the design (Shared responsibility)
-- Create github repository (Hamzah)
+- Create GitHub repository (Hamzah)
 
 2. Design
 - Use cases (Thu Thu) 
@@ -76,7 +76,7 @@ Located in `code/`:
       
 ## Documentation
 
-[View the full documentation here](https://xhwahx.github.io/InsulinPumpSimulator-Group35/)
+[View the full project documentation here](https://xhwahx.github.io/InsulinPumpSimulator-Group35/)
 
 ## Compiling instructions
 Make sure QtCharts is installed with `sudo apt install libqt5charts5-dev`
