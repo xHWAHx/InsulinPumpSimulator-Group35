@@ -1,0 +1,8 @@
+<map id="code/insulinreserve.h" name="code/insulinreserve.h">
+<area shape="rect" id="node1" title="Defines the InsulinReserve class for managing the insulin reservoir." alt="" coords="73,5,235,32"/>
+<area shape="rect" id="node2" href="$boluscalculator_8h.html" title="Defines the BolusCalculator widget for calculating and delivering insulin boluses." alt="" coords="21,155,188,181"/>
+<area shape="rect" id="node3" href="$userinterface_8h.html" title="Defines the UserInterface class for managing pump UI screens and user interactions." alt="" coords="62,229,217,256"/>
+<area shape="rect" id="node5" href="$device_8h.html" title="Defines the Device class, central orchestrator of the insulin pump simulator." alt="" coords="195,379,307,405"/>
+<area shape="rect" id="node6" href="$pumpcontroller_8h.html" title="Defines the PumpController class for controlling insulin delivery." alt="" coords="132,80,299,107"/>
+<area shape="rect" id="node4" href="$alert_8h.html" title="Defines the Alert system for raising and resetting device alerts." alt="" coords="90,304,189,331"/>
+</map>

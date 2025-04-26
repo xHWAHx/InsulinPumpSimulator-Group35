@@ -1,0 +1,5 @@
+<map id="DataLogger" name="DataLogger">
+<area shape="rect" id="node1" title="Manages data logging for events, glucose, and insulin entries." alt="" coords="43,95,141,121"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,5,80,32"/>
+<area shape="rect" id="node3" href="$structLogData.html" title="Contains all logs." alt="" coords="105,5,181,32"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="code/batterymanager.h" name="code/batterymanager.h">
+<area shape="rect" id="node1" title="Defines the BatteryManager class for simulating pump battery behavior." alt="" coords="5,5,179,32"/>
+<area shape="rect" id="node2" href="$device_8h.html" title="Defines the Device class, central orchestrator of the insulin pump simulator." alt="" coords="29,229,141,256"/>
+<area shape="rect" id="node3" href="$userinterface_8h.html" title="Defines the UserInterface class for managing pump UI screens and user interactions." alt="" coords="72,80,227,107"/>
+<area shape="rect" id="node4" href="$alert_8h.html" title="Defines the Alert system for raising and resetting device alerts." alt="" coords="123,155,221,181"/>
+</map>

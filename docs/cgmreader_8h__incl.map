@@ -1,0 +1,8 @@
+<map id="code/cgmreader.h" name="code/cgmreader.h">
+<area shape="rect" id="node1" title="Defines the CGMReader class for simulating continuous glucose monitoring." alt="" coords="234,5,373,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,80,156,107"/>
+<area shape="rect" id="node3" href="$bloodstream_8h.html" title="Defines the Bloodstream class for tracking insulin absorption and insulin on board (IOB)." alt="" coords="180,80,296,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="320,80,417,107"/>
+<area shape="rect" id="node6" title=" " alt="" coords="442,80,527,107"/>
+<area shape="rect" id="node4" title=" " alt="" coords="201,155,275,181"/>
+</map>

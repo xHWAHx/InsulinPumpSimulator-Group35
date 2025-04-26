@@ -1,0 +1,17 @@
+<map id="UserInterface" name="UserInterface">
+<area shape="rect" id="node1" title="The UserInterface class manages navigation between screens and updates UI elements." alt="" coords="1055,335,1165,361"/>
+<area shape="rect" id="node2" title=" " alt="" coords="497,297,575,324"/>
+<area shape="rect" id="node4" href="$classLogin.html" title="The Login class manages PIN entry for unlocking the device." alt="" coords="799,157,857,184"/>
+<area shape="rect" id="node8" href="$classBolusCalculator.html" title="QWidget subclass for insulin bolus calculation and delivery control." alt="" coords="766,107,890,133"/>
+<area shape="rect" id="node12" href="$classSettings.html" title="Widget class for managing personal profiles." alt="" coords="791,360,865,387"/>
+<area shape="rect" id="node14" href="$classHome.html" title="The Home class displays the main home screen and CGM glucose chart." alt="" coords="797,309,859,336"/>
+<area shape="rect" id="node15" href="$classHistory.html" title="Dialog class for displaying the history log." alt="" coords="793,259,863,285"/>
+<area shape="rect" id="node3" href="$classCGMReader.html" title="Simulates a continuous glucose monitor (CGM)." alt="" coords="487,37,585,64"/>
+<area shape="rect" id="node5" href="$classControlIQAlgorithm.html" title="Core algorithm for dynamic basal insulin control." alt="" coords="755,208,901,235"/>
+<area shape="rect" id="node6" href="$classInsulinReserve.html" title="Manages the insulin reservoir for the pump simulator." alt="" coords="181,443,300,469"/>
+<area shape="rect" id="node9" href="$classPumpController.html" title="controller for insulin pump operations" alt="" coords="475,447,597,473"/>
+<area shape="rect" id="node7" title=" " alt="" coords="6,476,81,503"/>
+<area shape="rect" id="node10" href="$classDataLogger.html" title="Manages data logging for events, glucose, and insulin entries." alt="" coords="192,333,289,360"/>
+<area shape="rect" id="node13" href="$classBatteryManager.html" title="Simulates the battery behavior of the device." alt="" coords="324,616,451,643"/>
+<area shape="rect" id="node11" href="$structLogData.html" title="Contains all logs." alt="" coords="5,333,81,360"/>
+</map>

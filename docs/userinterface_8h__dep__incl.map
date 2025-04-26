@@ -1,0 +1,5 @@
+<map id="code/userinterface.h" name="code/userinterface.h">
+<area shape="rect" id="node1" title="Defines the UserInterface class for managing pump UI screens and user interactions." alt="" coords="20,5,175,32"/>
+<area shape="rect" id="node2" href="$alert_8h.html" title="Defines the Alert system for raising and resetting device alerts." alt="" coords="5,80,104,107"/>
+<area shape="rect" id="node3" href="$device_8h.html" title="Defines the Device class, central orchestrator of the insulin pump simulator." alt="" coords="41,155,153,181"/>
+</map>

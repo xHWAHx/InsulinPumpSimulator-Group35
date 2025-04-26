@@ -1,0 +1,6 @@
+<map id="code/controliqalgorithm.h" name="code/controliqalgorithm.h">
+<area shape="rect" id="node1" title="Implements the Control&#45;IQ insulin delivery algorithm interface." alt="" coords="5,5,195,32"/>
+<area shape="rect" id="node2" href="$userinterface_8h.html" title="Defines the UserInterface class for managing pump UI screens and user interactions." alt="" coords="23,80,177,107"/>
+<area shape="rect" id="node3" href="$alert_8h.html" title="Defines the Alert system for raising and resetting device alerts." alt="" coords="8,155,107,181"/>
+<area shape="rect" id="node4" href="$device_8h.html" title="Defines the Device class, central orchestrator of the insulin pump simulator." alt="" coords="44,229,156,256"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="DataLogger" name="DataLogger">
+<area shape="rect" id="node1" title="Manages data logging for events, glucose, and insulin entries." alt="" coords="5,80,103,107"/>
+<area shape="rect" id="node2" title=" " alt="" coords="17,5,91,32"/>
+</map>

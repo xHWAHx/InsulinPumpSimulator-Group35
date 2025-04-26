@@ -1,0 +1,7 @@
+<map id="PumpController" name="PumpController">
+<area shape="rect" id="node1" title="controller for insulin pump operations" alt="" coords="20,184,142,211"/>
+<area shape="rect" id="node2" title=" " alt="" coords="44,5,118,32"/>
+<area shape="rect" id="node3" href="$classInsulinReserve.html" title="Manages the insulin reservoir for the pump simulator." alt="" coords="22,95,140,121"/>
+<area shape="rect" id="node4" href="$classDataLogger.html" title="Manages data logging for events, glucose, and insulin entries." alt="" coords="164,95,262,121"/>
+<area shape="rect" id="node5" href="$structLogData.html" title="Contains all logs." alt="" coords="175,5,251,32"/>
+</map>

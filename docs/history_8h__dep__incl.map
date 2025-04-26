@@ -1,0 +1,6 @@
+<map id="code/history.h" name="code/history.h">
+<area shape="rect" id="node1" title="Declares the History widget for viewing and filtering logged events." alt="" coords="41,5,153,32"/>
+<area shape="rect" id="node2" href="$userinterface_8h.html" title="Defines the UserInterface class for managing pump UI screens and user interactions." alt="" coords="20,80,175,107"/>
+<area shape="rect" id="node3" href="$alert_8h.html" title="Defines the Alert system for raising and resetting device alerts." alt="" coords="5,155,104,181"/>
+<area shape="rect" id="node4" href="$device_8h.html" title="Defines the Device class, central orchestrator of the insulin pump simulator." alt="" coords="41,229,153,256"/>
+</map>

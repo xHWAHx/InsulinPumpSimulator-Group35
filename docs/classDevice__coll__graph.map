@@ -1,0 +1,22 @@
+<map id="Device" name="Device">
+<area shape="rect" id="node1" title="Central orchestrator for the insulin pump simulator." alt="" coords="1256,271,1323,297"/>
+<area shape="rect" id="node2" title=" " alt="" coords="1029,5,1145,32"/>
+<area shape="rect" id="node3" href="$classCGMReader.html" title="Simulates a continuous glucose monitor (CGM)." alt="" coords="465,523,564,549"/>
+<area shape="rect" id="node15" href="$classUserInterface.html" title="The UserInterface class manages navigation between screens and updates UI elements." alt="" coords="1032,599,1143,625"/>
+<area shape="rect" id="node17" href="$classBolusCalculator.html" title="QWidget subclass for insulin bolus calculation and delivery control." alt="" coords="737,599,861,625"/>
+<area shape="rect" id="node4" href="$classProfile.html" title="Represents a user profile for managing diabetes&#45;related data." alt="" coords="1056,107,1119,133"/>
+<area shape="rect" id="node5" href="$classControlIQAlgorithm.html" title="Core algorithm for dynamic basal insulin control." alt="" coords="725,372,872,399"/>
+<area shape="rect" id="node6" href="$classInsulinReserve.html" title="Manages the insulin reservoir for the pump simulator." alt="" coords="181,349,300,376"/>
+<area shape="rect" id="node11" href="$classPumpController.html" title="controller for insulin pump operations" alt="" coords="453,349,576,376"/>
+<area shape="rect" id="node7" title=" " alt="" coords="6,204,81,231"/>
+<area shape="rect" id="node10" href="$classBatteryManager.html" title="Simulates the battery behavior of the device." alt="" coords="735,157,862,184"/>
+<area shape="rect" id="node12" href="$classDataLogger.html" title="Manages data logging for events, glucose, and insulin entries." alt="" coords="192,777,289,804"/>
+<area shape="rect" id="node14" href="$classBloodstream.html" title="Simulates insulin activity within the bloodstream." alt="" coords="324,68,429,95"/>
+<area shape="rect" id="node8" href="$classAlert.html" title="The Alert class displays warning or error alerts to the user." alt="" coords="924,972,977,999"/>
+<area shape="rect" id="node9" title=" " alt="" coords="475,768,554,795"/>
+<area shape="rect" id="node16" href="$classLogin.html" title="The Login class manages PIN entry for unlocking the device." alt="" coords="770,649,827,676"/>
+<area shape="rect" id="node18" href="$classSettings.html" title="Widget class for managing personal profiles." alt="" coords="761,700,836,727"/>
+<area shape="rect" id="node19" href="$classHome.html" title="The Home class displays the main home screen and CGM glucose chart." alt="" coords="768,751,829,777"/>
+<area shape="rect" id="node20" href="$classHistory.html" title="Dialog class for displaying the history log." alt="" coords="764,852,833,879"/>
+<area shape="rect" id="node13" href="$structLogData.html" title="Contains all logs." alt="" coords="5,777,81,804"/>
+</map>

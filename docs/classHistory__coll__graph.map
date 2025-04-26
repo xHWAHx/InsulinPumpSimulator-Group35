@@ -1,0 +1,7 @@
+<map id="History" name="History">
+<area shape="rect" id="node1" title="Dialog class for displaying the history log." alt="" coords="31,184,101,211"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,95,84,121"/>
+<area shape="rect" id="node3" href="$classDataLogger.html" title="Manages data logging for events, glucose, and insulin entries." alt="" coords="108,95,205,121"/>
+<area shape="rect" id="node4" title=" " alt="" coords="70,5,145,32"/>
+<area shape="rect" id="node5" href="$structLogData.html" title="Contains all logs." alt="" coords="169,5,245,32"/>
+</map>

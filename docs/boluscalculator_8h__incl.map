@@ -1,0 +1,20 @@
+<map id="code/boluscalculator.h" name="code/boluscalculator.h">
+<area shape="rect" id="node1" title="Defines the BolusCalculator widget for calculating and delivering insulin boluses." alt="" coords="189,5,356,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="52,80,131,107"/>
+<area shape="rect" id="node3" href="$pumpcontroller_8h.html" title="Defines the PumpController class for controlling insulin delivery." alt="" coords="207,80,339,107"/>
+<area shape="rect" id="node4" href="$insulinreserve_8h.html" title="Defines the InsulinReserve class for managing the insulin reservoir." alt="" coords="5,155,132,181"/>
+<area shape="rect" id="node6" href="$datalogger_8h.html" title="Declares the DataLogger for recording events, glucose readings, and insulin doses." alt="" coords="348,155,451,181"/>
+<area shape="rect" id="node16" href="$cgmreader_8h.html" title="Defines the CGMReader class for simulating continuous glucose monitoring." alt="" coords="472,80,575,107"/>
+<area shape="rect" id="node5" title=" " alt="" coords="65,229,139,256"/>
+<area shape="rect" id="node14" href="$bloodstream_8h.html" title="Defines the Bloodstream class for tracking insulin absorption and insulin on board (IOB)." alt="" coords="208,155,324,181"/>
+<area shape="rect" id="node15" title=" " alt="" coords="475,155,572,181"/>
+<area shape="rect" id="node7" title=" " alt="" coords="164,229,219,256"/>
+<area shape="rect" id="node8" title=" " alt="" coords="243,229,339,256"/>
+<area shape="rect" id="node9" title=" " alt="" coords="364,229,435,256"/>
+<area shape="rect" id="node10" title=" " alt="" coords="459,229,519,256"/>
+<area shape="rect" id="node11" title=" " alt="" coords="543,229,645,256"/>
+<area shape="rect" id="node12" title=" " alt="" coords="669,229,764,256"/>
+<area shape="rect" id="node13" title=" " alt="" coords="789,229,914,256"/>
+<area shape="rect" id="node17" title=" " alt="" coords="596,155,747,181"/>
+<area shape="rect" id="node18" title=" " alt="" coords="771,155,857,181"/>
+</map>

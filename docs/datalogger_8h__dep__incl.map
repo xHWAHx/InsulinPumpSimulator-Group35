@@ -1,0 +1,8 @@
+<map id="code/datalogger.h" name="code/datalogger.h">
+<area shape="rect" id="node1" title="Declares the DataLogger for recording events, glucose readings, and insulin doses." alt="" coords="37,5,176,32"/>
+<area shape="rect" id="node2" href="$alert_8h.html" title="Defines the Alert system for raising and resetting device alerts." alt="" coords="67,304,165,331"/>
+<area shape="rect" id="node3" href="$device_8h.html" title="Defines the Device class, central orchestrator of the insulin pump simulator." alt="" coords="103,379,215,405"/>
+<area shape="rect" id="node4" href="$boluscalculator_8h.html" title="Defines the BolusCalculator widget for calculating and delivering insulin boluses." alt="" coords="145,155,311,181"/>
+<area shape="rect" id="node5" href="$userinterface_8h.html" title="Defines the UserInterface class for managing pump UI screens and user interactions." alt="" coords="125,229,280,256"/>
+<area shape="rect" id="node6" href="$pumpcontroller_8h.html" title="Defines the PumpController class for controlling insulin delivery." alt="" coords="247,80,414,107"/>
+</map>

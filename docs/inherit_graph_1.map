@@ -1,0 +1,8 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" title=" " alt="" coords="5,107,80,133"/>
+<area shape="rect" id="node2" href="$classBatteryManager.html" title="Simulates the battery behavior of the device." alt="" coords="128,5,255,32"/>
+<area shape="rect" id="node3" href="$classBloodstream.html" title="Simulates insulin activity within the bloodstream." alt="" coords="139,56,244,83"/>
+<area shape="rect" id="node4" href="$classDataLogger.html" title="Manages data logging for events, glucose, and insulin entries." alt="" coords="143,107,240,133"/>
+<area shape="rect" id="node5" href="$classInsulinReserve.html" title="Manages the insulin reservoir for the pump simulator." alt="" coords="132,157,251,184"/>
+<area shape="rect" id="node6" href="$classPumpController.html" title="controller for insulin pump operations" alt="" coords="130,208,253,235"/>
+</map>

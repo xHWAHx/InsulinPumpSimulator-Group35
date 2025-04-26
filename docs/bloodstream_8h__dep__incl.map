@@ -1,0 +1,9 @@
+<map id="code/bloodstream.h" name="code/bloodstream.h">
+<area shape="rect" id="node1" title="Defines the Bloodstream class for tracking insulin absorption and insulin on board (IOB)." alt="" coords="199,5,350,32"/>
+<area shape="rect" id="node2" href="$cgmreader_8h.html" title="Defines the CGMReader class for simulating continuous glucose monitoring." alt="" coords="5,80,144,107"/>
+<area shape="rect" id="node6" href="$device_8h.html" title="Defines the Device class, central orchestrator of the insulin pump simulator." alt="" coords="203,379,315,405"/>
+<area shape="rect" id="node7" href="$pumpcontroller_8h.html" title="Defines the PumpController class for controlling insulin delivery." alt="" coords="191,80,358,107"/>
+<area shape="rect" id="node3" href="$boluscalculator_8h.html" title="Defines the BolusCalculator widget for calculating and delivering insulin boluses." alt="" coords="90,155,257,181"/>
+<area shape="rect" id="node4" href="$userinterface_8h.html" title="Defines the UserInterface class for managing pump UI screens and user interactions." alt="" coords="96,229,251,256"/>
+<area shape="rect" id="node5" href="$alert_8h.html" title="Defines the Alert system for raising and resetting device alerts." alt="" coords="209,304,308,331"/>
+</map>
