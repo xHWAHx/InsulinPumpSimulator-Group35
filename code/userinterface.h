@@ -1,3 +1,12 @@
+/**
+ * @file userinterface.h
+ * @brief Defines the UserInterface class for managing pump UI screens and user interactions.
+ *
+ * The UserInterface class controls screen transitions between login, home, bolus calculator,
+ * history, and settings screens. It handles authentication, displays glucose/battery/insulin
+ * data, manages alerts, and updates the CGM graph based on user and system events.
+ */
+
 #ifndef USERINTERFACE_H
 #define USERINTERFACE_H
 
