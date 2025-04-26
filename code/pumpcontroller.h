@@ -1,3 +1,11 @@
+/**
+ * @file pumpcontroller.h
+ * @brief Defines the PumpController class for controlling insulin delivery.
+ *
+ * The PumpController manages both basal and bolus insulin injections over time,
+ * enforces safety through suspension and emergency stop mechanisms,
+ * and emits status signals for UI updates.
+ */
 #ifndef PUMPCONTROLLER_H
 #define PUMPCONTROLLER_H
 

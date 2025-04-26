@@ -1,3 +1,11 @@
+/**
+ * @file device.h
+ * @brief Defines the Device class, central orchestrator of the insulin pump simulator.
+ *
+ * The Device class initializes and connects all subsystems (pump, CGM, battery, UI, etc.),
+ * manages the simulation lifecycle (power on/off, monitoring loop via QTimer ticks),
+ * and enforces safety protocols through periodic checks and alerts.
+ */
 #ifndef DEVICE_H
 #define DEVICE_H
 

@@ -1,3 +1,11 @@
+/**
+ * @file insulinreserve.h
+ * @brief Defines the InsulinReserve class for managing the insulin reservoir.
+ *
+ * The InsulinReserve class tracks the available insulin units, supports
+ * consumption for bolus and basal deliveries, checks for low insulin levels,
+ * and enables refilling to maximum capacity.
+ */
 #ifndef INSULINRESERVE_H
 #include <QObject>
 #define INSULINRESERVE_H
