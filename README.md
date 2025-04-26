@@ -19,7 +19,8 @@ Aidan Casselman #101277801
 - Create GitHub repository (Hamzah)
 
 2. Design
-- Use cases (Thu Thu) 
+- Use cases (Thu Thu)
+- Use Case Diagram (Thu Thu)
 - UML class diagram (Kamal) 
 - UML state machine diagram (Hamzah) 
 - UML sequence diagram (Justin) 
