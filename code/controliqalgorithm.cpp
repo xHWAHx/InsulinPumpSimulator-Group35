@@ -7,7 +7,7 @@ double ControlIQAlgorithm::currentRate = 0;
 
 void ControlIQAlgorithm::analyzeGlucoseData(double glucose, DataLogger* logger, PumpController* pump) {
 
-    // loads active profile data
+    // Loads active profile data
     Profile profile = Profile::getActiveProfile();
     double target = profile.getTargetGlucose();
     double profileRate = profile.getBasalRate();

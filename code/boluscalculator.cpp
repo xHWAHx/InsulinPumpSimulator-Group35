@@ -216,7 +216,7 @@ void BolusCalculator::deliverExtendedDose() {
 }
 
 void BolusCalculator::updateCountdown() {
-    countdownMinutes -= 5; // because each tick is 5 minutes
+    countdownMinutes -= 5; // Because each tick is 5 minutes
     if (countdownMinutes <= 0) {
         countdownMinutes = 0;
         deliverExtendedDose();;

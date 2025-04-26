@@ -1,7 +1,7 @@
 #include "pumpcontroller.h"
 
 // Holds the current basal rate applied by ControlIQ algorithm
-// (if used externally) but here just resets to 0 by default.
+// (If used externally) but here just resets to 0 by default.
 
 PumpController::PumpController(InsulinReserve *insulin, DataLogger *logger, QCheckBox *errorCheckBox, QObject *parent)
     : QObject(parent),
@@ -14,7 +14,7 @@ PumpController::PumpController(InsulinReserve *insulin, DataLogger *logger, QChe
       logger(logger),
       errorCheckBox(errorCheckBox)
 {
-    //no additional setup needed
+    // No additional setup needed
 }
 
 void PumpController::deliverBolus(double amount, double rate, bool suppressTime)
@@ -34,11 +34,11 @@ void PumpController::deliverBolus(double amount, double rate, bool suppressTime)
 }
 
 void PumpController::adjustBasalRate(double rate)
-{//Updates basal rate without immediate insulin injection.
+{// Updates basal rate without immediate insulin injection.
     currentBasalRate = rate;
 }
 
-void PumpController::suspendBolus() //Cancels any ongoing bolus, emits cancellation, and logs warning.
+void PumpController::suspendBolus() // Cancels any ongoing bolus, emits cancellation, and logs warning.
 {
     bolusSuspended = true;
     emit bolusCancelled(activeBolusAmount);
@@ -46,7 +46,7 @@ void PumpController::suspendBolus() //Cancels any ongoing bolus, emits cancellat
     activeBolusAmount= 0;
 }
 
-void PumpController::resumeBolus()//Resumes bolus delivery if no emergency is present.
+void PumpController::resumeBolus()// Resumes bolus delivery if no emergency is present.
 {
     if (!emergencyStopped) {
         bolusSuspended = false;
@@ -54,41 +54,41 @@ void PumpController::resumeBolus()//Resumes bolus delivery if no emergency is pr
     }
 }
 
-int PumpController::checkDeviceStatus() //Returns pump status: 0=OK, 1=Suspended, 2=Emergency.
+int PumpController::checkDeviceStatus() // Returns pump status: 0=OK, 1=Suspended, 2=Emergency.
 {
     if (emergencyStopped) return 2;
     if (bolusSuspended) return 1;
     return 0;
 }
 
-void PumpController::triggerEmergencyStop() //Immediately stops all insulin delivery and logs the event.
+void PumpController::triggerEmergencyStop() // Immediately stops all insulin delivery and logs the event.
 {
     emergencyStopped = true;
     logger->logEvent("Warning", "Emergency stop activated.");
 }
 
-void PumpController::pump(Bloodstream *blood) //Called on each simulation tick to deliver basal and bolus insulin.
+void PumpController::pump(Bloodstream *blood) // Called on each simulation tick to deliver basal and bolus insulin.
 {
-    //Update emergency state from hardware error checkbox
+    // Update emergency state from hardware error checkbox
     emergencyStopped = errorCheckBox->isChecked();
 
-    //only pump if delivery is active + not blocked
+    // only pump if delivery is active + not blocked
     if (emergencyStopped) {
         //halts
         return;
     }
 
-    if (not (bolusSuspended || activeBolusAmount <= 0)) { //If a bolus is active and not suspended, deliver a fraction this tick
-        double unitsPerTick = activeBolusRate / 12.0; //calc Calculate insulin units delivered per 5-minute tick
+    if (not (bolusSuspended || activeBolusAmount <= 0)) { // If a bolus is active and not suspended, deliver a fraction this tick
+        double unitsPerTick = activeBolusRate / 12.0; // Calculate insulin units delivered per 5-minute tick
         double deliveredThisTick = (activeBolusAmount < unitsPerTick) ? activeBolusAmount : unitsPerTick;
         activeBolusAmount -= deliveredThisTick;
 
-        emit bolusDeliveryProgress(activeBolusAmount); //notify UI
+        emit bolusDeliveryProgress(activeBolusAmount); // Notify UI
 
-        blood->injectUnits(deliveredThisTick); //Inject bolus units into bloodstream and deduct from reserve
+        blood->injectUnits(deliveredThisTick); // Inject bolus units into bloodstream and deduct from reserve
         insulinReserve->useInsulin(deliveredThisTick);
     }
-    //Basal delivery: inject steady rate each tick
+    // Basal delivery: inject steady rate each tick
     blood->injectUnits(currentBasalRate/12);
     insulinReserve->useInsulin(currentBasalRate/12);
 }

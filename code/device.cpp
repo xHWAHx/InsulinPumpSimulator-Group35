@@ -43,7 +43,7 @@ Device::Device(QWidget *parent)
 
     logger->loadLogs();
 
-    interface->hide(); // device starts powered off
+    interface->hide(); // Device starts powered off
 }
 
 void Device::power(){
@@ -74,12 +74,12 @@ void Device::startMonitoring(){
     monitoring = true;
     interface->displayHomeScreen();
     if (not paused){
-        tick(); // updates the display immediately upon showing it
+        tick(); // Updates the display immediately upon showing it
         tickClock->start(1000.0 / simulationRate);
     }
 }
 
-void Device::tick(){ // each tick represents 5 minutes
+void Device::tick(){ // Each tick represents 5 minutes
     battery->drainBattery();
 
     if (monitoring) {
@@ -92,12 +92,12 @@ void Device::monitor(){
 
     double batteryLevel = battery->getBatteryLevel();
     double glucose = cgm->getCurrentGlucoseLevel(bloodstream, profiles->getActiveProfile().getCorrectionFactor());
-    double target= Profile::getActiveProfile().getTargetGlucose();
+    double target = Profile::getActiveProfile().getTargetGlucose();
     double insulinReading = insulin->getInsulinRemaining();
 
     safetyChecks(glucose, target);
 
-    //pump logic
+    // Pump logic
     if (glucose != -1){
         controlIQ->analyzeGlucoseData(glucose, logger, pump);
 
@@ -158,7 +158,6 @@ void Device::togglePaused(){
 }
 
 void Device::setSimRate(int rate){
-    //simulationRate = ceil((pow(double(rate)/10.0, 2))); // for logarithmic behaviour
     simulationRate = rate;
     if (this->poweredOn and not paused){
         tickClock->stop();
