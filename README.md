@@ -37,7 +37,7 @@ Aidan Casselman #101277801
 ## File Organization
 
 ### Root Directory
-`InsulinPumpSimulator-Group35.zip/`
+`InsulinPumpSimulator-Group35-main/`
 
 ---
 
@@ -75,6 +75,9 @@ Located in `code/`:
 - `userinterface.cpp`, `userinterface.h`, `userinterface.ui`
 - `alert.cpp`, `alert.h`, `alert.ui`
 - `bloodstream.cpp`, `bloodstream.h`
+
+### Test Video
+- `Test-Video.mp4`
 
 ## Documentation
 
