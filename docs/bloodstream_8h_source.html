@@ -85,33 +85,38 @@ $(document).ready(function(){initNavTree('bloodstream_8h_source.html',''); initR
 <div class="title">bloodstream.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="bloodstream_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef BLOODSTREAM_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define BLOODSTREAM_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QObject&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="classBloodstream.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="classBloodstream.html">Bloodstream</a> : <span class="keyword">public</span> QObject</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    Q_OBJECT</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classBloodstream.html#aeb7219e4eb9a3989c0b5f8291a1317c8">   10</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classBloodstream.html#aeb7219e4eb9a3989c0b5f8291a1317c8">Bloodstream</a>(QObject *parent = <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classBloodstream.html#a51c6fbeb1f148bb569d644049b5eaa94">   11</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classBloodstream.html#a51c6fbeb1f148bb569d644049b5eaa94">absorbUnits</a>(<span class="keywordtype">double</span> insulin);</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classBloodstream.html#a8bb9a97ac6571eefe7d7bc744c5f4288">   12</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classBloodstream.html#a8bb9a97ac6571eefe7d7bc744c5f4288">injectUnits</a>(<span class="keywordtype">double</span> insulin);</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classBloodstream.html#a43751546be482a2aae24fde90e1a99b7">   13</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classBloodstream.html#a43751546be482a2aae24fde90e1a99b7">getIOB</a>();</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;signals:</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classBloodstream.html#aba01ded19eb7f55216a9e7df4dadc8c1">   17</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classBloodstream.html#aba01ded19eb7f55216a9e7df4dadc8c1">insulinOnBoard</a>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;};</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// BLOODSTREAM_H</span></div>
-<div class="ttc" id="aclassBloodstream_html"><div class="ttname"><a href="classBloodstream.html">Bloodstream</a></div><div class="ttdef"><b>Definition:</b> bloodstream.h:7</div></div>
-<div class="ttc" id="aclassBloodstream_html_a43751546be482a2aae24fde90e1a99b7"><div class="ttname"><a href="classBloodstream.html#a43751546be482a2aae24fde90e1a99b7">Bloodstream::getIOB</a></div><div class="ttdeci">double getIOB()</div></div>
-<div class="ttc" id="aclassBloodstream_html_a51c6fbeb1f148bb569d644049b5eaa94"><div class="ttname"><a href="classBloodstream.html#a51c6fbeb1f148bb569d644049b5eaa94">Bloodstream::absorbUnits</a></div><div class="ttdeci">void absorbUnits(double insulin)</div></div>
-<div class="ttc" id="aclassBloodstream_html_a8bb9a97ac6571eefe7d7bc744c5f4288"><div class="ttname"><a href="classBloodstream.html#a8bb9a97ac6571eefe7d7bc744c5f4288">Bloodstream::injectUnits</a></div><div class="ttdeci">void injectUnits(double insulin)</div></div>
-<div class="ttc" id="aclassBloodstream_html_aba01ded19eb7f55216a9e7df4dadc8c1"><div class="ttname"><a href="classBloodstream.html#aba01ded19eb7f55216a9e7df4dadc8c1">Bloodstream::insulinOnBoard</a></div><div class="ttdeci">double insulinOnBoard</div><div class="ttdef"><b>Definition:</b> bloodstream.h:17</div></div>
-<div class="ttc" id="aclassBloodstream_html_aeb7219e4eb9a3989c0b5f8291a1317c8"><div class="ttname"><a href="classBloodstream.html#aeb7219e4eb9a3989c0b5f8291a1317c8">Bloodstream::Bloodstream</a></div><div class="ttdeci">Bloodstream(QObject *parent=nullptr)</div></div>
+<a href="bloodstream_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef BLOODSTREAM_H</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define BLOODSTREAM_H</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;QObject&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classBloodstream.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="classBloodstream.html">Bloodstream</a> : <span class="keyword">public</span> QObject</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="classBloodstream.html#aeb7219e4eb9a3989c0b5f8291a1317c8">   28</a></span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classBloodstream.html#aeb7219e4eb9a3989c0b5f8291a1317c8">Bloodstream</a>(QObject *parent = <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classBloodstream.html#a51c6fbeb1f148bb569d644049b5eaa94">   34</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classBloodstream.html#a51c6fbeb1f148bb569d644049b5eaa94">absorbUnits</a>(<span class="keywordtype">double</span> insulin);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="classBloodstream.html#a8bb9a97ac6571eefe7d7bc744c5f4288">   40</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classBloodstream.html#a8bb9a97ac6571eefe7d7bc744c5f4288">injectUnits</a>(<span class="keywordtype">double</span> insulin);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classBloodstream.html#a43751546be482a2aae24fde90e1a99b7">   46</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classBloodstream.html#a43751546be482a2aae24fde90e1a99b7">getIOB</a>();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;signals:</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">// No custom signals yet.</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classBloodstream.html#aba01ded19eb7f55216a9e7df4dadc8c1">   52</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classBloodstream.html#aba01ded19eb7f55216a9e7df4dadc8c1">insulinOnBoard</a>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;};</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// BLOODSTREAM_H</span></div>
+<div class="ttc" id="aclassBloodstream_html"><div class="ttname"><a href="classBloodstream.html">Bloodstream</a></div><div class="ttdoc">Simulates insulin activity within the bloodstream.</div><div class="ttdef"><b>Definition:</b> bloodstream.h:21</div></div>
+<div class="ttc" id="aclassBloodstream_html_a43751546be482a2aae24fde90e1a99b7"><div class="ttname"><a href="classBloodstream.html#a43751546be482a2aae24fde90e1a99b7">Bloodstream::getIOB</a></div><div class="ttdeci">double getIOB()</div><div class="ttdoc">Returns the current insulin on board (IOB).</div></div>
+<div class="ttc" id="aclassBloodstream_html_a51c6fbeb1f148bb569d644049b5eaa94"><div class="ttname"><a href="classBloodstream.html#a51c6fbeb1f148bb569d644049b5eaa94">Bloodstream::absorbUnits</a></div><div class="ttdeci">void absorbUnits(double insulin)</div><div class="ttdoc">Absorbs units of insulin over time, decreasing IOB.</div></div>
+<div class="ttc" id="aclassBloodstream_html_a8bb9a97ac6571eefe7d7bc744c5f4288"><div class="ttname"><a href="classBloodstream.html#a8bb9a97ac6571eefe7d7bc744c5f4288">Bloodstream::injectUnits</a></div><div class="ttdeci">void injectUnits(double insulin)</div><div class="ttdoc">Injects new insulin into the bloodstream, increasing IOB.</div></div>
+<div class="ttc" id="aclassBloodstream_html_aba01ded19eb7f55216a9e7df4dadc8c1"><div class="ttname"><a href="classBloodstream.html#aba01ded19eb7f55216a9e7df4dadc8c1">Bloodstream::insulinOnBoard</a></div><div class="ttdeci">double insulinOnBoard</div><div class="ttdef"><b>Definition:</b> bloodstream.h:52</div></div>
+<div class="ttc" id="aclassBloodstream_html_aeb7219e4eb9a3989c0b5f8291a1317c8"><div class="ttname"><a href="classBloodstream.html#aeb7219e4eb9a3989c0b5f8291a1317c8">Bloodstream::Bloodstream</a></div><div class="ttdeci">Bloodstream(QObject *parent=nullptr)</div><div class="ttdoc">Constructs a Bloodstream object with zero insulin on board.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -13,7 +13,6 @@ var annotated_dup =
     [ "Home", "classHome.html", "classHome" ],
     [ "InsulinLogEntry", "structInsulinLogEntry.html", "structInsulinLogEntry" ],
     [ "InsulinReserve", "classInsulinReserve.html", "classInsulinReserve" ],
-    [ "IOBTracker", "classIOBTracker.html", "classIOBTracker" ],
     [ "LogData", "structLogData.html", "structLogData" ],
     [ "LogEntry", "structLogEntry.html", "structLogEntry" ],
     [ "Login", "classLogin.html", "classLogin" ],

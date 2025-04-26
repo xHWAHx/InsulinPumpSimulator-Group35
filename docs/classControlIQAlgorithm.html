@@ -83,28 +83,37 @@ $(document).ready(function(){initNavTree('classControlIQAlgorithm.html',''); ini
 <div class="header">
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="classControlIQAlgorithm-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ControlIQAlgorithm Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
+<p>Core algorithm for dynamic basal insulin control.  
+ <a href="classControlIQAlgorithm.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="controliqalgorithm_8h_source.html">controliqalgorithm.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a84affc32e14011af173e1d13ddfbca29"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControlIQAlgorithm.html#a84affc32e14011af173e1d13ddfbca29">analyzeGlucoseData</a> (double data, <a class="el" href="classDataLogger.html">DataLogger</a> *logger, <a class="el" href="classPumpController.html">PumpController</a> *pump)</td></tr>
+<tr class="memdesc:a84affc32e14011af173e1d13ddfbca29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Analyze a glucose data point and trigger pump actions.  <a href="classControlIQAlgorithm.html#a84affc32e14011af173e1d13ddfbca29">More...</a><br /></td></tr>
 <tr class="separator:a84affc32e14011af173e1d13ddfbca29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf14134a53bf0e95bfef7c7a8a972885"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControlIQAlgorithm.html#adf14134a53bf0e95bfef7c7a8a972885">adjustBasalRate</a> (<a class="el" href="classPumpController.html">PumpController</a> *pump, double rate)</td></tr>
+<tr class="memdesc:adf14134a53bf0e95bfef7c7a8a972885"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adjust the basal insulin rate on the pump.  <a href="classControlIQAlgorithm.html#adf14134a53bf0e95bfef7c7a8a972885">More...</a><br /></td></tr>
 <tr class="separator:adf14134a53bf0e95bfef7c7a8a972885"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a09db05c1441a4bd756f89ef13d15a991"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControlIQAlgorithm.html#a09db05c1441a4bd756f89ef13d15a991">suspendForLowGlucose</a> (<a class="el" href="classPumpController.html">PumpController</a> *pump)</td></tr>
-<tr class="separator:a09db05c1441a4bd756f89ef13d15a991"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade7522c34e9cbe1815a2c2d6309f43ab"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControlIQAlgorithm.html#ade7522c34e9cbe1815a2c2d6309f43ab">increaseInsulinForHighGlucose</a> (<a class="el" href="classPumpController.html">PumpController</a> *pump, double currentRate)</td></tr>
-<tr class="separator:ade7522c34e9cbe1815a2c2d6309f43ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f426593b74b350cedb49142bd7ae9f5"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControlIQAlgorithm.html#a7f426593b74b350cedb49142bd7ae9f5">isGlucoseLevelStable</a> (double glucose, double target)</td></tr>
-<tr class="separator:a7f426593b74b350cedb49142bd7ae9f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a334f76d6fcd6aeb66840ca8e0f750b51"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classControlIQAlgorithm.html#a334f76d6fcd6aeb66840ca8e0f750b51">currentRate</a></td></tr>
+<tr class="memdesc:a334f76d6fcd6aeb66840ca8e0f750b51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current basal rate applied by the Control-IQ algorithm.  <a href="classControlIQAlgorithm.html#a334f76d6fcd6aeb66840ca8e0f750b51">More...</a><br /></td></tr>
+<tr class="separator:a334f76d6fcd6aeb66840ca8e0f750b51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Core algorithm for dynamic basal insulin control. </p>
+<p>The <a class="el" href="classControlIQAlgorithm.html" title="Core algorithm for dynamic basal insulin control.">ControlIQAlgorithm</a> class processes continuous glucose monitoring data, calculates necessary insulin adjustments, and issues commands to the pump. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="adf14134a53bf0e95bfef7c7a8a972885"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adf14134a53bf0e95bfef7c7a8a972885">&#9670;&nbsp;</a></span>adjustBasalRate()</h2>
 
@@ -138,6 +147,16 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Adjust the basal insulin rate on the pump. </p>
+<p>Sends a command to update the pump's basal delivery rate.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pump</td><td><a class="el" href="classPumpController.html" title="controller for insulin pump operations">PumpController</a> instance controlling the insulin pump. </td></tr>
+    <tr><td class="paramname">rate</td><td>New basal rate to set (units per hour). </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -181,10 +200,22 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Analyze a glucose data point and trigger pump actions. </p>
+<p>Evaluates a single glucose reading, logs any relevant events, and instructs the <a class="el" href="classPumpController.html" title="controller for insulin pump operations">PumpController</a> to adjust insulin delivery as needed.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Latest blood glucose measurement (mg/dL). </td></tr>
+    <tr><td class="paramname">logger</td><td><a class="el" href="classDataLogger.html" title="Manages data logging for events, glucose, and insulin entries.">DataLogger</a> instance for recording algorithm events. </td></tr>
+    <tr><td class="paramname">pump</td><td><a class="el" href="classPumpController.html" title="controller for insulin pump operations">PumpController</a> instance for executing insulin commands. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a id="ade7522c34e9cbe1815a2c2d6309f43ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ade7522c34e9cbe1815a2c2d6309f43ab">&#9670;&nbsp;</a></span>increaseInsulinForHighGlucose()</h2>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a334f76d6fcd6aeb66840ca8e0f750b51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a334f76d6fcd6aeb66840ca8e0f750b51">&#9670;&nbsp;</a></span>currentRate</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -193,21 +224,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void ControlIQAlgorithm::increaseInsulinForHighGlucose </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classPumpController.html">PumpController</a> *&#160;</td>
-          <td class="paramname"><em>pump</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>currentRate</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">double ControlIQAlgorithm::currentRate</td>
         </tr>
       </table>
   </td>
@@ -217,67 +234,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a7f426593b74b350cedb49142bd7ae9f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f426593b74b350cedb49142bd7ae9f5">&#9670;&nbsp;</a></span>isGlucoseLevelStable()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static bool ControlIQAlgorithm::isGlucoseLevelStable </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>glucose</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>target</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a09db05c1441a4bd756f89ef13d15a991"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a09db05c1441a4bd756f89ef13d15a991">&#9670;&nbsp;</a></span>suspendForLowGlucose()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void ControlIQAlgorithm::suspendForLowGlucose </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classPumpController.html">PumpController</a> *&#160;</td>
-          <td class="paramname"><em>pump</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Current basal rate applied by the Control-IQ algorithm. </p>
 
 </div>
 </div>

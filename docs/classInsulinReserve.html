@@ -92,6 +92,9 @@ $(document).ready(function(){initNavTree('classInsulinReserve.html',''); initRes
 </div><!--header-->
 <div class="contents">
 
+<p>Manages the insulin reservoir for the pump simulator.  
+ <a href="classInsulinReserve.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="insulinreserve_8h_source.html">insulinreserve.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for InsulinReserve:</div>
@@ -107,19 +110,25 @@ Collaboration diagram for InsulinReserve:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
 Public Slots</h2></td></tr>
 <tr class="memitem:a6ac1637021969e26494a774f2f478e7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInsulinReserve.html#a6ac1637021969e26494a774f2f478e7e">refillInsulin</a> ()</td></tr>
+<tr class="memdesc:a6ac1637021969e26494a774f2f478e7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Refills the insulin reservoir to maximum capacity.  <a href="classInsulinReserve.html#a6ac1637021969e26494a774f2f478e7e">More...</a><br /></td></tr>
 <tr class="separator:a6ac1637021969e26494a774f2f478e7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a5af032c2a3d92f05034c007aec541733"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInsulinReserve.html#a5af032c2a3d92f05034c007aec541733">InsulinReserve</a> ()</td></tr>
+<tr class="memdesc:a5af032c2a3d92f05034c007aec541733"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <a class="el" href="classInsulinReserve.html" title="Manages the insulin reservoir for the pump simulator.">InsulinReserve</a> with full capacity.  <a href="classInsulinReserve.html#a5af032c2a3d92f05034c007aec541733">More...</a><br /></td></tr>
 <tr class="separator:a5af032c2a3d92f05034c007aec541733"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18a443586014df9249c7953b1e4d17fa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInsulinReserve.html#a18a443586014df9249c7953b1e4d17fa">~InsulinReserve</a> ()</td></tr>
+<tr class="memdesc:a18a443586014df9249c7953b1e4d17fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the <a class="el" href="classInsulinReserve.html" title="Manages the insulin reservoir for the pump simulator.">InsulinReserve</a> instance.  <a href="classInsulinReserve.html#a18a443586014df9249c7953b1e4d17fa">More...</a><br /></td></tr>
 <tr class="separator:a18a443586014df9249c7953b1e4d17fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae81bd5a36a38753e135391ced9f47232"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInsulinReserve.html#ae81bd5a36a38753e135391ced9f47232">getInsulinRemaining</a> ()</td></tr>
+<tr class="memdesc:ae81bd5a36a38753e135391ced9f47232"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the current insulin units remaining.  <a href="classInsulinReserve.html#ae81bd5a36a38753e135391ced9f47232">More...</a><br /></td></tr>
 <tr class="separator:ae81bd5a36a38753e135391ced9f47232"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc93124a3a0ea17463b349b35a2b229d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInsulinReserve.html#abc93124a3a0ea17463b349b35a2b229d">useInsulin</a> (double amount)</td></tr>
+<tr class="memdesc:abc93124a3a0ea17463b349b35a2b229d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consumes insulin from the reservoir.  <a href="classInsulinReserve.html#abc93124a3a0ea17463b349b35a2b229d">More...</a><br /></td></tr>
 <tr class="separator:abc93124a3a0ea17463b349b35a2b229d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab889d7014adbc4ffcfd3c0782d3bb41a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInsulinReserve.html#ab889d7014adbc4ffcfd3c0782d3bb41a">isInsulinLow</a> ()</td></tr>
+<tr class="memdesc:ab889d7014adbc4ffcfd3c0782d3bb41a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if insulin level is at or below the low threshold.  <a href="classInsulinReserve.html#ab889d7014adbc4ffcfd3c0782d3bb41a">More...</a><br /></td></tr>
 <tr class="separator:ab889d7014adbc4ffcfd3c0782d3bb41a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -130,11 +139,16 @@ Private Attributes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
 <tr class="memitem:a83a68e1e50d5c94245c05f78aa98df69"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInsulinReserve.html#a83a68e1e50d5c94245c05f78aa98df69">maxAmount</a> = 300</td></tr>
+<tr class="memdesc:a83a68e1e50d5c94245c05f78aa98df69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum reservoir capacity (units).  <a href="classInsulinReserve.html#a83a68e1e50d5c94245c05f78aa98df69">More...</a><br /></td></tr>
 <tr class="separator:a83a68e1e50d5c94245c05f78aa98df69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a62c45b855a9c281c2cb8eb8331be458b"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInsulinReserve.html#a62c45b855a9c281c2cb8eb8331be458b">lowAmount</a> = <a class="el" href="classInsulinReserve.html#a83a68e1e50d5c94245c05f78aa98df69">maxAmount</a>/10</td></tr>
+<tr class="memdesc:a62c45b855a9c281c2cb8eb8331be458b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Low-level warning threshold.  <a href="classInsulinReserve.html#a62c45b855a9c281c2cb8eb8331be458b">More...</a><br /></td></tr>
 <tr class="separator:a62c45b855a9c281c2cb8eb8331be458b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Manages the insulin reservoir for the pump simulator. </p>
+<p>Tracks available insulin units, supports consumption for deliveries, low-level checks, and refilling to maximum capacity. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5af032c2a3d92f05034c007aec541733"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5af032c2a3d92f05034c007aec541733">&#9670;&nbsp;</a></span>InsulinReserve()</h2>
 
@@ -149,6 +163,8 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructs an <a class="el" href="classInsulinReserve.html" title="Manages the insulin reservoir for the pump simulator.">InsulinReserve</a> with full capacity. </p>
 
 </div>
 </div>
@@ -166,6 +182,8 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Destroys the <a class="el" href="classInsulinReserve.html" title="Manages the insulin reservoir for the pump simulator.">InsulinReserve</a> instance. </p>
 
 </div>
 </div>
@@ -185,6 +203,9 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Retrieves the current insulin units remaining. </p>
+<dl class="section return"><dt>Returns</dt><dd>Remaining insulin units. </dd></dl>
+
 </div>
 </div>
 <a id="ab889d7014adbc4ffcfd3c0782d3bb41a"></a>
@@ -201,6 +222,9 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Checks if insulin level is at or below the low threshold. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if insulinRemaining &lt;= lowAmount, false otherwise. </dd></dl>
 
 </div>
 </div>
@@ -227,6 +251,8 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Refills the insulin reservoir to maximum capacity. </p>
+
 </div>
 </div>
 <a id="abc93124a3a0ea17463b349b35a2b229d"></a>
@@ -244,6 +270,15 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Consumes insulin from the reservoir. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">amount</td><td>Units of insulin to deploy. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Actual units deployed (may be less if reservoir is insufficient). </dd></dl>
 
 </div>
 </div>
@@ -290,6 +325,8 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Low-level warning threshold. </p>
+
 </div>
 </div>
 <a id="a83a68e1e50d5c94245c05f78aa98df69"></a>
@@ -311,6 +348,8 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Maximum reservoir capacity (units). </p>
 
 </div>
 </div>

@@ -91,18 +91,25 @@ $(document).ready(function(){initNavTree('classCGMReader.html',''); initResizabl
 </div><!--header-->
 <div class="contents">
 
+<p>Simulates a continuous glucose monitor (CGM).  
+ <a href="classCGMReader.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="cgmreader_8h_source.html">cgmreader.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1959dca5d05df437e243f826f1b381a4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#a1959dca5d05df437e243f826f1b381a4">CGMReader</a> ()</td></tr>
-<tr class="separator:a1959dca5d05df437e243f826f1b381a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a006fbe25133ff005ee321f8b7ba2892d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#a006fbe25133ff005ee321f8b7ba2892d">CGMReader</a> (QCheckBox *<a class="el" href="classCGMReader.html#ae20c730115d8ac76874f62d7fc2bb022">errorCheckBox</a>)</td></tr>
+<tr class="memdesc:a006fbe25133ff005ee321f8b7ba2892d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classCGMReader.html" title="Simulates a continuous glucose monitor (CGM).">CGMReader</a> with an associated error checkbox UI component.  <a href="classCGMReader.html#a006fbe25133ff005ee321f8b7ba2892d">More...</a><br /></td></tr>
+<tr class="separator:a006fbe25133ff005ee321f8b7ba2892d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec2f73c22932d89fea3f26be18d97b69"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#aec2f73c22932d89fea3f26be18d97b69">getCurrentGlucoseLevel</a> (<a class="el" href="classBloodstream.html">Bloodstream</a> *blood, double correctionFactor)</td></tr>
+<tr class="memdesc:aec2f73c22932d89fea3f26be18d97b69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current simulated glucose level.  <a href="classCGMReader.html#aec2f73c22932d89fea3f26be18d97b69">More...</a><br /></td></tr>
 <tr class="separator:aec2f73c22932d89fea3f26be18d97b69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a457e67c9b08130a416cbcd9deae6237f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#a457e67c9b08130a416cbcd9deae6237f">intakeGlucose</a> (double glucose)</td></tr>
+<tr class="memdesc:a457e67c9b08130a416cbcd9deae6237f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulates glucose intake from carbohydrate consumption.  <a href="classCGMReader.html#a457e67c9b08130a416cbcd9deae6237f">More...</a><br /></td></tr>
+<tr class="separator:a457e67c9b08130a416cbcd9deae6237f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc658a5974b6d2e0a36c9cc1dbf02493"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#afc658a5974b6d2e0a36c9cc1dbf02493">isCGMConnected</a> ()</td></tr>
+<tr class="memdesc:afc658a5974b6d2e0a36c9cc1dbf02493"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the CGM sensor is connected.  <a href="classCGMReader.html#afc658a5974b6d2e0a36c9cc1dbf02493">More...</a><br /></td></tr>
 <tr class="separator:afc658a5974b6d2e0a36c9cc1dbf02493"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0714397379def4e0decd6cac55ddaf1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#ab0714397379def4e0decd6cac55ddaf1">alertCGMDisconnected</a> ()</td></tr>
-<tr class="separator:ab0714397379def4e0decd6cac55ddaf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -110,6 +117,10 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a185f526b993f39c9f732696f42811cdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45fdf23a3be6b6aef6201a802e9561d8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#a45fdf23a3be6b6aef6201a802e9561d8">reading</a></td></tr>
 <tr class="separator:a45fdf23a3be6b6aef6201a802e9561d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae20c730115d8ac76874f62d7fc2bb022"><td class="memItemLeft" align="right" valign="top">QCheckBox *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#ae20c730115d8ac76874f62d7fc2bb022">errorCheckBox</a></td></tr>
+<tr class="separator:ae20c730115d8ac76874f62d7fc2bb022"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0281651ce60da0c95d0671bf3892db61"><td class="memItemLeft" align="right" valign="top">QSpinBox *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#a0281651ce60da0c95d0671bf3892db61">carbSpinBox</a></td></tr>
+<tr class="separator:a0281651ce60da0c95d0671bf3892db61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab99e3508b0eafb741900127f288cc40f"><td class="memItemLeft" align="right" valign="top">QRandomGenerator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#ab99e3508b0eafb741900127f288cc40f">randomGen</a></td></tr>
 <tr class="separator:ab99e3508b0eafb741900127f288cc40f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -119,14 +130,17 @@ Static Private Attributes</h2></td></tr>
 <tr class="separator:a3c2c554740ce958e1a4fd1b5ea9d134e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7db003b7336f0cfd7f33915b80a39249"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#a7db003b7336f0cfd7f33915b80a39249">startAmount</a> = 6.0</td></tr>
 <tr class="separator:a7db003b7336f0cfd7f33915b80a39249"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7e12acb4464b3ad29b969ffecc83a6e"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#ab7e12acb4464b3ad29b969ffecc83a6e">increasePerHour</a> = 4</td></tr>
+<tr class="memitem:ab7e12acb4464b3ad29b969ffecc83a6e"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#ab7e12acb4464b3ad29b969ffecc83a6e">increasePerHour</a> = 2</td></tr>
 <tr class="separator:ab7e12acb4464b3ad29b969ffecc83a6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2bf91073b59dd0fe33e8874fe713f1c"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#ae2bf91073b59dd0fe33e8874fe713f1c">insulinUsageRate</a> = 6</td></tr>
+<tr class="memitem:ae2bf91073b59dd0fe33e8874fe713f1c"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCGMReader.html#ae2bf91073b59dd0fe33e8874fe713f1c">insulinUsageRate</a> = 2</td></tr>
 <tr class="separator:ae2bf91073b59dd0fe33e8874fe713f1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a1959dca5d05df437e243f826f1b381a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1959dca5d05df437e243f826f1b381a4">&#9670;&nbsp;</a></span>CGMReader()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Simulates a continuous glucose monitor (CGM). </p>
+<p>Produces glucose level readings influenced by insulin activity and carbohydrate intake, with options to simulate sensor errors and disconnections. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a006fbe25133ff005ee321f8b7ba2892d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a006fbe25133ff005ee321f8b7ba2892d">&#9670;&nbsp;</a></span>CGMReader()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -134,32 +148,24 @@ Static Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">CGMReader::CGMReader </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">QCheckBox *&#160;</td>
+          <td class="paramname"><em>errorCheckBox</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructs a <a class="el" href="classCGMReader.html" title="Simulates a continuous glucose monitor (CGM).">CGMReader</a> with an associated error checkbox UI component. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">errorCheckBox</td><td>Pointer to the checkbox that simulates CGM errors. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab0714397379def4e0decd6cac55ddaf1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0714397379def4e0decd6cac55ddaf1">&#9670;&nbsp;</a></span>alertCGMDisconnected()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void CGMReader::alertCGMDisconnected </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="aec2f73c22932d89fea3f26be18d97b69"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aec2f73c22932d89fea3f26be18d97b69">&#9670;&nbsp;</a></span>getCurrentGlucoseLevel()</h2>
 
@@ -186,6 +192,42 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Gets the current simulated glucose level. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">blood</td><td>Pointer to the <a class="el" href="classBloodstream.html" title="Simulates insulin activity within the bloodstream.">Bloodstream</a> to account for insulin absorption effects. </td></tr>
+    <tr><td class="paramname">correctionFactor</td><td>Correction sensitivity factor. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Current glucose level in mmol/L. </dd></dl>
+
+</div>
+</div>
+<a id="a457e67c9b08130a416cbcd9deae6237f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a457e67c9b08130a416cbcd9deae6237f">&#9670;&nbsp;</a></span>intakeGlucose()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CGMReader::intakeGlucose </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>glucose</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Simulates glucose intake from carbohydrate consumption. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">glucose</td><td>Amount of glucose intake in mmol/L. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="afc658a5974b6d2e0a36c9cc1dbf02493"></a>
@@ -203,9 +245,34 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Checks if the CGM sensor is connected. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if CGM is connected, false if disconnected. </dd></dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a0281651ce60da0c95d0671bf3892db61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0281651ce60da0c95d0671bf3892db61">&#9670;&nbsp;</a></span>carbSpinBox</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QSpinBox* CGMReader::carbSpinBox</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a185f526b993f39c9f732696f42811cdc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a185f526b993f39c9f732696f42811cdc">&#9670;&nbsp;</a></span>CGMConnected</h2>
 
@@ -228,6 +295,28 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="ae20c730115d8ac76874f62d7fc2bb022"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae20c730115d8ac76874f62d7fc2bb022">&#9670;&nbsp;</a></span>errorCheckBox</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QCheckBox* CGMReader::errorCheckBox</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ab7e12acb4464b3ad29b969ffecc83a6e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab7e12acb4464b3ad29b969ffecc83a6e">&#9670;&nbsp;</a></span>increasePerHour</h2>
 
@@ -238,7 +327,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr double CGMReader::increasePerHour = 4</td>
+          <td class="memname">constexpr double CGMReader::increasePerHour = 2</td>
         </tr>
       </table>
   </td>
@@ -260,7 +349,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr double CGMReader::insulinUsageRate = 6</td>
+          <td class="memname">constexpr double CGMReader::insulinUsageRate = 2</td>
         </tr>
       </table>
   </td>

@@ -94,6 +94,9 @@ $(document).ready(function(){initNavTree('classBolusCalculator.html',''); initRe
 </div><!--header-->
 <div class="contents">
 
+<p>QWidget subclass for insulin bolus calculation and delivery control.  
+ <a href="classBolusCalculator.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="boluscalculator_8h_source.html">boluscalculator.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for BolusCalculator:</div>
@@ -109,51 +112,73 @@ Collaboration diagram for BolusCalculator:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
 Signals</h2></td></tr>
 <tr class="memitem:a1035c374f2df967faa3aecee0a623a17"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBolusCalculator.html#a1035c374f2df967faa3aecee0a623a17">backToHome</a> ()</td></tr>
+<tr class="memdesc:a1035c374f2df967faa3aecee0a623a17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Navigate back to the home screen.  <a href="classBolusCalculator.html#a1035c374f2df967faa3aecee0a623a17">More...</a><br /></td></tr>
 <tr class="separator:a1035c374f2df967faa3aecee0a623a17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2523cf1dd283d206abff2db09a71b45b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBolusCalculator.html#a2523cf1dd283d206abff2db09a71b45b">countdownActive</a> (bool active)</td></tr>
+<tr class="memdesc:a2523cf1dd283d206abff2db09a71b45b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether the countdown is active.  <a href="classBolusCalculator.html#a2523cf1dd283d206abff2db09a71b45b">More...</a><br /></td></tr>
 <tr class="separator:a2523cf1dd283d206abff2db09a71b45b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a071f5c9dac56a81b7197e1126283e3c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBolusCalculator.html#a071f5c9dac56a81b7197e1126283e3c6">bolusStarted</a> (QString status)</td></tr>
+<tr class="memdesc:a071f5c9dac56a81b7197e1126283e3c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Emitted when a bolus delivery begins.  <a href="classBolusCalculator.html#a071f5c9dac56a81b7197e1126283e3c6">More...</a><br /></td></tr>
+<tr class="separator:a071f5c9dac56a81b7197e1126283e3c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7232929463b8823a647ddba48a372ff9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBolusCalculator.html#a7232929463b8823a647ddba48a372ff9">BolusCalculator</a> (<a class="el" href="classPumpController.html">PumpController</a> *<a class="el" href="classBolusCalculator.html#a115ea1d401a97f3a084fef2a9d456b79">pump</a>, <a class="el" href="classDataLogger.html">DataLogger</a> *<a class="el" href="classBolusCalculator.html#a1ec2a583cbde03d57cb3d5ce43113be9">logger</a>, <a class="el" href="classCGMReader.html">CGMReader</a> *<a class="el" href="classBolusCalculator.html#ac20dddfc8c835cfb33e1c59979f256ee">cgm</a>, <a class="el" href="classInsulinReserve.html">InsulinReserve</a> *insulin, <a class="el" href="classIOBTracker.html">IOBTracker</a> *<a class="el" href="classBolusCalculator.html#a7d813a55cea93b96f23fa8767ee10ca7">iobTracker</a>, QWidget *parent=nullptr)</td></tr>
-<tr class="separator:a7232929463b8823a647ddba48a372ff9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab965879e509066c78bac834300fa8984"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBolusCalculator.html#ab965879e509066c78bac834300fa8984">BolusCalculator</a> (<a class="el" href="classPumpController.html">PumpController</a> *<a class="el" href="classBolusCalculator.html#a115ea1d401a97f3a084fef2a9d456b79">pump</a>, <a class="el" href="classDataLogger.html">DataLogger</a> *<a class="el" href="classBolusCalculator.html#a1ec2a583cbde03d57cb3d5ce43113be9">logger</a>, <a class="el" href="classCGMReader.html">CGMReader</a> *<a class="el" href="classBolusCalculator.html#ac20dddfc8c835cfb33e1c59979f256ee">cgm</a>, <a class="el" href="classInsulinReserve.html">InsulinReserve</a> *insulin, QWidget *parent=nullptr)</td></tr>
+<tr class="memdesc:ab965879e509066c78bac834300fa8984"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <a class="el" href="classBolusCalculator.html" title="QWidget subclass for insulin bolus calculation and delivery control.">BolusCalculator</a> widget.  <a href="classBolusCalculator.html#ab965879e509066c78bac834300fa8984">More...</a><br /></td></tr>
+<tr class="separator:ab965879e509066c78bac834300fa8984"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8bfb1f12a8eb3ba76fa7c2029824a88b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBolusCalculator.html#a8bfb1f12a8eb3ba76fa7c2029824a88b">~BolusCalculator</a> ()</td></tr>
+<tr class="memdesc:a8bfb1f12a8eb3ba76fa7c2029824a88b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cleans up the <a class="el" href="classBolusCalculator.html" title="QWidget subclass for insulin bolus calculation and delivery control.">BolusCalculator</a> widget / deallocates memory.  <a href="classBolusCalculator.html#a8bfb1f12a8eb3ba76fa7c2029824a88b">More...</a><br /></td></tr>
 <tr class="separator:a8bfb1f12a8eb3ba76fa7c2029824a88b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af93f243ec9cefca9e0c0f297c887ebda"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBolusCalculator.html#af93f243ec9cefca9e0c0f297c887ebda">updateCountdown</a> ()</td></tr>
+<tr class="memdesc:af93f243ec9cefca9e0c0f297c887ebda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the countdown timer display for extended dose delivery.  <a href="classBolusCalculator.html#af93f243ec9cefca9e0c0f297c887ebda">More...</a><br /></td></tr>
+<tr class="separator:af93f243ec9cefca9e0c0f297c887ebda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a96ec1f84bc5f848ac6f6036f36c6fb8b"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBolusCalculator.html#a96ec1f84bc5f848ac6f6036f36c6fb8b">calculateBolus</a> (double glucose, double carbs)</td></tr>
+<tr class="memdesc:a96ec1f84bc5f848ac6f6036f36c6fb8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate a bolus recommendation from current glucose and carb values.  <a href="classBolusCalculator.html#a96ec1f84bc5f848ac6f6036f36c6fb8b">More...</a><br /></td></tr>
 <tr class="separator:a96ec1f84bc5f848ac6f6036f36c6fb8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeadb9c25265c1b0872546e5c6686ec13"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBolusCalculator.html#aeadb9c25265c1b0872546e5c6686ec13">suggestDose</a> ()</td></tr>
+<tr class="memdesc:aeadb9c25265c1b0872546e5c6686ec13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Suggest dose based on user profile metrics.  <a href="classBolusCalculator.html#aeadb9c25265c1b0872546e5c6686ec13">More...</a><br /></td></tr>
 <tr class="separator:aeadb9c25265c1b0872546e5c6686ec13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab636bf4e36462cf1e1f3498089321217"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBolusCalculator.html#ab636bf4e36462cf1e1f3498089321217">overrideDose</a> (double dose)</td></tr>
+<tr class="memdesc:ab636bf4e36462cf1e1f3498089321217"><td class="mdescLeft">&#160;</td><td class="mdescRight">Override the calculated bolus with a user-specified value.  <a href="classBolusCalculator.html#ab636bf4e36462cf1e1f3498089321217">More...</a><br /></td></tr>
 <tr class="separator:ab636bf4e36462cf1e1f3498089321217"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf63713eebc3ce9571478605a20cde3d"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBolusCalculator.html#adf63713eebc3ce9571478605a20cde3d">validateBolusInput</a> (double dose)</td></tr>
+<tr class="memdesc:adf63713eebc3ce9571478605a20cde3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validate that a bolus input falls within acceptable clinical ranges.  <a href="classBolusCalculator.html#adf63713eebc3ce9571478605a20cde3d">More...</a><br /></td></tr>
 <tr class="separator:adf63713eebc3ce9571478605a20cde3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23459fd89999b5798876a3c91232ad7e"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBolusCalculator.html#a23459fd89999b5798876a3c91232ad7e">calculateCorrectionBolus</a> (double glucose, double target, double correctionFactor)</td></tr>
+<tr class="memdesc:a23459fd89999b5798876a3c91232ad7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the correction bolus based on glucose deviation.  <a href="classBolusCalculator.html#a23459fd89999b5798876a3c91232ad7e">More...</a><br /></td></tr>
 <tr class="separator:a23459fd89999b5798876a3c91232ad7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f4ba95fc516fcc2d996b770f2a4a939"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBolusCalculator.html#a3f4ba95fc516fcc2d996b770f2a4a939">calculateCarbBolus</a> (double carbs, double carbRatio)</td></tr>
-<tr class="separator:a3f4ba95fc516fcc2d996b770f2a4a939"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9123122334740928732e44f9c7350f7"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBolusCalculator.html#ab9123122334740928732e44f9c7350f7">calculateCarbBolus</a> (double carbs, double carbRatio, double correctionFactor)</td></tr>
+<tr class="memdesc:ab9123122334740928732e44f9c7350f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the carbohydrate bolus based on carb intake.  <a href="classBolusCalculator.html#ab9123122334740928732e44f9c7350f7">More...</a><br /></td></tr>
+<tr class="separator:ab9123122334740928732e44f9c7350f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acdf0858ff2333346a87465e83ce4205f"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBolusCalculator.html#acdf0858ff2333346a87465e83ce4205f">calculateTotalBolus</a> (double glucose, double carbs, double target)</td></tr>
+<tr class="memdesc:acdf0858ff2333346a87465e83ce4205f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute total bolus by combining correction and carb boluses.  <a href="classBolusCalculator.html#acdf0858ff2333346a87465e83ce4205f">More...</a><br /></td></tr>
 <tr class="separator:acdf0858ff2333346a87465e83ce4205f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7ad9b35d95f40e75f560d4e63a9f47d"><td class="memItemLeft" align="right" valign="top">static std::pair&lt; double, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBolusCalculator.html#ac7ad9b35d95f40e75f560d4e63a9f47d">splitBolus</a> (double total, double percentage)</td></tr>
+<tr class="memdesc:ac7ad9b35d95f40e75f560d4e63a9f47d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Split a total bolus into immediate and extended portions.  <a href="classBolusCalculator.html#ac7ad9b35d95f40e75f560d4e63a9f47d">More...</a><br /></td></tr>
 <tr class="separator:ac7ad9b35d95f40e75f560d4e63a9f47d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-slots"></a>
 Private Slots</h2></td></tr>
 <tr class="memitem:ab9794dd9539a1eece9bea3631f891dfb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBolusCalculator.html#ab9794dd9539a1eece9bea3631f891dfb">on_logoButton_clicked</a> ()</td></tr>
+<tr class="memdesc:ab9794dd9539a1eece9bea3631f891dfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle click on the logo button to return home.  <a href="classBolusCalculator.html#ab9794dd9539a1eece9bea3631f891dfb">More...</a><br /></td></tr>
 <tr class="separator:ab9794dd9539a1eece9bea3631f891dfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae33f1d2d1c4a21f6794ada968a77f39a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBolusCalculator.html#ae33f1d2d1c4a21f6794ada968a77f39a">on_btnCalculate_clicked</a> ()</td></tr>
+<tr class="memdesc:ae33f1d2d1c4a21f6794ada968a77f39a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate bolus when calculate button is pressed.  <a href="classBolusCalculator.html#ae33f1d2d1c4a21f6794ada968a77f39a">More...</a><br /></td></tr>
 <tr class="separator:ae33f1d2d1c4a21f6794ada968a77f39a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86e1244fe3d89237a1607683c9ebe6aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBolusCalculator.html#a86e1244fe3d89237a1607683c9ebe6aa">on_btnOverrideConfirm_clicked</a> ()</td></tr>
+<tr class="memdesc:a86e1244fe3d89237a1607683c9ebe6aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Confirm override dose when override button is pressed.  <a href="classBolusCalculator.html#a86e1244fe3d89237a1607683c9ebe6aa">More...</a><br /></td></tr>
 <tr class="separator:a86e1244fe3d89237a1607683c9ebe6aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada773975304f1da28afebe60f759ed61"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBolusCalculator.html#ada773975304f1da28afebe60f759ed61">on_btnDeliver_clicked</a> ()</td></tr>
+<tr class="memdesc:ada773975304f1da28afebe60f759ed61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trigger delivery of the calculated bolus.  <a href="classBolusCalculator.html#ada773975304f1da28afebe60f759ed61">More...</a><br /></td></tr>
 <tr class="separator:ada773975304f1da28afebe60f759ed61"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65f71feaaff7c6745f2fbb8f25ebec71"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBolusCalculator.html#a65f71feaaff7c6745f2fbb8f25ebec71">deliverExtendedDose</a> ()</td></tr>
+<tr class="memdesc:a65f71feaaff7c6745f2fbb8f25ebec71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle extended dose delivery logic.  <a href="classBolusCalculator.html#a65f71feaaff7c6745f2fbb8f25ebec71">More...</a><br /></td></tr>
 <tr class="separator:a65f71feaaff7c6745f2fbb8f25ebec71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af93f243ec9cefca9e0c0f297c887ebda"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBolusCalculator.html#af93f243ec9cefca9e0c0f297c887ebda">updateCountdown</a> ()</td></tr>
-<tr class="separator:af93f243ec9cefca9e0c0f297c887ebda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a286e201297a5d092100a3087d228fc38"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBolusCalculator.html#a286e201297a5d092100a3087d228fc38">on_btnCancelBolus_clicked</a> ()</td></tr>
+<tr class="memdesc:a286e201297a5d092100a3087d228fc38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cancel any ongoing bolus and update UI/log.  <a href="classBolusCalculator.html#a286e201297a5d092100a3087d228fc38">More...</a><br /></td></tr>
 <tr class="separator:a286e201297a5d092100a3087d228fc38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -168,16 +193,14 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ac20dddfc8c835cfb33e1c59979f256ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea629ac85bdd13a4b48f87296ff0c62a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classInsulinReserve.html">InsulinReserve</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBolusCalculator.html#aea629ac85bdd13a4b48f87296ff0c62a">insulinReserve</a></td></tr>
 <tr class="separator:aea629ac85bdd13a4b48f87296ff0c62a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d813a55cea93b96f23fa8767ee10ca7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIOBTracker.html">IOBTracker</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBolusCalculator.html#a7d813a55cea93b96f23fa8767ee10ca7">iobTracker</a></td></tr>
-<tr class="separator:a7d813a55cea93b96f23fa8767ee10ca7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66910f3b418855a9086e96c4fa9039e6"><td class="memItemLeft" align="right" valign="top">QTimer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBolusCalculator.html#a66910f3b418855a9086e96c4fa9039e6">extendedDoseTimer</a></td></tr>
 <tr class="separator:a66910f3b418855a9086e96c4fa9039e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8cafcb24b8cd12192868aa0cc4a453de"><td class="memItemLeft" align="right" valign="top">QTimer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBolusCalculator.html#a8cafcb24b8cd12192868aa0cc4a453de">countdownTimer</a></td></tr>
 <tr class="separator:a8cafcb24b8cd12192868aa0cc4a453de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa57e2ffc34b89bd1e6f1f644febe092e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBolusCalculator.html#aa57e2ffc34b89bd1e6f1f644febe092e">remainingExtendedDose</a></td></tr>
 <tr class="separator:aa57e2ffc34b89bd1e6f1f644febe092e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba9d2180e68abfb6f434bdb8f5798a9c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBolusCalculator.html#aba9d2180e68abfb6f434bdb8f5798a9c">countdownSeconds</a></td></tr>
-<tr class="separator:aba9d2180e68abfb6f434bdb8f5798a9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a351fb8c6b53e82814ce4f76ed00656ce"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBolusCalculator.html#a351fb8c6b53e82814ce4f76ed00656ce">countdownMinutes</a></td></tr>
+<tr class="separator:a351fb8c6b53e82814ce4f76ed00656ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
@@ -185,10 +208,15 @@ Static Private Attributes</h2></td></tr>
 <tr class="separator:a9739cc5f9fb5be059bf53221f852f993"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30dbeceddd5d9192bbd5b649e0acd556"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBolusCalculator.html#a30dbeceddd5d9192bbd5b649e0acd556">doseOverridden</a></td></tr>
 <tr class="separator:a30dbeceddd5d9192bbd5b649e0acd556"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad677c4a54c8e3b019eb4b60ab0f66935"><td class="memItemLeft" align="right" valign="top">static constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBolusCalculator.html#ad677c4a54c8e3b019eb4b60ab0f66935">bolusRate</a> = 10</td></tr>
+<tr class="separator:ad677c4a54c8e3b019eb4b60ab0f66935"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a7232929463b8823a647ddba48a372ff9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7232929463b8823a647ddba48a372ff9">&#9670;&nbsp;</a></span>BolusCalculator()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>QWidget subclass for insulin bolus calculation and delivery control. </p>
+<p>Manages UI interactions for computing recommended insulin doses, overriding inputs, validating entries, and dispatching bolus commands to the <a class="el" href="classPumpController.html" title="controller for insulin pump operations">PumpController</a>. Also handles extended dose timing and countdown display. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ab965879e509066c78bac834300fa8984"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab965879e509066c78bac834300fa8984">&#9670;&nbsp;</a></span>BolusCalculator()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -223,12 +251,6 @@ Static Private Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classIOBTracker.html">IOBTracker</a> *&#160;</td>
-          <td class="paramname"><em>iobTracker</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">QWidget *&#160;</td>
           <td class="paramname"><em>parent</em> = <code>nullptr</code>&#160;</td>
         </tr>
@@ -244,6 +266,18 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Constructs the <a class="el" href="classBolusCalculator.html" title="QWidget subclass for insulin bolus calculation and delivery control.">BolusCalculator</a> widget. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pump</td><td>Pointer to the <a class="el" href="classPumpController.html" title="controller for insulin pump operations">PumpController</a> for sending bolus commands. </td></tr>
+    <tr><td class="paramname">logger</td><td>Pointer to <a class="el" href="classDataLogger.html" title="Manages data logging for events, glucose, and insulin entries.">DataLogger</a> for event logging. </td></tr>
+    <tr><td class="paramname">cgm</td><td>Pointer to <a class="el" href="classCGMReader.html" title="Simulates a continuous glucose monitor (CGM).">CGMReader</a> for obtaining glucose data. </td></tr>
+    <tr><td class="paramname">insulin</td><td>Pointer to <a class="el" href="classInsulinReserve.html" title="Manages the insulin reservoir for the pump simulator.">InsulinReserve</a> for checking insulin availability. </td></tr>
+    <tr><td class="paramname">parent</td><td>Optional parent QWidget. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -261,6 +295,8 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Cleans up the <a class="el" href="classBolusCalculator.html" title="QWidget subclass for insulin bolus calculation and delivery control.">BolusCalculator</a> widget / deallocates memory. </p>
 
 </div>
 </div>
@@ -287,6 +323,42 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Navigate back to the home screen. </p>
+
+</div>
+</div>
+<a id="a071f5c9dac56a81b7197e1126283e3c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a071f5c9dac56a81b7197e1126283e3c6">&#9670;&nbsp;</a></span>bolusStarted</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BolusCalculator::bolusStarted </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>status</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Emitted when a bolus delivery begins. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">status</td><td>Human-readable status message (e.g., "Immediate", "Extended"). </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -324,10 +396,21 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Calculate a bolus recommendation from current glucose and carb values. </p>
+<p>Uses both correction and carb ratios to compute a suggested dose.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">glucose</td><td>Current blood glucose level (mg/dL). </td></tr>
+    <tr><td class="paramname">carbs</td><td>Amount of carbohydrates to process (grams). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Recommended bolus amount (units). </dd></dl>
+
 </div>
 </div>
-<a id="a3f4ba95fc516fcc2d996b770f2a4a939"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f4ba95fc516fcc2d996b770f2a4a939">&#9670;&nbsp;</a></span>calculateCarbBolus()</h2>
+<a id="ab9123122334740928732e44f9c7350f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9123122334740928732e44f9c7350f7">&#9670;&nbsp;</a></span>calculateCarbBolus()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -345,7 +428,13 @@ Static Private Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>carbRatio</em>&#160;</td>
+          <td class="paramname"><em>carbRatio</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>correctionFactor</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -359,6 +448,17 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Compute the carbohydrate bolus based on carb intake. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">carbs</td><td>Grams of carbohydrates consumed. </td></tr>
+    <tr><td class="paramname">carbRatio</td><td>Grams of carbs covered per unit of insulin. </td></tr>
+    <tr><td class="paramname">correctionFactor</td><td>Sensitivity factor for adjustments (mg/dL per unit). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Units required to cover carbohydrate intake. </dd></dl>
 
 </div>
 </div>
@@ -402,6 +502,17 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Compute the correction bolus based on glucose deviation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">glucose</td><td>Current blood glucose (mg/dL). </td></tr>
+    <tr><td class="paramname">target</td><td>Target blood glucose (mg/dL). </td></tr>
+    <tr><td class="paramname">correctionFactor</td><td>Insulin sensitivity factor (mg/dL per unit). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Units required to correct to target level. </dd></dl>
+
 </div>
 </div>
 <a id="acdf0858ff2333346a87465e83ce4205f"></a>
@@ -444,6 +555,17 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Compute total bolus by combining correction and carb boluses. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">glucose</td><td>Current blood glucose level (mg/dL). </td></tr>
+    <tr><td class="paramname">carbs</td><td>Carbohydrate intake (grams). </td></tr>
+    <tr><td class="paramname">target</td><td>Target blood glucose level (mg/dL). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Sum of correction and carb bolus units. </dd></dl>
+
 </div>
 </div>
 <a id="a2523cf1dd283d206abff2db09a71b45b"></a>
@@ -470,6 +592,14 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Indicates whether the countdown is active. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">active</td><td>True if countdown is running, false if stopped. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a65f71feaaff7c6745f2fbb8f25ebec71"></a>
@@ -494,6 +624,8 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Handle extended dose delivery logic. </p>
 
 </div>
 </div>
@@ -520,6 +652,8 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Calculate bolus when calculate button is pressed. </p>
+
 </div>
 </div>
 <a id="a286e201297a5d092100a3087d228fc38"></a>
@@ -544,6 +678,8 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Cancel any ongoing bolus and update UI/log. </p>
 
 </div>
 </div>
@@ -570,6 +706,8 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Trigger delivery of the calculated bolus. </p>
+
 </div>
 </div>
 <a id="a86e1244fe3d89237a1607683c9ebe6aa"></a>
@@ -594,6 +732,8 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Confirm override dose when override button is pressed. </p>
 
 </div>
 </div>
@@ -620,6 +760,8 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Handle click on the logo button to return home. </p>
+
 </div>
 </div>
 <a id="ab636bf4e36462cf1e1f3498089321217"></a>
@@ -645,6 +787,14 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Override the calculated bolus with a user-specified value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dose</td><td>The manual dose to use instead of calculated values. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -682,6 +832,16 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Split a total bolus into immediate and extended portions. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">total</td><td>Total bolus units. </td></tr>
+    <tr><td class="paramname">percentage</td><td>Percentage delivered immediately (1% - 100%). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pair of &lt;immediateUnits, extendedUnits&gt;. </dd></dl>
+
 </div>
 </div>
 <a id="aeadb9c25265c1b0872546e5c6686ec13"></a>
@@ -707,16 +867,16 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Suggest dose based on user profile metrics. </p>
+<dl class="section return"><dt>Returns</dt><dd>Suggested baseline bolus amount (units). </dd></dl>
+
 </div>
 </div>
 <a id="af93f243ec9cefca9e0c0f297c887ebda"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af93f243ec9cefca9e0c0f297c887ebda">&#9670;&nbsp;</a></span>updateCountdown</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af93f243ec9cefca9e0c0f297c887ebda">&#9670;&nbsp;</a></span>updateCountdown()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void BolusCalculator::updateCountdown </td>
@@ -725,12 +885,10 @@ Static Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">slot</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>Update the countdown timer display for extended dose delivery. </p>
+<p>Called periodically to refresh remaining time in the UI. </p>
 
 </div>
 </div>
@@ -758,9 +916,40 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Validate that a bolus input falls within acceptable clinical ranges. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dose</td><td>The bolus amount to validate. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the dose is within valid limits, false otherwise. </dd></dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="ad677c4a54c8e3b019eb4b60ab0f66935"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad677c4a54c8e3b019eb4b60ab0f66935">&#9670;&nbsp;</a></span>bolusRate</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr double BolusCalculator::bolusRate = 10</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ac20dddfc8c835cfb33e1c59979f256ee"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac20dddfc8c835cfb33e1c59979f256ee">&#9670;&nbsp;</a></span>cgm</h2>
 
@@ -783,8 +972,8 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aba9d2180e68abfb6f434bdb8f5798a9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba9d2180e68abfb6f434bdb8f5798a9c">&#9670;&nbsp;</a></span>countdownSeconds</h2>
+<a id="a351fb8c6b53e82814ce4f76ed00656ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a351fb8c6b53e82814ce4f76ed00656ce">&#9670;&nbsp;</a></span>countdownMinutes</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -793,7 +982,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int BolusCalculator::countdownSeconds</td>
+          <td class="memname">int BolusCalculator::countdownMinutes</td>
         </tr>
       </table>
   </td>
@@ -882,28 +1071,6 @@ Static Private Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classInsulinReserve.html">InsulinReserve</a>* BolusCalculator::insulinReserve</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7d813a55cea93b96f23fa8767ee10ca7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d813a55cea93b96f23fa8767ee10ca7">&#9670;&nbsp;</a></span>iobTracker</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classIOBTracker.html">IOBTracker</a>* BolusCalculator::iobTracker</td>
         </tr>
       </table>
   </td>

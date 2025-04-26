@@ -1,11 +1,9 @@
 var hierarchy =
 [
-    [ "IOBTracker::BolusEntry", "structIOBTracker_1_1BolusEntry.html", null ],
     [ "CGMReader", "classCGMReader.html", null ],
     [ "ControlIQAlgorithm", "classControlIQAlgorithm.html", null ],
     [ "GlucoseLogEntry", "structGlucoseLogEntry.html", null ],
     [ "InsulinLogEntry", "structInsulinLogEntry.html", null ],
-    [ "IOBTracker", "classIOBTracker.html", null ],
     [ "LogData", "structLogData.html", null ],
     [ "LogEntry", "structLogEntry.html", null ],
     [ "Profile", "classProfile.html", null ],

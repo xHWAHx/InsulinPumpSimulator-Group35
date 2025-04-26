@@ -37,10 +37,6 @@ var dir_050edd66366d13764f98250ef6db77f6 =
     [ "insulinreserve.h", "insulinreserve_8h.html", [
       [ "InsulinReserve", "classInsulinReserve.html", "classInsulinReserve" ]
     ] ],
-    [ "iobtracker.h", "iobtracker_8h.html", [
-      [ "IOBTracker", "classIOBTracker.html", "classIOBTracker" ],
-      [ "BolusEntry", "structIOBTracker_1_1BolusEntry.html", "structIOBTracker_1_1BolusEntry" ]
-    ] ],
     [ "login.h", "login_8h.html", [
       [ "Login", "classLogin.html", "classLogin" ]
     ] ],

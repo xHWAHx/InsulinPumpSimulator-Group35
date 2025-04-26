@@ -92,6 +92,9 @@ $(document).ready(function(){initNavTree('classDevice.html',''); initResizable()
 </div><!--header-->
 <div class="contents">
 
+<p>Central orchestrator for the insulin pump simulator.  
+ <a href="classDevice.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="device_8h_source.html">device.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Device:</div>
@@ -107,74 +110,111 @@ Collaboration diagram for Device:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
 Public Slots</h2></td></tr>
 <tr class="memitem:a2405cf1e33a3f42ce26bf9c82db3abee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#a2405cf1e33a3f42ce26bf9c82db3abee">power</a> ()</td></tr>
+<tr class="memdesc:a2405cf1e33a3f42ce26bf9c82db3abee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles device power on or off.  <a href="classDevice.html#a2405cf1e33a3f42ce26bf9c82db3abee">More...</a><br /></td></tr>
 <tr class="separator:a2405cf1e33a3f42ce26bf9c82db3abee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a798239cba6f2cbcd6f358fdd4a7c8a6b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#a798239cba6f2cbcd6f358fdd4a7c8a6b">noPower</a> ()</td></tr>
+<tr class="memdesc:a798239cba6f2cbcd6f358fdd4a7c8a6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles shutdown when power is lost or device is turned off.  <a href="classDevice.html#a798239cba6f2cbcd6f358fdd4a7c8a6b">More...</a><br /></td></tr>
 <tr class="separator:a798239cba6f2cbcd6f358fdd4a7c8a6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad826df81575f57770d49bef52dd870b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#ad826df81575f57770d49bef52dd870b5">tick</a> ()</td></tr>
+<tr class="memdesc:ad826df81575f57770d49bef52dd870b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulation tick handler (invoked by QTimer). Each tick represents 5 simulated minutes.  <a href="classDevice.html#ad826df81575f57770d49bef52dd870b5">More...</a><br /></td></tr>
 <tr class="separator:ad826df81575f57770d49bef52dd870b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad16e02336bcda8d36cf5d5ab51929815"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#ad16e02336bcda8d36cf5d5ab51929815">startMonitoring</a> ()</td></tr>
+<tr class="memdesc:ad16e02336bcda8d36cf5d5ab51929815"><td class="mdescLeft">&#160;</td><td class="mdescRight">Begins monitoring loop after successful unlock.  <a href="classDevice.html#ad16e02336bcda8d36cf5d5ab51929815">More...</a><br /></td></tr>
 <tr class="separator:ad16e02336bcda8d36cf5d5ab51929815"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0066096a05fa582893223c2b6e55ebdd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#a0066096a05fa582893223c2b6e55ebdd">setSimRate</a> (int rate)</td></tr>
-<tr class="separator:a0066096a05fa582893223c2b6e55ebdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65d3d27c401c6124b68c25cc54bddd40"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#a65d3d27c401c6124b68c25cc54bddd40">togglePaused</a> ()</td></tr>
+<tr class="memdesc:a65d3d27c401c6124b68c25cc54bddd40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pauses or resumes the simulation tick loop.  <a href="classDevice.html#a65d3d27c401c6124b68c25cc54bddd40">More...</a><br /></td></tr>
+<tr class="separator:a65d3d27c401c6124b68c25cc54bddd40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9babca36994e56420834c42875717b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#ae9babca36994e56420834c42875717b6">simCarbIntake</a> ()</td></tr>
+<tr class="memdesc:ae9babca36994e56420834c42875717b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulates carbohydrate intake based on user input.  <a href="classDevice.html#ae9babca36994e56420834c42875717b6">More...</a><br /></td></tr>
+<tr class="separator:ae9babca36994e56420834c42875717b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a849bc578bd38b1552834d4ef6314efac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#a849bc578bd38b1552834d4ef6314efac">Device</a> (QWidget *parent=nullptr)</td></tr>
+<tr class="memdesc:a849bc578bd38b1552834d4ef6314efac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the <a class="el" href="classDevice.html" title="Central orchestrator for the insulin pump simulator.">Device</a> controller and sets up UI and subsystems.  <a href="classDevice.html#a849bc578bd38b1552834d4ef6314efac">More...</a><br /></td></tr>
 <tr class="separator:a849bc578bd38b1552834d4ef6314efac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a8136d1f592f2be59e5ec989b943bd8b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#a8136d1f592f2be59e5ec989b943bd8b9">monitor</a> ()</td></tr>
+<tr class="memdesc:a8136d1f592f2be59e5ec989b943bd8b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes one monitoring cycle: read sensors, update pump, log data, and refresh UI.  <a href="classDevice.html#a8136d1f592f2be59e5ec989b943bd8b9">More...</a><br /></td></tr>
 <tr class="separator:a8136d1f592f2be59e5ec989b943bd8b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3ed376bd7a18872945d4f2ff72a67dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#af3ed376bd7a18872945d4f2ff72a67dc">safetyChecks</a> (double glucose, double target)</td></tr>
+<tr class="memdesc:af3ed376bd7a18872945d4f2ff72a67dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates safety conditions and triggers alerts as needed.  <a href="classDevice.html#af3ed376bd7a18872945d4f2ff72a67dc">More...</a><br /></td></tr>
 <tr class="separator:af3ed376bd7a18872945d4f2ff72a67dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0066096a05fa582893223c2b6e55ebdd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#a0066096a05fa582893223c2b6e55ebdd">setSimRate</a> (int rate)</td></tr>
+<tr class="memdesc:a0066096a05fa582893223c2b6e55ebdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates simulation rate and adjusts timer interval accordingly.  <a href="classDevice.html#a0066096a05fa582893223c2b6e55ebdd">More...</a><br /></td></tr>
+<tr class="separator:a0066096a05fa582893223c2b6e55ebdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:aa115c6602626b7c3df32fa547dd5b346"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#aa115c6602626b7c3df32fa547dd5b346">poweredOn</a></td></tr>
-<tr class="separator:aa115c6602626b7c3df32fa547dd5b346"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd814466c4871eed15436e238c2a7cbe"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#acd814466c4871eed15436e238c2a7cbe">monitoring</a></td></tr>
-<tr class="separator:acd814466c4871eed15436e238c2a7cbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aabeff95461bddbb435f08fa3248c07c3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#aabeff95461bddbb435f08fa3248c07c3">simulationRate</a></td></tr>
 <tr class="separator:aabeff95461bddbb435f08fa3248c07c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa115c6602626b7c3df32fa547dd5b346"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#aa115c6602626b7c3df32fa547dd5b346">poweredOn</a></td></tr>
+<tr class="memdesc:aa115c6602626b7c3df32fa547dd5b346"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classDevice.html" title="Central orchestrator for the insulin pump simulator.">Device</a> power state.  <a href="classDevice.html#aa115c6602626b7c3df32fa547dd5b346">More...</a><br /></td></tr>
+<tr class="separator:aa115c6602626b7c3df32fa547dd5b346"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd814466c4871eed15436e238c2a7cbe"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#acd814466c4871eed15436e238c2a7cbe">monitoring</a></td></tr>
+<tr class="memdesc:acd814466c4871eed15436e238c2a7cbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether monitoring is active.  <a href="classDevice.html#acd814466c4871eed15436e238c2a7cbe">More...</a><br /></td></tr>
+<tr class="separator:acd814466c4871eed15436e238c2a7cbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a265425a41fc300041ef4cb27d50f3818"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#a265425a41fc300041ef4cb27d50f3818">paused</a></td></tr>
+<tr class="memdesc:a265425a41fc300041ef4cb27d50f3818"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether simulation is paused.  <a href="classDevice.html#a265425a41fc300041ef4cb27d50f3818">More...</a><br /></td></tr>
+<tr class="separator:a265425a41fc300041ef4cb27d50f3818"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a697db496135a4bc11340bf71d1b7a450"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classBatteryManager.html">BatteryManager</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#a697db496135a4bc11340bf71d1b7a450">battery</a></td></tr>
+<tr class="memdesc:a697db496135a4bc11340bf71d1b7a450"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manages battery level and drain.  <a href="classDevice.html#a697db496135a4bc11340bf71d1b7a450">More...</a><br /></td></tr>
 <tr class="separator:a697db496135a4bc11340bf71d1b7a450"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adadd61cfdeda01e3d5e953ad0a21f537"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDataLogger.html">DataLogger</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#adadd61cfdeda01e3d5e953ad0a21f537">logger</a></td></tr>
+<tr class="memdesc:adadd61cfdeda01e3d5e953ad0a21f537"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs events, glucose, and insulin data.  <a href="classDevice.html#adadd61cfdeda01e3d5e953ad0a21f537">More...</a><br /></td></tr>
 <tr class="separator:adadd61cfdeda01e3d5e953ad0a21f537"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0384c6e4421b7412f2ceb06edc640e8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classInsulinReserve.html">InsulinReserve</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#ab0384c6e4421b7412f2ceb06edc640e8">insulin</a></td></tr>
+<tr class="memdesc:ab0384c6e4421b7412f2ceb06edc640e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tracks insulin reservoir.  <a href="classDevice.html#ab0384c6e4421b7412f2ceb06edc640e8">More...</a><br /></td></tr>
 <tr class="separator:ab0384c6e4421b7412f2ceb06edc640e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2cce9dfde40c00f3fa8476df18fac16"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classCGMReader.html">CGMReader</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#ac2cce9dfde40c00f3fa8476df18fac16">cgm</a></td></tr>
+<tr class="memdesc:ac2cce9dfde40c00f3fa8476df18fac16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulates CGM readings.  <a href="classDevice.html#ac2cce9dfde40c00f3fa8476df18fac16">More...</a><br /></td></tr>
 <tr class="separator:ac2cce9dfde40c00f3fa8476df18fac16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78650596aaffed9fd50da9359f9e3d4f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classBloodstream.html">Bloodstream</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#a78650596aaffed9fd50da9359f9e3d4f">bloodstream</a></td></tr>
+<tr class="memdesc:a78650596aaffed9fd50da9359f9e3d4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives insulin injections.  <a href="classDevice.html#a78650596aaffed9fd50da9359f9e3d4f">More...</a><br /></td></tr>
 <tr class="separator:a78650596aaffed9fd50da9359f9e3d4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a6277a17518f2cfea42e8de1c18c412"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classControlIQAlgorithm.html">ControlIQAlgorithm</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#a4a6277a17518f2cfea42e8de1c18c412">controlIQ</a></td></tr>
+<tr class="memdesc:a4a6277a17518f2cfea42e8de1c18c412"><td class="mdescLeft">&#160;</td><td class="mdescRight">Automated basal adjustment algorithm.  <a href="classDevice.html#a4a6277a17518f2cfea42e8de1c18c412">More...</a><br /></td></tr>
 <tr class="separator:a4a6277a17518f2cfea42e8de1c18c412"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29ef204cc0bd228b0de2500dd5d22575"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classProfile.html">Profile</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#a29ef204cc0bd228b0de2500dd5d22575">profiles</a></td></tr>
+<tr class="memdesc:a29ef204cc0bd228b0de2500dd5d22575"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manages user profiles.  <a href="classDevice.html#a29ef204cc0bd228b0de2500dd5d22575">More...</a><br /></td></tr>
 <tr class="separator:a29ef204cc0bd228b0de2500dd5d22575"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2cedda2d493621f40f299d1109260a3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIOBTracker.html">IOBTracker</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#ab2cedda2d493621f40f299d1109260a3">iobTracker</a></td></tr>
-<tr class="separator:ab2cedda2d493621f40f299d1109260a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2272bd7858cd5b0aed01e0221e476b1e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPumpController.html">PumpController</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#a2272bd7858cd5b0aed01e0221e476b1e">pump</a></td></tr>
+<tr class="memdesc:a2272bd7858cd5b0aed01e0221e476b1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Executes insulin delivery logic.  <a href="classDevice.html#a2272bd7858cd5b0aed01e0221e476b1e">More...</a><br /></td></tr>
 <tr class="separator:a2272bd7858cd5b0aed01e0221e476b1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1837b186572857d2b618988935ec4e0f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classUserInterface.html">UserInterface</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#a1837b186572857d2b618988935ec4e0f">interface</a></td></tr>
+<tr class="memdesc:a1837b186572857d2b618988935ec4e0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles UI navigation and updates.  <a href="classDevice.html#a1837b186572857d2b618988935ec4e0f">More...</a><br /></td></tr>
 <tr class="separator:a1837b186572857d2b618988935ec4e0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20876cbb8a38cfab24497d80835a8efd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classAlert.html">Alert</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#a20876cbb8a38cfab24497d80835a8efd">alerts</a></td></tr>
+<tr class="memdesc:a20876cbb8a38cfab24497d80835a8efd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays alert dialogs.  <a href="classDevice.html#a20876cbb8a38cfab24497d80835a8efd">More...</a><br /></td></tr>
 <tr class="separator:a20876cbb8a38cfab24497d80835a8efd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f96cb61e994b0c5439161e60a336133"><td class="memItemLeft" align="right" valign="top">Ui::Device *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#a9f96cb61e994b0c5439161e60a336133">window</a></td></tr>
+<tr class="memdesc:a9f96cb61e994b0c5439161e60a336133"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generated UI components.  <a href="classDevice.html#a9f96cb61e994b0c5439161e60a336133">More...</a><br /></td></tr>
 <tr class="separator:a9f96cb61e994b0c5439161e60a336133"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ca2281987c6ff55461077a60a75df07"><td class="memItemLeft" align="right" valign="top">QTimer *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#a4ca2281987c6ff55461077a60a75df07">tickClock</a></td></tr>
+<tr class="memdesc:a4ca2281987c6ff55461077a60a75df07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer driving simulation ticks.  <a href="classDevice.html#a4ca2281987c6ff55461077a60a75df07">More...</a><br /></td></tr>
 <tr class="separator:a4ca2281987c6ff55461077a60a75df07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a866c6bffa432448d3dd085851f059f25"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#a866c6bffa432448d3dd085851f059f25">batteryAlertShown</a> = false</td></tr>
+<tr class="memdesc:a866c6bffa432448d3dd085851f059f25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prevents repeated battery alerts.  <a href="classDevice.html#a866c6bffa432448d3dd085851f059f25">More...</a><br /></td></tr>
 <tr class="separator:a866c6bffa432448d3dd085851f059f25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37b54313b1f4518e97ac3ffa05edcfb6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#a37b54313b1f4518e97ac3ffa05edcfb6">insulinAlertShown</a> = false</td></tr>
+<tr class="memdesc:a37b54313b1f4518e97ac3ffa05edcfb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prevents repeated insulin-low alerts.  <a href="classDevice.html#a37b54313b1f4518e97ac3ffa05edcfb6">More...</a><br /></td></tr>
 <tr class="separator:a37b54313b1f4518e97ac3ffa05edcfb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6ed894deda5970951fcef3dc48daecd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#aa6ed894deda5970951fcef3dc48daecd">cgmAlertShown</a> = false</td></tr>
+<tr class="memdesc:aa6ed894deda5970951fcef3dc48daecd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prevents repeated CGM disconnect alerts.  <a href="classDevice.html#aa6ed894deda5970951fcef3dc48daecd">More...</a><br /></td></tr>
 <tr class="separator:aa6ed894deda5970951fcef3dc48daecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83bbba92fdb52fce1ed01a2123774aaf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#a83bbba92fdb52fce1ed01a2123774aaf">lowGlucoseAlertShown</a> = false</td></tr>
+<tr class="memdesc:a83bbba92fdb52fce1ed01a2123774aaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prevents repeated low-glucose alerts.  <a href="classDevice.html#a83bbba92fdb52fce1ed01a2123774aaf">More...</a><br /></td></tr>
 <tr class="separator:a83bbba92fdb52fce1ed01a2123774aaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac19742cdd54f77e2ab4836d9c4dfd4cc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classDevice.html#ac19742cdd54f77e2ab4836d9c4dfd4cc">highGlucoseAlertShown</a> = false</td></tr>
+<tr class="memdesc:ac19742cdd54f77e2ab4836d9c4dfd4cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prevents repeated high-glucose alerts.  <a href="classDevice.html#ac19742cdd54f77e2ab4836d9c4dfd4cc">More...</a><br /></td></tr>
 <tr class="separator:ac19742cdd54f77e2ab4836d9c4dfd4cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Central orchestrator for the insulin pump simulator. </p>
+<p>Initializes and connects all subsystems (pump, CGM, battery, UI, etc.), manages the simulation lifecycle (power, monitoring loop), and enforces safety via periodic checks. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a849bc578bd38b1552834d4ef6314efac"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a849bc578bd38b1552834d4ef6314efac">&#9670;&nbsp;</a></span>Device()</h2>
 
@@ -198,6 +238,14 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Constructs the <a class="el" href="classDevice.html" title="Central orchestrator for the insulin pump simulator.">Device</a> controller and sets up UI and subsystems. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>Optional parent widget. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -225,6 +273,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Executes one monitoring cycle: read sensors, update pump, log data, and refresh UI. </p>
+
 </div>
 </div>
 <a id="a798239cba6f2cbcd6f358fdd4a7c8a6b"></a>
@@ -250,6 +300,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Handles shutdown when power is lost or device is turned off. </p>
+
 </div>
 </div>
 <a id="a2405cf1e33a3f42ce26bf9c82db3abee"></a>
@@ -274,6 +326,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Toggles device power on or off. </p>
 
 </div>
 </div>
@@ -311,10 +365,19 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Evaluates safety conditions and triggers alerts as needed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">glucose</td><td>Current glucose reading from CGM </td></tr>
+    <tr><td class="paramname">target</td><td>User-defined target glucose level </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a0066096a05fa582893223c2b6e55ebdd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0066096a05fa582893223c2b6e55ebdd">&#9670;&nbsp;</a></span>setSimRate</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0066096a05fa582893223c2b6e55ebdd">&#9670;&nbsp;</a></span>setSimRate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -332,10 +395,45 @@ Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Updates simulation rate and adjusts timer interval accordingly. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rate</td><td>New simulation speed factor </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae9babca36994e56420834c42875717b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9babca36994e56420834c42875717b6">&#9670;&nbsp;</a></span>simCarbIntake</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Device::simCarbIntake </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">slot</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Simulates carbohydrate intake based on user input. </p>
 
 </div>
 </div>
@@ -362,6 +460,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Begins monitoring loop after successful unlock. </p>
+
 </div>
 </div>
 <a id="ad826df81575f57770d49bef52dd870b5"></a>
@@ -387,6 +487,35 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Simulation tick handler (invoked by QTimer). Each tick represents 5 simulated minutes. </p>
+
+</div>
+</div>
+<a id="a65d3d27c401c6124b68c25cc54bddd40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65d3d27c401c6124b68c25cc54bddd40">&#9670;&nbsp;</a></span>togglePaused</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Device::togglePaused </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pauses or resumes the simulation tick loop. </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -410,6 +539,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Displays alert dialogs. </p>
+
 </div>
 </div>
 <a id="a697db496135a4bc11340bf71d1b7a450"></a>
@@ -431,6 +562,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Manages battery level and drain. </p>
 
 </div>
 </div>
@@ -454,6 +587,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Prevents repeated battery alerts. </p>
+
 </div>
 </div>
 <a id="a78650596aaffed9fd50da9359f9e3d4f"></a>
@@ -475,6 +610,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Receives insulin injections. </p>
 
 </div>
 </div>
@@ -498,6 +635,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Simulates CGM readings. </p>
+
 </div>
 </div>
 <a id="aa6ed894deda5970951fcef3dc48daecd"></a>
@@ -519,6 +658,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Prevents repeated CGM disconnect alerts. </p>
 
 </div>
 </div>
@@ -542,6 +683,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Automated basal adjustment algorithm. </p>
+
 </div>
 </div>
 <a id="ac19742cdd54f77e2ab4836d9c4dfd4cc"></a>
@@ -563,6 +706,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Prevents repeated high-glucose alerts. </p>
 
 </div>
 </div>
@@ -586,6 +731,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Tracks insulin reservoir. </p>
+
 </div>
 </div>
 <a id="a37b54313b1f4518e97ac3ffa05edcfb6"></a>
@@ -607,6 +754,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Prevents repeated insulin-low alerts. </p>
 
 </div>
 </div>
@@ -630,27 +779,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="ab2cedda2d493621f40f299d1109260a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2cedda2d493621f40f299d1109260a3">&#9670;&nbsp;</a></span>iobTracker</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classIOBTracker.html">IOBTracker</a>* Device::iobTracker</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Handles UI navigation and updates. </p>
 
 </div>
 </div>
@@ -674,6 +803,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Logs events, glucose, and insulin data. </p>
+
 </div>
 </div>
 <a id="a83bbba92fdb52fce1ed01a2123774aaf"></a>
@@ -695,6 +826,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Prevents repeated low-glucose alerts. </p>
 
 </div>
 </div>
@@ -718,6 +851,32 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Whether monitoring is active. </p>
+
+</div>
+</div>
+<a id="a265425a41fc300041ef4cb27d50f3818"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a265425a41fc300041ef4cb27d50f3818">&#9670;&nbsp;</a></span>paused</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Device::paused</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Whether simulation is paused. </p>
+
 </div>
 </div>
 <a id="aa115c6602626b7c3df32fa547dd5b346"></a>
@@ -739,6 +898,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p><a class="el" href="classDevice.html" title="Central orchestrator for the insulin pump simulator.">Device</a> power state. </p>
 
 </div>
 </div>
@@ -762,6 +923,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Manages user profiles. </p>
+
 </div>
 </div>
 <a id="a2272bd7858cd5b0aed01e0221e476b1e"></a>
@@ -783,6 +946,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Executes insulin delivery logic. </p>
 
 </div>
 </div>
@@ -828,6 +993,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Timer driving simulation ticks. </p>
+
 </div>
 </div>
 <a id="a9f96cb61e994b0c5439161e60a336133"></a>
@@ -849,6 +1016,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Generated UI components. </p>
 
 </div>
 </div>

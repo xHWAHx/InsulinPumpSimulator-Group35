@@ -92,6 +92,9 @@ $(document).ready(function(){initNavTree('classPumpController.html',''); initRes
 </div><!--header-->
 <div class="contents">
 
+<p>controller for insulin pump operations  
+ <a href="classPumpController.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="pumpcontroller_8h_source.html">pumpcontroller.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for PumpController:</div>
@@ -106,30 +109,41 @@ Collaboration diagram for PumpController:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
 Signals</h2></td></tr>
-<tr class="memitem:a5d3c4c92cde5c98fcf6fe1349e46540a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPumpController.html#a5d3c4c92cde5c98fcf6fe1349e46540a">bolusDeliveryProgress</a> (double remainingBolus, double rate, double deliveredThisTick)</td></tr>
-<tr class="separator:a5d3c4c92cde5c98fcf6fe1349e46540a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d511f807fb834d084d03e4f22bcc26a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPumpController.html#a2d511f807fb834d084d03e4f22bcc26a">bolusDeliveryProgress</a> (double remainingBolus)</td></tr>
+<tr class="memdesc:a2d511f807fb834d084d03e4f22bcc26a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Emitted during bolus delivery to report remaining units.  <a href="classPumpController.html#a2d511f807fb834d084d03e4f22bcc26a">More...</a><br /></td></tr>
+<tr class="separator:a2d511f807fb834d084d03e4f22bcc26a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab88db82815d0d60c496dae871e1560fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPumpController.html#ab88db82815d0d60c496dae871e1560fc">bolusTimeRemainingUpdated</a> (double timeRemaining)</td></tr>
+<tr class="memdesc:ab88db82815d0d60c496dae871e1560fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates estimated time remaining for bolus.  <a href="classPumpController.html#ab88db82815d0d60c496dae871e1560fc">More...</a><br /></td></tr>
 <tr class="separator:ab88db82815d0d60c496dae871e1560fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4287e5436615beb6987cf1c6a1c4161e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPumpController.html#a4287e5436615beb6987cf1c6a1c4161e">bolusCancelled</a> (double amountDelivered)</td></tr>
+<tr class="memdesc:a4287e5436615beb6987cf1c6a1c4161e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Emitted when a bolus delivery is cancelled.  <a href="classPumpController.html#a4287e5436615beb6987cf1c6a1c4161e">More...</a><br /></td></tr>
 <tr class="separator:a4287e5436615beb6987cf1c6a1c4161e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad7413f7438a95957ba78d8ae78834349"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPumpController.html#ad7413f7438a95957ba78d8ae78834349">PumpController</a> (<a class="el" href="classInsulinReserve.html">InsulinReserve</a> *insulin, <a class="el" href="classDataLogger.html">DataLogger</a> *<a class="el" href="classPumpController.html#a931b7657a0237cd231220b31c1a12729">logger</a>, <a class="el" href="classIOBTracker.html">IOBTracker</a> *iob, QObject *parent=nullptr)</td></tr>
-<tr class="separator:ad7413f7438a95957ba78d8ae78834349"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfe9c5716916e070a123c2af43e9673b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPumpController.html#adfe9c5716916e070a123c2af43e9673b">PumpController</a> (<a class="el" href="classInsulinReserve.html">InsulinReserve</a> *insulin, <a class="el" href="classDataLogger.html">DataLogger</a> *<a class="el" href="classPumpController.html#a931b7657a0237cd231220b31c1a12729">logger</a>, QCheckBox *<a class="el" href="classPumpController.html#a1a7ed69411860486cdeaff276aa2a900">errorCheckBox</a>, QObject *parent=nullptr)</td></tr>
+<tr class="memdesc:adfe9c5716916e070a123c2af43e9673b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classPumpController.html" title="controller for insulin pump operations">PumpController</a>.  <a href="classPumpController.html#adfe9c5716916e070a123c2af43e9673b">More...</a><br /></td></tr>
+<tr class="separator:adfe9c5716916e070a123c2af43e9673b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae440fcffa844e072a2d472273242ce71"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPumpController.html#ae440fcffa844e072a2d472273242ce71">deliverBolus</a> (double amount, double rate, bool suppressTime=false)</td></tr>
+<tr class="memdesc:ae440fcffa844e072a2d472273242ce71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initiates a bolus delivery.  <a href="classPumpController.html#ae440fcffa844e072a2d472273242ce71">More...</a><br /></td></tr>
 <tr class="separator:ae440fcffa844e072a2d472273242ce71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d721601fd54a97112437695707b69b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPumpController.html#a3d721601fd54a97112437695707b69b5">adjustBasalRate</a> (double rate)</td></tr>
+<tr class="memdesc:a3d721601fd54a97112437695707b69b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adjusts basal rate insulin delivery.  <a href="classPumpController.html#a3d721601fd54a97112437695707b69b5">More...</a><br /></td></tr>
 <tr class="separator:a3d721601fd54a97112437695707b69b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43725d9a8985ba52e8e743caae5944b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPumpController.html#a43725d9a8985ba52e8e743caae5944b4">suspendBolus</a> ()</td></tr>
+<tr class="memdesc:a43725d9a8985ba52e8e743caae5944b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Suspends the current bolus delivery. Emits a cancellation signal.  <a href="classPumpController.html#a43725d9a8985ba52e8e743caae5944b4">More...</a><br /></td></tr>
 <tr class="separator:a43725d9a8985ba52e8e743caae5944b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ccac5e78e61ba4ab8cf1356dfd8e9a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPumpController.html#a9ccac5e78e61ba4ab8cf1356dfd8e9a4">resumeBolus</a> ()</td></tr>
+<tr class="memdesc:a9ccac5e78e61ba4ab8cf1356dfd8e9a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">resumes a suspended bolus if emergency stop is not active  <a href="classPumpController.html#a9ccac5e78e61ba4ab8cf1356dfd8e9a4">More...</a><br /></td></tr>
 <tr class="separator:a9ccac5e78e61ba4ab8cf1356dfd8e9a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ff0c5bcd064356a45d254a159ee65fb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPumpController.html#a0ff0c5bcd064356a45d254a159ee65fb">checkDeviceStatus</a> ()</td></tr>
+<tr class="memdesc:a0ff0c5bcd064356a45d254a159ee65fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks the current device status.  <a href="classPumpController.html#a0ff0c5bcd064356a45d254a159ee65fb">More...</a><br /></td></tr>
 <tr class="separator:a0ff0c5bcd064356a45d254a159ee65fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aebb05481ce28e9ba43a934db2fdc5261"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPumpController.html#aebb05481ce28e9ba43a934db2fdc5261">triggerEmergencyStop</a> ()</td></tr>
+<tr class="memdesc:aebb05481ce28e9ba43a934db2fdc5261"><td class="mdescLeft">&#160;</td><td class="mdescRight">Activates an emergency stop, halting all insulin delivery.  <a href="classPumpController.html#aebb05481ce28e9ba43a934db2fdc5261">More...</a><br /></td></tr>
 <tr class="separator:aebb05481ce28e9ba43a934db2fdc5261"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61f2a74a6ebf5a37cb4ab3f3b126d8df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPumpController.html#a61f2a74a6ebf5a37cb4ab3f3b126d8df">pump</a> (<a class="el" href="classBloodstream.html">Bloodstream</a> *blood)</td></tr>
+<tr class="memdesc:a61f2a74a6ebf5a37cb4ab3f3b126d8df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulation loop or single "tick" of pump operation.  <a href="classPumpController.html#a61f2a74a6ebf5a37cb4ab3f3b126d8df">More...</a><br /></td></tr>
 <tr class="separator:a61f2a74a6ebf5a37cb4ab3f3b126d8df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
@@ -140,27 +154,39 @@ Private Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a05c5a3a471365cc54f32dc827509f9e2"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPumpController.html#a05c5a3a471365cc54f32dc827509f9e2">currentBasalRate</a></td></tr>
+<tr class="memdesc:a05c5a3a471365cc54f32dc827509f9e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current basal delivery rate (units/hour).  <a href="classPumpController.html#a05c5a3a471365cc54f32dc827509f9e2">More...</a><br /></td></tr>
 <tr class="separator:a05c5a3a471365cc54f32dc827509f9e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2491590427261da51a253a02e9eaf71"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPumpController.html#ac2491590427261da51a253a02e9eaf71">activeBolusAmount</a></td></tr>
+<tr class="memdesc:ac2491590427261da51a253a02e9eaf71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Active bolus amount remaining (units).  <a href="classPumpController.html#ac2491590427261da51a253a02e9eaf71">More...</a><br /></td></tr>
 <tr class="separator:ac2491590427261da51a253a02e9eaf71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf7109fdf40acac8adf77feb5df295d3"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPumpController.html#abf7109fdf40acac8adf77feb5df295d3">activeBolusRate</a></td></tr>
+<tr class="memdesc:abf7109fdf40acac8adf77feb5df295d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Active bolus delivery rate (units/hour).  <a href="classPumpController.html#abf7109fdf40acac8adf77feb5df295d3">More...</a><br /></td></tr>
 <tr class="separator:abf7109fdf40acac8adf77feb5df295d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a824c550e07e4115a0fd3634b66492268"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPumpController.html#a824c550e07e4115a0fd3634b66492268">bolusSuspended</a></td></tr>
+<tr class="memdesc:a824c550e07e4115a0fd3634b66492268"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if bolus delivery is suspended.  <a href="classPumpController.html#a824c550e07e4115a0fd3634b66492268">More...</a><br /></td></tr>
 <tr class="separator:a824c550e07e4115a0fd3634b66492268"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d648e11fb9767e4e86f7c8b416a4bff"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPumpController.html#a0d648e11fb9767e4e86f7c8b416a4bff">emergencyStopped</a></td></tr>
+<tr class="memdesc:a0d648e11fb9767e4e86f7c8b416a4bff"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if emergency stop is active.  <a href="classPumpController.html#a0d648e11fb9767e4e86f7c8b416a4bff">More...</a><br /></td></tr>
 <tr class="separator:a0d648e11fb9767e4e86f7c8b416a4bff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9016b50c17c764013e7568c8f3398ac"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPumpController.html#ab9016b50c17c764013e7568c8f3398ac">suppressTimeUpdate</a> = false</td></tr>
+<tr class="memdesc:ab9016b50c17c764013e7568c8f3398ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if time updates are suppressed.  <a href="classPumpController.html#ab9016b50c17c764013e7568c8f3398ac">More...</a><br /></td></tr>
 <tr class="separator:ab9016b50c17c764013e7568c8f3398ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1f5a6b1f21af4a6c4eb4d8dfc04ef47"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classInsulinReserve.html">InsulinReserve</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPumpController.html#ae1f5a6b1f21af4a6c4eb4d8dfc04ef47">insulinReserve</a></td></tr>
+<tr class="memdesc:ae1f5a6b1f21af4a6c4eb4d8dfc04ef47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shared insulin reserve.  <a href="classPumpController.html#ae1f5a6b1f21af4a6c4eb4d8dfc04ef47">More...</a><br /></td></tr>
 <tr class="separator:ae1f5a6b1f21af4a6c4eb4d8dfc04ef47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a931b7657a0237cd231220b31c1a12729"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDataLogger.html">DataLogger</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPumpController.html#a931b7657a0237cd231220b31c1a12729">logger</a></td></tr>
+<tr class="memdesc:a931b7657a0237cd231220b31c1a12729"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shared event logger.  <a href="classPumpController.html#a931b7657a0237cd231220b31c1a12729">More...</a><br /></td></tr>
 <tr class="separator:a931b7657a0237cd231220b31c1a12729"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3ddf8e064062227ae5a3899a2044412"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIOBTracker.html">IOBTracker</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPumpController.html#aa3ddf8e064062227ae5a3899a2044412">iobTracker</a></td></tr>
-<tr class="separator:aa3ddf8e064062227ae5a3899a2044412"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a7ed69411860486cdeaff276aa2a900"><td class="memItemLeft" align="right" valign="top">QCheckBox *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classPumpController.html#a1a7ed69411860486cdeaff276aa2a900">errorCheckBox</a></td></tr>
+<tr class="memdesc:a1a7ed69411860486cdeaff276aa2a900"><td class="mdescLeft">&#160;</td><td class="mdescRight">UI checkbox for error/emergency.  <a href="classPumpController.html#a1a7ed69411860486cdeaff276aa2a900">More...</a><br /></td></tr>
+<tr class="separator:a1a7ed69411860486cdeaff276aa2a900"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ad7413f7438a95957ba78d8ae78834349"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad7413f7438a95957ba78d8ae78834349">&#9670;&nbsp;</a></span>PumpController()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>controller for insulin pump operations </p>
+<p>Manages basal and bolus insulin delivery, emergency stop, and device status. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="adfe9c5716916e070a123c2af43e9673b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfe9c5716916e070a123c2af43e9673b">&#9670;&nbsp;</a></span>PumpController()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -183,8 +209,8 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classIOBTracker.html">IOBTracker</a> *&#160;</td>
-          <td class="paramname"><em>iob</em>, </td>
+          <td class="paramtype">QCheckBox *&#160;</td>
+          <td class="paramname"><em>errorCheckBox</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -205,6 +231,18 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Constructs a <a class="el" href="classPumpController.html" title="controller for insulin pump operations">PumpController</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">insulin</td><td>Pointer to shared <a class="el" href="classInsulinReserve.html" title="Manages the insulin reservoir for the pump simulator.">InsulinReserve</a> object. </td></tr>
+    <tr><td class="paramname">logger</td><td>Pointer to shared <a class="el" href="classDataLogger.html" title="Manages data logging for events, glucose, and insulin entries.">DataLogger</a> for event logging. </td></tr>
+    <tr><td class="paramname">iob</td><td>Pointer to IOBTracker to track insulin on board. </td></tr>
+    <tr><td class="paramname">errorCheckBox</td><td>UI checkbox used to signal occlusion/emergency. </td></tr>
+    <tr><td class="paramname">parent</td><td>Parent QObject. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -223,6 +261,14 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Adjusts basal rate insulin delivery. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rate</td><td>Basal rate in units per hour. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -250,10 +296,18 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Emitted when a bolus delivery is cancelled. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">amountDelivered</td><td>Amount delivered before cancellation. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
-<a id="a5d3c4c92cde5c98fcf6fe1349e46540a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d3c4c92cde5c98fcf6fe1349e46540a">&#9670;&nbsp;</a></span>bolusDeliveryProgress</h2>
+<a id="a2d511f807fb834d084d03e4f22bcc26a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d511f807fb834d084d03e4f22bcc26a">&#9670;&nbsp;</a></span>bolusDeliveryProgress</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -265,24 +319,8 @@ Private Attributes</h2></td></tr>
           <td class="memname">void PumpController::bolusDeliveryProgress </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>remainingBolus</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>remainingBolus</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>rate</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>deliveredThisTick</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -291,6 +329,14 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Emitted during bolus delivery to report remaining units. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">remainingBolus</td><td>Remaining insulin units. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -318,6 +364,14 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Updates estimated time remaining for bolus. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeRemaining</td><td>Estimated time remaining. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a0ff0c5bcd064356a45d254a159ee65fb"></a>
@@ -334,6 +388,9 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Checks the current device status. </p>
+<dl class="section return"><dt>Returns</dt><dd>0 if OK, 1 if Suspended, 2 if Emergency. </dd></dl>
 
 </div>
 </div>
@@ -368,6 +425,16 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Initiates a bolus delivery. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">amount</td><td>Amount of insulin units to deliver. </td></tr>
+    <tr><td class="paramname">rate</td><td>Delivery rate in units per hour. </td></tr>
+    <tr><td class="paramname">suppressTime</td><td>If true, suppress time updates during delivery. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -412,6 +479,14 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Simulation loop or single "tick" of pump operation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">blood</td><td>Pointer to <a class="el" href="classBloodstream.html" title="Simulates insulin activity within the bloodstream.">Bloodstream</a> where insulin is delivered. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a9ccac5e78e61ba4ab8cf1356dfd8e9a4"></a>
@@ -428,6 +503,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>resumes a suspended bolus if emergency stop is not active </p>
 
 </div>
 </div>
@@ -446,6 +523,8 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Suspends the current bolus delivery. Emits a cancellation signal. </p>
+
 </div>
 </div>
 <a id="aebb05481ce28e9ba43a934db2fdc5261"></a>
@@ -462,6 +541,8 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Activates an emergency stop, halting all insulin delivery. </p>
 
 </div>
 </div>
@@ -486,6 +567,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Active bolus amount remaining (units). </p>
+
 </div>
 </div>
 <a id="abf7109fdf40acac8adf77feb5df295d3"></a>
@@ -507,6 +590,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Active bolus delivery rate (units/hour). </p>
 
 </div>
 </div>
@@ -530,6 +615,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>True if bolus delivery is suspended. </p>
+
 </div>
 </div>
 <a id="a05c5a3a471365cc54f32dc827509f9e2"></a>
@@ -551,6 +638,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Current basal delivery rate (units/hour). </p>
 
 </div>
 </div>
@@ -574,6 +663,32 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>True if emergency stop is active. </p>
+
+</div>
+</div>
+<a id="a1a7ed69411860486cdeaff276aa2a900"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a7ed69411860486cdeaff276aa2a900">&#9670;&nbsp;</a></span>errorCheckBox</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">QCheckBox* PumpController::errorCheckBox</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>UI checkbox for error/emergency. </p>
+
 </div>
 </div>
 <a id="ae1f5a6b1f21af4a6c4eb4d8dfc04ef47"></a>
@@ -596,27 +711,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="aa3ddf8e064062227ae5a3899a2044412"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa3ddf8e064062227ae5a3899a2044412">&#9670;&nbsp;</a></span>iobTracker</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classIOBTracker.html">IOBTracker</a>* PumpController::iobTracker</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Shared insulin reserve. </p>
 
 </div>
 </div>
@@ -640,6 +735,8 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Shared event logger. </p>
+
 </div>
 </div>
 <a id="ab9016b50c17c764013e7568c8f3398ac"></a>
@@ -661,6 +758,8 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>True if time updates are suppressed. </p>
 
 </div>
 </div>

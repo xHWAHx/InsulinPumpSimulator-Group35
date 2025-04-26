@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "Insulin Pump Simulator", "index.html", [
-    [ "Insulin-Pump-Simulator *(NOT FINAL)*", "index.html", [
+    [ "Insulin-Pump-Simulator", "index.html", [
       [ "Group Members:", "index.html#autotoc_md1", null ],
       [ "Responsibilites:", "index.html#autotoc_md2", [
         [ "File Organization", "index.html#autotoc_md3", [
@@ -62,7 +62,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "alert_8h.html",
-"classPumpController.html#a43725d9a8985ba52e8e743caae5944b4"
+"classPumpController.html#a824c550e07e4115a0fd3634b66492268"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -90,6 +90,9 @@ $(document).ready(function(){initNavTree('classBloodstream.html',''); initResiza
 </div><!--header-->
 <div class="contents">
 
+<p>Simulates insulin activity within the bloodstream.  
+ <a href="classBloodstream.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="bloodstream_8h_source.html">bloodstream.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Bloodstream:</div>
@@ -105,12 +108,16 @@ Collaboration diagram for Bloodstream:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aeb7219e4eb9a3989c0b5f8291a1317c8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBloodstream.html#aeb7219e4eb9a3989c0b5f8291a1317c8">Bloodstream</a> (QObject *parent=nullptr)</td></tr>
+<tr class="memdesc:aeb7219e4eb9a3989c0b5f8291a1317c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <a class="el" href="classBloodstream.html" title="Simulates insulin activity within the bloodstream.">Bloodstream</a> object with zero insulin on board.  <a href="classBloodstream.html#aeb7219e4eb9a3989c0b5f8291a1317c8">More...</a><br /></td></tr>
 <tr class="separator:aeb7219e4eb9a3989c0b5f8291a1317c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51c6fbeb1f148bb569d644049b5eaa94"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBloodstream.html#a51c6fbeb1f148bb569d644049b5eaa94">absorbUnits</a> (double insulin)</td></tr>
+<tr class="memdesc:a51c6fbeb1f148bb569d644049b5eaa94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Absorbs units of insulin over time, decreasing IOB.  <a href="classBloodstream.html#a51c6fbeb1f148bb569d644049b5eaa94">More...</a><br /></td></tr>
 <tr class="separator:a51c6fbeb1f148bb569d644049b5eaa94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8bb9a97ac6571eefe7d7bc744c5f4288"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBloodstream.html#a8bb9a97ac6571eefe7d7bc744c5f4288">injectUnits</a> (double insulin)</td></tr>
+<tr class="memdesc:a8bb9a97ac6571eefe7d7bc744c5f4288"><td class="mdescLeft">&#160;</td><td class="mdescRight">Injects new insulin into the bloodstream, increasing IOB.  <a href="classBloodstream.html#a8bb9a97ac6571eefe7d7bc744c5f4288">More...</a><br /></td></tr>
 <tr class="separator:a8bb9a97ac6571eefe7d7bc744c5f4288"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43751546be482a2aae24fde90e1a99b7"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBloodstream.html#a43751546be482a2aae24fde90e1a99b7">getIOB</a> ()</td></tr>
+<tr class="memdesc:a43751546be482a2aae24fde90e1a99b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current insulin on board (IOB).  <a href="classBloodstream.html#a43751546be482a2aae24fde90e1a99b7">More...</a><br /></td></tr>
 <tr class="separator:a43751546be482a2aae24fde90e1a99b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
@@ -118,7 +125,10 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:aba01ded19eb7f55216a9e7df4dadc8c1"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBloodstream.html#aba01ded19eb7f55216a9e7df4dadc8c1">insulinOnBoard</a></td></tr>
 <tr class="separator:aba01ded19eb7f55216a9e7df4dadc8c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Simulates insulin activity within the bloodstream. </p>
+<p>Tracks the amount of active insulin and processes injections and absorption over time. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aeb7219e4eb9a3989c0b5f8291a1317c8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aeb7219e4eb9a3989c0b5f8291a1317c8">&#9670;&nbsp;</a></span>Bloodstream()</h2>
 
@@ -143,6 +153,14 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Constructs a <a class="el" href="classBloodstream.html" title="Simulates insulin activity within the bloodstream.">Bloodstream</a> object with zero insulin on board. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td>Optional parent QObject. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -162,6 +180,14 @@ Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Absorbs units of insulin over time, decreasing IOB. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">insulin</td><td>Amount of insulin absorbed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a43751546be482a2aae24fde90e1a99b7"></a>
@@ -178,6 +204,9 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the current insulin on board (IOB). </p>
+<dl class="section return"><dt>Returns</dt><dd>The current IOB in units. </dd></dl>
 
 </div>
 </div>
@@ -196,6 +225,14 @@ Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Injects new insulin into the bloodstream, increasing IOB. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">insulin</td><td>Amount of insulin injected. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

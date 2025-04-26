@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['datalogger_305',['DataLogger',['../classDataLogger.html',1,'']]],
-  ['device_306',['Device',['../classDevice.html',1,'']]]
+  ['datalogger_298',['DataLogger',['../classDataLogger.html',1,'']]],
+  ['device_299',['Device',['../classDevice.html',1,'']]]
 ];
