@@ -113,11 +113,6 @@ void Settings::onSaveProfile()
     }
 }
 
-void Settings::onBack()
-{
-    close();
-}
-
 void Settings::onProfileListItemClicked(QListWidgetItem *item)
 {
     if (!item)

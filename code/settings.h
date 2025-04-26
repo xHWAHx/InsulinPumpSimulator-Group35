@@ -47,7 +47,6 @@ private slots:
     void onDeleteProfile();
     void onSelectProfile();
     void onSaveProfile();
-    void onBack();
     void onProfileListItemClicked(QListWidgetItem *item);
 
     void on_logoButton_clicked();
