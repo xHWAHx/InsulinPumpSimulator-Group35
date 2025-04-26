@@ -62,9 +62,6 @@ Located in `Design-Documentation/`:
 
 ### Source Code
 Located in `code/`:
-
-**Core Modules:**
-
 - `main.cpp`
 - `batterymanager.cpp`, `batterymanager.h`
 - `boluscalculator.cpp`, `boluscalculator.h`, `boluscalculator.ui`
