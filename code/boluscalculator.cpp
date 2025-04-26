@@ -275,9 +275,9 @@ void BolusCalculator::on_logoButton_clicked() {
 
 void BolusCalculator::on_btnCancelBolus_clicked()
 {
-    countdownTimer->stop();
+    //countdownTimer->stop();
     //extendedDoseTimer->stop();
-    emit countdownActive(false);
+    //emit countdownActive(false);
 
     if (pump) {
         // Cancel bolus on user action
