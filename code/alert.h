@@ -1,3 +1,12 @@
+/**
+ * @file alert.h
+ * @brief Defines the Alert system for raising and resetting device alerts.
+ *
+ * The Alert class manages critical notifications such as low battery, low insulin,
+ * CGM disconnection, and glucose extremes. Alerts are displayed through the UserInterface
+ * and logged into the DataLogger for history tracking.
+ */
+
 #ifndef ALERT_H
 #define ALERT_H
 
