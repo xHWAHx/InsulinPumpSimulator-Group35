@@ -72,7 +72,8 @@ Located in `code/`:
 - `pumpcontroller.cpp`, `pumpcontroller.h`  
 - `settings.cpp`, `settings.h`, `settings.ui`  
 - `userinterface.cpp`, `userinterface.h`, `userinterface.ui`  
-- `alert.ui`
+- `alert.cpp`, `alert.h`, `alert.ui`
+- `bloodstream.cpp`, `bloodstream.h`
       
 ## Documentation
 
@@ -88,3 +89,4 @@ Make sure QtCharts is installed with `sudo apt install libqt5charts5-dev`
 
 ### In Qt Creator:
 - Press `'Build'`
+- Press `'Run'`
