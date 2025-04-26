@@ -22,9 +22,9 @@ digraph "code/userinterface.h"
   Node5 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node9 [label="QTimer",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node1 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node10 [label="pumpcontroller.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$pumpcontroller_8h.html",tooltip=" "];
+  Node10 [label="pumpcontroller.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$pumpcontroller_8h.html",tooltip="Defines the PumpController class for controlling insulin delivery."];
   Node10 -> Node11 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node11 [label="insulinreserve.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$insulinreserve_8h.html",tooltip=" "];
+  Node11 [label="insulinreserve.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$insulinreserve_8h.html",tooltip="Defines the InsulinReserve class for managing the insulin reservoir."];
   Node11 -> Node12 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node12 [label="QObject",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node10 -> Node13 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];

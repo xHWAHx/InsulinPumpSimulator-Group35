@@ -5,7 +5,7 @@ digraph "code/batterymanager.h"
   node [fontname="Helvetica",fontsize="10",shape=record];
   Node1 [label="code/batterymanager.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Defines the BatteryManager class for simulating pump battery behavior."];
   Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node2 [label="code/device.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$device_8h.html",tooltip=" "];
+  Node2 [label="code/device.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$device_8h.html",tooltip="Defines the Device class, central orchestrator of the insulin pump simulator."];
   Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node3 [label="code/userinterface.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$userinterface_8h.html",tooltip="Defines the UserInterface class for managing pump UI screens and user interactions."];
   Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];

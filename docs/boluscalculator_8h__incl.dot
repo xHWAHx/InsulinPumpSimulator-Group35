@@ -7,9 +7,9 @@ digraph "code/boluscalculator.h"
   Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node2 [label="QWidget",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node3 [label="pumpcontroller.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$pumpcontroller_8h.html",tooltip=" "];
+  Node3 [label="pumpcontroller.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$pumpcontroller_8h.html",tooltip="Defines the PumpController class for controlling insulin delivery."];
   Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node4 [label="insulinreserve.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$insulinreserve_8h.html",tooltip=" "];
+  Node4 [label="insulinreserve.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$insulinreserve_8h.html",tooltip="Defines the InsulinReserve class for managing the insulin reservoir."];
   Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node5 [label="QObject",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node3 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
