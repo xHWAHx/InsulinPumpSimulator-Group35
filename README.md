@@ -87,5 +87,5 @@ Make sure QtCharts is installed with `sudo apt install libqt5charts5-dev`
 - `./insulinPump`
 
 ### In Qt Creator:
-- Press `'Build'`
-- Press `'Run'`
+- Press **Build**
+- Press **Run**
