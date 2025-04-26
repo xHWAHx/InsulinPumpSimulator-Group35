@@ -23,11 +23,11 @@ Aidan Casselman #101277801
 - UML class diagram (Kamal) 
 - UML state machine diagram (Hamzah) 
 - UML sequence diagram (Justin) 
-- Requirements Traceability Matrix (Aidan) 
+- Requirements Traceability Matrix & Test Video (Aidan) 
 - An explanation of our design decisions (Thu Thu)
 
 3. Development
-- User Interface class, home.ui screen, CGM- charts, button interactions (options, bolus, history), login (pin), screen layout policies (Kamal)
+- User Interface class, home.ui screen, CGM-charts, button interactions (options, bolus, history), login (pin), screen layout policies (Kamal)
 - Settings (CRUD) and PumpController (Thu Thu)
 - Basic device functions and control flow (Justin)
 - Data storage, logging, history, profile management, and documentation (Aidan)
@@ -41,8 +41,8 @@ Aidan Casselman #101277801
 ---
 
 ### UML Diagrams  
-Located in `UML Diagrams/`:
-- `Design-Explanation_Draft.pdf`
+Located in `Design-Documentation/`:
+- `Design-Explanation.pdf`
 - `Sequence-Diagram-Main-Loop.png`  
 - `State-Diagrams.pdf`
 - `Traceability-Matrix.pdf`
