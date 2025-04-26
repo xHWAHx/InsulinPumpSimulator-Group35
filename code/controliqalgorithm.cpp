@@ -2,8 +2,6 @@
 #include "profile.h"
 #include "datalogger.h"
 #include "pumpcontroller.h"
-#include <numeric>
-#include <iostream>
 
 double ControlIQAlgorithm::currentRate = 0;
 
@@ -22,7 +20,7 @@ void ControlIQAlgorithm::analyzeGlucoseData(double glucose, DataLogger* logger, 
         logger->logEvent("Info", "Glucose stable. Resumed basal rate pumping.");
     } else if ((currentRate != 0) and (currentRate != profileRate)) {
         adjustBasalRate(pump, profileRate);
-        logger->logEvent("Info", "Basal rate changed manually to " + QString::number(profileRate) + ".");
+        logger->logEvent("Info", "Profile basal rate set manually to " + QString::number(profileRate) + ".");
     }
 }
 
@@ -32,16 +30,3 @@ void ControlIQAlgorithm::adjustBasalRate(PumpController* pump, double rate) {
         pump->adjustBasalRate(rate);
     }
 }
-
-//void ControlIQAlgorithm::suspendForLowGlucose(PumpController* pump) {
-//    if (pump) {
-//        pump->suspendBolus();
-//    }
-//}
-
-// checks if glucose is within stable range 
-//bool ControlIQAlgorithm::isGlucoseLevelStable(double glucose, double target) {
-//    return (glucose >= target - 0.5 && glucose <= target + 0.5);
-//}
-
-

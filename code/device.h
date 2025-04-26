@@ -2,17 +2,16 @@
 #define DEVICE_H
 
 #include <QMainWindow>
-#include <unistd.h>
+//#include <unistd.h>
 #include <batterymanager.h>
 #include <datalogger.h>
 #include <insulinreserve.h>
 #include <cgmreader.h>
 #include <profile.h>
 #include <pumpcontroller.h>
-#include "iobtracker.h"
 #include <userinterface.h>
-#include "alert.h"
-#include "bloodstream.h"
+#include <alert.h>
+#include <bloodstream.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Device; }
@@ -45,7 +44,6 @@ private:
     Bloodstream *bloodstream;
     ControlIQAlgorithm *controlIQ;
     Profile *profiles;
-    IOBTracker *iobTracker;
     PumpController *pump;
     UserInterface *interface;
     Alert *alerts;

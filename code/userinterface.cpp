@@ -13,7 +13,7 @@
 #include <QDebug>
 #include "alert.h"
 
-UserInterface::UserInterface(PumpController* pump, IOBTracker* iob, QWidget *parent)
+UserInterface::UserInterface(PumpController* pump, QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::UserInterface)
     , pumpController(pump)
@@ -23,7 +23,7 @@ UserInterface::UserInterface(PumpController* pump, IOBTracker* iob, QWidget *par
     loginScreen = new Login();
     logger = DataLogger::instance(this);
     homeScreen = new Home();
-    bolusCalculator = new BolusCalculator(pumpController, logger, cgmReader, insulinReserve, iob, this);
+    bolusCalculator = new BolusCalculator(pumpController, logger, cgmReader, insulinReserve, this);
     settingsScreen = new Settings();
     historyScreen = new History();
 
@@ -33,35 +33,20 @@ UserInterface::UserInterface(PumpController* pump, IOBTracker* iob, QWidget *par
     ui->pageStack->addWidget(settingsScreen);
     ui->pageStack->addWidget(historyScreen);
 
+    connect(loginScreen, &Login::deviceUnlocked, this, &UserInterface::unlock);
+
     connect(homeScreen, &Home::requestBolus, this, &UserInterface::openBolusUI);
     connect(homeScreen, &Home::requestOptions, this, &UserInterface::openSettings);
     connect(homeScreen, &Home::requestStats, this, &UserInterface::openHistory);
-    connect(loginScreen, &Login::deviceUnlocked, this, &UserInterface::unlock);
 
     connect(settingsScreen, &Settings::backToHome, this, &UserInterface::displayHomeScreen);
     connect(bolusCalculator, &BolusCalculator::backToHome, this, &UserInterface::displayHomeScreen);
     connect(historyScreen, &History::backToHome, this, &UserInterface::displayHomeScreen);
+
     connect(pumpController, &PumpController::bolusCancelled, this, &UserInterface::handleBolusCancelled);
-
     connect(pumpController, &PumpController::bolusDeliveryProgress, this, &UserInterface::updateBolusDisplay);
-    
-    //pumpTimer = new QTimer(this);
-    //connect(pumpTimer, &QTimer::timeout, pumpController, &PumpController::pump);
-    //pumpTimer->start(1000);
-
-    //connect(bolusCalculator, &BolusCalculator::countdownActive,this, [this](bool active){
-    //if (active){
-    //    pumpTimer->stop();
-    //}else {pumpTimer->start(1000);}
-    //});
-
-    //connect(pumpController, &PumpController::bolusDeliveryProgress,
-    //        this, [=](double remaining, double /*rate*/, double /*delivered*/) {
-    //        QString status = QString("Delivering: %1 U").arg(remaining, 0, 'f', 2);
-    //        homeScreen->updateBolusStatus(status);
-    //});
-
     connect(pumpController, &PumpController::bolusTimeRemainingUpdated, homeScreen, &Home::updateBolusTimeRemaining);
+
     connect(bolusCalculator, &BolusCalculator::bolusStarted, homeScreen, &Home::updateBolusStatus);
 
 }
@@ -138,6 +123,4 @@ void UserInterface::updateIOB(double iob){
 
 void UserInterface::handleBolusCancelled(){
     homeScreen->updateBolusStatus("Bolus Cancelled");
-    //homeScreen-> updateTimeLeft("--:--");
-    //homeScreen-> updateIOB(iobTracker-> getCurrentIOB(QDateTime::currentDateTime()));
 }

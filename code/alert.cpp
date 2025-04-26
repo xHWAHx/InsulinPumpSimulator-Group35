@@ -1,6 +1,5 @@
 #include "alert.h"
 #include "ui_alert.h"
-#include <iostream>
 
 QHash<int, bool> Alert::raisedAlerts;
 

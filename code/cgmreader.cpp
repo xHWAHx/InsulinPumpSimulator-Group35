@@ -1,12 +1,9 @@
 #include "cgmreader.h"
-#include "iobtracker.h"
-#include "iostream"
 
 CGMReader::CGMReader(QCheckBox *errorCheckBox)
     : CGMConnected(true)
     , reading(startAmount)
     , errorCheckBox(errorCheckBox)
-    , carbSpinBox(carbSpinBox)
 {
 }
 

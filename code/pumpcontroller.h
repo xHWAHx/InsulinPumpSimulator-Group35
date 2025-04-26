@@ -3,7 +3,6 @@
 
 #include "insulinreserve.h"
 #include "datalogger.h"
-#include "iobtracker.h"
 #include "bloodstream.h"
 #include <QObject>
 #include <QCheckBox>
@@ -26,7 +25,7 @@ public:
      *  @param errorCheckBox UI checkbox used to signal occlusion/emergency.
      * @param parent Parent QObject.
      */
-    explicit PumpController(InsulinReserve *insulin, DataLogger *logger, IOBTracker *iob, QCheckBox *errorCheckBox, QObject *parent = nullptr);
+    explicit PumpController(InsulinReserve *insulin, DataLogger *logger, QCheckBox *errorCheckBox, QObject *parent = nullptr);
 /**
      * @brief Initiates a bolus delivery.
      * @param amount Amount of insulin units to deliver.
@@ -98,7 +97,6 @@ private:
  
     InsulinReserve *insulinReserve; ///< Shared insulin reserve.
     DataLogger *logger; ///< Shared event logger.
-    IOBTracker* iobTracker; ///< Insulin On Board tracker.
     QCheckBox *errorCheckBox; ///< UI checkbox for error/emergency.
 
     bool isSafeToDeliver(); //checks if conditions are safe for insulin delivery. true if safe

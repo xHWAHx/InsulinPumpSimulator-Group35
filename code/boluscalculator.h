@@ -11,12 +11,10 @@
 #define BOLUSCALCULATOR_H
 
 #include <QWidget>
-#include <QTimer>
 #include "pumpcontroller.h"
 #include "datalogger.h"
 #include "cgmreader.h"
 #include "insulinreserve.h"
-#include "iobtracker.h"
 
 namespace Ui {
 class BolusCalculator;
@@ -42,10 +40,9 @@ public:
      * @param logger Pointer to DataLogger for event logging.
      * @param cgm Pointer to CGMReader for obtaining glucose data.
      * @param insulin Pointer to InsulinReserve for checking insulin availability.
-     * @param iobTracker Pointer to IOBTracker for tracking insulin-on-board.
      * @param parent Optional parent QWidget.
      */
-    explicit BolusCalculator(PumpController* pump, DataLogger* logger, CGMReader* cgm, InsulinReserve* insulin, IOBTracker* iobTracker, QWidget *parent = nullptr);
+    explicit BolusCalculator(PumpController* pump, DataLogger* logger, CGMReader* cgm, InsulinReserve* insulin, QWidget *parent = nullptr);
 
     /**
      * @brief Cleans up the BolusCalculator widget / deallocates memory.
@@ -186,7 +183,6 @@ private:
     DataLogger* logger;
     CGMReader* cgm;
     InsulinReserve* insulinReserve;
-    IOBTracker* iobTracker;
 
     QTimer* extendedDoseTimer;
     QTimer* countdownTimer;

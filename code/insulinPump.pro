@@ -20,7 +20,6 @@ SOURCES += \
     device.cpp \
     history.cpp \
     home.cpp \
-    iobtracker.cpp \
     insulinreserve.cpp \
     login.cpp \
     main.cpp \
@@ -41,7 +40,6 @@ HEADERS += \
     history.h \
     home.h \
     insulinreserve.h \
-    iobtracker.h \
     login.h \
     profile.h \
     pumpcontroller.h \

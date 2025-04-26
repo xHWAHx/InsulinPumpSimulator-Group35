@@ -13,9 +13,7 @@
 #include "datalogger.h"
 #include "controliqalgorithm.h"
 #include "settings.h"
-//#include "alert.h"
 #include "history.h"
-#include "iobtracker.h"
 
 class Alert;
 
@@ -39,7 +37,7 @@ public:
      * @param iob Pointer to the IOBTracker.
      * @param parent Optional parent QWidget.
      */
-    explicit UserInterface(PumpController* pump, IOBTracker* iob, QWidget *parent = nullptr);
+    explicit UserInterface(PumpController* pump, QWidget *parent = nullptr);
     
   /**
      * @brief Destructor for UserInterface.
@@ -138,8 +136,6 @@ private:
     History *historyScreen;
     QTimer *pumpTimer;
     QWidget *lastPage;
-
-    const int correctPin = 1234;
 
     void handleBolusCancelled();
 };

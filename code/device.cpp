@@ -1,11 +1,8 @@
-#include "device.h"
-#include "ui_device.h"
-#include "QTimer"
-#include "alert.h"
-#include "iobtracker.h"
-#include <iostream>
-#include "controliqalgorithm.h"
-#include "QDateTime"
+#include <device.h>
+#include <ui_device.h>
+#include <QTimer>
+#include <controliqalgorithm.h>
+#include <QDateTime>
 #include <QSlider>
 
 Device::Device(QWidget *parent)
@@ -19,7 +16,6 @@ Device::Device(QWidget *parent)
     , insulin(new InsulinReserve)
     , bloodstream(new Bloodstream)
     , controlIQ(new ControlIQAlgorithm())
-    //, iobTracker(new IOBTracker(10.0))
     , window(new Ui::Device)
     , tickClock(new QTimer(this))
 {
@@ -29,8 +25,8 @@ Device::Device(QWidget *parent)
     Profile::initDefaultProfile();
     Profile::selectProfileById(1);
 
-    pump = new PumpController(insulin, logger, iobTracker, window->pumpErrorBox);
-    interface = new UserInterface(pump, iobTracker, window->uiWidget);
+    pump = new PumpController(insulin, logger, window->pumpErrorBox);
+    interface = new UserInterface(pump, window->uiWidget);
     cgm = new CGMReader(window->cgmErrorBox);
 
     connect(window->powerButton, &QPushButton::released, this, &Device::power);
@@ -108,8 +104,8 @@ void Device::monitor(){
         pump->pump(bloodstream);
 
         logger->logGlucose(time, glucose);
+        logger->logInsulin(time, bloodstream->getIOB());
     }
-    //logger->logInsulin(time, currentIOB);
     double currentIOB = bloodstream->getIOB();
 
     interface->refresh(glucose, batteryLevel, insulinReading, currentIOB);

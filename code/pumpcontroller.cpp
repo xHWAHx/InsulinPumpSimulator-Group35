@@ -1,13 +1,9 @@
 #include "pumpcontroller.h"
-#include "iobtracker.h"
-#include <iostream>
-#include <cmath>
 
-// Static member initialization
 // Holds the current basal rate applied by ControlIQ algorithm
 // (if used externally) but here just resets to 0 by default.
 
-PumpController::PumpController(InsulinReserve *insulin, DataLogger *logger, IOBTracker* iob, QCheckBox *errorCheckBox, QObject *parent)
+PumpController::PumpController(InsulinReserve *insulin, DataLogger *logger, QCheckBox *errorCheckBox, QObject *parent)
     : QObject(parent),
       currentBasalRate(0.0),
       activeBolusAmount(0.0),
@@ -16,7 +12,6 @@ PumpController::PumpController(InsulinReserve *insulin, DataLogger *logger, IOBT
       emergencyStopped(false),
       insulinReserve(insulin),
       logger(logger),
-      iobTracker(iob),
       errorCheckBox(errorCheckBox)
 {
     //no additional setup needed
