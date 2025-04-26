@@ -1,3 +1,12 @@
+/**
+ * @file profile.h
+ * @brief Declares the Profile model for user diabetes management settings.
+ *
+ * The Profile class encapsulates a single user profile, including basal insulin rate,
+ * carbohydrate ratio, correction factor, and target glucose level. It provides static methods
+ * to create, update, delete, select, load, and save a collection of named profiles to JSON,
+ * and to retrieve the currently active profile.
+ */
 #ifndef PROFILE_H
 #define PROFILE_H
 

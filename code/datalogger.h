@@ -1,3 +1,12 @@
+/**
+ * @file datalogger.h
+ * @brief Declares the DataLogger for recording events, glucose readings, and insulin doses.
+ *
+ * The DataLogger class provides methods to log general events (Info, Warning, Error, etc.),
+ * timestamped glucose measurements, and insulin doses and persist them to a JSON file. 
+ * It supports loading existing logs, exporting to a path of your choice,
+ * and emits a logsUpdated() signal whenever new entries are added.
+ */
 #ifndef DATALOGGER_H
 #define DATALOGGER_H
 

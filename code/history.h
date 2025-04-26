@@ -1,3 +1,11 @@
+/**
+ * @file history.h
+ * @brief Declares the History widget for viewing and filtering logged events.
+ *
+ * The History class provides a user interface for displaying the log entries maintained
+ * by DataLogger. It supports text search and eventType filtering, and automatically
+ * refreshes whenever new log entries arrive.
+ */
 #ifndef HISTORY_H
 #define HISTORY_H
 

@@ -1,3 +1,11 @@
+/**
+ * @file settings.h
+ * @brief Declares the Settings widget for creating and managing user profiles.
+ *
+ * The Settings class provides a Qt user interface to list existing profiles,
+ * create new ones, update or delete selected profiles, and select an active profile.
+ * It synchronizes with the Profile model and persists changes to JSON.
+ */
 #ifndef SETTINGS_H
 #define SETTINGS_H
 
