@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['glucoselogentry_300',['GlucoseLogEntry',['../structGlucoseLogEntry.html',1,'']]]
+  ['glucoselogentry_299',['GlucoseLogEntry',['../structGlucoseLogEntry.html',1,'']]]
 ];

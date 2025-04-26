@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['logdata_305',['LogData',['../structLogData.html',1,'']]],
-  ['logentry_306',['LogEntry',['../structLogEntry.html',1,'']]],
-  ['login_307',['Login',['../classLogin.html',1,'']]]
+  ['logdata_304',['LogData',['../structLogData.html',1,'']]],
+  ['logentry_305',['LogEntry',['../structLogEntry.html',1,'']]],
+  ['login_306',['Login',['../classLogin.html',1,'']]]
 ];

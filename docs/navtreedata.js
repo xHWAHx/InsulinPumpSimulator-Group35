@@ -26,22 +26,18 @@ var NAVTREE =
 [
   [ "Insulin Pump Simulator", "index.html", [
     [ "Insulin-Pump-Simulator", "index.html", [
-      [ "Group Members:", "index.html#autotoc_md1", null ],
-      [ "Responsibilites:", "index.html#autotoc_md2", [
-        [ "File Organization", "index.html#autotoc_md3", [
-          [ "Root Directory", "index.html#autotoc_md4", null ],
-          [ "UML Diagrams", "index.html#autotoc_md6", null ],
-          [ "Source Code", "index.html#autotoc_md8", null ]
-        ] ],
-        [ "Documentation", "index.html#autotoc_md9", null ],
-        [ "Compiling instructions", "index.html#autotoc_md10", [
-          [ "In the terminal:", "index.html#autotoc_md11", null ],
-          [ "In Qt Creator:", "index.html#autotoc_md12", null ]
-        ] ]
+      [ "Group Members", "index.html#autotoc_md1", null ],
+      [ "Responsibilities", "index.html#autotoc_md2", null ],
+      [ "File Organization", "index.html#autotoc_md3", [
+        [ "Root Directory", "index.html#autotoc_md4", null ],
+        [ "UML Diagrams", "index.html#autotoc_md6", null ],
+        [ "Source Code", "index.html#autotoc_md8", null ]
+      ] ],
+      [ "Documentation", "index.html#autotoc_md9", null ],
+      [ "Compiling instructions", "index.html#autotoc_md10", [
+        [ "In the terminal:", "index.html#autotoc_md11", null ],
+        [ "In Qt Creator:", "index.html#autotoc_md12", null ]
       ] ]
-    ] ],
-    [ "Namespaces", "namespaces.html", [
-      [ "Namespace List", "namespaces.html", "namespaces_dup" ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],

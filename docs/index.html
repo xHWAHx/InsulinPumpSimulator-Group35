@@ -87,21 +87,21 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md_README"></a>A simulation for the Tandem t:slim X2 insulin pump using Qt/C++.</p>
 <h1><a class="anchor" id="autotoc_md1"></a>
-Group Members:</h1>
+Group Members</h1>
 <p>Hamzah Hamad #101230812</p>
 <p>Thu Thu Chit Pyae #101229440</p>
 <p>Justin Schoenhofer #101186399</p>
 <p>Kamal Yassin #101265070</p>
 <p>Aidan Casselman #101277801</p>
 <h1><a class="anchor" id="autotoc_md2"></a>
-Responsibilites:</h1>
+Responsibilities</h1>
 <ol type="1">
 <li>Project Planning</li>
 </ol>
 <ul>
 <li>Outline team responsibilities, schedule and timeline (Shared responsibility)</li>
 <li>Plan the design (Shared responsibility)</li>
-<li>Create github repository (Hamzah)</li>
+<li>Create GitHub repository (Hamzah)</li>
 </ul>
 <ol type="1">
 <li>Design</li>
@@ -124,14 +124,14 @@ Responsibilites:</h1>
 <li>Data storage, logging, history, profile management, and documentation (Aidan)</li>
 <li>Bolus calculator and manual bolus operation (.cpp, .h, .ui), ControlIQ (.cpp, .h) (Hamzah)</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md3"></a>
-File Organization</h2>
-<h3><a class="anchor" id="autotoc_md4"></a>
-Root Directory</h3>
+<h1><a class="anchor" id="autotoc_md3"></a>
+File Organization</h1>
+<h2><a class="anchor" id="autotoc_md4"></a>
+Root Directory</h2>
 <p><code>InsulinPumpSimulator-Group35.zip/</code></p>
 <hr  />
-<h3><a class="anchor" id="autotoc_md6"></a>
-UML Diagrams</h3>
+<h2><a class="anchor" id="autotoc_md6"></a>
+UML Diagrams</h2>
 <p>Located in <code>Design-Documentation/</code>:</p><ul>
 <li><code>Design-Explanation.pdf</code></li>
 <li><code>Sequence-Diagram-Main-Loop.png</code> <br  />
@@ -142,62 +142,47 @@ UML Diagrams</h3>
 <li><code>Use-Cases.pdf</code></li>
 </ul>
 <hr  />
-<h3><a class="anchor" id="autotoc_md8"></a>
-Source Code</h3>
+<h2><a class="anchor" id="autotoc_md8"></a>
+Source Code</h2>
 <p>Located in <code>code/</code>:</p>
 <p><b>Core Modules:</b></p>
 <ul>
-<li><code>main.cpp</code> <br  />
-</li>
-<li><code>batterymanager.cpp</code>, <code><a class="el" href="batterymanager_8h.html" title="Defines the BatteryManager class for simulating pump battery behavior.">batterymanager.h</a></code> <br  />
-</li>
-<li><code>boluscalculator.cpp</code>, <code><a class="el" href="boluscalculator_8h.html" title="Defines the BolusCalculator widget for calculating and delivering insulin boluses.">boluscalculator.h</a></code>, <code>boluscalculator.ui</code> <br  />
-</li>
-<li><code>cgmreader.cpp</code>, <code><a class="el" href="cgmreader_8h.html" title="Defines the CGMReader class for simulating continuous glucose monitoring.">cgmreader.h</a></code> <br  />
-</li>
-<li><code>controliqalgorithm.cpp</code>, <code><a class="el" href="controliqalgorithm_8h.html" title="Implements the Control-IQ insulin delivery algorithm interface.">controliqalgorithm.h</a></code> <br  />
-</li>
-<li><code>datalogger.cpp</code>, <code><a class="el" href="datalogger_8h.html" title="Declares the DataLogger for recording events, glucose readings, and insulin doses.">datalogger.h</a></code> <br  />
-</li>
-<li><code>device.cpp</code>, <code><a class="el" href="device_8h.html" title="Defines the Device class, central orchestrator of the insulin pump simulator.">device.h</a></code>, <code>device.ui</code> <br  />
-</li>
-<li><code>history.cpp</code>, <code><a class="el" href="history_8h.html" title="Declares the History widget for viewing and filtering logged events.">history.h</a></code>, <code>history.ui</code> <br  />
-</li>
-<li><code>home.cpp</code>, <code><a class="el" href="home_8h.html" title="Defines the Home screen widget for displaying real-time system status.">home.h</a></code>, <code>home.ui</code> <br  />
-</li>
-<li><code>insulinreserve.cpp</code>, <code><a class="el" href="insulinreserve_8h.html" title="Defines the InsulinReserve class for managing the insulin reservoir.">insulinreserve.h</a></code> <br  />
-</li>
-<li><code>login.cpp</code>, <code><a class="el" href="login_8h.html" title="Defines the Login screen widget for pump authentication.">login.h</a></code>, <code>login.ui</code> <br  />
-</li>
-<li><code>profile.cpp</code>, <code><a class="el" href="profile_8h.html" title="Declares the Profile model for user diabetes management settings.">profile.h</a></code> <br  />
-</li>
-<li><code>pumpcontroller.cpp</code>, <code><a class="el" href="pumpcontroller_8h.html" title="Defines the PumpController class for controlling insulin delivery.">pumpcontroller.h</a></code> <br  />
-</li>
-<li><code>settings.cpp</code>, <code><a class="el" href="settings_8h.html" title="Declares the Settings widget for creating and managing user profiles.">settings.h</a></code>, <code>settings.ui</code> <br  />
-</li>
-<li><code>userinterface.cpp</code>, <code><a class="el" href="userinterface_8h.html" title="Defines the UserInterface class for managing pump UI screens and user interactions.">userinterface.h</a></code>, <code>userinterface.ui</code> <br  />
-</li>
+<li><code>main.cpp</code></li>
+<li><code>batterymanager.cpp</code>, <code><a class="el" href="batterymanager_8h.html" title="Defines the BatteryManager class for simulating pump battery behavior.">batterymanager.h</a></code></li>
+<li><code>boluscalculator.cpp</code>, <code><a class="el" href="boluscalculator_8h.html" title="Defines the BolusCalculator widget for calculating and delivering insulin boluses.">boluscalculator.h</a></code>, <code>boluscalculator.ui</code></li>
+<li><code>cgmreader.cpp</code>, <code><a class="el" href="cgmreader_8h.html" title="Defines the CGMReader class for simulating continuous glucose monitoring.">cgmreader.h</a></code></li>
+<li><code>controliqalgorithm.cpp</code>, <code><a class="el" href="controliqalgorithm_8h.html" title="Implements the Control-IQ insulin delivery algorithm interface.">controliqalgorithm.h</a></code></li>
+<li><code>datalogger.cpp</code>, <code><a class="el" href="datalogger_8h.html" title="Declares the DataLogger for recording events, glucose readings, and insulin doses.">datalogger.h</a></code></li>
+<li><code>device.cpp</code>, <code><a class="el" href="device_8h.html" title="Defines the Device class, central orchestrator of the insulin pump simulator.">device.h</a></code>, <code>device.ui</code></li>
+<li><code>history.cpp</code>, <code><a class="el" href="history_8h.html" title="Declares the History widget for viewing and filtering logged events.">history.h</a></code>, <code>history.ui</code></li>
+<li><code>home.cpp</code>, <code><a class="el" href="home_8h.html" title="Defines the Home screen widget for displaying real-time system status.">home.h</a></code>, <code>home.ui</code></li>
+<li><code>insulinreserve.cpp</code>, <code><a class="el" href="insulinreserve_8h.html" title="Defines the InsulinReserve class for managing the insulin reservoir.">insulinreserve.h</a></code></li>
+<li><code>login.cpp</code>, <code><a class="el" href="login_8h.html" title="Defines the Login screen widget for pump authentication.">login.h</a></code>, <code>login.ui</code></li>
+<li><code>profile.cpp</code>, <code><a class="el" href="profile_8h.html" title="Declares the Profile model for user diabetes management settings.">profile.h</a></code></li>
+<li><code>pumpcontroller.cpp</code>, <code><a class="el" href="pumpcontroller_8h.html" title="Defines the PumpController class for controlling insulin delivery.">pumpcontroller.h</a></code></li>
+<li><code>settings.cpp</code>, <code><a class="el" href="settings_8h.html" title="Declares the Settings widget for creating and managing user profiles.">settings.h</a></code>, <code>settings.ui</code></li>
+<li><code>userinterface.cpp</code>, <code><a class="el" href="userinterface_8h.html" title="Defines the UserInterface class for managing pump UI screens and user interactions.">userinterface.h</a></code>, <code>userinterface.ui</code></li>
 <li><code>alert.cpp</code>, <code><a class="el" href="alert_8h.html" title="Defines the Alert system for raising and resetting device alerts.">alert.h</a></code>, <code>alert.ui</code></li>
 <li><code>bloodstream.cpp</code>, <code><a class="el" href="bloodstream_8h.html" title="Defines the Bloodstream class for tracking insulin absorption and insulin on board (IOB).">bloodstream.h</a></code></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md9"></a>
-Documentation</h2>
-<p><a href="https://xhwahx.github.io/InsulinPumpSimulator-Group35/">View the full documentation here</a></p>
-<h2><a class="anchor" id="autotoc_md10"></a>
-Compiling instructions</h2>
+<h1><a class="anchor" id="autotoc_md9"></a>
+Documentation</h1>
+<p><a href="https://xhwahx.github.io/InsulinPumpSimulator-Group35/">View the full project documentation here</a></p>
+<h1><a class="anchor" id="autotoc_md10"></a>
+Compiling instructions</h1>
 <p>Make sure QtCharts is installed with <code>sudo apt install libqt5charts5-dev</code></p>
-<h3><a class="anchor" id="autotoc_md11"></a>
-In the terminal:</h3>
+<h2><a class="anchor" id="autotoc_md11"></a>
+In the terminal:</h2>
 <ul>
 <li><code>qmake insulinPump.pro</code></li>
 <li><code>make</code></li>
 <li><code>./insulinPump</code></li>
 </ul>
-<h3><a class="anchor" id="autotoc_md12"></a>
-In Qt Creator:</h3>
+<h2><a class="anchor" id="autotoc_md12"></a>
+In Qt Creator:</h2>
 <ul>
-<li>Press &lsquo;'Build&rsquo;<code></code></li>
-<li><code>Press</code>'Run'` </li>
+<li>Press <b>Build</b></li>
+<li>Press <b>Run</b> </li>
 </ul>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
