@@ -1,7 +1,7 @@
 # Insulin-Pump-Simulator
 A simulation for the Tandem t:slim X2 insulin pump using Qt/C++.
 
-## Group Members:
+## Group Members
 Hamzah Hamad #101230812 
 
 Thu Thu Chit Pyae #101229440
@@ -12,7 +12,7 @@ Kamal Yassin #101265070
 
 Aidan Casselman #101277801
 
-## Responsibilities: 
+## Responsibilities
 1. Project Planning
 - Outline team responsibilities, schedule and timeline (Shared responsibility)
 - Plan the design (Shared responsibility)
@@ -35,12 +35,12 @@ Aidan Casselman #101277801
 
 ## File Organization
 
-### Root Directory  
+### Root Directory
 `InsulinPumpSimulator-Group35.zip/`
 
 ---
 
-### UML Diagrams  
+### UML Diagrams
 Located in `Design-Documentation/`:
 - `Design-Explanation.pdf`
 - `Sequence-Diagram-Main-Loop.png`  
@@ -51,29 +51,29 @@ Located in `Design-Documentation/`:
 
 ---
 
-### Source Code  
+### Source Code
 Located in `code/`:
 
 **Core Modules:**
 
-- `main.cpp`  
-- `batterymanager.cpp`, `batterymanager.h`  
-- `boluscalculator.cpp`, `boluscalculator.h`, `boluscalculator.ui`  
-- `cgmreader.cpp`, `cgmreader.h`  
-- `controliqalgorithm.cpp`, `controliqalgorithm.h`  
-- `datalogger.cpp`, `datalogger.h`  
-- `device.cpp`, `device.h`, `device.ui`  
-- `history.cpp`, `history.h`, `history.ui`  
-- `home.cpp`, `home.h`, `home.ui`  
-- `insulinreserve.cpp`, `insulinreserve.h`  
-- `login.cpp`, `login.h`, `login.ui`  
-- `profile.cpp`, `profile.h`  
-- `pumpcontroller.cpp`, `pumpcontroller.h`  
-- `settings.cpp`, `settings.h`, `settings.ui`  
-- `userinterface.cpp`, `userinterface.h`, `userinterface.ui`  
+- `main.cpp`
+- `batterymanager.cpp`, `batterymanager.h`
+- `boluscalculator.cpp`, `boluscalculator.h`, `boluscalculator.ui`
+- `cgmreader.cpp`, `cgmreader.h`
+- `controliqalgorithm.cpp`, `controliqalgorithm.h`
+- `datalogger.cpp`, `datalogger.h`
+- `device.cpp`, `device.h`, `device.ui`
+- `history.cpp`, `history.h`, `history.ui`
+- `home.cpp`, `home.h`, `home.ui`
+- `insulinreserve.cpp`, `insulinreserve.h`
+- `login.cpp`, `login.h`, `login.ui`
+- `profile.cpp`, `profile.h`
+- `pumpcontroller.cpp`, `pumpcontroller.h`
+- `settings.cpp`, `settings.h`, `settings.ui`
+- `userinterface.cpp`, `userinterface.h`, `userinterface.ui`
 - `alert.cpp`, `alert.h`, `alert.ui`
 - `bloodstream.cpp`, `bloodstream.h`
-      
+
 ## Documentation
 
 [View the full project documentation here](https://xhwahx.github.io/InsulinPumpSimulator-Group35/)
@@ -81,10 +81,10 @@ Located in `code/`:
 ## Compiling instructions
 Make sure QtCharts is installed with `sudo apt install libqt5charts5-dev`
 
-### In the terminal: 
-- `qmake insulinPump.pro` 
+### In the terminal:
+- `qmake insulinPump.pro`
 - `make`
-- `./insulinPump` 
+- `./insulinPump`
 
 ### In Qt Creator:
 - Press `'Build'`
