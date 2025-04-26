@@ -43,8 +43,15 @@ Aidan Casselman #101277801
 
 ### UML Diagrams
 Located in `Design-Documentation/`:
+- `Sequence-Diagrams/`
+    - `Create-Profile.png`
+    - `Low-Battery.png`
+    - `Main-Device-Loop.png`
+    - `Manual-Bolus.png`
+    - `Update-Profile.png`
+    - `View-History.png`
+
 - `Design-Explanation.pdf`
-- `Sequence-Diagram-Main-Loop.png`  
 - `State-Diagrams.pdf`
 - `Traceability-Matrix.pdf`
 - `UML-Class-Diagram.png`
@@ -84,13 +91,20 @@ Located in `code/`:
 [View the full project documentation here](https://xhwahx.github.io/InsulinPumpSimulator-Group35/)
 
 ## Compiling instructions
-Make sure QtCharts is installed with `sudo apt install libqt5charts5-dev`
+Make sure QtCharts is installed: `sudo apt install libqt5charts5-dev`
 
-### In the terminal (from `code/`):
+### In the terminal:
+First, navigate to the `code/` directory:
+
+- `cd code/`
+
+Then run:
+
 - `qmake insulinPump.pro`
 - `make`
 - `./insulinPump`
 
 ### In Qt Creator:
+- Open `insulinPump.pro`
 - Press **Build**
 - Press **Run**
