@@ -49,7 +49,7 @@ Located in `Design-Documentation/`:
 - `Traceability-Matrix.pdf`
 - `UML-Class-Diagram.png`
 - `Use-Cases.pdf`
-- UseCase-Diagram.png
+- Use-Case-Diagram.png
 
 ---
 
