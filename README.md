@@ -86,7 +86,7 @@ Located in `code/`:
 ## Compiling instructions
 Make sure QtCharts is installed with `sudo apt install libqt5charts5-dev`
 
-### In the terminal:
+### In the terminal (from `code/`):
 - `qmake insulinPump.pro`
 - `make`
 - `./insulinPump`
