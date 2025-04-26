@@ -1,3 +1,12 @@
+/**
+ * @file login.h
+ * @brief Defines the Login screen widget for pump authentication.
+ *
+ * The Login class provides a simple numeric PIN entry interface to authenticate
+ * users before accessing the device. It handles PIN validation and emits a signal
+ * to unlock the device upon successful login.
+ */
+
 #ifndef LOGIN_H
 #define LOGIN_H
 
